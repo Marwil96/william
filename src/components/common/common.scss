@@ -1,0 +1,114 @@
+.Header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    margin-bottom: 88px;
+    padding-top: 42px;
+
+    span {
+        font-size: 12px;
+        font-weight: 600;
+    }
+    
+    .header-link {
+        margin-right:64px;
+        font-size: 16px;
+        font-weight: 600;
+        color: white;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+}
+
+.ProjectLink {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction:column;
+    margin-bottom: 24px;
+    cursor: pointer;
+    transition: all 350ms ease; 
+    color: white;
+
+    span {
+        margin: 0;
+        margin-bottom: 4px;
+        font-size: 16px;
+        font-weight: 300;
+    }
+
+    h3 {
+        margin: 0;
+        font-size: 36px;
+        font-weight: 600;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+      transition: all 350ms ease;  
+      color: grey; 
+    }
+}
+
+.ContactLink {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction:column;
+    margin-bottom: 24px;
+    max-width: 700px;
+    color: white;
+    cursor: pointer;
+    transition: all 350ms ease;  
+
+    span {
+        margin: 0;
+        margin-bottom: 4px;
+        font-size: 16px;
+        font-weight: 300;
+    }
+
+    h3 {
+        margin: 0;
+        font-size: 36px;
+        font-weight: 600; 
+    }
+    
+    &:hover {
+      transform: scale(1.1);
+      transition: all 350ms ease;  
+      color: grey; 
+    }
+}
+
+.MainTextBlock {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    max-width: 900px;
+    margin-bottom: 64px;
+
+    h1 {
+        font-weight: 700;
+        font-size: 42px;
+        margin: 0;
+        margin-bottom: 24px;
+    }
+
+    span {
+        margin: 0;
+        font-weight: 500;
+        font-size: 22px;
+        max-width: 530px;
+    }
+}
+
+.Label {
+    color: white;
+    max-width: 160px;
+    font-size: 12px;
+    font-weight: 700;
+    margin: 0;
+    margin-bottom: 24px;
+}
