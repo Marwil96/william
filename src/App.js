@@ -24,6 +24,12 @@ class App extends Component {
     
     onLinkHover() {
       console.log(document.querySelector('[data-contactlink]'))
+      const links = document.querySelector('[data-contactlink]')
+
+      links.addEventListener("mouseover", (links) => {
+        console.log('Hover')
+      } );
+
     }
   render() {
     return (
