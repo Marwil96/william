@@ -21,6 +21,25 @@
     }
 }
 
+.ImagePreview {
+    width: 200px;
+    height: 200px;
+    position: fixed;
+    margin-left: 33vw;
+    top: 32vh;
+    animation: imageSlide 2350ms forwards ease;
+    z-index: 0;
+}
+@keyframes imageSlide {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .ProjectLink {
     display: flex;
     justify-content: flex-start;

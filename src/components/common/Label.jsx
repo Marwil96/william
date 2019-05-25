@@ -1,5 +1,5 @@
 import React from "react";
-import styling from './common.scss'
+import './common.scss'
 
 const Label = (props) => {
   return (

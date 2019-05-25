@@ -1,9 +1,9 @@
 import React from "react";
 
-import styling from './common.scss'
+import './common.scss'
 
 const selectNavOption = (path) => {
-        if(path == '/lab') {
+        if(path === '/lab') {
             return <a href="/">Home</a>  
         } else {
             return <a href="/lab">Lab</a>

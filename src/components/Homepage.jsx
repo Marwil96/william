@@ -5,6 +5,7 @@ import '../App.scss';
 
 class Homepage extends Component {
   render() {
+      console.log(this.props.location)
     return (
       <div className="container">
         <MainTextBlock 
@@ -12,7 +13,7 @@ class Homepage extends Component {
             subtitle='A digital designer who loves to develop unique interactive experiences. Currently doing my internship at Momkai in Amsterdam.'
         />
         <Label label='Right now...' />
-        <a href='#' className="alertText">Available for freelance work and new opportunities.</a>
+        <a href='#1' className="alertText">Available for freelance work and new opportunities.</a>
         <Label label='Handpicked cases like a bottle of wine' />
         <div className="blockContainer">
           <ProjectLink label='Product development & Fullstack' title='Bookingsystem' />
