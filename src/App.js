@@ -15,14 +15,16 @@ class App extends Component {
     pathname: ''
   }
     componentDidMount() {
-      console.log(this.state.pathname, window.location.pathname)
       this.setState( {
        pathname: window.location.pathname
       })
+
+      this.onLinkHover()
     }
-    changeHeader() {
-      console.log(window.location.pathname)
-    } 
+    
+    onLinkHover() {
+      console.log(document.querySelector('[data-contactlink]'))
+    }
   render() {
     return (
       <Router>
