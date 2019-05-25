@@ -16,9 +16,9 @@ class Homepage extends Component {
         <a href='#1' className="alertText">Available for freelance work and new opportunities.</a>
         <Label label='Handpicked cases like a bottle of wine' />
         <div className="blockContainer">
-          <ProjectLink label='Product development & Fullstack' title='Bookingsystem' />
-          <ProjectLink label='UI & UX Design' title='Akademiska hus' />
-          <ProjectLink label='Frontend development' title='Cryptotracker' />
+          <ProjectLink label='Product development & Fullstack' title='Bookingsystem' imageUrl='https://www.thebalance.com/thmb/UZS2curMfBJpwbb8LrvpxttXhA0=/2103x1428/filters:fill(auto,1)/Stock-Market-Charts-Are-Useless-56a093595f9b58eba4b1ae5b.jpg' />
+          <ProjectLink label='UI & UX Design' title='Akademiska hus' imageUrl='https://fbcd.co/product-lg/de44e88fe1e18671a127f2136c0f72f9_resize.jpg' />
+          <ProjectLink label='Frontend development' title='Cryptotracker' imageUrl='https://www.pinclipart.com/picdir/middle/36-360232_samsung-mobile-phone-clipart-transparent-background-smartphone-png.png' />
         </div>
         <Label label='A SHORT TEXT ABOUT ME' />
         <span> </span>

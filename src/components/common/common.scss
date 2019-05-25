@@ -27,18 +27,38 @@
     position: fixed;
     margin-left: 33vw;
     top: 32vh;
-    animation: imageSlide 2350ms forwards ease;
     z-index: 0;
+    opacity: 0;
+
+    &.active {
+        animation: imageSlide 450ms forwards ease-in-out;
+    }
+    &.unactive {
+        animation: imageSlideOut 450ms forwards ease-in-out;
+    }
 }
 @keyframes imageSlide {
   from {
+    margin-top: 100px;
     opacity: 0;
   }
 
   to {
+    margin-top: 0px;
     opacity: 1;
   }
 }
+@keyframes imageSlideOut {
+    from {
+      margin-top: 0px;
+      opacity: 1;
+    }
+  
+    to {
+      margin-top: -100px;
+      opacity: 0;
+    }
+  }
 
 .ProjectLink {
     display: flex;

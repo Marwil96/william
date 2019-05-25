@@ -16,7 +16,9 @@ class App extends Component {
   }
     componentDidMount() {
       this.setState( {
-       pathname: window.location.pathname
+       pathname: window.location.pathname,
+       previewImage: '',
+       previewImageActive: false
       })
 
       this.onLinkHover()
@@ -24,19 +26,32 @@ class App extends Component {
     
     onLinkHover() {
       console.log(document.querySelector('[data-contactlink]'))
-      const links = document.querySelector('[data-contactlink]')
+      const previewImage = document.querySelector('[data-previewImage]')
 
-      links.addEventListener("mouseover", (links) => {
-        console.log('Hover')
-      } );
+      const links = document.querySelectorAll('[data-contactlink]')
 
+      links.forEach((link) => {
+        const image = link.getAttribute('data-contactlink')
+
+        link.addEventListener("mouseover", () => {
+          // this.setState({ previewImage: image, previewImageActive: true })
+          previewImage.classList.remove('unactive')
+          previewImage.classList.add('active')
+          previewImage.src = image;
+        } );
+  
+        link.addEventListener("mouseleave", () => {
+          previewImage.classList.remove('active')
+          previewImage.classList.add('unactive')
+        } );
+      })
     }
   render() {
     return (
       <Router>
         <div className="App">
           <Header path={this.state.pathname} />
-          <ImagePreview image='https://www.thebalance.com/thmb/UZS2curMfBJpwbb8LrvpxttXhA0=/2103x1428/filters:fill(auto,1)/Stock-Market-Charts-Are-Useless-56a093595f9b58eba4b1ae5b.jpg' />
+          <ImagePreview image={this.state.previewImage} state={this.state.previewImageActive} />
           <TransitionGroup>
             <CSSTransition
               classNames="my-node"
