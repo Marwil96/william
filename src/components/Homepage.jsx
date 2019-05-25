@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Label, ProjectLink, MainTextBlock, ContactLink } from './common'
+
 import '../App.scss';
 
 class Homepage extends Component {
@@ -7,7 +8,7 @@ class Homepage extends Component {
     return (
       <div className="container">
         <MainTextBlock 
-            title='Design driven developer. Who believes in a world where developers and designers can live together.'
+            title={<h1>Design driven developer.<br/> Who believes in a world where developers and designers can live together.</h1>}
             subtitle='A digital designer who loves to develop unique interactive experiences. Currently doing my internship at Momkai in Amsterdam.'
         />
         <Label label='Right now...' />

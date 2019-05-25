@@ -5,7 +5,7 @@ import styling from './common.scss'
 const MainTextBlock = (props) => {
     return (
         <div className="MainTextBlock">
-            <h1>{props.title}</h1>
+            {props.title}
             <span>{props.subtitle}</span>
         </div>
     )
