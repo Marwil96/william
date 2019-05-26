@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import { Label, ProjectLink, MainTextBlock, ContactLink } from './common'
+import { Label, ProjectLink, MainTextBlock, ContactLink, BioBlock } from './common'
 
 import '../App.scss';
 
 class Homepage extends Component {
+  componentDidMount() {
+    this.props.previewImageFunc()
+    this.props.bioTargetHover()
+  }
   render() {
-      console.log(this.props.location)
     return (
       <div className="container">
         <MainTextBlock 
@@ -21,6 +24,7 @@ class Homepage extends Component {
           <ProjectLink label='Frontend development' title='Cryptotracker' imageUrl='https://www.pinclipart.com/picdir/middle/36-360232_samsung-mobile-phone-clipart-transparent-background-smartphone-png.png' />
         </div>
         <Label label='A SHORT TEXT ABOUT ME' />
+        <BioBlock />
         <span> </span>
         <div className="linkText">
           <a>WOW DID YOU READ THAT ENTIRE THING??  YOU SHOULD ALSO CHECK OF MY LAB. THIS ENTIRE BLOCK OF TEXT IS AN LINK TO THAT.</a>

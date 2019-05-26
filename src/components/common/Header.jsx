@@ -1,12 +1,12 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import './common.scss'
 
 const selectNavOption = (path) => {
         if(path === '/lab') {
-            return <a href="/">Home</a>  
+            return <Link to='/'>Home</Link> 
         } else {
-            return <a href="/lab">Lab</a>
+            return <Link to='/lab'>Lab</Link>
         }
     }
 
@@ -14,7 +14,7 @@ const Header = (props) => {
     return (
         <div className="Header">
             <span> William Martinsson </span>
-            {selectNavOption(props.path)}
+            {selectNavOption(window.location.pathname)}
         </div>
     )
 }

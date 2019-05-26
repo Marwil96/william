@@ -4,5 +4,6 @@ import MainTextBlock from './MainTextBlock.jsx'
 import Header from './Header.jsx'
 import ContactLink from './ContactLink.jsx'
 import ImagePreview from './ImagePreview.jsx'
+import BioBlock from './BioBlock.jsx'
 
-export { Label, ProjectLink, MainTextBlock, Header, ContactLink, ImagePreview };
+export { Label, ProjectLink, MainTextBlock, Header, ContactLink, ImagePreview, BioBlock };

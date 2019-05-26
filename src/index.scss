@@ -25,6 +25,21 @@
 	     url("./utils/fonts/Inter-Regular.woff") format("woff"),
 }
 
+@font-face {
+	font-family: "Swedish-Sans";
+	font-weight: 700;
+	src: url("./utils/fonts/swedensansbold-webfont.woff2") format("woff2"),
+	     url("./utils/fonts/swedensansbold-webfont.woff") format("woff"),
+}
+
+@font-face {
+	font-family: "Swedish-Sans";
+	font-weight: 400;
+	src: url("./utils/fonts/swedensans-webfont.woff2") format("woff2"),
+	     url("./utils/fonts/swedensans-webfont.woff") format("woff"),
+}
+
+
 
 body {
   margin: 0;

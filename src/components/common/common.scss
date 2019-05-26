@@ -7,8 +7,9 @@
     padding-top: 42px;
 
     span {
-        font-size: 12px;
+        font-size: 14px;
         font-weight: 600;
+        font-family: 'Swedish-Sans';
     }
     
     a {
@@ -22,8 +23,9 @@
 }
 
 .ImagePreview {
-    width: 200px;
-    height: 200px;
+    max-width: 80%;
+    width: 500px;
+    // height: 200px;
     position: fixed;
     margin-left: 33vw;
     top: 32vh;
@@ -69,11 +71,17 @@
     cursor: pointer;
     transition: all 350ms ease; 
     color: white;
+    width: fit-content;
+
+    &.active {
+        opacity: 0.2,
+    }
 
     span {
         margin: 0;
         margin-bottom: 4px;
         font-size: 16px;
+        font-family: 'Swedish-Sans';
         font-weight: 300;
     }
 
@@ -83,11 +91,11 @@
         font-weight: 600;
     }
 
-    &:hover {
-      transform: scale(1.1);
-      transition: all 350ms ease;  
-      color: grey; 
-    }
+    // &:hover {
+    //   transform: scale(1.1);
+    //   transition: all 350ms ease;  
+    //   color: grey; 
+    // }
 }
 
 .ContactLink {
@@ -106,6 +114,7 @@
         margin-bottom: 4px;
         font-size: 16px;
         font-weight: 300;
+        font-family: 'Swedish-Sans'
     }
 
     h3 {
@@ -140,6 +149,35 @@
         font-weight: 500;
         font-size: 22px;
         max-width: calc(100% - 296px);
+        font-family: 'Swedish-Sans'
+    }
+}
+.BioBlock {
+    font-size: 24px;
+    font-weight: 500;
+    max-width: 960px;
+    width: 90%;
+    margin-bottom: 92px;
+    z-index: 1;
+
+    p {
+        margin: 0;
+        transition: all ease 450ms;
+        font-family: 'Swedish-Sans';
+
+        &.unactive {
+            color: rgba(255, 255, 255, 0);
+        }
+    }
+    span {
+        text-decoration: underline;
+        display: inline-block;
+        cursor: pointer;
+        font-family: 'Inter';
+
+        &.active {
+            color: rgba(255, 255, 255, 1);
+        }
     }
 }
 
@@ -148,6 +186,7 @@
     max-width: 160px;
     font-size: 12px;
     font-weight: 700;
+    text-transform: uppercase;
     margin: 0;
     margin-bottom: 24px;
 }

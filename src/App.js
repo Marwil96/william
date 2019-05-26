@@ -20,35 +20,73 @@ class App extends Component {
        previewImage: '',
        previewImageActive: false
       })
-
-      this.onLinkHover()
     }
     
-    onLinkHover() {
-      console.log(document.querySelector('[data-contactlink]'))
+    onBioHover() {
       const previewImage = document.querySelector('[data-previewImage]')
+      const bio = document.querySelector('p')
 
-      const links = document.querySelectorAll('[data-contactlink]')
+      const links = document.querySelectorAll('[data-bio-target]')
 
       links.forEach((link) => {
-        const image = link.getAttribute('data-contactlink')
+        const image = link.getAttribute('data-bio-target')
 
         link.addEventListener("mouseover", () => {
           // this.setState({ previewImage: image, previewImageActive: true })
           previewImage.classList.remove('unactive')
           previewImage.classList.add('active')
+          link.classList.add('active')
+          bio.classList.add('unactive')
           previewImage.src = image;
         } );
   
         link.addEventListener("mouseleave", () => {
           previewImage.classList.remove('active')
           previewImage.classList.add('unactive')
+          link.classList.remove('active')
+          bio.classList.remove('unactive')
+        } );
+      })
+    }
+    onLinkHover() {
+      const previewImage = document.querySelector('[data-previewImage]')
+      const blockContainer = document.querySelector('.blockContainer')
+
+      const links = document.querySelectorAll('[data-contactlink]')
+
+      links.forEach((link) => {
+        const image = link.getAttribute('data-contactlink')
+
+        link.addEventListener("mouseover", (el) => {
+          // this.setState({ previewImage: image, previewImageActive: true })
+          previewImage.classList.remove('unactive')
+          previewImage.classList.add('active')
+          link.classList.add('active')
+          previewImage.src = image;
+          
+          links.forEach( (link) => {
+            link.classList.add('active')
+          })
+            if(link !== el.target ) {
+              link.classList.remove('active')
+            }
+        } );
+  
+        link.addEventListener("mouseleave", (el) => {
+          previewImage.classList.remove('active')
+          previewImage.classList.add('unactive')
+          link.classList.remove('active')
+
+          links.forEach((link) => { 
+              link.classList.remove('active')
+          })
         } );
       })
     }
   render() {
     return (
       <Router>
+      <Route render={({ location }) => console.log(location) || (
         <div className="App">
           <Header path={this.state.pathname} />
           <ImagePreview image={this.state.previewImage} state={this.state.previewImageActive} />
@@ -56,15 +94,16 @@ class App extends Component {
             <CSSTransition
               classNames="my-node"
               timeout={300}
-              id={this.state.pathname}
+              key={location.key}
             >
-              <Switch location={this.props.location}>
-                <Route exact path="/" component={Homepage} />
+              <Switch location={location}>
+                <Route exact path="/" component={() => <Homepage previewImageFunc={this.onLinkHover} bioTargetHover={this.onBioHover} />} />
                 <Route path="/lab" component={Lab} />
               </Switch>
             </CSSTransition>
           </TransitionGroup>
         </div>
+        )}/>
       </Router>
     );
   }
