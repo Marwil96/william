@@ -6,6 +6,7 @@ import { Header, ImagePreview } from './components/common'
 
 import Homepage from './components/Homepage';
 import Lab from './components/Lab';
+import CaseContainer from './components/cases/CaseContainer';
 
 import './App.scss';
 
@@ -99,6 +100,7 @@ class App extends Component {
               <Switch location={location}>
                 <Route exact path="/" component={() => <Homepage previewImageFunc={this.onLinkHover} bioTargetHover={this.onBioHover} />} />
                 <Route path="/lab" component={Lab} />
+                <Route path="/case" component={CaseContainer} />
               </Switch>
             </CSSTransition>
           </TransitionGroup>
