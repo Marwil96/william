@@ -20,7 +20,7 @@ a {
 	background:black;
 	margin:0;
   color: white;
-  padding-left:64px;
+  // padding-left:64px;
 	padding-bottom: 64px;
 	
 .my-node-enter {
@@ -47,10 +47,11 @@ a {
 
   
   .container {
-    width: 100%;
+    // width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column;
+		flex-direction: column;
+		padding-left:64px;
   }
 	
 	.blockContainer {

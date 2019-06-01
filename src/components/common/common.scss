@@ -1,10 +1,12 @@
 .Header {
-    width: 100%;
+    // width: 100%;
     display: flex;
     justify-content: space-between;
     color: white;
-    margin-bottom: 88px;
+    margin-bottom: 66px;
     padding-top: 42px;
+    padding-left:64px;
+    padding-right:64px;
 
     span {
         font-size: 14px;
@@ -13,7 +15,7 @@
     }
     
     a {
-        margin-right:64px;
+        // margin-right:64px;
         font-size: 16px;
         font-weight: 600;
         color: white;
@@ -189,4 +191,26 @@
     text-transform: uppercase;
     margin: 0;
     margin-bottom: 24px;
+}
+
+.MetadataSubSection {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0 20px 0;
+    color: black;
+    
+    .MetadataSubSection-label {
+        font-family: 'Inter';
+        font-weight: 600;
+        font-size: 12px;
+        text-transform: uppercase;
+        opacity: 0.88;
+    }
+    
+    .MetadataSubSection-title {
+        font-family: 'Swedish-Sans';
+        font-weight: 600;
+        font-size: 20px;
+        opacity: 0.92;
+    }
 }

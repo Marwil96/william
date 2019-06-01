@@ -9,7 +9,7 @@ class Lab extends Component {
       <div className="container">
         <MainTextBlock 
             title={<h1>Finding the why’s and when’s instead of the how’s.</h1>}
-            subtitle='Alot of the new technlogies are easier then ever to access and use. They advertise about performance and code experience but loften forgets about the reason to use them. On this page Im trying to find the reasoning behind different technlogies and in which usecases you should use them.'
+            subtitle='Alot of the new technlogies are easier then ever to access and use. They advertise about performance and code experience but often forgets about the reason to use them. On this page Im trying to find the reasoning behind different technlogies and in which usecases you should use them.'
         />
 
         <Label label='Experiments' />
