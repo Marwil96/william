@@ -17,7 +17,7 @@ class Homepage extends Component {
       <div className="container">
         <MainTextBlock 
             title={<h1>Design driven developer.<br/> <h1 className='MainTextBlock-desktop'>Who works in the border between <br/> Design & Development.</h1></h1>}
-            subtitle="Currently doing my internship at the design studio Momkai in central Amsterdam."
+            subtitle="Currently doing my internship at the lovely design studio Momkai in central Amsterdam."
         />
         <Label label='Right now...' />
         <a href='mailto:marwil1996@gmail.com' className="alertText">Available for freelance work and new opportunities.</a>
