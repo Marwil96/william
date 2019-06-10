@@ -42,7 +42,7 @@ class CaseContainer extends Component {
                     
                     <TextBlockHorizontal label='Our Mission' text='Me and Sarah Bengtsson were assigned the mission to inspire Akademiska Hus on how they could build a mobile interface for their customers.'  />
                     <TextBlockHorizontal label='The client' text='Akademiska hus is a state owned property owner, who mostly owns property’s located on different university campuses. In size, it is Swedens second largest property owner.'  />
-                    <TextBlockHorizontal label='My Role' text='My role in the project was to do the UI/UX work so everything from interviewing to the finising details on the design.'  />
+                    <TextBlockHorizontal label='My Role' text='My role in the project was to do the UI/UX work so everything from interviewing to the finishing details on the design.'  />
                     
                     <h3> Discover </h3>
                     <TextBlock label='Market research' text='We started our entire process by doing market research to investigate if there were any other similar solutions on the market today. We noticed that many of Akademiska hus competitors had applications where their customers could easily report propety faults.' />

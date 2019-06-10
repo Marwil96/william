@@ -13,7 +13,7 @@ class BarberBooking extends Component {
     componentDidUpdate() {
         window.scrollTo(0,0);
       }
-      
+
     render() {
         return (
             <div className="CaseContainer CaseContainer--BarberBooking">
@@ -22,7 +22,7 @@ class BarberBooking extends Component {
                 <div className='CaseContainer-content'>
                     <MetadataContainer data={[{label:'Link', title:<a href='https://marwil96.github.io/barberBooking/'> Barberboking (Only developed for phone)</a> }, {label:'Type', title:'Solo project' }]} />
                     
-                    <TextBlockHorizontal label='Purpose' text='Building an product from skratch with an agile approach.'  />
+                    <TextBlockHorizontal label='Purpose' text='Building an product from scratch with an agile approach.'  />
                     <TextBlockHorizontal label='Background' text='Being a barber is an creative job, their shops often try to communicate a certain feeling/experience but their digital bookingsystems are seriously lacking beauty and ease of use.'  />
                     
                     <h3> Research </h3>
