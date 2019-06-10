@@ -40,7 +40,7 @@ class CaseContainer extends Component {
                 <div className='CaseContainer-content'>
                     <MetadataContainer data={[{label:'Role', title:'UX & UI Design' }, {label:'Client', title:'Akademiska Hus' }, {label:'Type', title:'Student work' }]} />
                     
-                    <TextBlockHorizontal label='Our Mission' text='I and Sarah Bengtsson were assigned the mission to inspire Akademiska Hus on how they could build a mobile interface for their customers.'  />
+                    <TextBlockHorizontal label='Our Mission' text='Me and Sarah Bengtsson were assigned the mission to inspire Akademiska Hus on how they could build a mobile interface for their customers.'  />
                     <TextBlockHorizontal label='The client' text='Akademiska hus is a state owned property owner, who mostly owns property’s located on different university campuses. In size, it is Swedens second largest property owner.'  />
                     <TextBlockHorizontal label='My Role' text='My role in the project was to do the UI/UX work so everything from interviewing to the finising details on the design.'  />
                     

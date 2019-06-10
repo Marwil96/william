@@ -24,7 +24,7 @@ class Homepage extends Component {
         <Label label='Handpicked cases' />
         <div className="blockContainer">
           <ProjectLink link='barberbooking' label='Product development & Fullstack' title='Bookingsystem' imageUrl={hairAnimation} />
-          <ProjectLink link='case' label='UI & UX Design' title='Akademiska hus' imageUrl='https://www.liveinlab.kth.se/polopoly_fs/1.691639.1550148607!/image/AH_ppt.png' />
+          <ProjectLink link='Akademiskahus' label='UI & UX Design' title='Akademiska hus' imageUrl='https://www.liveinlab.kth.se/polopoly_fs/1.691639.1550148607!/image/AH_ppt.png' />
           {/* <ProjectLink link='case' label='Frontend development' title='Cryptotracker' imageUrl='https://www.liveinlab.kth.se/polopoly_fs/1.691639.1550148607!/image/AH_ppt.png' /> */}
         </div>
         <Label label='A SHORT TEXT ABOUT ME' />

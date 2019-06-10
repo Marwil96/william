@@ -146,7 +146,7 @@ class App extends Component {
               <Switch location={location}>
                 <Route exact path="/" component={() => <Homepage previewImageFunc={this.onLinkHover} bioTargetHover={this.onBioHover} />} />
                 <Route path="/lab" component={Lab} />
-                <Route path="/case/case" component={CaseContainer} />
+                <Route path="/case/Akademiskahus" component={CaseContainer} />
                 <Route path="/case/BarberBooking" component={BarberBooking} />
                 <Route component={errorPage} />
                 {this.renderRedirect()}

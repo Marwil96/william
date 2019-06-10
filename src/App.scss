@@ -102,6 +102,11 @@ a {
     margin-bottom: 42px;
     color: #FFFFFF;
 		max-width: 700px;
+		transition: opacity 450ms ease;
+
+		&:hover {
+			opacity: 0.6;
+		}
 
 		@media screen and (min-width: 700px) { 
 			font-size: 32px;
