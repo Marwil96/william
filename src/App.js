@@ -89,19 +89,20 @@ class App extends Component {
         links.forEach((link) => {
           const image = link.getAttribute('data-contactlink')
 
-          link.addEventListener("touchstart", (el) => {
+          link.addEventListener("mouseenter", (el) => {
             // this.setState({ previewImage: image, previewImageActive: true })
             previewImage.classList.remove('unactive')
             previewImage.classList.add('active')
             link.classList.add('active')
             previewImage.src = image;
             
-            links.forEach( (link) => {
+            links.forEach((link) => {
               link.classList.add('active')
-            })
-              if(link !== el.target ) {
+
+              if(link === el.target ) {
                 link.classList.remove('active')
               }
+            })
           } );
     
           link.addEventListener("mouseleave", (el) => {

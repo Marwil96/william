@@ -20,25 +20,25 @@ class Homepage extends Component {
             subtitle="Currently doing my internship at the design studio Momkai in sunny Amsterdam."
         />
         <Label label='Right now...' />
-        <a href='#1' className="alertText">Available for freelance work and new opportunities.</a>
+        <a href='mailto:marwil1996@gmail.com' className="alertText">Available for freelance work and new opportunities.</a>
         <Label label='Handpicked cases' />
         <div className="blockContainer">
           <ProjectLink link='barberbooking' label='Product development & Fullstack' title='Bookingsystem' imageUrl={hairAnimation} />
           <ProjectLink link='case' label='UI & UX Design' title='Akademiska hus' imageUrl='https://www.liveinlab.kth.se/polopoly_fs/1.691639.1550148607!/image/AH_ppt.png' />
-          <ProjectLink link='case' label='Frontend development' title='Cryptotracker' imageUrl='https://www.liveinlab.kth.se/polopoly_fs/1.691639.1550148607!/image/AH_ppt.png' />
+          {/* <ProjectLink link='case' label='Frontend development' title='Cryptotracker' imageUrl='https://www.liveinlab.kth.se/polopoly_fs/1.691639.1550148607!/image/AH_ppt.png' /> */}
         </div>
         <Label label='A SHORT TEXT ABOUT ME' />
         <BioBlock />
         <span> </span>
-        <div className="linkText">
+        {/* <div className="linkText">
           <Link to='/lab'>WOW DID YOU RELinkAD THAT ENTIRE THING??  YOU SHOULD ALSO CHECK OF MY LAB. THIS ENTIRE BLOCK OF TEXT IS AN LINK TO THAT.</Link>
           <span className="nudgeText">Is this nudging?</span>
-        </div>
+        </div> */}
         <div className="blockContainer">
-          <ContactLink link='william' label='Talk to me or exchange doggopics both works great.' title='Electronic mail' />
+          <ContactLink link='mailto:marwil1996@gmail.com' label='Talk to me or exchange doggopics both works great.' title='Electronic mail' />
           <ContactLink link='www.github.com/marwil96' label='If you want to see my code.' title='Github' />
-          <ContactLink link='william' label='If you want to see cool design stuff.' title='Behance' />
-          <ContactLink link='www.medium.com' label='If you want to see my unpublished articles.' title='Medium' />
+          {/* <ContactLink link='william' label='If you want to see cool design stuff.' title='Behance' /> */}
+          {/* <ContactLink link='www.medium.com' label='If you want to see my unpublished articles.' title='Medium' /> */}
         </div>
       </div>
     );
