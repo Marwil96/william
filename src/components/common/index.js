@@ -6,5 +6,24 @@ import ContactLink from './ContactLink.jsx'
 import ImagePreview from './ImagePreview.jsx'
 import BioBlock from './BioBlock.jsx'
 import MetadataSubSection from './MetadataSubSection.jsx';
+import TextBlock from './TextBlock.jsx';
+import TextBlockHorizontal from './TextBlockHorizontal.jsx';
+import CaseImage from './CaseImage.jsx';
+import ImageLoader from './ImageLoader.jsx';
+import CaseHeader from './CaseHeader.jsx';
 
-export { Label, ProjectLink, MainTextBlock, Header, ContactLink, ImagePreview, BioBlock, MetadataSubSection };
+export { 
+    Label, 
+    ProjectLink, 
+    MainTextBlock, 
+    Header, 
+    ContactLink, 
+    ImagePreview, 
+    BioBlock, 
+    MetadataSubSection, 
+    TextBlock,
+    CaseImage,
+    ImageLoader,
+    TextBlockHorizontal,
+    CaseHeader
+};

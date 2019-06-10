@@ -3,7 +3,7 @@ import './common.scss'
 
 const ImagePreview = (props) => {
     return (
-        <img src={props.image} className="ImagePreview" data-previewImage />
+        <img alt='' src={props.image} className="ImagePreview" data-preview-image />
     )
 }
 

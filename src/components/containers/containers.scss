@@ -1,0 +1,10 @@
+.MetadataContainer {
+    display: flex;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+
+    @media screen and (min-width: 700px) {  
+        margin-bottom: 64px;
+        flex-wrap: nowrap;
+    }
+}

@@ -13,7 +13,7 @@ const selectNavOption = (path) => {
 const Header = (props) => {
     return (
         <div className="Header">
-            <span> William Martinsson </span>
+            <Link to='/' className='Header-logo'> William Martinsson </Link>
             {selectNavOption(window.location.pathname)}
         </div>
     )

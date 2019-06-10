@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
+
 import { Label, ProjectLink, MainTextBlock, ContactLink, BioBlock } from './common'
+import hairAnimation from '../images/Hair_Child2.gif';
+
 
 import '../App.scss';
 
@@ -12,29 +16,29 @@ class Homepage extends Component {
     return (
       <div className="container">
         <MainTextBlock 
-            title={<h1>Design driven developer.<br/> Who believes in a world where developers and designers can live together.</h1>}
-            subtitle='A digital designer who loves to develop unique interactive experiences. Currently doing my internship at Momkai in Amsterdam.'
+            title={<h1>Design driven developer.<br/> <h1 className='MainTextBlock-desktop'>Who works in the border between <br/> Design & Development.</h1></h1>}
+            subtitle="Currently doing my internship at the design studio Momkai in sunny Amsterdam."
         />
         <Label label='Right now...' />
         <a href='#1' className="alertText">Available for freelance work and new opportunities.</a>
-        <Label label='Handpicked cases like a bottle of wine' />
+        <Label label='Handpicked cases' />
         <div className="blockContainer">
-          <ProjectLink label='Product development & Fullstack' title='Bookingsystem' imageUrl='https://www.thebalance.com/thmb/UZS2curMfBJpwbb8LrvpxttXhA0=/2103x1428/filters:fill(auto,1)/Stock-Market-Charts-Are-Useless-56a093595f9b58eba4b1ae5b.jpg' />
-          <ProjectLink label='UI & UX Design' title='Akademiska hus' imageUrl='https://fbcd.co/product-lg/de44e88fe1e18671a127f2136c0f72f9_resize.jpg' />
-          <ProjectLink label='Frontend development' title='Cryptotracker' imageUrl='https://www.pinclipart.com/picdir/middle/36-360232_samsung-mobile-phone-clipart-transparent-background-smartphone-png.png' />
+          <ProjectLink link='barberbooking' label='Product development & Fullstack' title='Bookingsystem' imageUrl={hairAnimation} />
+          <ProjectLink link='case' label='UI & UX Design' title='Akademiska hus' imageUrl='https://www.liveinlab.kth.se/polopoly_fs/1.691639.1550148607!/image/AH_ppt.png' />
+          <ProjectLink link='case' label='Frontend development' title='Cryptotracker' imageUrl='https://www.liveinlab.kth.se/polopoly_fs/1.691639.1550148607!/image/AH_ppt.png' />
         </div>
         <Label label='A SHORT TEXT ABOUT ME' />
         <BioBlock />
         <span> </span>
         <div className="linkText">
-          <a>WOW DID YOU READ THAT ENTIRE THING??  YOU SHOULD ALSO CHECK OF MY LAB. THIS ENTIRE BLOCK OF TEXT IS AN LINK TO THAT.</a>
+          <Link to='/lab'>WOW DID YOU RELinkAD THAT ENTIRE THING??  YOU SHOULD ALSO CHECK OF MY LAB. THIS ENTIRE BLOCK OF TEXT IS AN LINK TO THAT.</Link>
           <span className="nudgeText">Is this nudging?</span>
         </div>
         <div className="blockContainer">
-          <ContactLink label='Talk to me or exchange doggopics both works great.' title='Electronic mail' />
-          <ContactLink label='If you want to see my code.' title='Github' />
-          <ContactLink label='If you want to see cool design stuff.' title='Behance' />
-          <ContactLink label='If you want to see my unpublished articles.' title='Medium' />
+          <ContactLink link='william' label='Talk to me or exchange doggopics both works great.' title='Electronic mail' />
+          <ContactLink link='www.github.com/marwil96' label='If you want to see my code.' title='Github' />
+          <ContactLink link='william' label='If you want to see cool design stuff.' title='Behance' />
+          <ContactLink link='www.medium.com' label='If you want to see my unpublished articles.' title='Medium' />
         </div>
       </div>
     );

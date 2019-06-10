@@ -12,6 +12,13 @@ a {
 	cursor: pointer;
 }
 
+// #root {
+// 	display: flex;
+//   flex-direction: column;
+//   align-items: center;
+// 	background: #0a0a0adb;
+// }
+
 .App {
 	// width:100%;
 	min-height:100vh;
@@ -21,21 +28,38 @@ a {
 	margin:0;
   color: white;
   // padding-left:64px;
-	padding-bottom: 64px;
+	// padding-bottom: 64px;
+	// max-width: 1340px;
+  // width: 100%;
+
 	
 .my-node-enter {
-  opacity: 0;
+	opacity: 0;
+	transform: translateY(100px);
+	transition: all 500ms;
+
+	&.CaseContainer {
+		opacity: 0;
+	}
 }
 .my-node-enter-active {
-  opacity: 1;
-  transition: opacity 200ms;
+	opacity: 1;
+	transform: translateY(0px);
+	transition: all ease-in-out 550ms;
+	
+	&.CaseContainer {
+		opacity: 1;
+	}
 }
 .my-node-exit {
-  opacity: 1;
+	transform: translateY(0px);
+	opacity: 1;
+	transition: all 500ms;
 }
 .my-node-exit-active {
-  opacity: 0;
-  transition: opacity 200ms;
+	opacity: 0;
+	transform: translateY(100px);
+  transition: all 500ms;
 }
   .animated-page-wrapper {
     position: absolute;
@@ -51,41 +75,66 @@ a {
     height: 100%;
     display: flex;
 		flex-direction: column;
-		padding-left:64px;
+		padding-left:16px;
+		padding-bottom: 64px;
+
+		@media screen and (min-width: 700px) {
+			padding-left:64px;
+		}
   }
 	
 	.blockContainer {
 		display: flex;
 		flex-direction: column;
-		margin-bottom: 64px;
+		margin-bottom: 24px;
+
+		@media screen and (min-width: 700px) {
+			margin-bottom: 64px;
+		}
 	}
 
 	.alertText {
-		font-size: 32px;
+		font-size: 24px;
+		margin-right: 16px;
 		font-weight: 600;
 		// text-transform: uppercase;
 		text-decoration: underline;
-    margin-bottom: 64px;
+    margin-bottom: 42px;
     color: #FFFFFF;
 		max-width: 700px;
+
+		@media screen and (min-width: 700px) { 
+			font-size: 32px;
+			margin-bottom: 64px;
+		}
 	}
 
 	.linkText {
 		max-width: 800px;
 		display: flex;
 		flex-direction: column;
-		margin-bottom: 64px;
+		margin-bottom: 32px;
+		margin-right: 24px;
 		
 		a {
-			font-size: 32px;
+			font-size: 22px;
 			font-weight: 700;
 			text-transform: uppercase;
 			text-decoration: underline;
+			color: white;
 		}
 		
 		.nudgeText {
-		font-size: 8px;
-		margin-top: 8px;
-	}
+			font-size: 8px;
+			margin-top: 8px;
+		}
+
+		@media screen and (min-width: 700px) { 
+			margin-bottom: 64px;
+
+			a {
+				font-size: 32px;
+			}
+		}
 	}
 }
