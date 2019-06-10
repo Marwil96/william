@@ -36,7 +36,7 @@ class Homepage extends Component {
         </div> */}
         <div className="blockContainer">
           <ContactLink link='mailto:marwil1996@gmail.com' label='Talk to me or exchange doggopics both works great.' title='Electronic mail' />
-          <ContactLink link='www.github.com/marwil96' label='If you want to see my code.' title='Github' />
+          <ContactLink link='https://www.github.com/marwil96' label='If you want to see my code.' title='Github' />
           {/* <ContactLink link='william' label='If you want to see cool design stuff.' title='Behance' /> */}
           {/* <ContactLink link='www.medium.com' label='If you want to see my unpublished articles.' title='Medium' /> */}
         </div>
