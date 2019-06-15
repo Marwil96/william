@@ -8,6 +8,7 @@ import Homepage from './components/Homepage';
 import Lab from './components/Lab';
 import CaseContainer from './components/cases/CaseContainer';
 import BarberBooking from './components/cases/BarberBooking';
+import CryptoTracker from './components/cases/CryptoTracker';
 import errorPage from './components/errorPage';
 
 import './App.scss';
@@ -109,6 +110,7 @@ class App extends Component {
             previewImage.classList.remove('active')
             previewImage.classList.add('unactive')
             link.classList.remove('active')
+            previewImage.src = '';
 
             links.forEach((link) => { 
                 link.classList.remove('active')
@@ -121,6 +123,7 @@ class App extends Component {
             previewImage.classList.remove('active')
             previewImage.classList.add('unactive')
             link.classList.remove('active')
+            previewImage.src = '';
 
             links.forEach((link) => { 
                 link.classList.remove('active')
@@ -148,6 +151,7 @@ class App extends Component {
                 <Route path="/lab" component={Lab} />
                 <Route path="/case/Akademiskahus" component={CaseContainer} />
                 <Route path="/case/BarberBooking" component={BarberBooking} />
+                <Route path="/case/CryptoTracker" component={CryptoTracker} />
                 <Route component={errorPage} />
                 {this.renderRedirect()}
               </Switch>

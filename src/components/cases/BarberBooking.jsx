@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { TextBlock, CaseImage, TextBlockHorizontal, CaseHeader } from '../common'
 import MetadataContainer from '../containers/MetadataContainer'
 
-import componentBuilding from '../../images/ComponentBuilding.png'
+import componentBuilding from '../../images/barberbooking/ComponentBuilding.png'
+import mockup from '../../images/barberbooking/mockupblue.png'
 import hairChild from '../../images/Hair_ChildWithBG.gif'
 
 import './case.scss';
@@ -24,7 +25,7 @@ class BarberBooking extends Component {
                     
                     <TextBlockHorizontal label='Purpose' text='Building an product from scratch with an agile approach.'  />
                     <TextBlockHorizontal label='Background' text='Being a barber is an creative job, their shops often try to communicate a certain feeling/experience but their digital bookingsystems are seriously lacking beauty and ease of use.'  />
-                    
+                    <CaseImage image={mockup} aspectRatio={'100%'} />
                     <h3> Research </h3>
                     <TextBlock label='Problem Research' text='I started the process by researching about the barber/hairdresser profession. My way of doing that were interviewing barbers and finding reports about the buisness on the internet.' />
                     <TextBlock label='General Information' text="In Sweden, 8500 hairdressing salons exist and they have an average of 3.8 employees. Which means that hairdressing salons are usually small businesses. 700kr is the average payment. 62% of Sweden's women dye their hair. Customers have great loyalty to their hairdresser, 54% of all men surveyed by L´oreal have been with the same hairdresser for over two years. According to a British survey, the Brittish people trust their hairdresser more than their priest or police." />
