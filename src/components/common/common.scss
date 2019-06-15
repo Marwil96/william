@@ -200,7 +200,18 @@
 		font-weight: 500;
         font-size: 22px;
         margin-right: 16px;
-		font-family: 'Swedish-Sans';
+        font-family: 'Swedish-Sans';
+        // animation: slideInDream 250ms ease forwards;
+    }
+
+    @keyframes slideInDream {
+        from {
+            transform: translateY(100px);
+        }
+
+        to {
+            transform: translateY(-100px);
+        }
     }
 
     .MainTextBlock-desktop {

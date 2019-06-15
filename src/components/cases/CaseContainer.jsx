@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
-import { TextBlock, CaseImage, TextBlockHorizontal, CaseHeader } from '../common'
+
+import { TextBlock, CaseImage, TextBlockHorizontal, CaseHeader, HelmetWrapper } from '../common'
 import MetadataContainer from '../containers/MetadataContainer'
 
 import caseImage from '../../images/skara.png'
 import caseImageExample from '../../images/caseImageExample.png'
+import margins from '../../images/akademiskahus/margins.png'
+import wireframe from '../../images/akademiskahus/wireframe.png'
+import onBoarding from '../../images/akademiskahus/Introduction.png'
+import users from '../../images/akademiskahus/userswide.png'
 
 import './case.scss';
 
@@ -35,6 +40,7 @@ class CaseContainer extends Component {
     render() {
         return (
             <div className="CaseContainer">
+                <HelmetWrapper title='Akademiskahus - case by William Martinsson' description='Akademiskahus - case by William Martinsson' />
                 <CaseHeader category='UX-Research' title='Finding a balance between simplicity and versatility.' image={caseImage} />
 
                 <div className='CaseContainer-content'>
@@ -56,11 +62,11 @@ class CaseContainer extends Component {
                         <br/>- There is also no easy way to communicate your information to customers.</span> 
                     }/>
                     <TextBlock label='Users' text='We discussed about which users we would prioritize to target this new service to and who would need it. We found that we would primarily need to solve the communication between Akademiska hus – Customer/Tenants – Users/the people who use academic house properties.' />
-                    <CaseImage image={caseImageExample} />
+                    <CaseImage image={users} />
 
                     <h3> Exploration </h3>
                     <TextBlock label='Wireframing' text='When we made the first wireframes we took into account that the users of the product would largely be non-technical. And that the product should feel just as natural for them as a hammer or a notebook.' />
-                    <CaseImage image='https://williammartinsson.work/static/media/WireframeSideWays.972af689.png' aspectRatio={'120%'} />
+                    <CaseImage image={wireframe} aspectRatio={'120%'} />
                     <TextBlock label='User Testing' text='During the usertests we noticed that the users had problems reading the serif fontface so we switched to the recognizable roboto instead. We also understood that the users wanted it to be possible to open the faults you had reported without switching view so they quickly could read the faults.' />
                     <TextBlock label='Solution' text={
                         <span>
@@ -75,10 +81,10 @@ class CaseContainer extends Component {
                     <h3> Design </h3>
                     <div className='CaseContainer-TextWithImage'> 
                         <TextBlock label='Interface' text='The application were created with 32px margins and 4 column layout. We used google material design 2.0 because we felt that it was a waste of time to create new elements.' />
-                        <CaseImage image='https://williammartinsson.work/static/media/Margins.05fe2fc8.png' aspectRatio={'120%'} />
+                        <CaseImage image={margins} aspectRatio={'120%'} />
                     </div>
                     <TextBlock label='Onboarding' text='We made a short tutorial for first-time users, to help them understand the meaning of the application.' />
-                    <CaseImage image='https://williammartinsson.work/static/media/Introduction.79744f61.png' aspectRatio={'42.3%'} />
+                    <CaseImage image={onBoarding} aspectRatio={'42.3%'} />
                     <h3>iframe prototype</h3>
                     {this.renderIframe(this.state.renderIframeState)}
                 </div>
