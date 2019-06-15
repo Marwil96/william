@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { TextBlock, CaseImage, TextBlockHorizontal, CaseHeader } from '../common'
+import { CaseImage, TextBlockHorizontal, CaseHeader, HelmetWrapper } from '../common'
 import MetadataContainer from '../containers/MetadataContainer'
 
 import video from '../../images/cryptotracker/video.gif'
 import mockup from '../../images/cryptotracker/mockup.png'
-import hairChild from '../../images/Hair_ChildWithBG.gif'
 
 import './case.scss';
 
@@ -16,6 +15,7 @@ class CryptoTracker extends Component {
     render() {
         return (
             <div className="CaseContainer CaseContainer--CryptoTracker">
+                <HelmetWrapper title='Cryptotracker - case by William Martinsson' description='I started working on this project because I wanted to try out React Native and play around with native animation.' />
                 <CaseHeader category='Front-end development / React Native' title="Let's write some splendid code." />
 
                 <div className='CaseContainer-content'>

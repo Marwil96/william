@@ -11,6 +11,7 @@ import TextBlockHorizontal from './TextBlockHorizontal.jsx';
 import CaseImage from './CaseImage.jsx';
 import ImageLoader from './ImageLoader.jsx';
 import CaseHeader from './CaseHeader.jsx';
+import HelmetWrapper from './HelmetWrapper.jsx';
 
 export { 
     Label, 
@@ -25,5 +26,6 @@ export {
     CaseImage,
     ImageLoader,
     TextBlockHorizontal,
-    CaseHeader
+    CaseHeader,
+    HelmetWrapper
 };

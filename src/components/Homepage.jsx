@@ -8,16 +8,46 @@ import hairAnimation from '../images/Hair_Child2.gif';
 import '../App.scss';
 
 class Homepage extends Component {
+
+  state = {
+    dreamString: ''
+  }
   componentDidMount() {
     this.props.previewImageFunc()
     this.props.bioTargetHover()
+    this.randomDreamString()
   }
+  randomDreamString() {
+    const dreamStrings = ['Dreaming about flying pferds.', 'Dreaming about a world where everyone uses chrome.', 'Dreaming about a world where notches does not exist.', 'Dreaming about a world made by falafelballs']
+
+    this.setState({
+      dreamString: dreamStrings[Math.floor(Math.random() * dreamStrings.length)]
+    })
+
+    let intervall = 4000;
+    window.setInterval(() => {
+      if(intervall < 7001) {
+        intervall = intervall + 1000;
+      }
+
+      let arrayNumber = Math.floor(Math.random() * dreamStrings.length);
+      
+      if (dreamStrings.length > 1) {
+        this.setState({
+          dreamString: dreamStrings[arrayNumber]
+        })
+
+        dreamStrings.splice(arrayNumber, 1);
+      }
+    }, intervall);
+  }
+
   render() {
     return (
       <div className="container">
         <MainTextBlock 
             title={<h1>Design driven developer.<br/> <h1 className='MainTextBlock-desktop'>Who works in the border between <br/> Design & Development.</h1></h1>}
-            subtitle="Currently doing my internship at the lovely design studio Momkai in central Amsterdam."
+            subtitle={<span>Currently working with the lovely design studio Momkai in central Amsterdam. <span className='MainTextBlock-animation'>{ this.state.dreamString}</span></span> }
         />
         <Label label='Right now...' />
         <a href='mailto:marwil1996@gmail.com' className="alertText">Available for freelance work and new opportunities.</a>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { TextBlock, CaseImage, TextBlockHorizontal, CaseHeader } from '../common'
+
+import { TextBlock, CaseImage, TextBlockHorizontal, CaseHeader, HelmetWrapper } from '../common'
 import MetadataContainer from '../containers/MetadataContainer'
 
 import caseImage from '../../images/skara.png'
@@ -39,6 +40,7 @@ class CaseContainer extends Component {
     render() {
         return (
             <div className="CaseContainer">
+                <HelmetWrapper title='Akademiskahus - case by William Martinsson' description='Akademiskahus - case by William Martinsson' />
                 <CaseHeader category='UX-Research' title='Finding a balance between simplicity and versatility.' image={caseImage} />
 
                 <div className='CaseContainer-content'>
