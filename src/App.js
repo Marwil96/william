@@ -5,6 +5,7 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { Header, ImagePreview } from './components/common'
 
 import Homepage from './components/Homepage';
+import CaseIndex from './components/CaseIndex';
 import Lab from './components/Lab';
 import CaseContainer from './components/cases/CaseContainer';
 import BarberBooking from './components/cases/BarberBooking';
@@ -54,7 +55,7 @@ class App extends Component {
           link.classList.add('active')
           bio.classList.add('unactive')
           previewImage.src = image;
-        });
+        },{passive: true});
 
         link.addEventListener("touchstart", () => {
           // this.setState({ previewImage: image, previewImageActive: true })
@@ -63,21 +64,21 @@ class App extends Component {
           link.classList.add('active')
           bio.classList.add('unactive')
           previewImage.src = image;
-        } );
+        },{passive: true} );
   
         link.addEventListener("mouseleave", () => {
           previewImage.classList.remove('active')
           previewImage.classList.add('unactive')
           link.classList.remove('active')
           bio.classList.remove('unactive')
-        });
+        },{passive: true});
 
         link.addEventListener("touchend", () => {
           previewImage.classList.remove('active')
           previewImage.classList.add('unactive')
           link.classList.remove('active')
           bio.classList.remove('unactive')
-        });
+        },{passive: true});
       })
     }
 
@@ -149,6 +150,7 @@ class App extends Component {
               <Switch location={location}>
                 <Route exact path="/" component={() => <Homepage previewImageFunc={this.onLinkHover} bioTargetHover={this.onBioHover} />} />
                 <Route path="/lab" component={Lab} />
+                <Route exact path="/case" component={() => <CaseIndex previewImageFunc={this.onLinkHover} />} />
                 <Route path="/case/Akademiskahus" component={CaseContainer} />
                 <Route path="/case/BarberBooking" component={BarberBooking} />
                 <Route path="/case/CryptoTracker" component={CryptoTracker} />

@@ -11,7 +11,7 @@ class errorPage extends Component {
     return (
       <div className="container">
         <MainTextBlock 
-            title={<h1>Det ligger en hund begraven...</h1>}
+            title={<h1 style={{'margin': 0}}>Det ligger en hund begraven...</h1>}
         />
         <Link to='/' className="alertText">LINK BACK TO HOMEPAGE</Link>
       </div>

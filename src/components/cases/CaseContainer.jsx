@@ -22,6 +22,7 @@ class CaseContainer extends Component {
     componentDidUpdate() {
         window.scrollTo(0,0);
     }
+    
     renderIframe(state) {
        const handleClick = (e) => {
             e.preventDefault();

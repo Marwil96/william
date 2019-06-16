@@ -5,8 +5,8 @@ import './common.scss'
 const MainTextBlock = (props) => {
     return (
         <div className="MainTextBlock">
-            {props.title}
-            <span>{props.subtitle}</span>
+            <span className='MainTextBlock-title'>{props.title}</span>
+            <span className='MainTextBlock-subtitle'>{props.subtitle}</span>
         </div>
     )
 }

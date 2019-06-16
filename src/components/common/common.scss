@@ -41,7 +41,9 @@
 
 .ImagePreview {
 	max-width: 80%;
-	width: 500px;
+    width: 500px;
+    // max-height: 300px;
+    // object-fit: contain;
 	// height: 200px;
 	position: fixed;
     margin-left: 12vw;
@@ -187,7 +189,7 @@
 	max-width: 900px;
     margin-bottom: 32px;
 
-	h1 {
+	.MainTextBlock-title {
 		font-weight: 700;
 		margin: 0;
         margin-bottom: 12px;
@@ -195,7 +197,7 @@
         margin-right: 16px;
 	}
 
-	span {
+	.MainTextBlock-subtitle {
 		margin: 0;
 		font-weight: 500;
         font-size: 22px;
@@ -222,17 +224,17 @@
     @media screen and (min-width: 700px) {
         margin-bottom: 64px;
 
-        h1 { 
+        .MainTextBlock-title { 
             font-size: 42px;
             margin-right: none;
             margin-bottom: 24px;
         }
 
-        span {
+        .MainTextBlock-subtitle {
             max-width: calc(100% - 296px);
         }
         .MainTextBlock-desktop { 
-            display: block;
+            display: inherit;
         }
     }
 }

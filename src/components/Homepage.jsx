@@ -46,7 +46,7 @@ class Homepage extends Component {
     return (
       <div className="container">
         <MainTextBlock 
-            title={<h1>Design driven developer.<br/> <h1 className='MainTextBlock-desktop'>Who works in the border between <br/> Design & Development.</h1></h1>}
+            title={<span>Design driven developer.<br/> <span className='MainTextBlock-desktop'>Who works in the border between <br/> Design & Development.</span></span>}
             subtitle={<span>Currently working with the lovely design studio Momkai in central Amsterdam. <span className='MainTextBlock-animation'>{ this.state.dreamString}</span></span> }
         />
         <Label label='Right now...' />
@@ -55,7 +55,8 @@ class Homepage extends Component {
         <div className="blockContainer">
           <ProjectLink link='barberbooking' label='Product development & Fullstack' title='Bookingsystem' imageUrl={hairAnimation} />
           <ProjectLink link='Akademiskahus' label='UI & UX Design' title='Akademiska hus' imageUrl='https://www.liveinlab.kth.se/polopoly_fs/1.691639.1550148607!/image/AH_ppt.png' />
-          <ProjectLink link='CryptoTracker' label='Frontend development' title='Cryptotracker' imageUrl='http://pngimg.com/uploads/bitcoin/bitcoin_PNG16.png' />
+          <ProjectLink link='CryptoTracker' label='Frontend development' title='Cryptotracker' imageUrl='http://pngimg.com/uploads/bitcoin/bitcoin_PNG47.png' />
+          <Link className='link' to='/case'>Want to see more projects? </Link>
         </div>
         <Label label='A SHORT TEXT ABOUT ME' />
         <BioBlock />
