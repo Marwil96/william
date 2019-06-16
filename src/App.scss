@@ -78,6 +78,18 @@ a {
 		padding-left:16px;
 		padding-bottom: 64px;
 
+		&.active {
+			transform: translateY(0px);
+			opacity: 1;
+			transition: all 500ms;
+		}
+
+		&.unactive {
+			opacity: 0;
+			transform: translateY(100px);
+			transition: all 500ms;
+		}
+
 		@media screen and (min-width: 700px) {
 			padding-left:64px;
 		}

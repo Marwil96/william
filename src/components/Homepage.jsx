@@ -13,10 +13,29 @@ class Homepage extends Component {
     dreamString: ''
   }
   componentDidMount() {
+    let introState = this.props.runIntroAnimation(1);
+    
     this.props.previewImageFunc()
     this.props.bioTargetHover()
+
     this.randomDreamString()
+
+    this.startIntroAnimation(introState)
   }
+
+  startIntroAnimation(introState) {
+    if(introState === 2) {  
+      document.querySelector('.container').classList.add('unactive')
+      setTimeout( () => {
+      document.querySelector('.container').classList.remove('unactive')
+      document.querySelector('.container').classList.add('active')
+      }, 300)
+    } else {
+      document.querySelector('.container').classList.remove('unactive')
+      document.querySelector('.container').classList.remove('active')
+    }
+  }
+
   randomDreamString() {
     const dreamStrings = ['Dreaming about flying pferds.', 'Dreaming about a world where everyone uses chrome.', 'Dreaming about a world where notches does not exist.', 'Dreaming about a world made by falafelballs']
 

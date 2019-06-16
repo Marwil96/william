@@ -13,12 +13,14 @@ import CryptoTracker from './components/cases/CryptoTracker';
 import errorPage from './components/errorPage';
 
 import './App.scss';
+let introState = 0;
 
 class App extends Component {
     
   state = {
     pathname: '',
-    redirect: false
+    redirect: false,
+    intro: 0
   }
 
   setRedirect = () => {
@@ -26,6 +28,13 @@ class App extends Component {
       redirect: true
     })
   }
+
+  runIntroAnimation(intro) {
+    introState = intro + introState ;
+
+    return introState
+  }
+
   renderRedirect = () => {
     if (this.state.redirect) {
       return <Redirect to='/' />
@@ -148,7 +157,7 @@ class App extends Component {
               key={location.key}
             >
               <Switch location={location}>
-                <Route exact path="/" component={() => <Homepage previewImageFunc={this.onLinkHover} bioTargetHover={this.onBioHover} />} />
+                <Route exact path="/" component={() => <Homepage previewImageFunc={this.onLinkHover} bioTargetHover={this.onBioHover} runIntroAnimation={this.runIntroAnimation} />} />
                 <Route path="/lab" component={Lab} />
                 <Route exact path="/case" component={() => <CaseIndex previewImageFunc={this.onLinkHover} />} />
                 <Route path="/case/Akademiskahus" component={CaseContainer} />
