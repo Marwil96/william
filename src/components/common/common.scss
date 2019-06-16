@@ -221,6 +221,10 @@
         margin: 0;
     }
 
+    .MainTextBlock-animation {
+        display: none;
+    }
+
     @media screen and (min-width: 700px) {
         margin-bottom: 64px;
 
@@ -234,6 +238,9 @@
             max-width: calc(100% - 296px);
         }
         .MainTextBlock-desktop { 
+            display: inherit;
+        }
+        .MainTextBlock-animation {
             display: inherit;
         }
     }
