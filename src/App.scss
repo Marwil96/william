@@ -36,7 +36,7 @@ a {
 .my-node-enter {
 	opacity: 0;
 	transform: translateY(100px);
-	transition: all 500ms;
+	// transition: all 500ms;x
 
 	&.CaseContainer {
 		opacity: 0;
@@ -54,14 +54,14 @@ a {
 .my-node-exit {
 	transform: translateY(0px);
 	opacity: 1;
-	transition: all 500ms;
+	// transition: all 500ms;
 }
 .my-node-exit-active {
 	opacity: 0;
 	transform: translateY(100px);
   transition: all 500ms;
 }
-  .animated-page-wrapper {
+.animated-page-wrapper {
     position: absolute;
     top: 62px;
     left: 0;

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import { Label, ProjectLink, MainTextBlock, ContactLink, BioBlock } from './common'
 import hairAnimation from '../images/Hair_Child2.gif';
+import momkaiImg from '../images/bio/momkai.png';
 
 
 import '../App.scss';
