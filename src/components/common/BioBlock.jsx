@@ -5,7 +5,19 @@ import momkaiImg from '../../images/bio/momkai.png';
 import gothenburgImg from '../../images/bio/gothenbur1.png';
 import knvbImg from '../../images/bio/knvb.png';
 
+let preRender = false;
+
+const imgArray = [momkaiImg, gothenburgImg, knvbImg]
+
 const BioBlock = (props) => {
+    if(preRender === false ) {
+        preRender = true;
+
+        imgArray.forEach((picture) => {
+            const img = new Image();
+            img.src = picture;
+        });
+    }
     return (
         <div className="BioBlock">
             <p>
