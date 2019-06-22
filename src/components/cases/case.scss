@@ -17,6 +17,7 @@
 
         .CaseContainer-TextWithImage {
             display: flex;
+            flex-direction: column;
             
             .TextBlock {
                 flex: 1;
@@ -24,7 +25,6 @@
 
             .LazyLoad {
                 flex:0.6;
-                margin-left: 32px;
             }
         }
 
@@ -67,6 +67,14 @@
         .CaseContainer-content {
             padding-left: 180px;
             padding-right: 180px;
+
+            .CaseContainer-TextWithImage {
+                flex-direction: row;
+            }
+
+            .LazyLoad {
+                margin-left: 32px;
+            }
 
             p {
                 font-size: 32px;

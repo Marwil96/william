@@ -42,7 +42,7 @@ class CaseContainer extends Component {
         return (
             <div className="CaseContainer">
                 <HelmetWrapper title='Akademiskahus - case by William Martinsson' description='Akademiskahus - case by William Martinsson' />
-                <CaseHeader category='UX-Research' title='Finding a balance between simplicity and versatility.' image={caseImage} />
+                <CaseHeader category='UX-Research & Design' title='Finding a balance between simplicity and versatility.' image={caseImage} />
 
                 <div className='CaseContainer-content'>
                     <MetadataContainer data={[{label:'Role', title:'UX & UI Design' }, {label:'Client', title:'Akademiska Hus' }, {label:'Type', title:'Student work' }]} />

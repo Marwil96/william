@@ -24,7 +24,7 @@ class CaseIndex extends Component {
             <ProjectLink link='barberbooking' label='Product development & Fullstack' title='Bookingsystem' imageUrl='' />
             <ProjectLink link='Akademiskahus' label='UI & UX Design' title='Akademiska hus' imageUrl='' />
             <ProjectLink link='CryptoTracker' label='Frontend development' title='Cryptotracker' imageUrl='' />
-            <ProjectLink link='https://marwil96.github.io/portfolio/#/project48H' label='Print' title='Second place at 48H' type='external' imageUrl='' />
+            <ProjectLink link='48H' label='Print & Communication' title='Second place at 48H' imageUrl='' />
             <ProjectLink link='https://marwil96.github.io/portfolio/#/projectKnowel#1' label='Fullstack development' title='Knowel' type='external' imageUrl='' />
             <ProjectLink link='https://marwil96.github.io/Lyricdisplay/' label='Frontend development' title='Lyricplatform' type='external' imageUrl='' />
             <ProjectLink link='https://marwil96.github.io/Dronelist/' label='Frontend development & Design' title='Dronelist' type='external' imageUrl='' />

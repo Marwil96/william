@@ -10,6 +10,7 @@ import Lab from './components/Lab';
 import CaseContainer from './components/cases/CaseContainer';
 import BarberBooking from './components/cases/BarberBooking';
 import CryptoTracker from './components/cases/CryptoTracker';
+import designCompetition from './components/cases/48H';
 import errorPage from './components/errorPage';
 
 import './App.scss';
@@ -163,6 +164,7 @@ class App extends Component {
                 <Route path="/case/Akademiskahus" component={CaseContainer} />
                 <Route path="/case/BarberBooking" component={BarberBooking} />
                 <Route path="/case/CryptoTracker" component={CryptoTracker} />
+                <Route path="/case/48H" component={designCompetition} />
                 <Route component={errorPage} />
                 {this.renderRedirect()}
               </Switch>
