@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
+import createHistory from 'history/createBrowserHistory';
+import ReactGA from 'react-ga';
 
 import { Header, ImagePreview } from './components/common'
 
@@ -16,6 +18,15 @@ import errorPage from './components/errorPage';
 import './App.scss';
 let introState = 0;
 
+ReactGA.initialize('UA-37970043-2'); //Unique Google Analytics tracking number
+
+const history = createHistory();
+
+history.listen((location, action) => {
+  ReactGA.set({ page: location.pathname });
+  ReactGA.pageview(location.pathname);
+});
+
 class App extends Component {
     
   state = {
@@ -23,6 +34,7 @@ class App extends Component {
     redirect: false,
     intro: 0
   }
+  
 
   setRedirect = () => {
     this.setState({
