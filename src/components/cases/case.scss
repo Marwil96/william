@@ -25,6 +25,10 @@
 
             .LazyLoad {
                 flex:0.6;
+                
+                @media screen and (min-width: 700px) {  
+                    margin-left: 32px;
+                }
             }
         }
 
@@ -70,10 +74,6 @@
 
             .CaseContainer-TextWithImage {
                 flex-direction: row;
-            }
-
-            .LazyLoad {
-                margin-left: 32px;
             }
 
             p {

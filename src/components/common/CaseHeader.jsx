@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import './common.scss'
 
 class CaseHeader extends Component {
-
+    
     componentDidMount() {
-        console.log('Woha')
-        setTimeout(
-        function() {
+        const img = new Image();
+        img.src = this.props.image;
+
+        setTimeout( () => {
             document.querySelector('.CaseHeader').classList.add('active')
-        }.bind(this), 100
+        }, 100
         )
     }
 

@@ -4,7 +4,6 @@ import { TextBlock, CaseImage, TextBlockHorizontal, CaseHeader, HelmetWrapper } 
 import MetadataContainer from '../containers/MetadataContainer'
 
 import caseImage from '../../images/skara.png'
-import caseImageExample from '../../images/caseImageExample.png'
 import margins from '../../images/akademiskahus/margins.png'
 import wireframe from '../../images/akademiskahus/wireframe.png'
 import onBoarding from '../../images/akademiskahus/Introduction.png'

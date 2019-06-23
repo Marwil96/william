@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-import createHistory from 'history/createBrowserHistory';
+
 import ReactGA from 'react-ga';
 
 import { Header, ImagePreview } from './components/common'
@@ -16,6 +16,9 @@ import designCompetition from './components/cases/48H';
 import errorPage from './components/errorPage';
 
 import './App.scss';
+
+const createHistory = require("history").createBrowserHistory;
+
 let introState = 0;
 
 ReactGA.initialize('UA-37970043-2'); //Unique Google Analytics tracking number

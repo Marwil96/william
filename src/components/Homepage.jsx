@@ -85,8 +85,10 @@ class Homepage extends Component {
           <span className="nudgeText">Is this nudging?</span>
         </div> */}
         <div className="blockContainer">
+          <Label label='How to find me' />
           <ContactLink link='mailto:marwil1996@gmail.com' label='Talk to me or exchange doggopics both works great.' title='Electronic mail' />
           <ContactLink link='https://www.github.com/marwil96' label='If you want to see my code.' title='Github' />
+          <ContactLink link='https://linkedin.com/in/william-martinsson-a24a3b111' label='So professional.' title='Linkedin' />
           {/* <ContactLink link='william' label='If you want to see cool design stuff.' title='Behance' /> */}
           {/* <ContactLink link='www.medium.com' label='If you want to see my unpublished articles.' title='Medium' /> */}
         </div>

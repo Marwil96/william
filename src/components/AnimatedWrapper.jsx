@@ -11,7 +11,6 @@ const AnimatedWrapper = WrappedComponent => class AnimatedWrapper
         };
     }
     componentWillAppear(cb) {
-        console.log('Woha')
         Animated.spring(this.state.animate, { toValue: 1 }).start();
         cb();
     }
