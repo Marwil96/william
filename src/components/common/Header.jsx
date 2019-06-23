@@ -14,6 +14,8 @@ const Header = (props) => {
     return (
         <div className="Header">
             <Link to='/' className='Header-logo'> William Martinsson </Link>
+
+            <a to='/' className='Header-logo' data-mouse-animation> Activate mouse animation </a>
             {/* {selectNavOption(window.location.pathname)} */}
         </div>
     )

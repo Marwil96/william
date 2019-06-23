@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 
+import renderMouseAnimation from './functions/mouseAnimation';
 import { Label, ProjectLink, MainTextBlock, ContactLink, BioBlock } from './common'
 import hairAnimation from '../images/Hair_Child2.gif';
 
@@ -12,6 +13,8 @@ class Homepage extends Component {
   state = {
     dreamString: ''
   }
+
+  
   componentDidMount() {
     let introState = this.props.runIntroAnimation(1);
     
@@ -21,6 +24,8 @@ class Homepage extends Component {
     this.randomDreamString()
 
     this.startIntroAnimation(introState)
+
+    this.mouseAnimation()
   }
 
   startIntroAnimation(introState) {
@@ -34,6 +39,12 @@ class Homepage extends Component {
       document.querySelector('.container').classList.remove('unactive')
       document.querySelector('.container').classList.remove('active')
     }
+  }
+
+  mouseAnimation() {
+    document.querySelector('[data-mouse-animation]').addEventListener('click', () => {
+      renderMouseAnimation()
+    })
   }
 
   randomDreamString() {
@@ -64,6 +75,7 @@ class Homepage extends Component {
   render() {
     return (
       <div className="container">
+        <canvas></canvas>
         <MainTextBlock 
             title={<span>Design driven developer.<br/> <span className='MainTextBlock-desktop'>Who works in the border between <br/> Design & Development.</span></span>}
             subtitle={<span>Currently working with the lovely design studio Momkai in central Amsterdam. <span className='MainTextBlock-animation'>{ this.state.dreamString}</span></span> }
