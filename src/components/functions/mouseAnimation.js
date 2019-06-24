@@ -6,7 +6,7 @@ const renderMouseAnimation = () => {
 
     canvas.classList.add('active');
     canvas.width = canvas.clientWidth;
-    canvas.height = (canvas.clientHeight / 2);
+    canvas.height = canvas.clientHeight;
 
     if(canvas.width > 750 ) {
         splatRadius = 0.05
@@ -620,9 +620,9 @@ const renderMouseAnimation = () => {
   }
   
   function resizeCanvas () {
-      if (canvas.width !== canvas.clientWidth || canvas.height !== (canvas.clientHeight / 2)) {
+      if (canvas.width !== canvas.clientWidth || canvas.height !== canvas.clientHeight) {
           canvas.width = canvas.clientWidth;
-          canvas.height = (canvas.clientHeight / 2);
+          canvas.height = canvas.clientHeight;
           initFramebuffers();
       }
   }
