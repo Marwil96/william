@@ -1,8 +1,16 @@
 const renderMouseAnimation = () => {
     const canvas =  document.querySelector('canvas');
+    let splatRadius = 0.005;
+
+    console.log('Starting Animation')
+
     canvas.classList.add('active');
     canvas.width = canvas.clientWidth;
-    canvas.height = canvas.clientHeight;
+    canvas.height = (canvas.clientHeight / 2);
+
+    if(canvas.width > 750 ) {
+        splatRadius = 0.05
+    } 
     
     let config = {
       TEXTURE_DOWNSAMPLE: 1,
@@ -11,7 +19,7 @@ const renderMouseAnimation = () => {
       PRESSURE_DISSIPATION: 0.8,
       PRESSURE_ITERATIONS: 25,
       CURL: 30,
-      SPLAT_RADIUS: 0.0005
+      SPLAT_RADIUS: splatRadius
   }
   
   let pointers = [];
@@ -612,65 +620,65 @@ const renderMouseAnimation = () => {
   }
   
   function resizeCanvas () {
-      if (canvas.width !== canvas.clientWidth || canvas.height !== canvas.clientHeight) {
+      if (canvas.width !== canvas.clientWidth || canvas.height !== (canvas.clientHeight / 2)) {
           canvas.width = canvas.clientWidth;
-          canvas.height = canvas.clientHeight;
+          canvas.height = (canvas.clientHeight / 2);
           initFramebuffers();
       }
   }
   
-  document.querySelector('body').addEventListener('mousemove', (e) => {
-      pointers[0].moved = pointers[0].down;
-      pointers[0].dx = (e.offsetX - pointers[0].x) * 10.0;
-      pointers[0].dy = (e.offsetY - pointers[0].y) * 10.0;
-      pointers[0].x = e.offsetX;
-      pointers[0].y = e.offsetY;
-  });
+//   document.querySelector('body').addEventListener('mousemove', (e) => {
+//       pointers[0].moved = pointers[0].down;
+//       pointers[0].dx = (e.offsetX - pointers[0].x) * 10.0;
+//       pointers[0].dy = (e.offsetY - pointers[0].y) * 10.0;
+//       pointers[0].x = e.offsetX;
+//       pointers[0].y = e.offsetY;
+//   });
   
-  document.querySelector('body').addEventListener('touchmove', (e) => {
-      e.preventDefault();
-      const touches = e.targetTouches;
-      for (let i = 0; i < touches.length; i++) {
-          let pointer = pointers[i];
-          pointer.moved = pointer.down;
-          pointer.dx = (touches[i].pageX - pointer.x) * 10.0;
-          pointer.dy = (touches[i].pageY - pointer.y) * 10.0;
-          pointer.x = touches[i].pageX;
-          pointer.y = touches[i].pageY;
-      }
-  }, false);
+//   document.querySelector('body').addEventListener('touchmove', (e) => {
+//       e.preventDefault();
+//       const touches = e.targetTouches;
+//       for (let i = 0; i < touches.length; i++) {
+//           let pointer = pointers[i];
+//           pointer.moved = pointer.down;
+//           pointer.dx = (touches[i].pageX - pointer.x) * 10.0;
+//           pointer.dy = (touches[i].pageY - pointer.y) * 10.0;
+//           pointer.x = touches[i].pageX;
+//           pointer.y = touches[i].pageY;
+//       }
+//   }, false);
   
-  document.querySelector('body').addEventListener('mousedown', () => {
-      pointers[0].down = true;
-      pointers[0].color = [Math.random() + 0.2, Math.random() + 0.2, Math.random() + 0.2];
-  });
+//   document.querySelector('body').addEventListener('mousedown', () => {
+//       pointers[0].down = true;
+//       pointers[0].color = [Math.random() + 0.2, Math.random() + 0.2, Math.random() + 0.2];
+//   });
   
-  document.querySelector('body').addEventListener('touchstart', (e) => {
-      e.preventDefault();
-      const touches = e.targetTouches;
-      for (let i = 0; i < touches.length; i++) {
-          if (i >= pointers.length)
-              pointers.push(new pointerPrototype());
+//   document.querySelector('body').addEventListener('touchstart', (e) => {
+//       e.preventDefault();
+//       const touches = e.targetTouches;
+//       for (let i = 0; i < touches.length; i++) {
+//           if (i >= pointers.length)
+//               pointers.push(new pointerPrototype());
   
-          pointers[i].id = touches[i].identifier;
-          pointers[i].down = true;
-          pointers[i].x = touches[i].pageX;
-          pointers[i].y = touches[i].pageY;
-          pointers[i].color = [Math.random() + 0.2, Math.random() + 0.2, Math.random() + 0.2];
-      }
-  });
+//           pointers[i].id = touches[i].identifier;
+//           pointers[i].down = true;
+//           pointers[i].x = touches[i].pageX;
+//           pointers[i].y = touches[i].pageY;
+//           pointers[i].color = [Math.random() + 0.2, Math.random() + 0.2, Math.random() + 0.2];
+//       }
+//   });
   
-  window.addEventListener('mouseup', () => {
-      pointers[0].down = false;
-  });
+//   window.addEventListener('mouseup', () => {
+//       pointers[0].down = false;
+//   });
   
-  window.addEventListener('touchend', (e) => {
-      const touches = e.changedTouches;
-      for (let i = 0; i < touches.length; i++)
-          for (let j = 0; j < pointers.length; j++)
-              if (touches[i].identifier === pointers[j].id)
-                  pointers[j].down = false;
-  });
+//   window.addEventListener('touchend', (e) => {
+//       const touches = e.changedTouches;
+//       for (let i = 0; i < touches.length; i++)
+//           for (let j = 0; j < pointers.length; j++)
+//               if (touches[i].identifier === pointers[j].id)
+//                   pointers[j].down = false;
+//   });
   };
 
   export default renderMouseAnimation;

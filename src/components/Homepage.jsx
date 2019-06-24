@@ -21,7 +21,7 @@ class Homepage extends Component {
     this.props.previewImageFunc()
     this.props.bioTargetHover()
 
-    this.randomDreamString()
+    // this.randomDreamString()
 
     this.startIntroAnimation(introState)
 
@@ -42,9 +42,31 @@ class Homepage extends Component {
   }
 
   mouseAnimation() {
-    document.querySelector('[data-mouse-animation]').addEventListener('click', () => {
-      renderMouseAnimation()
-    })
+    let animationState = 0;
+    let cachedAnimation = 0;
+    console.log(cachedAnimation)
+      document.querySelector('[data-mouse-animation]').addEventListener('click', () => {
+        if(animationState === 0 ){
+          animationState = 1;
+          document.querySelector('[data-mouse-animation]').innerText = 'Shut down smoke machine';
+          renderMouseAnimation()
+          
+          setTimeout(() => {
+            if(animationState === 1 && cachedAnimation !== 1) {
+              const canvas =  document.querySelector('canvas');
+              animationState = 0;
+              document.querySelector('[data-mouse-animation]').innerText = 'Activate smoke machine';
+              canvas.classList.remove('active');
+            }
+          }, 10000 )
+      } else {
+        animationState = 0;
+        cachedAnimation = 1;
+        const canvas =  document.querySelector('canvas');
+        document.querySelector('[data-mouse-animation]').innerText = 'Activate smoke machine';
+        canvas.classList.remove('active');
+      }
+      })
   }
 
   randomDreamString() {
