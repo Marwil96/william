@@ -9,7 +9,7 @@ const renderMouseAnimation = () => {
     canvas.height = canvas.clientHeight;
 
     if(canvas.width > 750 ) {
-        splatRadius = 0.05
+        splatRadius = 0.04
     } 
     
     let config = {
@@ -18,7 +18,7 @@ const renderMouseAnimation = () => {
       VELOCITY_DISSIPATION: 0.99,
       PRESSURE_DISSIPATION: 0.8,
       PRESSURE_ITERATIONS: 25,
-      CURL: 30,
+      CURL: 10,
       SPLAT_RADIUS: splatRadius
   }
   
