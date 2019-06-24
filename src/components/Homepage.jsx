@@ -100,7 +100,7 @@ class Homepage extends Component {
         <canvas></canvas>
         <MainTextBlock 
             title={<span>Design driven developer.<br/> <span className='MainTextBlock-desktop'>Who works in the border between <br/> Design & Development.</span></span>}
-            subtitle={<span>Currently working with the lovely design studio Momkai in central Amsterdam. <span className='MainTextBlock-animation'>{ this.state.dreamString}</span></span> }
+            subtitle={<span>Currently working with the lovely design studio Momkai in central Amsterdam. <span className='MainTextBlock-animation'>Dreaming about a world where everyone uses chrome.</span></span> }
         />
         <Label label='Right now...' />
         <a href='mailto:marwil1996@gmail.com' className="alertText">Available for freelance work and new opportunities.</a>
