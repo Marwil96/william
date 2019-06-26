@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 
-import renderMouseAnimation from './functions/mouseAnimation';
 import { Label, ProjectLink, MainTextBlock, ContactLink, BioBlock } from './common'
 import hairAnimation from '../images/Hair_Child2.gif';
 
@@ -24,8 +23,6 @@ class Homepage extends Component {
     // this.randomDreamString()
 
     this.startIntroAnimation(introState)
-
-    this.mouseAnimation()
   }
 
   startIntroAnimation(introState) {
@@ -39,34 +36,6 @@ class Homepage extends Component {
       document.querySelector('.container').classList.remove('unactive')
       document.querySelector('.container').classList.remove('active')
     }
-  }
-
-  mouseAnimation() {
-    let animationState = 0;
-    let cachedAnimation = 0;
-    console.log(cachedAnimation)
-      document.querySelector('[data-mouse-animation]').addEventListener('click', () => {
-        if(animationState === 0 ){
-          animationState = 1;
-          document.querySelector('[data-mouse-animation]').innerText = 'Shut down smoke machine';
-          renderMouseAnimation()
-          
-          setTimeout(() => {
-            if(animationState === 1 && cachedAnimation !== 1) {
-              const canvas =  document.querySelector('canvas');
-              animationState = 0;
-              document.querySelector('[data-mouse-animation]').innerText = 'Activate smoke machine';
-              canvas.classList.remove('active');
-            }
-          }, 10000 )
-      } else {
-        animationState = 0;
-        cachedAnimation = 1;
-        const canvas =  document.querySelector('canvas');
-        document.querySelector('[data-mouse-animation]').innerText = 'Activate smoke machine';
-        canvas.classList.remove('active');
-      }
-      })
   }
 
   randomDreamString() {
