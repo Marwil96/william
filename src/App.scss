@@ -1,6 +1,6 @@
 body {
-	margin: 0;
-  font-family: 'Inter';
+  margin: 0;
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif;;
   background: black;
 }
 
@@ -152,7 +152,7 @@ a {
 		text-decoration: underline;
 		margin-bottom: 12px;
 		margin-top: -4px;
-		font-family: 'swedish-sans';
+		font-family: 'swedish-sans', 'Helvetica Neue', Helvetica, sans-serif;;
 
 		@media screen and (min-width: 700px) { 
 			margin-bottom: 0;
