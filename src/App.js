@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import 'babel-polyfill'
 import { BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
