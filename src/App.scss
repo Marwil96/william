@@ -50,12 +50,22 @@ a {
 	&.CaseContainer {
 		opacity: 1;
 	}
+	&.container {
+		opacity: 1;
+	}
 }
 .my-node-exit {
 	transform: translateY(0px);
 	opacity: 1;
 	// transition: all 500ms;
 }
+
+.my-node-enter-done {
+	&.container {
+		opacity: 1;
+	}
+}
+
 .my-node-exit-active {
 	opacity: 0;
 	transform: translateY(100px);
@@ -77,42 +87,26 @@ a {
 	flex-direction: column;
 	padding-left:16px;
 	padding-bottom: 64px;
+	opacity: 0;
+	will-change: transform;
 
-	canvas {
-		display: none;
-		position: absolute;
-		height: calc(100% + 126px);
-		width: 100%;
-		margin-left: -16px;
-		margin-top: -126px;
-		user-select: unset;
-		z-index: -1;
-
-		@media screen and (min-width: 700px) {
-			width: 100%;
-			margin-left: -64px;
-		}
-		
-		&.active {
-			display: block;
-		}
+	&.active {
+		transform: translateY(0px)  matrix(1, 0, 0, 1, 0, 0);
+		opacity: 1;
+		transition: transform 550ms ease, opacity 500ms ease;
+		transition-delay: 300ms;
+		will-change: transform;
 	}
 
-		&.active {
-			transform: translateY(0px);
-			opacity: 1;
-			transition: all 500ms;
-		}
+	&.unactive {
+		opacity: 0;
+		transform: translateY(100px) matrix(0.99939, -0.09489, 0, 1, 0, 0);
+		transition: transform 500ms, opacity 500ms;
+	}
 
-		&.unactive {
-			opacity: 0;
-			transform: translateY(100px);
-			transition: all 500ms;
-		}
-
-		@media screen and (min-width: 700px) {
-			padding-left:64px;
-		}
+	@media screen and (min-width: 700px) {
+		padding-left:64px;
+	}
   }
 	
 	.blockContainer {

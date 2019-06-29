@@ -12,6 +12,7 @@ import CaseImage from './CaseImage.jsx';
 import ImageLoader from './ImageLoader.jsx';
 import CaseHeader from './CaseHeader.jsx';
 import HelmetWrapper from './HelmetWrapper.jsx';
+import Loader from './Loader.jsx';
 
 export { 
     Label, 
@@ -27,5 +28,6 @@ export {
     ImageLoader,
     TextBlockHorizontal,
     CaseHeader,
-    HelmetWrapper
+    HelmetWrapper,
+    Loader
 };
