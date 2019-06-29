@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+
+import ImageLoader from './ImageLoader'
 import './common.scss'
 
 class CaseHeader extends Component {
@@ -25,7 +27,7 @@ class CaseHeader extends Component {
                         </div> */}
                 </div>
                 {this.props.image && (
-                    <img alt='HeroImage' className='CaseHeader-heroImage' src={this.props.image} />
+                    <ImageLoader  alt='HeroImage' src={this.props.image} className="CaseHeader-heroImage" />
                 )}
             </div>
         )

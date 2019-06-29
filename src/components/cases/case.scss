@@ -14,7 +14,8 @@
         margin-right: auto;
         margin-left: auto;
         max-width: 1140px;
-
+        z-index: 2;
+        
         .CaseContainer-TextWithImage {
             display: flex;
             flex-direction: column;

@@ -33,7 +33,7 @@ class ImageLoader extends Component {
       : loadingClassName}`;
 
     return <img 
-              alt=''
+             alt={this.props.alt}
              src={this.props.src} 
              onClick={this.props.onClick} 
              className={className} 

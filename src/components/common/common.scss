@@ -437,7 +437,7 @@
 	flex-direction: column;
 	justify-content: center;
     background: black;
-    transition: all 450ms ease;
+	transition: all 450ms ease;
     // padding-left: 180px;
     
     &.active {
@@ -533,8 +533,16 @@
 		position: absolute;
 		right: 0;
 		height: inherit;
+		height: 70vh;
 		max-width: 70%;
 		object-fit: cover;
+		transform: translateX(100%);
+		transition: transform ease-in-out 650ms;
+		transition-delay: 800ms;
+
+		&.img-loaded {
+			transform: translateX(0);
+		}
     }
     
     @media screen and (min-width: 700px) { 
@@ -561,14 +569,30 @@
 	position: relative;
 	background: #F1C40F;
     margin-bottom: 64px;
-    margin-top: 20px;
+	margin-top: 20px;
+	overflow: hidden;
 
 	> img {
 		position: absolute;
 		top: 0;
 		left: 0;
 		width: 100%;
-		height: auto;
+		height: 100%;
+		transform: translateX(-100%);
+		transition: transform ease 450ms;
+		object-fit: contain;
+
+		&::after {
+			content: '';
+			background: white;
+			transform: scaleY(0.7);
+			transform-origin: top;
+			transition: 650ms ease all;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			z-index: 2;
+		}
 
 		@keyframes slideInImg {
 			from {
@@ -582,20 +606,11 @@
 		&.img-loading {
 			opacity: 0;
 			width: 100%;
-			height: auto;
+			// height: auto;
 		}
 
 		&.img-loaded {
-			animation: slideInImg ease-out;
-			position: absolute;
-			// opacity: 0;
-			object-fit: contain;
-			// object-fit: cover;
-			min-height: 100%;
-			max-height: 100%;
-			animation-fill-mode: forwards;
-			animation-duration: 600ms;
-			animation-delay: 0.1s;
+			transform: translateX(0);
 		}
 	}
 
