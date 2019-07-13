@@ -75,9 +75,9 @@ class Homepage extends Component {
         <a href='mailto:marwil1996@gmail.com' className="alertText">Available for freelance work and new opportunities.</a>
         <Label label='Handpicked cases' />
         <div className="blockContainer">
+          <ProjectLink link='MasterDigitalDesign' label='Frontend development' title='Amsterdam University' imageUrl='https://yeptrainingen.nl/wp-content/uploads/2016/03/hva.png' />
           <ProjectLink link='barberbooking' label='Product development & Fullstack' title='Bookingsystem' imageUrl={hairAnimation} />
           <ProjectLink link='Akademiskahus' label='UI & UX Design' title='Akademiska hus' imageUrl='https://www.liveinlab.kth.se/polopoly_fs/1.691639.1550148607!/image/AH_ppt.png' />
-          <ProjectLink link='CryptoTracker' label='Frontend development' title='Cryptotracker' imageUrl='http://pngimg.com/uploads/bitcoin/bitcoin_PNG47.png' />
           <Link className='link' to='/case'>Want to see more projects? </Link>
         </div>
         <Label label='A SHORT TEXT ABOUT ME' />

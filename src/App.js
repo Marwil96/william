@@ -11,6 +11,7 @@ import Homepage from './components/Homepage';
 import CaseIndex from './components/CaseIndex';
 import Lab from './components/Lab';
 import CaseContainer from './components/cases/CaseContainer';
+import MasterDigitalDesign from './components/cases/MasterDigitalDesign';
 import BarberBooking from './components/cases/BarberBooking';
 import CryptoTracker from './components/cases/CryptoTracker';
 import designCompetition from './components/cases/48H';
@@ -179,6 +180,7 @@ class App extends Component {
                 <Route exact path="/case" component={() => <CaseIndex previewImageFunc={this.onLinkHover} />} />
                 <Route path="/case/Akademiskahus" component={CaseContainer} />
                 <Route path="/case/BarberBooking" component={BarberBooking} />
+                <Route path="/case/MasterDigitalDesign" component={MasterDigitalDesign} />
                 <Route path="/case/CryptoTracker" component={CryptoTracker} />
                 <Route path="/case/48H" component={designCompetition} />
                 <Route component={errorPage} />

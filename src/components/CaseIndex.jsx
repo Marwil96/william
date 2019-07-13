@@ -23,6 +23,7 @@ class CaseIndex extends Component {
             <div className="blockContainer">
                 <ProjectLink link='barberbooking' label='Product development & Fullstack' title='Bookingsystem' imageUrl='' />
                 <ProjectLink link='Akademiskahus' label='UI & UX Design' title='Akademiska hus' imageUrl='' />
+                <ProjectLink link='MasterDigitalDesign' label='Frontend development' title='Master Digital Design' imageUrl='' />
                 <ProjectLink link='CryptoTracker' label='Frontend development' title='Cryptotracker' imageUrl='' />
                 <ProjectLink link='48H' label='Print & Communication' title='Second place at 48H' imageUrl='' />
                 <ProjectLink link='https://marwil96.github.io/portfolio/#/projectKnowel#1' label='Fullstack development' title='Knowel' type='external' imageUrl='' />
