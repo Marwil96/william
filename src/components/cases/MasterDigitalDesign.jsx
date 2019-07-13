@@ -17,7 +17,7 @@ class MasterDigitalDesign extends Component {
         return (
             <div className="CaseContainer CaseContainer--MasterDigitalDesign">
                 <HelmetWrapper title='Master Digital Design - case by William Martinsson' description='Alumnipage for Amsterdams university education Master Digital Design' />
-                <CaseHeader category='Front-end development' title="An alumnipage good enough for design students." />
+                <CaseHeader category='Front-end development' title="Alumnipage good enough for design students." />
 
                 <div className='CaseContainer-content'>
                     <MetadataContainer data={[{label:'Link', title:<a href='https://www.masterdigitaldesign.com/alumni'> Link to website</a> }, {label:'Type', title:'Client work' }, {label:'Role', title:'Frontend developer' }, {label:'Team', title:<a href='https://www.momkai.com/cases/masterdigitaldesign'>Momkai</a> }]} />
