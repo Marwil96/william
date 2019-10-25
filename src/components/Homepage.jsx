@@ -68,7 +68,7 @@ class Homepage extends Component {
       <div className="container">
         <MainTextBlock 
             title={<span>Design driven developer.<br/> <span className='MainTextBlock-desktop'>Who works on the border between <br/> Design & Development.</span></span>}
-            subtitle={<span>Currently working with the lovely design studio Momkai in central Amsterdam. <span className='MainTextBlock-animation'>Dreaming about a world where everyone uses chrome.</span></span> }
+            subtitle={<span>Currently freelancing from my home in the middle of Sweden. <span className='MainTextBlock-animation'>Dreaming about a world where everyone uses chrome.</span></span> }
         />
 
         <Label label='Right now...' />

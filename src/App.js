@@ -164,7 +164,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-      <Route  render={({ location }) => (
+      <Route render={({ location }) => (
         <div className="App">
           <Header path={this.state.pathname} />
           <ImagePreview image={this.state.previewImage} state={this.state.previewImageActive} />
