@@ -6,9 +6,33 @@ import Layout from "../components/layout"
 
 const Project = ({ data: { prismicProject } }) => {
   const { data } = prismicProject;
+
+  let options = {
+    rootMargin: '0px',
+    threshold: 0.5
+  }
+  let observer = new IntersectionObserver(callback, options);
+
+  function callback (entries, observer){ 
+
+    entries.forEach(entry => {
+      if (entry.intersectionRatio > 0) {
+
+        // Stop watching and load the image
+        observer.unobserve(entry.target);
+        entry.target.classList.add('in-view')
+        console.log(entry.target)
+      }
+    });
+  };
   
   useEffect(() => {
     document.querySelector('.pageheader').classList.add('pageheader__animated')
+    
+    const targetArray = document.querySelectorAll('.block-img');
+    Array.from(targetArray).map((element) => {
+      observer.observe(element);
+    })
   }, []);
 
   return (

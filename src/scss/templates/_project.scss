@@ -7,6 +7,20 @@
     color: black;
     width: 100vw;
 
+    .block-img {
+      img {
+        transform: scale(0.8);
+        transition: transform ease 900ms;
+        will-change: transform;
+      }
+
+      &.in-view {
+        img {
+          transform: scale(1);
+        }
+      }
+    }
+
     h5, h3, p, img {
       max-width: 100rem;
     }

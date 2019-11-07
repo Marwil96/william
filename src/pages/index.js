@@ -62,10 +62,10 @@ const IndexPage = () => {
     img.classList.remove('active')
     text.classList.remove('faded')
 
-    setTimeout(() => {
-      img.src = ''
-    },150
-  );
+  //   setTimeout(() => {
+  //     img.src = ''
+  //   },450
+  // );
     
   }
 

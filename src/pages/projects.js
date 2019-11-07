@@ -5,10 +5,11 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const Projects = () => {
-
+  
   useEffect(() => {
     document.querySelector('.homepage').classList.add('homepage__animated')
   }, []);
+  
 
   const data = useStaticQuery(graphql`
     {
