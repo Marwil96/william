@@ -4,10 +4,6 @@ import { graphql } from "gatsby"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 
-if (typeof IntersectionObserver === `undefined`) {
-  await import(`intersection-observer`);
-}
-
 const Project = ({ data: { prismicProject } }) => {
   const { data } = prismicProject;
   
