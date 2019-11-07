@@ -1,17 +1,65 @@
 .homepage {
-    // transform: translateY(20rem);
-    transform: matrix(1, -0.3, 0.5, 1, 0, 600);
+    transform: translateY(20rem);
+    // transform: matrix(1, -0.3, 0.5, 1, 0, 600);
     opacity: 0;
-    transition: all ease 1100ms;
+    transition: all ease 850ms;
     will-change: transform;
+    
 
   &__animated {
     transform: translateY(0rem);
-    transform: matrix(1, 0, 0, 1, 0, 0);
+    // transform: matrix(1, 0, 0, 1, 0, 0);
     opacity: 1;
   }
 
+  &__animated-out {
+    .homepage__animatedblock {
+      background: #0b0a09;
+      top: 0;
+      transform: translateY(-5rem);
+    }
+  }
+
+  &__animatedblock {
+    background: #0b0a09;
+    width: calc(100vw - 5rem);
+    top: 0;
+    transform: translateY(calc(-5rem + -100%));
+    height: 100%;
+    transition: transform linear 1150ms;
+    position: fixed;
+    z-index: 10000;
+  }
+
+  &__imageblock {
+    max-width: 80%;
+    width: 500px;
+    position: sticky;
+    margin-left: 22vw;
+    top: 30vh;
+    z-index: -1;
+    opacity: 0;
+    -webkit-transform: matrix(.99939,-.09489,0,1,0,-30);
+    transform: matrix(.99939,-.09489,0,1,0,-30);
+    transition: all 450ms ease;
+
+    @include respond(phone) {
+      margin-left: 10vw;
+    }
+
+    &.active {
+      transform: matrix(1,0,0,1,0,0);
+      opacity: 1;
+    }
+  }
+
   section {
+    margin-bottom: 6.4rem;
+  }
+
+  &__big-title {
+    font-size: 6.4rem;
+    max-width: 100rem;
     margin-bottom: 6.4rem;
   }
 
@@ -39,9 +87,27 @@
     display: block;
     border-bottom: 1px solid white;
     max-width: fit-content;
+    margin-right: 16px;
+  }
+
+  .projectSection {
+    &__link {
+      border-bottom: 1px solid white;
+    }
   }
 
   .projectlink { 
+    background: none;
+    border: none;
+    color: white;
+    text-align: left;
+    cursor: pointer;
+    display: block;
+
+    &:focus {
+      outline: none;
+    }
+
     &__title {
       font-size: 3.2rem;
       transition: opacity ease 350ms;
@@ -67,5 +133,36 @@
 
   .biosection {
     max-width: 960px;
+    z-index: 10;
+    color: $color-white;
+    transition: color ease 450ms;
+
+    &.faded {
+      color: #faebd700;
+      border-bottom: none;
+
+      span {
+        border-bottom: 1px solid #faebd700;
+        &:hover {
+          color: $color-white;
+          border-bottom: 1px solid white;
+  
+        }
+      }
+    }
+
+    &__hover-item {
+      border-bottom: 1px solid white;
+      z-index: 10000;
+      // color: $color-white;
+      font-weight: 700;
+      cursor: pointer;
+
+      &:hover {
+        color: $color-white;
+        border-bottom: 1px solid white;
+
+      }
+    }
   }
 }

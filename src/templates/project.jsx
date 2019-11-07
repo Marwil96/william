@@ -11,8 +11,8 @@ const Project = ({ data: { prismicProject } }) => {
   return (
     <Layout modifier='project'>
       <section className='pageheader'>
-        <h3 className='pageheader__category'>Frontend Development</h3>
-        <h1 className='pageheader__title'>Alumnipage good enough for design students.</h1>
+        <h3 className='pageheader__category'>{data.category.text}</h3>
+        <h1 className='pageheader__title'>{data.title.text}</h1>
       </section>
       <main className='content'>
         <div className='content__container'>
@@ -21,11 +21,14 @@ const Project = ({ data: { prismicProject } }) => {
               <h6 className='summary__title'>Goal</h6>
               <span className='summary__value'>Create a new interface.</span>
             </div>
-
-            <div className='summary__item'>
-              <h6 className='summary__title'>Role</h6>
-              <span className='summary__value'>Front-end developer.</span>
-            </div>
+            {data.summary.map((item) => {
+              return (
+                <div className='summary__item'>
+                  <h6 className='summary__title'>{item.summary_title.text}</h6>
+                  <span className='summary__value'>{item.summary_value.text}</span>
+                </div>
+              )
+            })}
           </section>
           <div dangerouslySetInnerHTML={{ __html: data.project_content.html }} />
         </div>
@@ -51,7 +54,7 @@ export const pageQuery = graphql`
         }
         summary {
           summary_title {
-            html
+            text
           }
           summary_value {
             text
