@@ -21,15 +21,11 @@ const Project = ({ data: { prismicProject } }) => {
       <main className='content'>
         <div className='content__container'>
           <section className='summary'>
-            <div className='summary__item'>
-              <h6 className='summary__title'>Goal</h6>
-              <span className='summary__value'>Create a new interface.</span>
-            </div>
             {data.summary.map((item) => {
               return (
                 <div className='summary__item'>
                   <h6 className='summary__title'>{item.summary_title.text}</h6>
-                  <span className='summary__value'>{item.summary_value.text}</span>
+                  <span className='summary__value'  dangerouslySetInnerHTML={{ __html: item.summary_value.html }}></span>
                 </div>
               )
             })}
@@ -62,6 +58,7 @@ export const pageQuery = graphql`
           }
           summary_value {
             text
+            html
           }
         }
         category {
