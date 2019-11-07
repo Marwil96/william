@@ -12,7 +12,6 @@ const Project = ({ data: { prismicProject } }) => {
     rootMargin: '0px',
     threshold: 0.5
   }
-  let observer = new IntersectionObserver(callback, options);
 
   function callback (entries, observer){ 
 
@@ -29,8 +28,10 @@ const Project = ({ data: { prismicProject } }) => {
   
   useEffect(() => {
     document.querySelector('.pageheader').classList.add('pageheader__animated')
-    
     const targetArray = document.querySelectorAll('.block-img');
+
+    let observer = new IntersectionObserver(callback, options); 
+    
     Array.from(targetArray).map((element) => {
       observer.observe(element);
     })
