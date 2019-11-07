@@ -1,5 +1,5 @@
 import React, {useEffect} from "react"
-import { Link, useStaticQuery, graphql, navigate } from "gatsby"
+import { useStaticQuery, graphql, navigate } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -60,7 +60,6 @@ const Projects = () => {
             </button>
           )
         })}
-        <Link className='projectSection__link' to='/projects'>Want to see more projects? </Link>
       </section>
     </Layout>
   )
