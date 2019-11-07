@@ -1,6 +1,9 @@
 import React,{useEffect} from "react"
 import { graphql } from "gatsby"
+
+import SEO from "../components/seo"
 import Layout from "../components/layout"
+
 const Project = ({ data: { prismicProject } }) => {
   const { data } = prismicProject;
   
@@ -10,6 +13,7 @@ const Project = ({ data: { prismicProject } }) => {
 
   return (
     <Layout modifier='project'>
+      <SEO title={`${data.project_name.text} - William Martinsson - Freelancing Digital Designer & Developer from Gothenburg.`} description={`${data.category.text} - ${data.title.text} - Freelancing Digital Designer & Developer from Gothenburg.`}/>
       <section className='pageheader'>
         <h3 className='pageheader__category'>{data.category.text}</h3>
         <h1 className='pageheader__title'>{data.title.text}</h1>

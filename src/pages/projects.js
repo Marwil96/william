@@ -45,7 +45,8 @@ const Projects = () => {
 
   return (
     <Layout modifier='homepage'>
-      <SEO title="Page two" />
+    
+      <SEO title='William Martinsson - Freelancing Digital Designer & Developer from Gothenburg.' description="Nice to meet you! I'm an educated designer with experience working as and frontend developer. Currently freelancing from my home in the middle of Sweden."/>
       <div className='homepage__animatedblock'></div>
       <h1 className='homepage__big-title'>Bookshelf full of random projects.</h1>
       <section className='projectSection'>

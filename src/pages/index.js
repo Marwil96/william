@@ -2,7 +2,6 @@ import React, {useEffect} from "react"
 import { Link, useStaticQuery, graphql, navigate } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 import "../scss/main.scss"
 
@@ -49,7 +48,6 @@ const IndexPage = () => {
     const img = document.querySelector('.homepage__imageblock')
     const text = document.querySelector('.biosection')
 
-    console.log(e.currentTarget.id, 'HOVER')
 
     img.src = e.currentTarget.id
     text.classList.add('faded')
@@ -61,16 +59,21 @@ const IndexPage = () => {
     const img = document.querySelector('.homepage__imageblock')
     const text = document.querySelector('.biosection')
 
-    img.src = ''
     img.classList.remove('active')
     text.classList.remove('faded')
+
+    setTimeout(() => {
+      img.src = ''
+    },150
+  );
     
   }
 
   return (
     <Layout modifier='homepage'>
+      <SEO title='William Martinsson - Freelancing Digital Designer & Developer from Gothenburg.' description="Nice to meet you! I'm an educated designer with experience working as and frontend developer. Currently freelancing from my home in the middle of Sweden."/>
       <div className='homepage__animatedblock'></div>
-      <img className='homepage__imageblock' src=''/>
+      <img className='homepage__imageblock' src='' alt='displays images when hovering over text'/>
       <section className="introduction">
         <h1 className='introduction__title'>Nice to meet you!</h1>
         <span className='introduction__subtitle'>I'm an educated designer that primarily works with frontend development. Currently freelancing from my home in the middle of Sweden.</span>

@@ -1,5 +1,4 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
+import { Link, navigate } from "gatsby"
 import React, {useEffect} from "react"
 
 const Header = () => {
@@ -8,19 +7,24 @@ const Header = () => {
     document.querySelector('.header').classList.add('header__animated')
   }, []);
 
+  const clickEventHandler = () => {
+    if(window.location.pathname.split('/')[1] === 'projects' & window.location.pathname.split('/').length > 2) {
+      document.querySelector('.pageheader').classList.remove('pageheader__animated');
+
+      setTimeout(() => {
+        navigate('/')
+      },1000
+    );
+    } else {
+      navigate('/')
+    }
+  }
+
   return (
     <header className='header'>
-      <Link to='/' className='header__logo'>william martinsson</Link>
+      <span onClick={clickEventHandler} className='header__logo'>william martinsson</span>
     </header>
   )
-}
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
 }
 
 export default Header

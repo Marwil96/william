@@ -50,6 +50,11 @@
     will-change: transform;
     will-change: padding;
 
+    @include respond(phone) {
+      padding-bottom: 29rem;
+      padding-top: 29rem;
+    }
+    
     &__animated {
       padding: 14rem 7rem;
       @include mainContainer-x;
@@ -68,6 +73,10 @@
       transform: translate(-200px, 0px);
       transition: all ease 450ms;
       transition-delay: 200ms;
+
+      @include respond(phone) {
+        font-size: 5.2rem;
+      }
     }
 
     &__category {
@@ -83,11 +92,21 @@
     display: flex;
     width: 100%;
     margin-bottom: 6.2rem;
+    @include respond(phone) {
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
 
     &__item {
       display: flex;
       flex-direction: column;
       margin-right: 2.4rem;
+
+      @include respond(phone) {
+        min-width: 30%;
+        margin-bottom: 1.6rem;
+        margin-right: 0;
+      }
     }
 
     &__title {
