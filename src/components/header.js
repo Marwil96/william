@@ -1,4 +1,4 @@
-import { Link, navigate } from "gatsby"
+import { navigate } from "gatsby"
 import React, {useEffect} from "react"
 
 const Header = () => {
