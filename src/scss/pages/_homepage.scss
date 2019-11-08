@@ -36,11 +36,11 @@
   }
 
   &__imageblock {
-    max-width: 80%;
-    width: 500px;
+    max-width: 50%;
+    // width: 500px;
     position: sticky;
     position: -webkit-sticky;
-    display: -webkit-box;
+    display: block;
     margin-left: 22vw;
     top: 30vh;
     z-index: -1;
@@ -51,6 +51,7 @@
 
     @include respond(phone) {
       margin-left: 10vw;
+      max-width: 80%;
     }
 
     &.active {
@@ -73,9 +74,9 @@
   .introduction {
     margin-bottom: 6.4rem;
 
-    @include respond(phone) {
-      margin-top: -6.4rem;
-    }
+    // @include respond(phone) {
+    //   margin-top: -6.4rem;
+    // }
 
     &__title {
       font-size: 4rem;
