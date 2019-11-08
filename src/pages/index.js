@@ -85,7 +85,7 @@ const IndexPage = () => {
       </section>
       
       <section className='projectSection'>
-        <h5 className="Label">Handpicked cases.</h5>
+        <h5 className="Label">Selected projects.</h5>
 
         {dataArray.map((item) => {
           return (
