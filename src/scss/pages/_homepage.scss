@@ -39,6 +39,8 @@
     max-width: 80%;
     width: 500px;
     position: sticky;
+    position: -webkit-sticky;
+    display: -webkit-box;
     margin-left: 22vw;
     top: 30vh;
     z-index: -1;
@@ -81,13 +83,21 @@
       display: block;
       font-weight: 500;
       margin-bottom: 6px;
+
+      @include respond(phone) {
+        font-size: 3.2rem;
+      }
     }
     
     &__subtitle {
-      font-family: swedensans;
-      font-size: 2.2rem;
+      font-family: swedensans, Sans-serif;
+      font-size: 2rem;
       max-width: 64rem;
       display: block;
+
+      @include respond(phone) {
+        font-size: 1.8rem;
+      }
     }
   }
 
@@ -125,7 +135,7 @@
 
     &__category {
       font-size: 1.4rem;
-      font-family: swedensans;
+      font-family: swedensans, Sans-serif;
       transition: opacity ease 350ms;
     }
 

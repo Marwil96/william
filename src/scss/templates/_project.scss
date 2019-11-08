@@ -94,7 +94,7 @@
     }
 
     &__category {
-      font-family: swedensans;
+      font-family: swedensans, Sans-serif;
       font-size: 1.6rem;
       opacity: 0;
       transform: translate(-200px, 0px);
@@ -131,10 +131,10 @@
     &__value {
       font-size: 2rem;
       font-weight: 300;
-      font-family: swedensans;
+      font-family: swedensans, Sans-serif;
 
       p, a {
-        font-family: swedensans;
+        font-family: swedensans, Sans-serif;
         color: $color-oil;
         margin-bottom: 0;
       }

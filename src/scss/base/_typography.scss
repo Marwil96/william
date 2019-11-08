@@ -17,7 +17,7 @@ body {
   }
 
   h1, h2, h3, h4, h5, span, a, p {
-    font-family: Inter;
+    font-family: Inter, Sans-serif;
   }
 
   h5 {
@@ -26,6 +26,7 @@ body {
     font-weight: 800;
     text-transform: uppercase;
     margin-bottom: 1.2rem;
+    font-family: Inter, Sans-serif;
   }
 
   .heading-1 {
