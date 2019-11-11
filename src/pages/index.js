@@ -12,7 +12,7 @@ const IndexPage = () => {
 
   const data = useStaticQuery(graphql`
     {
-      allPrismicProject(filter: {tags: {eq: "featured"}}) {
+      allPrismicProject(filter: {tags: {eq: "featured"}}, sort: {fields: last_publication_date}) {
         edges {
           node {
             data {
