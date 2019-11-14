@@ -107,7 +107,7 @@ const IndexPage = () => {
 
         <br/><br/>- I'm a football fan, so my weekly mood is way to often depended on the way <span onMouseOver={hoverEventHandlerEnter} onMouseLeave={hoverEventHandlerLeave} className='biosection__hover-item' id='https://images.prismic.io/williammartinsson/d5932932-df5b-4427-9370-d40f06b7bae0_arsenal.jpg?auto=compress,format'>Arsenal</span> played during the weekend. 
 
-        <br/><br/>- My hometown does not only house cannibals it also houses the northern hemispheres biggest waterpark where I worked as a mascot, a <span onMouseOver={hoverEventHandlerEnter} onMouseLeave={hoverEventHandlerLeave} className='biosection__hover-item' id='https://images.prismic.io/williammartinsson/1b8a4e5e-4d84-4c71-9289-b0f6bcb4a7a3_sommarland.jpg?auto=compress,format'>squirrel mascot</span> for two summers.
+        <br/><br/>- My hometown houses the northern hemispheres biggest waterpark where I worked as a mascot, a <span onMouseOver={hoverEventHandlerEnter} onMouseLeave={hoverEventHandlerLeave} className='biosection__hover-item' id='https://images.prismic.io/williammartinsson/1b8a4e5e-4d84-4c71-9289-b0f6bcb4a7a3_sommarland.jpg?auto=compress,format'>squirrel mascot</span> for two summers.
 
         <br/><br/>- I'm an avid science fiction and fantasy reader. My favorites books are Lord of the rings and God bless you, Mr. Rosewater by <span onMouseOver={hoverEventHandlerEnter} onMouseLeave={hoverEventHandlerLeave} className='biosection__hover-item' id='https://images.prismic.io/williammartinsson/08e09fa4-c8b3-4a9b-ba6f-76c48112758e_vonnegut.jpg?auto=compress,format'>Kurt Vonnegut</span>.
         </p>
