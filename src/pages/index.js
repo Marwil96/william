@@ -71,7 +71,7 @@ const IndexPage = () => {
 
   return (
     <Layout modifier='homepage'>
-      <SEO title='William Martinsson - Freelancing Digital Designer & Developer from Göteborg.' description="Nice to meet you! I'm an educated designer with experience working as and frontend developer. Currently freelancing from my home in the middle of Sweden."/>
+      <SEO title='William Martinsson - Freelancing developer from Göteborg. - Digital Designer - Utvecklare' description="Nice to meet you! I'm an educated designer with experience working as and frontend developer. Currently freelancing from my home in the middle of Sweden."/>
       <div className='homepage__animatedblock'></div>
       <img className='homepage__imageblock' src='' alt='displays images when hovering over text'/>
       <section className="introduction">

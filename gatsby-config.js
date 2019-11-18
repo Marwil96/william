@@ -4,8 +4,8 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `William Martinsson - Freelancing Digital Designer & Developer from Göteborg.`,
-    description: `Nice to meet you! I'm an educated designer with experience working as and frontend developer. Currently freelancing from my home in the middle of Sweden.`,
+    title: `William Martinsson - Freelancing developer from Göteborg.`,
+    description: `Hey, I'm William Martinsson. I'm a creator of websites, apps, and digital products. Sometimes I develop them other times I design them but usually, I do both. Currently freelancing from my home in the middle of Sweden.`,
     author: `@William Martinsson`,
   },
   plugins: [
