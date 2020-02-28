@@ -7,10 +7,12 @@ module.exports = {
     title: `William Martinsson - Freelancing developer from Göteborg.`,
     description: `Hey, I'm William Martinsson. I'm a creator of websites, apps, and digital products. Sometimes I develop them other times I design them but usually, I do both. Currently freelancing from my home in the middle of Sweden.`,
     author: `@William Martinsson`,
+    siteUrl: `https://williammartinsson.work`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
