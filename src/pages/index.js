@@ -10,27 +10,25 @@ const IndexPage = () => {
     document.querySelector('.homepage').classList.add('homepage__animated')
   }, []);
 
-  const data = useStaticQuery(graphql`
-    {
-      allPrismicProject(filter: {tags: {eq: "featured"}}, sort: {fields: last_publication_date, order: DESC}) {
-        edges {
-          node {
-            data {
-              project_name {
-                text
-              }
-              category {
-                text
-              }
-            }
-            slugs
-          }
-        }
-      }
-    }
-  `)
+ const data = useStaticQuery(graphql`
+   {
+     prismic {
+       allProjects(tags: "featured", sortBy: meta_lastPublicationDate_DESC) {
+         edges {
+           node {
+             category
+             _meta {
+               uid
+             }
+             project_name
+           }
+         }
+       }
+     }
+   }
+ `)
 
-  const dataArray = data.allPrismicProject.edges;
+  const dataArray = data.prismic.allProjects.edges
 
   const clickHandler = (e) => {
     console.log(e.currentTarget.id)
@@ -89,9 +87,9 @@ const IndexPage = () => {
 
         {dataArray.map((item) => {
           return (
-            <button className='projectlink' onClick={clickHandler} id={`projects/${item.node.slugs[0]}`} >
-              <span className='projectlink__category'>{item.node.data.category.text}</span>
-              <h3 className='projectlink__title'>{item.node.data.project_name.text}</h3>
+            <button className='projectlink' onClick={clickHandler} id={`projects/${item.node._meta.uid}`} >
+              <span className='projectlink__category'>{item.node.category[0].text}</span>
+              <h3 className='projectlink__title'>{item.node.project_name[0].text}</h3>
             </button>
           )
         })}

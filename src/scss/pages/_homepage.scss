@@ -130,7 +130,8 @@
     color: white;
     text-align: left;
     cursor: pointer;
-    display: block;
+    display: flex;
+    flex-direction: column;
 
     &:focus {
       outline: none;
@@ -143,9 +144,10 @@
     }
 
     &__category {
-      font-size: 1.4rem;
-      font-family: swedensans, Sans-serif;
+      font-size: 1.8rem;
+      font-family: Inconsolata, Sans-serif;
       transition: opacity ease 350ms;
+      margin-bottom: 0.2rem;
     }
 
     &:hover {

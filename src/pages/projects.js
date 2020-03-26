@@ -13,18 +13,16 @@ const Projects = () => {
 
   const data = useStaticQuery(graphql`
     {
-      allPrismicProject {
-        edges {
-          node {
-            data {
-              project_name {
-                text
+      prismic {
+        allProjects {
+          edges {
+            node {
+              project_name
+              _meta {
+                uid
               }
-              category {
-                text
-              }
+              category
             }
-            slugs
           }
         }
       }
@@ -42,7 +40,7 @@ const Projects = () => {
       },1000
     );
   }
-  const dataArray = data.allPrismicProject.edges;
+  const dataArray = data.prismic.allProjects.edges
 
   return (
     <Layout modifier='homepage'>
@@ -55,9 +53,18 @@ const Projects = () => {
 
         {dataArray.map((item) => {
           return (
-            <button className='projectlink' onClick={clickHandler} id={`projects/${item.node.slugs[0]}`} >
-              <span className='projectlink__category'>{item.node.data.category.text}</span>
-              <h3 className='projectlink__title'>{item.node.data.project_name.text}</h3>
+            <button
+              className="projectlink"
+              onClick={clickHandler}
+              id={`projects/${item.node._meta.uid}`}
+            >
+              <span className="projectlink__category">
+                {item.node.category[0].text}
+              </span>
+              
+              <h3 className="projectlink__title">
+                {item.node.project_name[0].text}
+              </h3>
             </button>
           )
         })}
