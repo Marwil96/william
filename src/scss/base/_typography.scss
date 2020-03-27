@@ -1,13 +1,3 @@
-@font-face {
-  font-family: 'Inter';
-  src: '../../utils/Inter-V.otf';
-}
-
-@font-face {
-  font-family: 'swedensans';
-  src: '../../utils/swedensans-webfont.woff2';
-}
-
 body {
     font-family: 'Inter', sans-serif, 'Lato', sans-serif;
     font-weight: 400;
@@ -25,8 +15,9 @@ body {
     // font-weight: 700;
     font-weight: 800;
     text-transform: uppercase;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.6rem;
     font-family: Inter, Sans-serif;
+    letter-spacing: 0.3rem;
   }
 
   .heading-1 {
@@ -60,7 +51,7 @@ body {
   }
 
   .swedensans {
-    font-family: swedensans;
+    font-family: Inconsolata;
   }
   
   .paragraph {

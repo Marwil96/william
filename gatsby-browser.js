@@ -4,3 +4,6 @@ exports.onClientEntry = async () => {
     console.log(`👍 IntersectionObserver is polyfilled`)
   }
 };
+
+require("typeface-inter")
+require("typeface-inconsolata")
