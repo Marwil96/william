@@ -1,34 +1,14 @@
 import React, {useEffect} from "react"
-import { useStaticQuery, graphql, navigate } from "gatsby"
+import { graphql, navigate } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const Projects = () => {
-  
+const Projects = ({data}) => {
   useEffect(() => {
     document.querySelector('.homepage').classList.add('homepage__animated')
   }, []);
   
-
-  const data = useStaticQuery(graphql`
-    {
-      prismic {
-        allProjects {
-          edges {
-            node {
-              project_name
-              _meta {
-                uid
-              }
-              category
-            }
-          }
-        }
-      }
-    }
-  `)
-
   const clickHandler = (e) => {
     console.log(e.currentTarget.id)
     const route = e.currentTarget.id
@@ -72,5 +52,23 @@ const Projects = () => {
     </Layout>
   )
 }
+
+export const query = graphql`
+    {
+      prismic {
+        allProjects {
+          edges {
+            node {
+              project_name
+              _meta {
+                uid
+              }
+              category
+            }
+          }
+        }
+      }
+    }
+  `
 
 export default Projects
