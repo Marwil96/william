@@ -1,5 +1,5 @@
 import React,{useEffect} from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql } from "gatsby"
 import { RichText } from 'prismic-reactjs';
 
 import SEO from "../components/seo"

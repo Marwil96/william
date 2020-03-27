@@ -4,7 +4,7 @@ import React, {useEffect} from "react"
 const Header = () => {
 
   useEffect(() => {
-    document.querySelector('.header').classList.add('header__animated')
+    // document.querySelector('.header').classList.add('header__animated')
   }, []);
 
   const clickEventHandler = () => {
@@ -21,8 +21,8 @@ const Header = () => {
   }
 
   return (
-    <header className='header'>
-      <span onClick={clickEventHandler} className='header__logo'>william martinsson</span>
+    <header className='header header__animated'>
+      <span onClick={clickEventHandler} className='header__logo '>william martinsson</span>
     </header>
   )
 }
