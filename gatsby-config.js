@@ -31,22 +31,8 @@ module.exports = {
       options: {
         repositoryName: 'williammartinsson', // required
         accessToken: `${process.env.API_KEY}`, // optional
-        // pages: [{ // optional
-        //   type: 'projects', // TypeName from prismic
-        //   match: '/projects/:uid', // pages will be generated under this pattern (optional)
-        //   path: '/projects', // placeholder page for unpublished documents
-        //   component: require.resolve('./src/templates/project.jsx'),
-        // }],
       }
     },
-    // {
-    //   resolve: `gatsby-source-prismic`,
-    //   options: {
-    //     repositoryName: `williammartinsson`,
-    //     accessToken: `${process.env.API_KEY}`,
-    //     linkResolver: ({ node, key, value }) => post => `/${post.uid}`,
-    //   },
-    // },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
