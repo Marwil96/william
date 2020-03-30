@@ -71,10 +71,11 @@
     @include mainContainer-x;
     flex-direction: column;
     padding: 25rem 7rem;
-    transition: padding ease 550ms;
+    transition: padding 550ms ease, height 450ms ease;
     transition-delay: 600ms;
     will-change: transform;
     will-change: padding;
+    // height: 100vh;
 
     @include respond(phone) {
       padding-bottom: 29rem;
@@ -84,6 +85,12 @@
     &__animated {
       padding: 14rem 7rem;
       @include mainContainer-x;
+      height: auto;
+
+      @include respond(phone) {
+        padding-top: 7rem;
+        padding-bottom: 7rem;
+      }
 
       h3,h1 {
         opacity: 1;
