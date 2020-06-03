@@ -14,6 +14,12 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-sitemap`,
     {
+    resolve: 'simple-analytics-gatsby-plugin',
+    options: {
+      trackPageViews: true
+      }
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
