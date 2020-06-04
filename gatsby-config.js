@@ -14,10 +14,10 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-sitemap`,
     {
-    resolve: 'simple-analytics-gatsby-plugin',
-    options: {
-      trackPageViews: true
-      }
+      resolve: "gatsby-plugin-simple-analytics",
+      options: {
+        trackPageViews: true,
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -33,11 +33,11 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-source-prismic-graphql',
+      resolve: "gatsby-source-prismic-graphql",
       options: {
-        repositoryName: 'williammartinsson', // required
+        repositoryName: "williammartinsson", // required
         accessToken: `${process.env.API_KEY}`, // optional
-      }
+      },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
