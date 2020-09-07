@@ -14,6 +14,17 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-styled-components`,
-    `gatsby-plugin-sass`
+    `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Inter`,
+            variants: [`300`, `400`, `500`, `600`, `700`],
+          },
+        ],
+      },
+    },
   ],
 }

@@ -2,7 +2,7 @@ import React from "react"
 
 const IndexPage =() => {
   return (
-    <h3>Hey You All</h3>
+    <h3 style={{fontFamily:'Inter'}}>Hey You All</h3>
   )
 }
 
