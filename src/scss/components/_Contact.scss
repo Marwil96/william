@@ -1,0 +1,74 @@
+.Contact {
+  background: #ECE7DA;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 23rem 0;
+  padding-bottom: 16rem;
+
+  &__title {
+    font-size: 5.4rem;
+    font-weight: 500;
+    margin-bottom: 1.6rem;
+  }
+
+  &__text {
+    font-size: 2rem;
+    line-height: 130.2%;
+  }
+
+  &__link {
+    text-decoration: underline;
+    cursor: pointer;
+
+    &:visited, &:link {
+      text-decoration: underline;
+    }
+  }
+
+  &__highfive {
+    font-size: 42rem;
+    position: absolute;
+    white-space: nowrap;
+    transform: translateX(100%);
+    transition: transform linear 3.8s;
+    z-index: 1000;
+  }
+
+  &__highfive-active {
+    transform: translateX(-100%);
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    max-width: $content-max-width;
+    width: 100%;
+  }
+
+  &__col-left {
+    max-width: 64.1rem;
+    padding-right: 3.2rem;
+  }
+  &__col-right {
+    svg {
+      width: 30rem;
+      cursor: pointer;
+      animation: wave ease 1350ms infinite;
+      transform-origin: bottom;
+    }
+  }
+ @keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }   
+
+  50% {
+    transform: rotate(20deg);
+  }
+  
+  100% {
+    transform: rotate(0deg);
+  }
+ } 
+}

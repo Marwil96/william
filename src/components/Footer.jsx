@@ -1,7 +1,8 @@
 import React from "react"
+import { Link } from "gatsby"
 import styled from "styled-components"
 
-const FooterWrapper = styled.section`
+const FooterWrapper = styled.footer`
   width: 100%;
   background: #000000;
   padding-top: 6.4rem;
@@ -40,12 +41,13 @@ const SocialContainer = styled.div`
 
 const Footer = ({ background, children }) => (
   <FooterWrapper>
-    <h3>Let’s work together</h3>
+    <Link to="/contact">
+      <h3>Let’s work together</h3>
+    </Link>
     <SocialContainer>
-      <a>Behance</a>
-      <a>Linkedin</a>
-      <a>Github</a>
-      <a>Medium</a>
+      <a href='https://www.linkedin.com/in/william-martinsson-a24a3b111/'>Linkedin</a>
+      <a href='https://github.com/Marwil96'>Github</a>
+      <a href='https://medium.com/@marwil1996'>Medium</a>
     </SocialContainer>
   </FooterWrapper>
 )
