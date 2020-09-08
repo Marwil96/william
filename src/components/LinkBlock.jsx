@@ -58,8 +58,8 @@ const LinkBlock = ({title, text}) => (
     <LinkBlockRedirect>
       <span>Read more</span> 
       <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 15">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M17.5.3a1 1 0 011.5 0l6.4 6.4a1 1 0 010 1.6L19 14.7a1 1 0 01-1.8-.8c0-.3.1-.5.3-.7l5.6-5.7-5.6-5.7a1 1 0 010-1.5z" fill="#F7F7F7"/>
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M.1 7.5a1 1 0 011-1h22.5a1 1 0 011 1 1 1 0 01-1 1H1.2a1 1 0 01-1-1z" fill="#F7F7F7"/>
+        <path fillRule="evenodd" clipRule="evenodd" d="M17.5.3a1 1 0 011.5 0l6.4 6.4a1 1 0 010 1.6L19 14.7a1 1 0 01-1.8-.8c0-.3.1-.5.3-.7l5.6-5.7-5.6-5.7a1 1 0 010-1.5z" fill="#F7F7F7"/>
+        <path fillRule="evenodd" clipRule="evenodd" d="M.1 7.5a1 1 0 011-1h22.5a1 1 0 011 1 1 1 0 01-1 1H1.2a1 1 0 01-1-1z" fill="#F7F7F7"/>
       </svg>
     </LinkBlockRedirect>
   </LinkBlockWrapper>
