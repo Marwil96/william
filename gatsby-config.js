@@ -17,6 +17,18 @@ module.exports = {
     siteUrl: `https://williammartinsson.site`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        // Available options and their defaults:
+        base64Width: 20,
+        forceBase64Format: ``, // valid formats: png,jpg,webp
+        stripMetadata: true,
+        defaultQuality: 100,
+        background: "#E96E1F",
+      },
+    },
+    `gatsby-transformer-sharp`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-sass`,
     {
@@ -34,10 +46,26 @@ module.exports = {
       resolve: "gatsby-source-prismic",
       options: {
         repositoryName: "williammartinsson",
-        accessToken: 'MC5YY0ZndUJFQUFDQUFxQVZY.WAPvv70ULhDvv73vv71H77-977-9K--_ve-_ve-_ve-_vRkl77-9ESrvv71277-977-977-9TV5q77-977-9EA',
+        accessToken:
+          "MC5YY0ZndUJFQUFDQUFxQVZY.WAPvv70ULhDvv73vv71H77-977-9K--_ve-_ve-_ve-_vRkl77-9ESrvv71277-977-977-9TV5q77-977-9EA",
+        htmlSerializer: ({ node, key, value }) => (
+          type,
+          element,
+          content,
+          children
+        ) => {
+          // Your HTML serializer
+        },
+        shouldDownloadImage: ({ node, key, value }) => {
+          // Return true to download the image or false to skip.
+          return true
+        },
+        linkResolver: ({ node, key, value }) => doc => {
+          // Your link resolver
+        },
         schemas: {
-         page: require('./src/schemas/blog_post.json'),
-       }
+          project: require("./src/schemas/project.json"),
+        },
       },
     },
   ],

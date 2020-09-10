@@ -1,5 +1,7 @@
 import React from "react"
+import Img from "gatsby-image"
 import styled from "styled-components"
+import LazyImage from "./LazyImage"
 
 const ProjectHeaderWrapper = styled.section`
   display: flex;
@@ -41,7 +43,12 @@ const ProjectHeaderImage = styled.img`
 const ProjectHeaderImageWrapper = styled.div`
   display: flex;
   max-width: 130rem;
-  width:100%;
+  width: 100%;
+  margin-top: -9.6rem;
+
+  .gatsby-image-wrapper {
+    width: 100%;
+  }
 `
 
 
@@ -56,7 +63,9 @@ const ProjectHeader = ({ projectName, projectTitle, projectImage }) => (
     </ProjectHeaderContainer>
 
     <ProjectHeaderImageWrapper>
-      <ProjectHeaderImage src={projectImage} />
+      <LazyImage fluid={projectImage} />
+      {/* <Img fluid={projectImage} /> */}
+      {/* <ProjectHeaderImage src={projectImage} /> */}
     </ProjectHeaderImageWrapper>
   </ProjectHeaderWrapper>
 )

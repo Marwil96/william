@@ -4,7 +4,7 @@ import styled from "styled-components"
 const LinkBlockWrapper = styled.div`
  display: flex;
  flex-direction: column;
- width: 42rem;
+ max-width: 42rem;
 `
 
 const LinkBlockTitle = styled.h3`

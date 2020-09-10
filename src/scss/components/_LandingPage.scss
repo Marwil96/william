@@ -42,6 +42,10 @@
 
     &__wrapper-right {
       padding: 6.4rem 0;
+      
+      @include respond(phone) {
+       padding: 6.4rem 1.6rem;
+      }
     }
 
     &__container {
@@ -51,15 +55,26 @@
       justify-content: space-between;
       align-items: center;
       height: 100%;
+
+      @include respond(phone) {
+        flex-direction: column;
+      }
     }
 
     &__title {
       font-size: 6.4rem;
       color: #F7F7F7;
-      width: 51rem;
+      max-width: 51rem;
       font-weight: 300;
       line-height: 7.7rem;
       margin-top: -3.2rem;
+
+      @include respond(phone) {
+        font-size: 4.8rem;
+        line-height: 6rem;
+        padding: 1.6rem 1.6rem;
+        margin-top: 0;
+      }
     }
   }
 

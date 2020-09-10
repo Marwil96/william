@@ -71,10 +71,11 @@ const ProjectSummary = ({ summaryArray, summaryIntro, linkToWebsite }) => (
       </div>
 
       <div className="column">
-        {summaryArray.map(summary => (
+        {summaryArray.map((summary, index) => (
           <SummaryRow 
-            summaryTitle={summary.summary_title[0].text} 
-            summaryValue={summary.summary_value[0].text}
+            key={index}
+            summaryTitle={summary.summary_title.text} 
+            summaryValue={summary.summary_value.text}
           />
         ))}
       </div>

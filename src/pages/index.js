@@ -1,4 +1,5 @@
 import React from "react"
+import { graphql } from "gatsby"
 import PageWrapper from "../components/PageWrapper";
 import '../scss/main.scss';
 import Header from "../components/Header";
@@ -6,7 +7,10 @@ import LinkBlock from "../components/LinkBlock";
 import ProjectItem from "../components/ProjectItem";
 import Footer from "../components/Footer";
 
-const LandingPage =() => {
+const LandingPage = ({data}) => {
+  console.log(data.allPrismicProject.edges)
+  const projects = data.allPrismicProject.edges; 
+
   return (
     <PageWrapper className="LandingPage">
       <Header />
@@ -50,24 +54,15 @@ const LandingPage =() => {
       <section className="LandingPage-projects">
         <h3 className="LandingPage-projects__title">Selected Projects</h3>
         <div className="LandingPage-projects__projectWrapper">
-          <ProjectItem
-            title="Your digital identity. For everything."
-            name="Proxy"
-            tags="Design & Development"
-            image="https://images.prismic.io/14islands/a758ed1a-135c-4418-adde-547355564481_14islands-proxy.jpg?auto=compress,format&rect=0,0,2400,2400&w=730&h=730"
-          />
-          <ProjectItem
-            title="The next wave of tech startups"
-            name="Bird.co"
-            tags="Branding"
-            image="https://images.prismic.io/14islands/de8079f0-4945-45fe-8002-b09786121059_14islands-antler.jpg?auto=compress,format&rect=0,0,2400,2400&w=730&h=730"
-          />
-          <ProjectItem
-            title="Play your way to be internet awesome."
-            name="Google Interland"
-            tags="Website"
-            image="https://images.prismic.io/14islands/1b08a19a-ce96-44ec-bdd0-f31802e3e99c_14islands-interland-2.jpg?auto=compress,format&rect=0,0,2710,2710&w=730&h=730"
-          />
+          {projects.map(item => (
+            <ProjectItem
+              title={item.node.data.title.text}
+              name={item.node.data.project_name.text}
+              tags={item.node.data.category.text}
+              image={item.node.data.thumbnail_image.localFile.childImageSharp.fluid}
+              link={item.node.uid}
+            />
+          ))}
         </div>
       </section>
 
@@ -75,5 +70,50 @@ const LandingPage =() => {
     </PageWrapper>
   )
 }
+
+export const query = graphql`
+  {
+    allPrismicProject(filter: { tags: { eq: "featured" } }) {
+      edges {
+        node {
+          id
+          uid
+          data {
+            category {
+              text
+            }
+            thumbnail_image {
+              localFile {
+                childImageSharp {
+                  fluid {
+                    tracedSVG
+                    srcWebp
+                    srcSetWebp
+                    srcSet
+                    src
+                    sizes
+                    presentationWidth
+                    presentationHeight
+                    originalName
+                    originalImg
+                    base64
+                    aspectRatio
+                  }
+                }
+              }
+              url
+            }
+            project_name {
+              text
+            }
+            title {
+              text
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 export default LandingPage;

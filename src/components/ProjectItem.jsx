@@ -1,5 +1,7 @@
 import React from "react"
 import styled from "styled-components"
+import Img from "gatsby-image"
+import { Link } from "gatsby"
 
 const ItemWrapper = styled.div`
   display: flex;
@@ -25,6 +27,10 @@ const ItemWrapper = styled.div`
     width: 100%;
   }
 
+  .gatsby-image-wrapper {
+    width: 100%;
+  }
+
   div {
     height: 48.9rem;
     margin-bottom: 1.8rem;
@@ -47,7 +53,7 @@ const ItemWrapper = styled.div`
 
     img {
       object-fit: cover;
-      transition: all ease 350ms;
+      transition: all ease 350ms !important;
       height: 100%;
       width: 100%;
     }
@@ -66,6 +72,8 @@ const ItemWrapper = styled.div`
     color: #333;
     font-weight: 500;
     margin: 0;
+    margin-top: 0.8rem;
+    line-height: 142%;
 
     strong {
       font-size: 2.4rem;
@@ -103,17 +111,20 @@ const ItemWrapper = styled.div`
   }
 `
 
-const ProjectItem = ({ image, tags, title, name, fullWidth }) => (
+const ProjectItem = ({ image, tags, title, name, link }) => (
   <ItemWrapper>
-    <div>
-      <img src={image} alt={`${name} - ${title}`} />
-      <h3>Select Project</h3>
-    </div>
-    <span>{tags}</span>
-    <h2>
-      {" "}
-      <strong>{name}</strong> — {title}
-    </h2>
+    <Link to={`projects/${link}`}>
+      <div>
+        <Img fluid={image} alt={`${name} - ${title}`} />
+        {/* <img src={image} alt={`${name} - ${title}`} /> */}
+        <h3>Select Project</h3>
+      </div>
+      <span>{tags}</span>
+      <h2>
+        {" "}
+        <strong>{name}</strong> — {title}
+      </h2>
+    </Link>
   </ItemWrapper>
 )
 
