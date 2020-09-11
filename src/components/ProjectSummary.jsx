@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { breakpoint } from "../mixins/breakpoint"
 import Button from "./Button"
 import SummaryRow from "./SummaryRow"
 
@@ -9,6 +10,10 @@ const ProjectSummaryWrapper = styled.section`
   flex-direction: column;
   align-items: center;
   padding-bottom: 10rem;
+
+  ${breakpoint.phone`
+    padding-bottom: 1.6rem;
+  `}
 `
 
 const ProjectSummaryContainer = styled.div`
@@ -17,11 +22,22 @@ const ProjectSummaryContainer = styled.div`
   justify-content: space-between;
   max-width: 119rem;
 
+  ${breakpoint.phone`
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0 1.6rem;
+    width: auto;
+  `}
+
   .column {
     display: flex;
     flex-direction: column;
     max-width: 42rem;
     width: 100%;
+
+    ${breakpoint.phone`
+      margin-bottom: 3.2rem;
+    `}
   }
 `
 const Introduction = styled.h3`

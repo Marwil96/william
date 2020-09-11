@@ -1,5 +1,5 @@
 import React from "react"
-import Img from "gatsby-image"
+import { breakpoint } from "../mixins/breakpoint"
 import styled from "styled-components"
 import LazyImage from "./LazyImage"
 
@@ -10,6 +10,10 @@ const ProjectHeaderWrapper = styled.section`
   width: 100%;
   align-items: center;
   background: #f7f7f7;
+
+  ${breakpoint.phone`
+    padding-bottom: 3.2rem;
+  `}
 `
 
 const ProjectHeaderContainer = styled.div`
@@ -26,18 +30,23 @@ const TextContainer = styled.div`
   width: 100%;
   padding: 14rem 0;
   padding-top: 18rem;
+
+  ${breakpoint.phone`
+    padding: 10rem 1.6rem;
+    padding-top: 12rem;
+    width: auto;
+  `}
 `
 
 const ProjectHeaderTitle = styled.h1`
   font-size: 5.4rem;
-  font-weight:500;
-  margin:0;
+  font-weight: 500;
+  margin: 0;
   max-width: 74.9rem;
-`
 
-const ProjectHeaderImage = styled.img`
-  width: 100%;
-  margin-top: -9.6rem;
+  ${breakpoint.phone`
+    font-size: 3.2rem;
+  `}
 `
 
 const ProjectHeaderImageWrapper = styled.div`
@@ -45,6 +54,16 @@ const ProjectHeaderImageWrapper = styled.div`
   max-width: 130rem;
   width: 100%;
   margin-top: -9.6rem;
+
+  .LazyImage {
+    ${breakpoint.phone`
+      padding: 0 1.6rem;
+
+      &:before {
+        width: calc(100% - 3.2rem);
+      }
+    `}
+  }
 
   .gatsby-image-wrapper {
     width: 100%;
@@ -64,8 +83,6 @@ const ProjectHeader = ({ projectName, projectTitle, projectImage }) => (
 
     <ProjectHeaderImageWrapper>
       <LazyImage fluid={projectImage} />
-      {/* <Img fluid={projectImage} /> */}
-      {/* <ProjectHeaderImage src={projectImage} /> */}
     </ProjectHeaderImageWrapper>
   </ProjectHeaderWrapper>
 )

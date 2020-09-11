@@ -50,7 +50,7 @@ const LazyImage = ({ fluid }) => {
   })
 
   return (
-    <LazyImageWrapper className={inView ? 'inView' : ''} ref={ref}>
+    <LazyImageWrapper className={inView ? 'LazyImage inView' : 'LazyImage'} ref={ref}>
       <Img fluid={fluid} />
     </LazyImageWrapper>
   )

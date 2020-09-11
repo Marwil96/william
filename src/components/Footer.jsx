@@ -1,4 +1,5 @@
 import React from "react"
+import { breakpoint } from "../mixins/breakpoint"
 import { Link } from "gatsby"
 import styled from "styled-components"
 
@@ -19,6 +20,12 @@ const FooterWrapper = styled.footer`
     margin-bottom: 6.4rem;
     border-bottom: 3px solid #f7f7f7;
     cursor: pointer;
+
+    ${breakpoint.tab` 
+      font-size: 4.2rem;
+      border-bottom: 2px solid #f7f7f7;
+      margin-bottom: 4.8rem;
+  `}
   }
 `
 

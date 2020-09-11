@@ -1,4 +1,5 @@
 import React from "react"
+import { breakpoint } from "../mixins/breakpoint"
 import parse from 'html-react-parser';
 import styled from "styled-components"
 
@@ -6,6 +7,11 @@ const RichTextWrapper = styled.section`
   width: 100%;
   max-width: 119rem;
   line-height: 130%;
+  
+  ${breakpoint.phone`
+    padding: 0 1.6rem;
+    width: auto;
+  `}
 
   h5,h4,h3,h1,h2 {
     color: #333;
