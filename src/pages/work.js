@@ -1,5 +1,6 @@
 import React from "react"
 import styled from 'styled-components'
+import { breakpoint } from "../mixins/breakpoint"
 import PageWrapper from "../components/PageWrapper"
 import "../scss/main.scss"
 import Header from "../components/Header"
@@ -13,12 +14,21 @@ const TextContainer = styled.div`
   justify-content: center;
   width: 100%;
 
+  ${breakpoint.phone`
+      padding: 6rem 0;
+      padding-top: 12rem;
+    `}
+
   h1 {
     margin: 0;
     max-width: 119rem;
     font-size: 6.4rem;
-    font-weight: 500;
+    font-weight: 400;
     width: 100%;
+
+    ${breakpoint.phone`
+      padding: 0 1.6rem;
+    `}
   }
 `
 

@@ -1,10 +1,10 @@
 .LandingPage {
   .LandingPage-intro {
-    padding-top: calc(100vh/4);
+    padding-top: 20rem;
     max-width: $content-max-width;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin-bottom: 15rem;
 
@@ -13,34 +13,38 @@
       padding-left: 1.6rem;
       padding-right: 1.6rem;
       width: auto;
-      margin-bottom: 10rem;
-      padding-top: 15rem;
+      margin-bottom: 7rem;
+      padding-top: 13rem;
     }
 
     h1 {
-      font-size: 4.8rem;
-      font-weight: 500;
-      max-width: 52.9rem;
-      line-height: 5.81rem;
+      font-size: 6.4rem;
+      text-align: center;
+      font-weight: 300;
+      max-width: 89rem;
 
       @include respond(phone) {
-        font-size: 4.2rem;
+        font-size: 3.2rem;
         line-height: 130%;
-        margin-bottom: 1.2rem;
+        font-weight: 400;
+        text-align: left;
+        margin-bottom: 0.8rem;
       }
     }
 
     span {
       font-size: 2rem;
-      font-weight: 500;
+      font-weight: 400;
       max-width: 39.3rem;
       text-align: right;
       line-height: 2.7rem;
+      display: none;
       
       @include respond(phone) {
          text-align: left;
          width: 100%;
          max-width: none;
+         display: block;
       }
     }
   }
@@ -92,9 +96,11 @@
       margin-top: -3.2rem;
 
       @include respond(phone) {
-        font-size: 4.8rem;
-        line-height: 6rem;
-        padding: 4.8rem 1.6rem 4.8rem 1.6rem;
+        // font-size: 3.2rem;
+        // line-height: 4.2rem;
+        font-size: 3.8rem;
+        line-height: 5rem;
+        padding: 3.2rem 1.6rem 3.2rem 1.6rem;
         margin-top: 0;
       }
     }
@@ -116,14 +122,14 @@
 
     &__title {
       font-size: 4.8rem;
-      font-weight: 500;
+      font-weight: 400;
       width: 100%;
       max-width: $content-max-width;
       margin-bottom: 4.8rem;
 
       @include respond(phone) {
-        font-size: 4.2rem;
-        margin-bottom: 3.2rem;
+        font-size: 3.8rem;
+        margin-bottom: 2.4rem;
       }
     }
 

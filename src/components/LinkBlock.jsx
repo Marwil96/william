@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { breakpoint } from "../mixins/breakpoint"
 
 const LinkBlockWrapper = styled.div`
  display: flex;
@@ -13,6 +14,10 @@ const LinkBlockTitle = styled.h3`
   font-weight: 300;
   margin: 0;
   margin-bottom: 0.8rem;
+
+  ${breakpoint.phone`
+    font-size: 2.8rem;
+  `}
 `
 const LinkBlockText = styled.span`
   font-size: 1.8rem;
@@ -20,7 +25,12 @@ const LinkBlockText = styled.span`
   font-weight: 300;
   margin: 0;
   margin-bottom: 1.6rem;
-  line-height: 128.6%;
+  line-height: 145.6%;
+
+  ${breakpoint.phone`
+    font-size: 1.8rem;
+    line-height: 145%;
+  `}
 `
 
 const LinkBlockRedirect = styled.div`
@@ -36,6 +46,10 @@ const LinkBlockRedirect = styled.div`
     padding-bottom: 1.2rem;
     font-size: 2rem;
     font-weight: 300;
+
+    ${breakpoint.phone`
+      padding-bottom: 0.8rem;
+    `}
   }
 
   svg {

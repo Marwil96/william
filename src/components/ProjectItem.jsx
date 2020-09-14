@@ -75,10 +75,10 @@ const ItemWrapper = styled.div`
       color: #ffffff;
       opacity: 0;
       transition: all ease 350ms;
-      
+
       ${breakpoint.phone`
         font-size: 4.8rem;
-      `}  
+      `}
     }
 
     img {
@@ -100,7 +100,7 @@ const ItemWrapper = styled.div`
   h2 {
     font-size: 2.4rem;
     color: #333;
-    font-weight: 500;
+    font-weight: 400;
     margin: 0;
     margin-top: 0.8rem;
     line-height: 142%;
@@ -110,6 +110,7 @@ const ItemWrapper = styled.div`
       color: #333;
       font-weight: 500;
       text-decoration: underline;
+      /* border-bottom: 1px solid #333; */
     }
   }
 

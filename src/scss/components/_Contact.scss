@@ -5,16 +5,31 @@
   justify-content: center;
   padding: 23rem 0;
   padding-bottom: 16rem;
+   overflow: hidden;
+  position: relative;
+
+  @include respond(phone) {
+    padding-top: 14rem;
+    padding-bottom: 7rem;
+  }
 
   &__title {
     font-size: 5.4rem;
     font-weight: 500;
     margin-bottom: 1.6rem;
+
+    @include respond(phone) {
+     font-size: 4.8rem;
+    }
   }
 
   &__text {
     font-size: 2rem;
     line-height: 130.2%;
+
+    @include respond(phone) {
+     font-size: 1.8rem;
+    }
   }
 
   &__link {
@@ -44,6 +59,12 @@
     justify-content: space-between;
     max-width: $content-max-width;
     width: 100%;
+
+    @include respond(phone) {
+      padding: 0 1.6rem;
+      width: auto;
+      flex-direction: column-reverse;
+    }
   }
 
   &__col-left {
@@ -56,6 +77,11 @@
       cursor: pointer;
       animation: wave ease 1350ms infinite;
       transform-origin: bottom;
+
+      @include respond(phone) {
+        width: 8rem;
+        margin-bottom: 1.2rem;
+      }
     }
   }
  @keyframes wave {

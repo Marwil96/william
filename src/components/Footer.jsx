@@ -22,7 +22,7 @@ const FooterWrapper = styled.footer`
     cursor: pointer;
 
     ${breakpoint.tab` 
-      font-size: 4.2rem;
+      font-size: 3.8rem;
       border-bottom: 2px solid #f7f7f7;
       margin-bottom: 4.8rem;
   `}

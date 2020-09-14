@@ -11,21 +11,21 @@ html {
   
   font-size: 62.5%; //1 rem = 10px; 10/16 = 62.5%
 
-  @include respond(tab-land) {
-    font-size: 60%; //1 rem = 9px; 9/16 = 56.2%
-  }
+  // @include respond(tab-land) {
+  //   font-size: 60%; //1 rem = 9px; 9/16 = 56.2%
+  // }
 
-  @include respond(tab-port) {
-    font-size: 60%; //1 rem = 8px; 8/16 = 50%
-  }
+  // @include respond(tab-port) {
+  //   font-size: 60%; //1 rem = 8px; 8/16 = 50%
+  // }
 
-  @include respond(phone) {
-    font-size: 58%; //1 rem = 8px; 8/16 = 50%
-  }
+  // @include respond(phone) {
+  //   font-size: 58%; //1 rem = 8px; 8/16 = 50%
+  // }
 
-  @include respond(small-phone) {
-    font-size: 52%; //1 rem = 8px; 8/16 = 50%
-  }
+  // @include respond(small-phone) {
+  //   font-size: 52%; //1 rem = 8px; 8/16 = 50%
+  // }
 
   @include respond(big-desktop) {
     font-size: 65.5%; //1 rem = 10px; 12/16 = 75%
@@ -44,6 +44,7 @@ html {
 
 body {
   font-size: 16px;
+  -webkit-font-smoothing: antialiased;
 }
 
 

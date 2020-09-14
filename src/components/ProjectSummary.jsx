@@ -53,6 +53,10 @@ const IntroductionText = styled.p`
   line-height: 133%;
   margin-bottom: 2.4rem;
   font-family: Inter;
+
+  ${breakpoint.phone`
+    font-size: 1.8rem;
+  `}
 `
 
 const ProjectSummary = ({ summaryArray, summaryIntro, linkToWebsite }) => (
