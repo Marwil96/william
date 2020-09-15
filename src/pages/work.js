@@ -6,6 +6,7 @@ import "../scss/main.scss"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import ProjectItem from "../components/ProjectItem"
+import Anime from "react-anime"
 
 const TextContainer = styled.div`
   padding: 12rem 0;
@@ -25,9 +26,11 @@ const TextContainer = styled.div`
     font-size: 6.4rem;
     font-weight: 400;
     width: 100%;
+    text-align: center;
 
     ${breakpoint.phone`
       padding: 0 1.6rem;
+      text-align: left;
     `}
   }
 `
@@ -36,10 +39,20 @@ const Work = ({data}) => {
   const projects = data.allPrismicProject.edges;
   return (
     <PageWrapper className="LandingPage">
-      <Header />
       <TextContainer>
-        <h1>Work & Articles</h1>
+          <h1>
+            <Anime
+              opacity={[0, 1]}
+              translateY={[100, 0]}
+              duration={650}
+              delay={0}
+              easing={"easeInOutCubic"}
+            >
+              Work & Articles        
+            </Anime>
+          </h1>
       </TextContainer>
+      
       <section className="LandingPage-projects">
         <div className="LandingPage-projects__projectWrapper">
           {projects.map(item => (
@@ -55,7 +68,6 @@ const Work = ({data}) => {
           ))}
         </div>
       </section>
-      <Footer />
     </PageWrapper>
   )
 }

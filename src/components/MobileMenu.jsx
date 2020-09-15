@@ -97,8 +97,8 @@ const MobileMenu = ({menuActive, closeMenu}) => {
     <MobileMenuWrapper className={menuActive ? 'is-active' : ''}>
       <MobileMenuHeader>
         <svg onClick={() => closeMenu(false)} fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14">
-          <path d="M13 1L1 13" stroke="#fff" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="round"/>
-          <path d="M1 1l12 12" stroke="#fff" stroke-miterlimit="10" stroke-linecap="square"/>
+          <path d="M13 1L1 13" stroke="#fff" strokeMiterlimit="10" strokeLinecap="square" strokeLinejoin="round"/>
+          <path d="M1 1l12 12" stroke="#fff" strokeMiterlimit="10" strokeLinecap="square"/>
         </svg>
       </MobileMenuHeader>
       <LinkContainer>

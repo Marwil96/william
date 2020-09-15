@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Button from './Button';
 import MobileMenu from './MobileMenu';
 import Anime from 'react-anime';
+import TransitionBlob from './TransitionBlob';
 
 const HeaderWrapper = styled.div`
   width: 100%;
@@ -15,6 +16,17 @@ const HeaderWrapper = styled.div`
   align-items: center;
   position: absolute;
   z-index: 100;
+
+  .LinkContainer {
+    display: flex;
+    a {
+      margin-right: 2.4rem;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
 
   svg {
     width: 2.2rem;
@@ -89,21 +101,47 @@ const Header = () => {
 
   return (
     <HeaderWrapper>
-      <Link to='/' className='name'>
+      <Link to="/" className="name">
         <LinkItem>
-          <span className='letters'>
-          {Array.from(name).map((character, index) => (
-            <Anime {...animeProps} delay={50 * index } duration={window.location.pathname === '/' ? 750 : '0'} className='letter'>{`${character}`}</Anime>
-          ))}
+          <span className="letters">
+            {Array.from(name).map((character, index) => (
+              <Anime
+                {...animeProps}
+                delay={50 * index}
+                duration={window.location.pathname === "/" ? 750 : "0"}
+                className="letter"
+                key={index}
+              >{`${character}`}</Anime>
+            ))}
           </span>
         </LinkItem>
       </Link>
-      <Link className='link' to='/work'><LinkItem>Work</LinkItem></Link>
-      <Link className='link' to='/contact'><Button>Let’s work together</Button></Link>
-      <svg onClick={() => setMenuActive(true)} fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 12">
-        <path d="M0 11h16M0 1h16H0zm0 5h16H0z" stroke="#333" stroke-width="1.4" stroke-miterlimit="10"/>
+      <div className='LinkContainer'>
+        <Link className="link" to="/work">
+          <LinkItem>Work</LinkItem>
+        </Link>
+
+        <Link className="link" to="/services">
+          <LinkItem>Services</LinkItem>
+        </Link>
+      </div>
+      <Link className="link" to="/contact">
+        <Button>Let’s work together</Button>
+      </Link>
+      <svg
+        onClick={() => setMenuActive(true)}
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 16 12"
+      >
+        <path
+          d="M0 11h16M0 1h16H0zm0 5h16H0z"
+          stroke="#333"
+          strokeWidth="1.4"
+          strokeMiterlimit="10"
+        />
       </svg>
-      <MobileMenu menuActive={menuActive} closeMenu={setMenuActive}/>
+      <MobileMenu menuActive={menuActive} closeMenu={setMenuActive} />
     </HeaderWrapper>
   )
 }

@@ -9,7 +9,7 @@ const ProjectHeaderWrapper = styled.section`
   padding-bottom: 6.4rem;
   width: 100%;
   align-items: center;
-  background: #f7f7f7;
+  background: #FFF;
 
   ${breakpoint.phone`
     padding-bottom: 3.2rem;

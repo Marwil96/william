@@ -4,8 +4,6 @@ import { useInView } from 'react-intersection-observer';
 import { FullWidthImage, SplitImage } from "../components/ProjectImage"
 import PageWrapper from "../components/PageWrapper"
 import "../scss/main.scss"
-import Header from "../components/Header"
-import Footer from "../components/Footer"
 import ProjectHeader from "../components/ProjectHeader"
 import ProjectSummary from "../components/ProjectSummary"
 import RichText from "../components/RichText";
@@ -18,50 +16,47 @@ const Project = ({data}) => {
     triggerOnce: true
   })
 
-  console.log(ref, inView)
-  
-  console.log(content)
   return (
     <PageWrapper>
-      <Header />
-        <ProjectHeader 
-          projectName={content.project_name.text}
-          projectTitle={content.title.text} 
-          projectImage={content.hero_image.localFile.childImageSharp.fluid}
-        />
-        <ProjectSummary 
-          summaryArray={content.summary}
-          summaryIntro={content.project_introduction.text}
-          linkToWebsite={content.link_to_website.url}
-        />
-        {content.body.map((section, index) => {
-          console.log(section.slice_type)
-          if(section.slice_type === "rich_text") {
-            return <RichText content={section.primary.text.html} />
-          } else if(section.slice_type === "full_width_image") {
-            console.log('FULLWIDTH', section)
-            return (
-              <FullWidthImage
-                fluid={section.primary.image.localFile.childImageSharp.fluid}
-                refFunc={ref}
-                inView={inView}
-                key={index}
-              />
-            ) 
-          } else if(section.slice_type === "split_images") {
-            return (
-              <SplitImage 
-                left={section.primary.left_image.localFile.childImageSharp.fluid} 
-                right={section.primary.right_image.localFile.childImageSharp.fluid}
-                refFunc={ref}  
-                inView={inView} 
-                key={index}
-              />
-              )
-          }
-        })}
-      <Footer />
-    </PageWrapper>
+      <ProjectHeader 
+        projectName={content.project_name.text}
+        projectTitle={content.title.text} 
+        projectImage={content.hero_image.localFile.childImageSharp.fluid}
+      />
+
+      <ProjectSummary 
+        summaryArray={content.summary}
+        summaryIntro={content.project_introduction.text}
+        linkToWebsite={content.link_to_website.url}
+      />
+      
+      {content.body.map((section, index) => {
+        console.log(section.slice_type)
+        if(section.slice_type === "rich_text") {
+          return <RichText content={section.primary.text.html} />
+        } else if(section.slice_type === "full_width_image") {
+          console.log('FULLWIDTH', section)
+          return (
+            <FullWidthImage
+              fluid={section.primary.image.localFile.childImageSharp.fluid}
+              refFunc={ref}
+              inView={inView}
+              key={index}
+            />
+          ) 
+        } else if(section.slice_type === "split_images") {
+          return (
+            <SplitImage 
+              left={section.primary.left_image.localFile.childImageSharp.fluid} 
+              right={section.primary.right_image.localFile.childImageSharp.fluid}
+              refFunc={ref}  
+              inView={inView} 
+              key={index}
+            />
+            )
+        }
+      })}
+  </PageWrapper>
   )
 }
 

@@ -32,6 +32,17 @@
       }
     }
 
+    .textWrapper0 {
+      display: none;
+      
+      @include respond(phone) {
+         text-align: left;
+         width: 100%;
+         max-width: none;
+         display: block;
+      }
+    }
+
     span {
       font-size: 2rem;
       font-weight: 400;
