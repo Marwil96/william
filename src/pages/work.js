@@ -54,8 +54,9 @@ const Work = ({data}) => {
       
       <section className="LandingPage-projects">
         <div className="LandingPage-projects__projectWrapper">
-          {projects.map(item => (
+          {projects.map((item, index) => (
             <ProjectItem
+              key={index}
               title={item.node.data.title.text}
               name={item.node.data.project_name.text}
               tags={item.node.data.category.text}

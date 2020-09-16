@@ -40,15 +40,12 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          {
-            family: `Inter`,
-            variants: [`300`, `400`, `500`, `600`, `700`],
-          },
-        ],
-      },
+          `Inter\:300,400,500,600,700` // you can also specify font weights and styles
+        ]
+      }
     },
     {
       resolve: "gatsby-source-prismic",
