@@ -7,7 +7,7 @@ const ServiceBlockWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 12rem;
+  margin-bottom: 16rem;
   align-items: center;
 
   &:nth-child(even) {
@@ -20,7 +20,7 @@ const ServiceBlockWrapper = styled.div`
 
   ${breakpoint.phone`
     flex-direction: column-reverse;
-    margin-bottom: 6.4rem;
+    margin-bottom: 10rem;
 
     &:nth-child(even) {
       flex-direction: column-reverse;
@@ -75,16 +75,13 @@ const ServiceTags = styled.span`
 const ImageWrapper = styled.div`
   /* width: 100%; */
   max-width: 53rem;
+  width: 100%;
 
   ${breakpoint.phone`
-    max-height: 45rem;
     width: 100%;
-    height: 37rem;
     position: relative;
     margin-bottom: 2.4rem;
-  `}
-
-  img {
+  `}/* img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -92,7 +89,7 @@ const ImageWrapper = styled.div`
     ${breakpoint.phone`
       position: absolute;
     `}
-  }
+  } */
 `
 
 const ServiceBlock = ({title, id, text, tags, image}) => {
@@ -105,8 +102,7 @@ const ServiceBlock = ({title, id, text, tags, image}) => {
       </TextContainer>
 
       <ImageWrapper>
-        {/* <LazyImage /> */}
-        <img src={image} />
+        <LazyImage fluid={image} />
       </ImageWrapper>
     </ServiceBlockWrapper>
   )

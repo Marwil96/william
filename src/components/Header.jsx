@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import Button from './Button';
 import MobileMenu from './MobileMenu';
 import Anime from 'react-anime';
-import TransitionBlob from './TransitionBlob';
 
 const HeaderWrapper = styled.div`
   width: 100%;

@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components';
-import Img from 'gatsby-image';
 import LazyImage from './LazyImage';
 
 const ImageContainer = styled.div`
@@ -20,13 +19,13 @@ const SplitImageWrapper = styled.div`
   height: 100%;
 `
 
-export const FullWidthImage = ({ fluid, refFunc, inView }) => (
+export const FullWidthImage = ({ fluid }) => (
   <ImageContainer>
     <LazyImage fluid={fluid} />
   </ImageContainer>
 )
 
-export const SplitImage = ({ left, right, refFunc, inView }) => (
+export const SplitImage = ({ left, right}) => (
   <SplitImageWrapper>
     <LazyImage fluid={left} />
     <LazyImage fluid={right} />

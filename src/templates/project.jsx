@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql } from 'gatsby';
-import { useInView } from 'react-intersection-observer';
 import { FullWidthImage, SplitImage } from "../components/ProjectImage"
 import PageWrapper from "../components/PageWrapper"
 import "../scss/main.scss"
@@ -10,11 +9,6 @@ import RichText from "../components/RichText";
 
 const Project = ({data}) => {
   const content = data.prismicProject.data;
-  const { ref, inView, entry } = useInView({
-    /* Optional options */
-    threshold: 0,
-    triggerOnce: true
-  })
 
   return (
     <PageWrapper>
@@ -31,16 +25,12 @@ const Project = ({data}) => {
       />
       
       {content.body.map((section, index) => {
-        console.log(section.slice_type)
         if(section.slice_type === "rich_text") {
           return <RichText content={section.primary.text.html} />
         } else if(section.slice_type === "full_width_image") {
-          console.log('FULLWIDTH', section)
           return (
             <FullWidthImage
               fluid={section.primary.image.localFile.childImageSharp.fluid}
-              refFunc={ref}
-              inView={inView}
               key={index}
             />
           ) 
@@ -49,11 +39,11 @@ const Project = ({data}) => {
             <SplitImage 
               left={section.primary.left_image.localFile.childImageSharp.fluid} 
               right={section.primary.right_image.localFile.childImageSharp.fluid}
-              refFunc={ref}  
-              inView={inView} 
               key={index}
             />
-            )
+          )
+        } else {
+          return true;
         }
       })}
   </PageWrapper>

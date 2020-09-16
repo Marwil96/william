@@ -143,7 +143,7 @@ const ItemWrapper = styled.div`
 `
 
 const ProjectItem = ({ image, tags, title, name, link }) => {
-  const { ref, inView, entry } = useInView({
+  const { ref, inView } = useInView({
     /* Optional options */
     threshold: 0.1,
     triggerOnce: true,

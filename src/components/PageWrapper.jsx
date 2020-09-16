@@ -1,8 +1,7 @@
-import React,{useState} from 'react';
+import React from 'react';
 import styled from 'styled-components'
 import Footer from './Footer';
 import Header from './Header';
-import TransitionBlob from './TransitionBlob';
 
 const PageWrapperStyle = styled.section`
   width: 100%;
@@ -23,15 +22,13 @@ const PageWrapperStyle = styled.section`
   }
 `
 
-const PageWrapper = (props) => {
-  const [transition, startTransition] = useState(false)
-  console.log(props)
+const PageWrapper = ({children, className}) => {
 
   return (
-    <PageWrapperStyle className={props.className}>
+    <PageWrapperStyle className={className}>
       {/* <TransitionBlob transition={transition} /> */}
-      <Header startTransition={startTransition} />
-        {props.children}
+      <Header />
+        {children}
       <Footer />
     </PageWrapperStyle>
   )

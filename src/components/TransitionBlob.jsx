@@ -1,6 +1,5 @@
-import React,{useState, useEffect} from 'react';
+import React,{useEffect} from 'react';
 import styled from 'styled-components';
-import Anime from 'react-anime';
 
 const Blob = styled.div`
   border-radius: 100%;
@@ -39,32 +38,23 @@ const BlobWrapper = styled.div`
 `
 
   const changeBlob = e => {
-    let body = document.querySelector("body")
     let circle = document.querySelector(".circle")
     let left = e.pageX
     let top = e.pageY
     circle.style.left = left + "px"
     circle.style.top = top + "px"
 
-    // setMousePosition({clientX: e.pageX, clientY: e.pageY})
   }
 
 const TransitionBlob = ({ transition }) => {
 
   useEffect(() => {
-    console.log('Hello World');
     return () => {
       document.removeEventListener('mousemove', changeBlob);
     }
 }, [])
-  console.log("START TRANS", transition)
 
   transition ? document.removeEventListener('mousemove', changeBlob) : document.addEventListener("mousemove", changeBlob);
-  const [mousePosition, setMousePosition] = useState({ clientY: 0, clientX: 0 })
-
-  // onmousemove =  (e) => {
-  //   setMousePosition({clientX: e.clientX, clientY: e.clientY })
-  // }
 
   return (
     <BlobWrapper className="circle">

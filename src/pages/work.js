@@ -1,10 +1,9 @@
 import React from "react"
 import styled from 'styled-components'
+import { graphql } from "gatsby"
 import { breakpoint } from "../mixins/breakpoint"
 import PageWrapper from "../components/PageWrapper"
 import "../scss/main.scss"
-import Header from "../components/Header"
-import Footer from "../components/Footer"
 import ProjectItem from "../components/ProjectItem"
 import Anime from "react-anime"
 
