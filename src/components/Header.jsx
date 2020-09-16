@@ -83,8 +83,6 @@ const LinkItem = styled.span`
   `}
 `
 const name = 'William Martinsson';
-
-console.log(window.location.pathname)
 const animeProps = {
   translateY: ["1.1em", 0],
   translateX: ["0.55em", 0],
@@ -107,7 +105,7 @@ const Header = () => {
               <Anime
                 {...animeProps}
                 delay={50 * index}
-                duration={window.location.pathname === "/" ? 750 : "0"}
+                duration={typeof window !== `undefined` ? window.location.pathname === "/" ? 750 : "0" : '0'}
                 className="letter"
                 key={index}
               >{`${character}`}</Anime>
