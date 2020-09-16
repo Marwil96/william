@@ -29,7 +29,7 @@ const ItemWrapper = styled.div`
     transition-delay: 350ms;
   }
 
-  ${breakpoint.tab`
+  ${breakpoint.tabLand`
     width: 100%;
     margin-bottom: 4.8rem;
 

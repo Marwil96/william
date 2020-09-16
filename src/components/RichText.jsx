@@ -7,8 +7,8 @@ const RichTextWrapper = styled.section`
   width: 100%;
   max-width: 119rem;
   line-height: 130%;
-  
-  ${breakpoint.phone`
+
+  ${breakpoint.tabPort`
     padding: 0 1.6rem;
     width: auto;
   `}

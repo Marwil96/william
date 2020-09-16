@@ -18,7 +18,7 @@ const ServiceBlockWrapper = styled.div`
     margin-bottom: 0;
   }
 
-  ${breakpoint.phone`
+  ${breakpoint.tabPort`
     flex-direction: column-reverse;
     margin-bottom: 10rem;
 
@@ -33,6 +33,10 @@ const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 53rem;
+
+  ${breakpoint.tabPort`
+    max-width: none;
+  `}
 `
 
 const ServiceTitle = styled.h2`
@@ -77,10 +81,11 @@ const ImageWrapper = styled.div`
   max-width: 53rem;
   width: 100%;
 
-  ${breakpoint.phone`
+  ${breakpoint.tabPort`
     width: 100%;
     position: relative;
     margin-bottom: 2.4rem;
+    max-width: none;
   `}/* img {
     width: 100%;
     height: 100%;

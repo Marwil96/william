@@ -22,6 +22,11 @@ const ProjectSummaryContainer = styled.div`
   justify-content: space-between;
   max-width: 119rem;
 
+  ${breakpoint.tabPort`
+    padding: 0 1.6rem;
+    width: auto;
+  `}
+
   ${breakpoint.phone`
     flex-direction: column;
     justify-content: flex-start;
@@ -34,6 +39,10 @@ const ProjectSummaryContainer = styled.div`
     flex-direction: column;
     max-width: 42rem;
     width: 100%;
+
+    ${breakpoint.tabPort`
+      max-width: none;
+    `}
 
     ${breakpoint.phone`
       margin-bottom: 3.2rem;
@@ -53,7 +62,7 @@ const IntroductionText = styled.p`
   line-height: 133%;
   margin-bottom: 2.4rem;
   font-family: Inter;
-
+  
   ${breakpoint.phone`
     font-size: 1.8rem;
   `}

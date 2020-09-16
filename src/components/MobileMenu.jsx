@@ -19,10 +19,9 @@ const MobileMenuWrapper = styled.section`
   transition: transform ease 450ms;
   display: none;
 
-  ${breakpoint.phone`
+  ${breakpoint.tabPort`
     display:flex;
   `}
-
 
   &.is-active {
     transform: translateX(0);

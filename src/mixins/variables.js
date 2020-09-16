@@ -17,7 +17,8 @@
 
 export const breakpoints = {
   phone: "37.5em",
-  tab: "75em",
+  tabPort: "56.25em",
+  tabLand: "75em",
   desktop: "112.5em",
   overMax: "1050px",
 }

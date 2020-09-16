@@ -12,6 +12,7 @@ const FooterWrapper = styled.footer`
   flex-direction: column;
   align-items: center;
   color: #f7f7f7;
+  z-index: 1;
 
   h3 {
     font-size: 6.4rem;
@@ -21,7 +22,7 @@ const FooterWrapper = styled.footer`
     border-bottom: 3px solid #f7f7f7;
     cursor: pointer;
 
-    ${breakpoint.tab` 
+    ${breakpoint.tabLand` 
       font-size: 3.8rem;
       border-bottom: 2px solid #f7f7f7;
       margin-bottom: 4.8rem;

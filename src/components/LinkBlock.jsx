@@ -4,9 +4,13 @@ import styled from "styled-components"
 import { breakpoint } from "../mixins/breakpoint"
 
 const LinkBlockWrapper = styled.div`
- display: flex;
- flex-direction: column;
- max-width: 42rem;
+  display: flex;
+  flex-direction: column;
+  max-width: 42rem;
+
+  ${breakpoint.tabPort`
+      max-width: none;
+    `}
 `
 
 const LinkBlockTitle = styled.h3`

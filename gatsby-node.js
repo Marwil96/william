@@ -13,8 +13,6 @@ exports.createPages = async ({ graphql, actions }) => {
   }
   `)
 
-  console.log(pages)
-
   const template = path.resolve("src/templates/project.jsx")
   pages.data.allPrismicProject.nodes.forEach(edge => {
     createPage({

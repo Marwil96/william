@@ -9,9 +9,9 @@ const ProjectHeaderWrapper = styled.section`
   padding-bottom: 6.4rem;
   width: 100%;
   align-items: center;
-  background: #FFF;
+  background: #fff;
 
-  ${breakpoint.phone`
+  ${breakpoint.tabPort`
     padding-bottom: 3.2rem;
   `}
 `
@@ -31,7 +31,7 @@ const TextContainer = styled.div`
   padding: 14rem 0;
   padding-top: 18rem;
 
-  ${breakpoint.phone`
+  ${breakpoint.tabPort`
     padding: 10rem 1.6rem;
     padding-top: 12rem;
     width: auto;
@@ -44,7 +44,11 @@ const ProjectHeaderTitle = styled.h1`
   margin: 0;
   max-width: 74.9rem;
 
-  ${breakpoint.phone`
+  ${breakpoint.tabPort`
+    font-size: 4.8rem;
+  `}
+
+  ${breakpoint.tabPort`
     font-size: 3.2rem;
   `}
 `
@@ -56,7 +60,7 @@ const ProjectHeaderImageWrapper = styled.div`
   margin-top: -9.6rem;
 
   .LazyImage {
-    ${breakpoint.phone`
+    ${breakpoint.tabPort`
       padding: 0 1.6rem;
 
       &:before {

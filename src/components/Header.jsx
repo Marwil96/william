@@ -31,12 +31,12 @@ const HeaderWrapper = styled.div`
     width: 2.2rem;
     display: none;
 
-    ${breakpoint.phone`
+    ${breakpoint.tabPort`
       display: block;
     `}
   }
 
-  ${breakpoint.phone`
+  ${breakpoint.tabPort`
     width: calc(100% - 3.2rem);
     padding-left: 1.6rem;
     padding-right: 1.6rem;
@@ -78,7 +78,7 @@ const LinkItem = styled.span`
     display: flex;
   }
 
-  ${breakpoint.phone`
+  ${breakpoint.tabPort`
     font-weight: 400;
   `}
 `
