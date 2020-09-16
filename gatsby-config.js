@@ -12,7 +12,7 @@ module.exports = {
   /* Your site config here */
   siteMetadata: {
     title: `William Martinsson`,
-    description: `William Martinsson DESC`,
+    description: `William Martinsson`,
     author: `@William Martinsson`,
     siteUrl: `https://williammartinsson.site`,
   },

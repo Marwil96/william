@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components'
 import Footer from './Footer';
 import Header from './Header';
+import SEO from './Seo';
 
 const PageWrapperStyle = styled.section`
   width: 100%;
@@ -26,6 +27,7 @@ const PageWrapper = ({children, className}) => {
 
   return (
     <PageWrapperStyle className={className}>
+      <SEO title='William Martinsson - Freelancing developer from Göteborg.' />
       {/* <TransitionBlob transition={transition} /> */}
       <Header />
         {children}

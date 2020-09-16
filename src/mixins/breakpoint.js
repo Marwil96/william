@@ -4,7 +4,7 @@ export const variables = {
   phone: "37.5em",
   tabPort: "56.25em",
   tabLand: "75em",
-  laptop: "140rem",
+  laptop: "85em",
   desktop: "112.5em",
   overMax: "1050px",
   maxWidth: "119rem",

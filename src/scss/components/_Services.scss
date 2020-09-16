@@ -9,6 +9,8 @@
     margin-bottom: 15rem;
 
     @include respond(laptop) {
+      padding-top: 17rem;
+      margin-bottom: 12rem;
       max-width: $content-max-width-laptop;
     }
 

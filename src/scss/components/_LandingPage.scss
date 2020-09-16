@@ -10,6 +10,9 @@
 
     @include respond(laptop) {
       max-width: $content-max-width-laptop;
+
+      padding-top: 17rem;
+      margin-bottom: 12rem;
     }
 
     @include respond(tab-port) {
