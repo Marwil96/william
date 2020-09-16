@@ -1,12 +1,16 @@
 import React from "react"
-import { breakpoint } from "../mixins/breakpoint"
+import { breakpoint, variables } from "../mixins/breakpoint"
 import parse from 'html-react-parser';
 import styled from "styled-components"
 
 const RichTextWrapper = styled.section`
   width: 100%;
-  max-width: 119rem;
+  max-width: ${variables.maxWidth};
   line-height: 130%;
+
+  ${breakpoint.laptop`
+    max-width: ${variables.maxWidthLaptop};
+  `}
 
   ${breakpoint.tabPort`
     padding: 0 1.6rem;

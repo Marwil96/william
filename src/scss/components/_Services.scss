@@ -8,6 +8,10 @@
     align-items: center;
     margin-bottom: 15rem;
 
+    @include respond(laptop) {
+      max-width: $content-max-width-laptop;
+    }
+
     @include respond(tab-port) {
       flex-direction: column;
       padding-left: 1.6rem;
@@ -48,6 +52,10 @@
       flex-wrap: wrap;
       height: 100%;
       padding: 6.4rem 0;
+
+      @include respond(laptop) {
+        max-width: $content-max-width-laptop;
+      }
 
       @include respond(tab-port) {
         flex-direction: column;

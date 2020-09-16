@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { Link } from 'gatsby';
-import { breakpoint } from "../mixins/breakpoint"
+import { breakpoint, variables } from "../mixins/breakpoint"
 import styled from 'styled-components';
 import Button from './Button';
 import MobileMenu from './MobileMenu';
@@ -10,11 +10,15 @@ const HeaderWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  max-width: 119rem;
+  max-width: ${variables.maxWidth};
   padding-top: 4.6rem;
   align-items: center;
   position: absolute;
   z-index: 100;
+
+  ${breakpoint.laptop`
+    max-width: ${variables.maxWidthLaptop};
+  `}
 
   .LinkContainer {
     display: flex;

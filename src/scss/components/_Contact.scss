@@ -60,6 +60,10 @@
     max-width: $content-max-width;
     width: 100%;
 
+    @include respond(laptop) {
+      max-width: $content-max-width-laptop;
+    }
+
     @include respond(tab-port) {
       padding: 0 1.6rem;
       width: auto;

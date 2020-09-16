@@ -1,7 +1,7 @@
 import React from "react"
 import styled from 'styled-components'
 import { graphql } from "gatsby"
-import { breakpoint } from "../mixins/breakpoint"
+import { breakpoint, variables } from "../mixins/breakpoint"
 import PageWrapper from "../components/PageWrapper"
 import "../scss/main.scss"
 import ProjectItem from "../components/ProjectItem"
@@ -21,11 +21,15 @@ const TextContainer = styled.div`
 
   h1 {
     margin: 0;
-    max-width: 119rem;
+    max-width: ${variables.maxWidth};
     font-size: 6.4rem;
     font-weight: 400;
     width: 100%;
     text-align: center;
+
+    ${breakpoint.laptop`
+      max-width: ${variables.maxWidthLaptop};
+    `}
 
     ${breakpoint.phone`
       padding: 0 1.6rem;

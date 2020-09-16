@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { breakpoint } from "../mixins/breakpoint"
+import { breakpoint, variables } from "../mixins/breakpoint"
 import Button from "./Button"
 import SummaryRow from "./SummaryRow"
 
@@ -20,7 +20,11 @@ const ProjectSummaryContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  max-width: 119rem;
+  max-width: ${variables.maxWidth};
+
+  ${breakpoint.laptop`
+    max-width: ${variables.maxWidthLaptop};
+  `}
 
   ${breakpoint.tabPort`
     padding: 0 1.6rem;

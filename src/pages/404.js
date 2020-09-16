@@ -1,18 +1,23 @@
 import { Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
-import { breakpoint } from "../mixins/breakpoint"
+import { breakpoint, variables } from "../mixins/breakpoint"
 import Button from '../components/Button';
 import PageWrapper from '../components/PageWrapper';
 
 const ErrorPageWrapper = styled.section`
-  max-width: 119rem;
+  max-width: ${variables.maxWidth};
   display: flex;
   flex-direction: column;
   flex-direction: column;
   padding: 20rem 0;
   padding-bottom: 30rem;
   width: 100%;
+
+  ${breakpoint.laptop`
+    max-width: ${variables.maxWidthLaptop};
+  `}
+  
   ${breakpoint.phone` 
     padding: 15rem 1.6rem;
     width: auto;

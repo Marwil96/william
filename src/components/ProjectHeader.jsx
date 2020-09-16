@@ -1,5 +1,5 @@
 import React from "react"
-import { breakpoint } from "../mixins/breakpoint"
+import { breakpoint, variables } from "../mixins/breakpoint"
 import styled from "styled-components"
 import LazyImage from "./LazyImage"
 
@@ -26,10 +26,14 @@ const ProjectHeaderContainer = styled.div`
 `
 
 const TextContainer = styled.div`
-  max-width: 119rem;
+  max-width: ${variables.maxWidth};
   width: 100%;
   padding: 14rem 0;
   padding-top: 18rem;
+
+  ${breakpoint.laptop`
+    max-width: ${variables.maxWidthLaptop};
+  `}
 
   ${breakpoint.tabPort`
     padding: 10rem 1.6rem;
