@@ -3,7 +3,7 @@ import {graphql} from 'gatsby';
 import Anime from 'react-anime';
 import PageWrapper from '../components/PageWrapper';
 import ServiceBlock from '../components/ServiceBlock';
-import SEO from '../components/Seo';
+import SEO from '../components/SEO';
 
 const Services = ({location, data}) => {
   useEffect(() => {

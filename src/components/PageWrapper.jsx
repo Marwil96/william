@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components'
 import Footer from './Footer';
 import Header from './Header';
-import SEO from './Seo';
+import SEO from './SEO';
 
 const PageWrapperStyle = styled.section`
   width: 100%;

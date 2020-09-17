@@ -11,7 +11,7 @@
 module.exports = {
   /* Your site config here */
   siteMetadata: {
-    title: `William Martinsson`,
+    title: `William Martinsson | Digital Designer`,
     description: `William Martinsson`,
     author: `@William Martinsson`,
     siteUrl: `https://williammartinsson.site`,
@@ -43,9 +43,9 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          `Inter\:300,400,500,600,700` // you can also specify font weights and styles
-        ]
-      }
+          `Inter\:300,400,500,600,700`, // you can also specify font weights and styles
+        ],
+      },
     },
     {
       resolve: "gatsby-source-prismic",
@@ -71,6 +71,18 @@ module.exports = {
         schemas: {
           project: require("./src/schemas/project.json"),
         },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `gatsby-starter-default`,
+        short_name: `starter`,
+        start_url: `/`,
+        background_color: `#303030`,
+        theme_color: `#303030`,
+        display: `minimal-ui`,
+        icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },
     },
   ],

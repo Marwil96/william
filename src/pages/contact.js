@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import Anime from "react-anime";
 import PageWrapper from "../components/PageWrapper";
-import SEO from "../components/Seo";
+import SEO from "../components/SEO";
 import '../scss/main.scss';
 
 const Contact =() => { 

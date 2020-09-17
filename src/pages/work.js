@@ -6,7 +6,7 @@ import PageWrapper from "../components/PageWrapper"
 import "../scss/main.scss"
 import ProjectItem from "../components/ProjectItem"
 import Anime from "react-anime"
-import SEO from "../components/Seo"
+import SEO from "../components/SEO"
 
 const TextContainer = styled.div`
   padding: 12rem 0;

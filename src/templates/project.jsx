@@ -6,7 +6,7 @@ import "../scss/main.scss"
 import ProjectHeader from "../components/ProjectHeader"
 import ProjectSummary from "../components/ProjectSummary"
 import RichText from "../components/RichText";
-import SEO from "../components/Seo";
+import SEO from "../components/SEO";
 
 const Project = ({data}) => {
   const content = data.prismicProject.data;
