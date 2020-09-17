@@ -39,9 +39,9 @@ const Contact =() => {
                 figuring out what kind of technical solution you need, or are
                 you just curious to know more about me?
                 <br /> <br />
-                Say hi at{" "}
-                <a href="mailto: william@agenly.se" className="Contact__link">
-                  william@agenly.com
+                Say {" "}
+                <a href="mailto: hi@williammartinsson.com" className="Contact__link">
+                  hi@williammartinsson.com
                 </a>{" "}
                 or (if urgent!) text{" "}
                 <a href="tel:+46768023804" className="Contact__link">

@@ -42,8 +42,8 @@ const LandingPage = ({ data }) => {
             className="textWrapper"
           >
             <span>
-              I’m available for freelance work. <br /> Contact me at
-              william@agenly.se
+              I’m available for freelance work. <br /> Say
+              hi@williammartinsson.com
             </span>
           </Anime>
         </section>
