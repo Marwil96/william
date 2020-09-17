@@ -14,7 +14,7 @@ module.exports = {
     title: `William Martinsson | Digital Designer`,
     description: `William Martinsson`,
     author: `@William Martinsson`,
-    siteUrl: `https://williammartinsson.site`,
+    siteUrl: `https://williammartinsson.com`,
   },
   plugins: [
     {
@@ -28,10 +28,17 @@ module.exports = {
         background: "#E96E1F",
       },
     },
+    {
+      resolve: "gatsby-plugin-simple-analytics",
+      options: {
+        trackPageViews: true,
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-transition-link`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -51,7 +58,7 @@ module.exports = {
       resolve: "gatsby-source-prismic",
       options: {
         repositoryName: "williammartinsson",
-        accessToken:`${process.env.API_KEY}`,
+        accessToken: `${process.env.API_KEY}`,
         htmlSerializer: ({ node, key, value }) => (
           type,
           element,
