@@ -52,9 +52,9 @@ const LandingPage = ({ data }) => {
           translateY={["43%", 0]}
           opacity={[1, 1]}
           duration={750}
-          width={["100%", "100%"]}
           delay={450}
           easing={"easeInOutCubic"}
+          className='serviceContainer'
         >
           <section className="LandingPage-services">
             <div className="LandingPage-services__container">
