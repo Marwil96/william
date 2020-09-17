@@ -6,6 +6,7 @@ import PageWrapper from "../components/PageWrapper"
 import "../scss/main.scss"
 import ProjectItem from "../components/ProjectItem"
 import Anime from "react-anime"
+import SEO from "../components/Seo"
 
 const TextContainer = styled.div`
   padding: 12rem 0;
@@ -42,20 +43,24 @@ const Work = ({data}) => {
   const projects = data.allPrismicProject.edges;
   return (
     <PageWrapper className="LandingPage">
+      <SEO
+        title="Work and Articles"
+        description="Hey, I'm William Martinsson. I'm a creator of websites, apps, and digital products. Sometimes I develop them other times I design them but usually, I do both. Currently freelancing from my home in the middle of Sweden."
+      />
       <TextContainer>
-          <h1>
-            <Anime
-              opacity={[0, 1]}
-              translateY={[100, 0]}
-              duration={650}
-              delay={0}
-              easing={"easeInOutCubic"}
-            >
-              Work & Articles        
-            </Anime>
-          </h1>
+        <h1>
+          <Anime
+            opacity={[0, 1]}
+            translateY={[100, 0]}
+            duration={650}
+            delay={0}
+            easing={"easeInOutCubic"}
+          >
+            Work & Articles
+          </Anime>
+        </h1>
       </TextContainer>
-      
+
       <section className="LandingPage-projects">
         <div className="LandingPage-projects__projectWrapper">
           {projects.map((item, index) => (

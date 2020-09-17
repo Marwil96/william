@@ -1,6 +1,7 @@
 import React, {useState} from "react"
 import Anime from "react-anime";
 import PageWrapper from "../components/PageWrapper";
+import SEO from "../components/Seo";
 import '../scss/main.scss';
 
 const Contact =() => { 
@@ -8,6 +9,10 @@ const Contact =() => {
   const [aniState, setAniState] = useState(false)
   return (
     <PageWrapper>
+      <SEO
+        title="Contact"
+        description="Hey, I'm William Martinsson. I'm a creator of websites, apps, and digital products. Sometimes I develop them other times I design them but usually, I do both. Currently freelancing from my home in the middle of Sweden."
+      />
       <Anime
         opacity={[0, 1]}
         translateY={[100, 0]}

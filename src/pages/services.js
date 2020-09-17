@@ -3,6 +3,7 @@ import {graphql} from 'gatsby';
 import Anime from 'react-anime';
 import PageWrapper from '../components/PageWrapper';
 import ServiceBlock from '../components/ServiceBlock';
+import SEO from '../components/Seo';
 
 const Services = ({location, data}) => {
   useEffect(() => {
@@ -16,6 +17,10 @@ const Services = ({location, data}) => {
 
   return (
     <PageWrapper className="Services">
+      <SEO
+        title="Services"
+        description="I'll guide you from start to finish through today's complex world of development and design."
+      />
       <section className="Services-intro">
         <Anime
           opacity={[0, 1]}

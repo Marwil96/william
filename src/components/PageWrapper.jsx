@@ -27,10 +27,13 @@ const PageWrapper = ({children, className}) => {
 
   return (
     <PageWrapperStyle className={className}>
-      <SEO title='William Martinsson - Freelancing developer from Göteborg.' />
+      <SEO
+        title="William Martinsson - Freelancing developer from Göteborg. - Digital Designer - Utvecklare"
+        description="Hey, I'm William Martinsson. I'm a creator of websites, apps, and digital products. Sometimes I develop them other times I design them but usually, I do both. Currently freelancing from my home in the middle of Sweden."
+      />
       {/* <TransitionBlob transition={transition} /> */}
       <Header />
-        {children}
+      {children}
       <Footer />
     </PageWrapperStyle>
   )

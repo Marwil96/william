@@ -119,7 +119,7 @@ const Header = () => {
       </Link>
       <div className='LinkContainer'>
         <Link className="link" to="/work">
-          <LinkItem>Work</LinkItem>
+          <LinkItem>Work & Articles</LinkItem>
         </Link>
 
         <Link className="link" to="/services">
