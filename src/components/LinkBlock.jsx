@@ -59,6 +59,7 @@ const LinkBlockRedirect = styled.div`
 
   svg {
     width: 2.4rem;
+    height: 3.2rem;
     transition: transform ease 350ms;
   }
 
