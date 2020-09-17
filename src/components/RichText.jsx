@@ -22,6 +22,7 @@ const RichTextWrapper = styled.section`
     font-size: 2.4rem;
     font-weight: 500;
     margin-bottom: 1.6rem;
+    line-height: 150%;
   }
 
   p {

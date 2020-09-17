@@ -45,7 +45,7 @@ const LazyImageWrapper = styled.div`
 const LazyImage = ({ fluid }) => {
   const { ref, inView } = useInView({
     /* Optional options */
-    threshold: 0.4,
+    // threshold: 0.4,
     triggerOnce: true,
   })
 
