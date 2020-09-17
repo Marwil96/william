@@ -1,25 +1,20 @@
+
+// @font-face {
+//  font-family: 'Inter';
+//  src: url('Inter-V.otf');
+//  font-weight: 125 950;
+//  font-stretch: 75% 125%;
+//  font-style: normal;
+// }
+
 body {
-    font-family: 'Inter', sans-serif, 'Lato', sans-serif;
+    font-family: 'Inter', 'Lato', sans-serif;
     font-weight: 400;
     font-size: $default-font-size;
-    line-height: 1.5;
-    color: $color-white;
+    // line-height: 1.7;
+    color: $color-oil;
   }
-
-  h1, h2, h3, h4, h5, span, a, p {
-    font-family: Inter, Sans-serif;
-  }
-
-  h5 {
-    font-size: 1.2rem;
-    // font-weight: 700;
-    font-weight: 800;
-    text-transform: uppercase;
-    margin-bottom: 1.6rem;
-    font-family: Inter, Sans-serif;
-    letter-spacing: 0.3rem;
-  }
-
+  
   .heading-1 {
     font-weight: 900;
     font-size: 5.5rem;
@@ -39,7 +34,7 @@ body {
   }
   
   .heading-4 {
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: 900;
     line-height: 1.2;
   }
@@ -48,10 +43,6 @@ body {
     font-size: 1.8rem;
     font-weight: 900;
     line-height: 1.2;
-  }
-
-  .swedensans {
-    font-family: Inconsolata;
   }
   
   .paragraph {

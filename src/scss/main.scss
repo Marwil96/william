@@ -1,18 +1,7 @@
-//Abstracts
 @import './abstracts/mixins';
 @import './abstracts/variables';
-
-//Base
-@import './base/base';
+@import './base/base.scss';
 @import './base/typography';
-
-//Components
-@import './components/footer';
-@import './components/header';
-@import './components/layout';
-
-//Templates
-@import './templates/project.scss';
-
-//Pages
-@import './pages/homepage';
+@import './components/LandingPage';
+@import './components/Contact';
+@import './components/Services';

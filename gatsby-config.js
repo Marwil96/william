@@ -1,24 +1,44 @@
-require("dotenv").config({
-  path: `.env`,
-})
+/**
+ * Configure your Gatsby site with this file.
+ *
+ * See: https://www.gatsbyjs.org/docs/gatsby-config/
+ */
+
+ require("dotenv").config({
+   path: `.env`,
+ })
 
 module.exports = {
+  /* Your site config here */
   siteMetadata: {
-    title: `William Martinsson - Freelancing developer from Göteborg.`,
-    description: `Hey, I'm William Martinsson. I'm a creator of websites, apps, and digital products. Sometimes I develop them other times I design them but usually, I do both. Currently freelancing from my home in the middle of Sweden.`,
+    title: `William Martinsson | Digital Designer`,
+    description: `William Martinsson`,
     author: `@William Martinsson`,
-    siteUrl: `https://williammartinsson.work`,
+    siteUrl: `https://williammartinsson.com`,
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sass`,
-    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        // Available options and their defaults:
+        base64Width: 20,
+        forceBase64Format: ``, // valid formats: png,jpg,webp
+        stripMetadata: true,
+        defaultQuality: 100,
+        background: "#E96E1F",
+      },
+    },
     {
       resolve: "gatsby-plugin-simple-analytics",
       options: {
         trackPageViews: true,
       },
     },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-transition-link`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -27,20 +47,38 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
-        trackingId: "UA-37970043-2",
+        fonts: [
+          `Inter\:300,400,500,600,700`, // you can also specify font weights and styles
+        ],
       },
     },
     {
-      resolve: "gatsby-source-prismic-graphql",
+      resolve: "gatsby-source-prismic",
       options: {
-        repositoryName: "williammartinsson", // required
-        accessToken: `${process.env.API_KEY}`, // optional
+        repositoryName: "williammartinsson",
+        accessToken: `${process.env.API_KEY}`,
+        htmlSerializer: ({ node, key, value }) => (
+          type,
+          element,
+          content,
+          children
+        ) => {
+          // Your HTML serializer
+        },
+        shouldDownloadImage: ({ node, key, value }) => {
+          // Return true to download the image or false to skip.
+          return true
+        },
+        linkResolver: ({ node, key, value }) => doc => {
+          // Your link resolver
+        },
+        schemas: {
+          project: require("./src/schemas/project.json"),
+        },
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -53,8 +91,5 @@ module.exports = {
         icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 }

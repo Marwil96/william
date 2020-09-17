@@ -1,102 +1,225 @@
-import React,{useEffect} from "react"
-import { graphql } from "gatsby"
-import { RichText } from 'prismic-reactjs';
+import React from "react"
+import { graphql } from 'gatsby';
+import { FullWidthImage, SplitImage } from "../components/ProjectImage"
+import PageWrapper from "../components/PageWrapper"
+import "../scss/main.scss"
+import ProjectHeader from "../components/ProjectHeader"
+import ProjectSummary from "../components/ProjectSummary"
+import RichText from "../components/RichText";
+import SEO from "../components/SEO";
 
-import SEO from "../components/seo"
-import Layout from "../components/layout"
-
-const Project = ({ data, pageContext }) => {
-
-  const dataQuery = data.prismic.allProjects.edges[0].node
-  console.log(pageContext.uid, dataQuery)
-  
-
-  let options = {
-    rootMargin: '0px',
-    threshold: 0.5
-  }
-
-  function callback (entries, observer){ 
-
-    entries.forEach(entry => {
-      if (entry.intersectionRatio > 0) {
-
-        // Stop watching and load the image
-        observer.unobserve(entry.target);
-        entry.target.classList.add('in-view')
-        console.log(entry.target)
-      }
-    });
-  };
-  
-  useEffect(() => {
-    document.querySelector('.pageheader').classList.add('pageheader__animated')
-    const targetArray = document.querySelectorAll('.block-img');
-
-    let observer = new IntersectionObserver(callback, options); 
-    
-    Array.from(targetArray).map((element) => {
-      observer.observe(element);
-    })
-  }, []);
+const Project = ({data}) => {
+  const content = data.prismicProject.data;
 
   return (
-    <Layout modifier="project">
+    <PageWrapper>
       <SEO
-        title={`${dataQuery.project_name[0].text} - William Martinsson - Freelancing Digital Designer & Developer from Gothenburg.`}
-        description={`${dataQuery.category[0].text} - ${dataQuery.title[0].text} - Freelancing Digital Designer & Developer from Gothenburg.`}
+        title={`${content.project_name.text} - ${content.title.text}`}
+        description={content.project_introduction.text}
       />
-      <section className="pageheader">
-        <h3 className="pageheader__category">{dataQuery.category[0].text}</h3>
-        <h1 className="pageheader__title">{dataQuery.title[0].text}</h1>
-      </section>
-      <main className="content">
-        <div className="content__container">
-          <section className="summary">
-            {dataQuery.summary.map(item => {
-              return (
-                <div className="summary__item">
-                  <h6 className="summary__title">
-                    {item.summary_title[0].text}
-                  </h6>
-                  <span className="summary__value">
-                    {/* {item.summary_value.map(text => text.text)} */}
-                    <RichText render={item.summary_value} />
-                  </span>
-                </div>
-              )
-            })}
-          </section>
-          <div>
-            <RichText render={dataQuery.project_content} />
-          </div>
-        </div>
-      </main>
-    </Layout>
+      <ProjectHeader
+        projectName={content.project_name.text}
+        projectTitle={content.title.text}
+        projectImage={content.hero_image.localFile.childImageSharp.fluid}
+      />
+
+      <ProjectSummary
+        summaryArray={content.summary}
+        summaryIntro={content.project_introduction.text}
+        linkToWebsite={content.link_to_website.url}
+      />
+
+      {content.body.map((section, index) => {
+        if (section.slice_type === "rich_text") {
+          return <RichText key={index} content={section.primary.text.html} />
+        } else if (section.slice_type === "full_width_image") {
+          return (
+            <FullWidthImage
+              fluid={section.primary.image.localFile.childImageSharp.fluid}
+              key={index}
+            />
+          )
+        } else if (section.slice_type === "split_images") {
+          return (
+            <SplitImage
+              left={section.primary.left_image.localFile.childImageSharp.fluid}
+              right={
+                section.primary.right_image.localFile.childImageSharp.fluid
+              }
+              key={index}
+            />
+          )
+        } else {
+          return true
+        }
+      })}
+    </PageWrapper>
   )
 }
-export default Project
 
 export const query = graphql`
   query PostBySlug($uid: String!) {
-    prismic {
-      allProjects(uid: $uid) {
-        edges {
-          node {
-            project_content
-            project_name
-            title
-            summary {
-              summary_title
-              summary_value
+    prismicProject(uid: { eq: $uid }) {
+      data {
+        title {
+          text
+        }
+        summary {
+          summary_title {
+            text
+          }
+          summary_value {
+            text
+          }
+        }
+        project_name {
+          text
+        }
+        category {
+          text
+        }
+        hero_image {
+          url
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 3080, quality: 100) {
+                aspectRatio
+                base64
+                originalImg
+                originalName
+                presentationHeight
+                presentationWidth
+                sizes
+                src
+                srcSet
+                srcSetWebp
+                srcWebp
+                tracedSVG
+              }
             }
-            category
-            _meta {
-              uid
+          }
+        }
+        link_to_website {
+          url
+        }
+        project_introduction {
+          text
+        }
+        body {
+          ... on PrismicProjectBodyFullWidthImage {
+            id
+            slice_type
+            internal {
+              type
             }
+            primary {
+              image {
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 3080, quality: 100) {
+                      aspectRatio
+                      base64
+                      originalImg
+                      originalName
+                      presentationHeight
+                      presentationWidth
+                      sizes
+                      src
+                      srcSet
+                      srcSetWebp
+                      srcWebp
+                      tracedSVG
+                    }
+                  }
+                }
+              }
+            }
+          }
+          ... on PrismicProjectBodySplitImages {
+            id
+            slice_type
+            internal {
+              type
+            }
+            primary {
+              left_image {
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 3080, quality: 100) {
+                      aspectRatio
+                      base64
+                      originalImg
+                      originalName
+                      presentationHeight
+                      presentationWidth
+                      sizes
+                      src
+                      srcSet
+                      srcSetWebp
+                      srcWebp
+                      tracedSVG
+                    }
+                  }
+                }
+              }
+              right_image {
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 3080, quality: 100) {
+                      aspectRatio
+                      base64
+                      originalImg
+                      originalName
+                      presentationHeight
+                      presentationWidth
+                      sizes
+                      src
+                      srcSet
+                      srcSetWebp
+                      srcWebp
+                      tracedSVG
+                    }
+                  }
+                }
+              }
+            }
+          }
+          ... on PrismicProjectBodyRichText {
+            id
+            primary {
+              text {
+                html
+              }
+            }
+            slice_type
+          }
+          ... on PrismicProjectBodyQuote {
+            id
+            primary {
+              author {
+                text
+              }
+              quote {
+                text
+              }
+            }
+            slice_type
+          }
+          ... on PrismicProjectBodyQuote1 {
+            primary {
+              quote {
+                text
+              }
+              author {
+                text
+              }
+            }
+            slice_type
           }
         }
       }
     }
   }
 `
+
+export default Project
