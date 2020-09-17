@@ -63,6 +63,10 @@ const ProjectHeaderImageWrapper = styled.div`
   width: 100%;
   margin-top: -9.6rem;
 
+  ${breakpoint.laptop`
+    max-width: 120rem;
+  `}
+
   .LazyImage {
     ${breakpoint.tabPort`
       padding: 0 1.6rem;
