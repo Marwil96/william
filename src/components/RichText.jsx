@@ -23,6 +23,22 @@ const RichTextWrapper = styled.section`
     font-weight: 500;
     margin-bottom: 1.6rem;
     line-height: 150%;
+    max-width: 86rem;
+  }
+
+  h1 {
+    font-size: 3.2rem;
+    font-weight: 600;
+  }
+
+  strong {
+    font-weight: 600;
+  }
+
+  li {
+    margin-bottom: 1rem;
+    line-height: 150%;
+    max-width: 86rem;
   }
 
   p {

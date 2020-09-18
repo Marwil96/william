@@ -11,6 +11,8 @@ import SEO from "../components/SEO";
 const Project = ({data}) => {
   const content = data.prismicProject.data;
 
+  console.log(data.prismicProject.tags[0] === 'article')
+
   return (
     <PageWrapper>
       <SEO
@@ -22,12 +24,12 @@ const Project = ({data}) => {
         projectTitle={content.title.text}
         projectImage={content.hero_image.localFile.childImageSharp.fluid}
       />
-
+      {data.prismicProject.tags[0] === 'article' ? null :
       <ProjectSummary
         summaryArray={content.summary}
         summaryIntro={content.project_introduction.text}
         linkToWebsite={content.link_to_website.url}
-      />
+      />}
 
       {content.body.map((section, index) => {
         if (section.slice_type === "rich_text") {
@@ -60,6 +62,7 @@ const Project = ({data}) => {
 export const query = graphql`
   query PostBySlug($uid: String!) {
     prismicProject(uid: { eq: $uid }) {
+      tags
       data {
         title {
           text

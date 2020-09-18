@@ -23,7 +23,8 @@ const SummaryRowWrapper = styled.section`
     color: #6f6f6f;
     font-weight: 400;
     font-size: 2rem;
-    
+    line-height: 150%;
+
     ${breakpoint.phone`
       font-size: 1.8rem;
     `}

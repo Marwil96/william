@@ -83,7 +83,7 @@ const Work = ({data}) => {
 
 export const query = graphql`
   {
-    allPrismicProject(filter: { tags: { eq: "featured" } }) {
+    allPrismicProject {
       edges {
         node {
           id
