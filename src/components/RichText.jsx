@@ -14,7 +14,7 @@ const RichTextWrapper = styled.section`
 
   ${breakpoint.tabPort`
     padding: 0 1.6rem;
-    width: auto;
+    width: calc(100% - 3.2rem);
   `}
 
   h5,h4,h3,h1,h2 {
