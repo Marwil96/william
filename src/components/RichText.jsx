@@ -29,6 +29,8 @@ const RichTextWrapper = styled.section`
   h1 {
     font-size: 3.2rem;
     font-weight: 600;
+    opacity: 0.97;
+    line-height: 100%;
   }
 
   strong {
@@ -46,6 +48,10 @@ const RichTextWrapper = styled.section`
     line-height: 150%;
     font-size: 2rem;
     max-width: 86rem;
+
+    img {
+      width: 100%;
+    }
   }
 
   ul {
