@@ -6,6 +6,13 @@
         "label": "slug"
       }
     },
+    "order": {
+      "type": "Number",
+      "config": {
+        "label": "order",
+        "placeholder": "1"
+      }
+    },
     "project_name": {
       "type": "StructuredText",
       "config": {

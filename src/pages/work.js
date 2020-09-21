@@ -83,7 +83,7 @@ const Work = ({data}) => {
 
 export const query = graphql`
   {
-    allPrismicProject {
+    allPrismicProject(sort: {fields: data___order}) {
       edges {
         node {
           id

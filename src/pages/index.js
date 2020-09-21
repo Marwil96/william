@@ -109,7 +109,7 @@ const LandingPage = ({ data }) => {
 
 export const query = graphql`
   {
-    allPrismicProject(filter: { tags: { eq: "featured" } }) {
+    allPrismicProject(filter: { tags: { eq: "featured" } }, sort: {fields: data___order}) {
       edges {
         node {
           id
