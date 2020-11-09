@@ -55,7 +55,7 @@ const Footer = ({ background, children }) => (
     <SocialContainer>
       <a href='https://www.linkedin.com/in/william-martinsson-a24a3b111/'>Linkedin</a>
       <a href='https://github.com/Marwil96'>Github</a>
-      <a href='https://medium.com/@marwil1996'>Medium</a>
+      <a href='https://williammartinsson.medium.com/'>Medium</a>
     </SocialContainer>
   </FooterWrapper>
 )
