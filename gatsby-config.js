@@ -54,31 +54,31 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: "gatsby-source-prismic",
-      options: {
-        repositoryName: "williammartinsson",
-        accessToken: `${process.env.API_KEY}`,
-        htmlSerializer: ({ node, key, value }) => (
-          type,
-          element,
-          content,
-          children
-        ) => {
-          // Your HTML serializer
-        },
-        shouldDownloadImage: ({ node, key, value }) => {
-          // Return true to download the image or false to skip.
-          return true
-        },
-        linkResolver: ({ node, key, value }) => doc => {
-          // Your link resolver
-        },
-        schemas: {
-          project: require("./src/schemas/project.json"),
-        },
-      },
-    },
+    // {
+    //   resolve: "gatsby-source-prismic",
+    //   options: {
+    //     repositoryName: "williammartinsson",
+    //     accessToken: `${process.env.API_KEY}`,
+    //     htmlSerializer: ({ node, key, value }) => (
+    //       type,
+    //       element,
+    //       content,
+    //       children
+    //     ) => {
+    //       // Your HTML serializer
+    //     },
+    //     shouldDownloadImage: ({ node, key, value }) => {
+    //       // Return true to download the image or false to skip.
+    //       return true
+    //     },
+    //     linkResolver: ({ node, key, value }) => doc => {
+    //       // Your link resolver
+    //     },
+    //     schemas: {
+    //       project: require("./src/schemas/project.json"),
+    //     },
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
