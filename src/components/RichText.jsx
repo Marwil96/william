@@ -47,7 +47,7 @@ const RichTextWrapper = styled.section`
     ${breakpoint.tabPort`
       line-height: 40px;
       font-size: 2.4rem;
-      margin-bottom: 3.2rem;
+      margin-bottom: 4.8rem;
     `}
 
     img {

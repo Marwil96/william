@@ -158,6 +158,7 @@ const Project = ({data, transitionStatus, location, entry, exit}) => {
             padding: "1rem",
             ...slideBubble,
           }}
+          onClick={() => window.open(`${content.link_to_website.url}`, '_blank')}
         >
           Visit Website
         </Bubble>
