@@ -152,7 +152,7 @@ const Project = ({data, transitionStatus, location, entry, exit}) => {
             position: "absolute",
             top: "-8vh",
             right: "10rem",
-            height: "15.7rem",
+            height: "15.8rem",
             width: "15.8rem",
             fontSize: "2.4rem",
             padding: "1rem",
