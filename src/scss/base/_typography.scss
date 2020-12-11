@@ -1,0 +1,88 @@
+
+// @font-face {
+//  font-family: 'Inter';
+//  src: url('Inter-V.otf');
+//  font-weight: 125 950;
+//  font-stretch: 75% 125%;
+//  font-style: normal;
+// }
+
+@font-face {
+  font-family: "Alaska";
+  src: url("../assets/fonts/AlaskaRegular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Alaska";
+  src: url("../assets/fonts/AlaskaLight.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Alaska";
+  src: url("../assets/fonts/AlaskaMedium.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Alaska";
+  src: url("../assets/fonts/AlaskaExpandedRegular.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 400;
+}
+
+body {
+    font-family: 'Alaska', 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: $default-font-size;
+    // line-height: 1.7;
+    color: $color-text;
+  }
+  
+  .heading-1 {
+    font-weight: 900;
+    font-size: 5.5rem;
+    line-height: 1.2;
+  }
+  
+  .heading-2 {
+    font-weight: 900;
+    font-size: 4.5rem;
+    line-height: 1.2;
+  }
+  
+  .heading-3 {
+    font-weight: 900;
+    font-size: 3rem;
+    line-height: 1.2;
+  }
+  
+  .heading-4 {
+    font-size: 2rem;
+    font-weight: 900;
+    line-height: 1.2;
+  }
+  
+  .heading-5 {
+    font-size: 1.8rem;
+    font-weight: 900;
+    line-height: 1.2;
+  }
+  
+  .paragraph {
+    font-size: $default-font-size;
+  }
+  
+  .small {
+    font-size: 1.6rem;
+  }
+  
+  .large {
+    font-size: 2.2rem;
+  }
+  
+  .bold {
+    font-weight: 900;
+  }
+  

@@ -1,0 +1,88 @@
+/*
+  MEDIA QUERY MANAGER
+  0-600 Phone
+  600-900 Tablet
+  900-1200 Tablet Landscape
+  1200-1800 Desktop [Normal styles apply]
+  1800+ Big desktop
+  
+  breakpoint argument choices
+  - phone
+  - tab-port
+  - tab-land
+  - big-desktop
+  */
+
+//1em = 16px
+
+@mixin respond($breakpoint) {
+    //320px
+    @if $breakpoint == small-phone {
+      @media only screen and (max-width: 20em) {
+        @content;
+      }
+    }
+  
+    //600px
+    @if $breakpoint == phone {
+      @media only screen and (max-width: 37.5em) {
+        @content;
+      }
+    }
+  
+    //900px
+    @if $breakpoint == tab-port {
+      @media only screen and (max-width: 56.25em) {
+        @content;
+      }
+    }
+  
+    //1200px
+    @if $breakpoint == tab-land {
+      @media only screen and (max-width: 75em) {
+        @content;
+      }
+    }
+
+    @if $breakpoint == laptop {
+      @media only screen and (max-width: 85em) {
+        @content;
+      }
+    }
+  
+    //1800px
+    @if $breakpoint == big-desktop {
+      @media only screen and (min-width: 112.5em) {
+        @content;
+      }
+    }
+
+    // 90em
+    @if $breakpoint == over-max {
+      @media only screen and (min-width: 1050px) {
+        @content;
+      }
+    }
+  }
+  
+  @mixin mainContainer {
+    max-width: $content-max-width;
+    display: flex;
+    margin: 0 auto;
+    padding: 6rem 6rem;
+    margin-bottom: 6.4rem;
+    
+  
+    @include respond(tab-land) {
+      padding: 6rem  3.2rem;
+    }
+
+    @include respond(phone) { 
+      padding: 4.8rem 1.6rem;
+      margin-bottom: 6.4rem;
+    }
+
+    @include respond(big-desktop)  {
+      padding: 6rem 14rem;
+    }
+  }

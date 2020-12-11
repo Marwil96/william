@@ -1,0 +1,62 @@
+{
+  "name": "gatsby-starter-hello-world",
+  "private": true,
+  "description": "A simplified bare-bones starter for Gatsby",
+  "version": "0.1.0",
+  "license": "0BSD",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
+  "dependencies": {
+    "@mdx-js/mdx": "^1.6.16",
+    "@mdx-js/react": "^1.6.16",
+    "@mdx-js/tag": "^0.20.3",
+    "babel-plugin-styled-components": "^1.11.1",
+    "flickity": "^2.2.1",
+    "gatsby": "^2.24.50",
+    "gatsby-image": "^2.4.17",
+    "gatsby-mdx-fix": "0.0.3",
+    "gatsby-plugin-google-fonts": "^1.0.1",
+    "gatsby-plugin-layout": "^1.6.0",
+    "gatsby-plugin-manifest": "^2.4.30",
+    "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
+    "gatsby-plugin-sass": "^2.3.12",
+    "gatsby-plugin-sharp": "^2.6.35",
+    "gatsby-plugin-simple-analytics": "^1.0.3",
+    "gatsby-plugin-sitemap": "^2.4.13",
+    "gatsby-plugin-styled-components": "^3.3.10",
+    "gatsby-plugin-transition-link": "^1.20.5",
+    "gatsby-plugin-transitions": "^2.1.7",
+    "gatsby-remark-images": "^3.3.29",
+    "gatsby-source-prismic": "^3.2.1",
+    "gatsby-transformer-remark": "^2.8.34",
+    "gatsby-transformer-sharp": "^2.5.14",
+    "html-react-parser": "^0.13.0",
+    "node-sass": "^4.14.1",
+    "react": "^16.14.0",
+    "react-anime": "^3.0.3",
+    "react-dom": "^16.14.0",
+    "react-flickity-component": "^3.6.0",
+    "react-helmet": "^6.1.0",
+    "react-intersection-observer": "^8.28.4",
+    "react-slick": "^0.27.13",
+    "react-spring": "^8.0.27",
+    "styled-components": "^5.2.0"
+  },
+  "devDependencies": {
+    "prettier": "2.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  }
+}
