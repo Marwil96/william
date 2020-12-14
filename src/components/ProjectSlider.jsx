@@ -186,6 +186,14 @@ const ProjectSubtitle = styled.span`
   }
 `
 
+const BubbleContainer = styled.div`
+  display: none;
+  
+  ${breakpoint.tabPort`
+    display: block;
+  `}
+`
+
 const ProjectSlider = ({projects}) => {
   const [currentSlide, setCurrentSlide] = useState(null)
   const [wheel, setWheel] = useState()
@@ -247,33 +255,130 @@ const ProjectSlider = ({projects}) => {
         </ProjectSliderItem>
         )
       })} */}
-      <Bubble style={{position: "absolute", top: '-6vh', right: '10rem', ...slideBubble}} onClick={() => { setScrollDirectonForwards(true); setCurrentSlide(currentSlide !== 3 ? currentSlide + 1 : 0)}}> Scroll </Bubble>
-      <div style={{overflow: "hidden", position: 'relative', height: '100%', width: '100%'}}>
+      <BubbleContainer>
+        <Bubble
+          style={{
+            position: "absolute",
+            top: "-6vh",
+            right: "10rem",
+            height: "11.4rem",
+            width: "11.4rem",
+            ...slideBubble,
+          }}
+          onClick={() => {
+            setScrollDirectonForwards(true)
+            setCurrentSlide(currentSlide !== 3 ? currentSlide + 1 : 0)
+          }}
+        >
+          {" "}
+          Scroll{" "}
+        </Bubble>
+      </BubbleContainer>
+      <div
+        style={{
+          overflow: "hidden",
+          position: "relative",
+          height: "100%",
+          width: "100%",
+        }}
+      >
         {projects.map((item, index) => {
           let active
-          index === currentSlide ? active = true : active = false
-          if(index === 0) !scrollDirectionForwards ? currentSlide === 3 ? lastSlide = true : lastSlide = false : currentSlide === 1 ? lastSlide = true : lastSlide = false;
-          if(index === 1) !scrollDirectionForwards ? currentSlide === 0 ? lastSlide = true : lastSlide = false : currentSlide === 2 ? lastSlide = true : lastSlide = false 
-          if(index === 2) !scrollDirectionForwards ? currentSlide === 1 ? lastSlide = true : lastSlide = false : currentSlide === 3 ? lastSlide = true : lastSlide = false
-          if(index === 3) !scrollDirectionForwards ? currentSlide === 2 ? lastSlide = true : lastSlide = false : currentSlide === 0 ? lastSlide = true : lastSlide = false
-          
-            const title = item.node.data.title.text
-            const name = item.node.data.project_name.text
-            const tags = item.node.data.category.text
-            const image = item.node.data.hero_image.url
-            const link = item.node.uid
+          index === currentSlide ? (active = true) : (active = false)
+          if (index === 0)
+            !scrollDirectionForwards
+              ? currentSlide === 3
+                ? (lastSlide = true)
+                : (lastSlide = false)
+              : currentSlide === 1
+              ? (lastSlide = true)
+              : (lastSlide = false)
+          if (index === 1)
+            !scrollDirectionForwards
+              ? currentSlide === 0
+                ? (lastSlide = true)
+                : (lastSlide = false)
+              : currentSlide === 2
+              ? (lastSlide = true)
+              : (lastSlide = false)
+          if (index === 2)
+            !scrollDirectionForwards
+              ? currentSlide === 1
+                ? (lastSlide = true)
+                : (lastSlide = false)
+              : currentSlide === 3
+              ? (lastSlide = true)
+              : (lastSlide = false)
+          if (index === 3)
+            !scrollDirectionForwards
+              ? currentSlide === 2
+                ? (lastSlide = true)
+                : (lastSlide = false)
+              : currentSlide === 0
+              ? (lastSlide = true)
+              : (lastSlide = false)
+
+          const title = item.node.data.title.text
+          const name = item.node.data.project_name.text
+          const tags = item.node.data.category.text
+          const image = item.node.data.hero_image.url
+          const link = item.node.uid
 
           return (
-            <TransitionLink to={`/projects/${link}`} exit={{length: 0.5}} entry={{length: 0.5, delay:0.5}}>
-              <ProjectSliderItem style={active ? {zIndex: 100} : lastSlide ?  {zIndex: 80} : {zIndex: 0}}>
-                <ProjectTitle className={'Project_Title', active ? scrollDirectionForwards ? 'go_up' : 'go_down' : ''}>{name}</ProjectTitle>
-                <ProjectSubtitle className={active ? scrollDirectionForwards ? 'go_up' : 'go_down' : ''}>{title}</ProjectSubtitle>
-                <ProjectImage style={slideInCard} image={image} forwards={scrollDirectionForwards} className={ active ? scrollDirectionForwards ? 'go_up' : 'go_down' : ''}/>
+            <TransitionLink
+              to={`/projects/${link}`}
+              exit={{ length: 0.5 }}
+              entry={{ length: 0.5, delay: 0.5 }}
+            >
+              <ProjectSliderItem
+                style={
+                  active
+                    ? { zIndex: 100 }
+                    : lastSlide
+                    ? { zIndex: 80 }
+                    : { zIndex: 0 }
+                }
+              >
+                <ProjectTitle
+                  className={
+                    ("Project_Title",
+                    active
+                      ? scrollDirectionForwards
+                        ? "go_up"
+                        : "go_down"
+                      : "")
+                  }
+                >
+                  {name}
+                </ProjectTitle>
+                <ProjectSubtitle
+                  className={
+                    active
+                      ? scrollDirectionForwards
+                        ? "go_up"
+                        : "go_down"
+                      : ""
+                  }
+                >
+                  {title}
+                </ProjectSubtitle>
+                <ProjectImage
+                  style={slideInCard}
+                  image={image}
+                  forwards={scrollDirectionForwards}
+                  className={
+                    active
+                      ? scrollDirectionForwards
+                        ? "go_up"
+                        : "go_down"
+                      : ""
+                  }
+                />
                 {/* <div style={{position: "absolute", width: '100%', height: '100%', background: 'black', opacity: 0.3, marginLeft: '-10rem' }}></div> */}
               </ProjectSliderItem>
             </TransitionLink>
-          )}
-        )}
+          )
+        })}
       </div>
     </ProjectSliderWrapper>
   )

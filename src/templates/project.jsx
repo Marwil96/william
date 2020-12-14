@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
+import TransitionLink from "gatsby-plugin-transition-link"
 // import { FullWidthImage, SplitImage } from "../components/ProjectImage"
 import PageWrapper from "../components/PageWrapper"
 import styled from 'styled-components';
@@ -15,20 +16,28 @@ import { useSpring, animated } from "react-spring"
 const ImageWrapper = styled.div`
   margin-bottom: 4.8rem;
   position: relative;
-  
+  width: 100vw;
+  margin-left: -1.6rem;
+
   ${breakpoint.tabPort`
     margin-bottom: 6.4rem;
+    width: 100%;
+    margin-left: none;
   `}
 `
 
 const ContentWrapper = styled.section`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-column-gap: 3.2rem;
+  grid-column-gap: 1.6rem;
   padding-bottom: 10rem;
+  
+  ${breakpoint.tabPort`
+    grid-column-gap: 3.2rem;
+  `}
 `
 
-const Introduction = styled.h3`
+const Introduction = styled(animated.h3)`
   font-size: 2.4rem;
   font-weight: 400;
   line-height: 4rem;
@@ -134,6 +143,8 @@ const Project = ({data, transitionStatus, location, entry, exit}) => {
    const heroMaskSpring = useSpring({config: {friction: 35}, from: {transform: 'scale(1,1)'}, to:{ transform: 'scale(1,0)'}, delay: 1600})
    const heroSpring = useSpring({config: {friction: 35}, from: {transform: 'scale(1.3)'}, to:{ transform: 'scale(1)'}, delay: 1600})
    const slideBubble = useSpring({config: {friction: 10, tension: 400}, from: {transform: 'scale(0)'}, to:{ transform: 'scale(1)'}, delay: 2200})
+   const slideIntro = useSpring({config: {friction: 35}, from: {opacity: 0, transform: 'translateY(100px)'}, to:{opacity: 1, transform: 'translateY(0px)'}, delay: 2200})
+
 
 
   return (
@@ -150,12 +161,6 @@ const Project = ({data, transitionStatus, location, entry, exit}) => {
         <Bubble
           style={{
             position: "absolute",
-            top: "-8vh",
-            right: "10rem",
-            height: "15.8rem",
-            width: "15.8rem",
-            fontSize: "2.4rem",
-            padding: "1rem",
             ...slideBubble,
           }}
           onClick={() => window.open(`${content.link_to_website.url}`, '_blank')}
@@ -179,7 +184,7 @@ const Project = ({data, transitionStatus, location, entry, exit}) => {
 
       {/* CONTENT START HERE  */}
       <ContentWrapper>
-        <Introduction>{content.project_introduction.text}</Introduction>
+        <Introduction style={slideIntro}>{content.project_introduction.text}</Introduction>
 
         {content.body.map((section, index) => {
           if (section.slice_type === "rich_text") {
@@ -203,7 +208,7 @@ const Project = ({data, transitionStatus, location, entry, exit}) => {
       <NextProject>
         <div> </div>
         <span>Next Project</span>
-        <Link to={`/projects/${nextProject.slug}`}>{nextProject.name}</Link>
+        <TransitionLink to={`/projects/${nextProject.slug}`}  exit={{length: 0.5}} entry={{length: 0.5, delay:0.5}}>{nextProject.name}</TransitionLink>
       </NextProject>
       <Footer />
     </PageWrapper>

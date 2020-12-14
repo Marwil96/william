@@ -62,14 +62,36 @@ const NavBar = () => {
         }}
         entry={{
           length: 0.5,
-          delay:0.5
+          delay: 0.5,
         }}
       >
         <NavBarTitle>William Martinsson</NavBarTitle>
       </TransitionLink>
       <div className="navlinks_desktop">
-        <NavBarLink>All Projects</NavBarLink>
-        <NavBarLink>Writings</NavBarLink>
+        <TransitionLink
+          to="/work"
+          exit={{
+            length: 0.5,
+          }}
+          entry={{
+            length: 0.5,
+            delay: 0.5,
+          }}
+        >
+          <NavBarLink>All Projects</NavBarLink>
+        </TransitionLink>
+        <TransitionLink
+          to="/writings"
+          exit={{
+            length: 0.5,
+          }}
+          entry={{
+            length: 0.5,
+            delay: 0.5,
+          }}
+        >
+          <NavBarLink>Writings</NavBarLink>
+        </TransitionLink>
         <TransitionLink
           to="/about"
           exit={{
@@ -77,12 +99,23 @@ const NavBar = () => {
           }}
           entry={{
             length: 0.5,
-            delay:0.5
+            delay: 0.5,
           }}
         >
           <NavBarLink>About</NavBarLink>
         </TransitionLink>
-        <NavBarLink>Contact</NavBarLink>
+        <TransitionLink
+          to="/contact"
+          exit={{
+            length: 0.5,
+          }}
+          entry={{
+            length: 0.5,
+            delay: 0.5,
+          }}
+        >
+          <NavBarLink>Contact</NavBarLink>
+        </TransitionLink>
       </div>
 
       <svg

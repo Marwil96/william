@@ -6,6 +6,7 @@ import { breakpoint, variables } from "../mixins/breakpoint"
 const FooterWrapper = styled.section`
   width: 100%;
   padding-bottom: 6.4rem;
+  grid-column: span 12;
 
   ${breakpoint.tabPort` 
     display: grid;
@@ -44,9 +45,9 @@ const FooterColumn = styled.div`
 `
 
 
-const Footer = () => {
+const Footer = ({style}) => {
   return (
-    <FooterWrapper>
+    <FooterWrapper style={style}>
       <FooterColumn style={{ gridColumn: "span 4" }}>
         <h1>William Martinsson</h1>
         <h3>

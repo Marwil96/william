@@ -20,12 +20,13 @@ const InnerWrapper = styled(animated.section)`
   box-sizing: border-box;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-column-gap: 3.2rem;
+  grid-column-gap: 1.6rem;
   padding: 5rem 1.6rem 0rem 1.6rem;
   transition: opacity 500ms ease;
 
-  ${breakpoint.phone`
+  ${breakpoint.tabPort`
       padding: 16.4rem 10rem 0rem 10rem;
+      grid-column-gap: 3.2rem;
   `}
 `
 

@@ -14,9 +14,15 @@ const RichTextWrapper = styled.section`
   `}
 
   h5,h4,h3,h1,h2 {
-    font-size: 2.4rem;
+    margin-bottom: 0.6rem;
+    line-height: 150%;
     font-weight: 500;
-    margin-bottom: 1.6rem;
+    font-size: 2.4rem;
+
+    ${breakpoint.tabPort`
+      font-size: 2.4rem;
+      margin-bottom: 1.6rem;
+    `}
   }
 
   h1 {
@@ -58,6 +64,13 @@ const RichTextWrapper = styled.section`
   ul {
     padding: 2.4rem;
     padding-top: 0;
+  }
+  iframe {
+    width: 100%;
+
+    ${breakpoint.tabPort`
+      min-height: 32vw;
+    `}
   }
 `
 
