@@ -18,7 +18,8 @@ const IntroContainer = styled(animated.div)`
   `}
 
   .phone {
-    font-size: ${window.innerHeight > 600 ? `48px` : '32px'};
+    /* font-size: ${window.innerHeight > 600 ? `48px` : '32px'}; */
+    font-size: 4.8rem;
     line-height: 100%;
     font-weight: 400;
     text-align: left;
