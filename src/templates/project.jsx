@@ -12,6 +12,7 @@ import { Bubble } from "../components/Bubble";
 import RichText from "../components/RichText";
 import Footer from "../components/Footer";
 import { useSpring, animated } from "react-spring"
+import SEO from "../components/SEO";
 
 const ImageWrapper = styled.div`
   margin-bottom: 4.8rem;
@@ -153,6 +154,10 @@ const Project = ({data, transitionStatus, location, entry, exit}) => {
       outerWrapperStyle={{ height: "auto" }}
       transitionActive={transitionStatus}
     >
+      <SEO
+        title={`${content.project_name.text} - ${content.title.text}`}
+        description={content.project_introduction.text}
+      />
       <ProjectHeader
         name={content.project_name.text}
         metaData={content.summary}
@@ -163,7 +168,9 @@ const Project = ({data, transitionStatus, location, entry, exit}) => {
             position: "absolute",
             ...slideBubble,
           }}
-          onClick={() => window.open(`${content.link_to_website.url}`, '_blank')}
+          onClick={() =>
+            window.open(`${content.link_to_website.url}`, "_blank")
+          }
         >
           Visit Website
         </Bubble>
@@ -179,12 +186,18 @@ const Project = ({data, transitionStatus, location, entry, exit}) => {
             ...heroMaskSpring,
           }}
         ></HeroMask>
-        <div style={{overflow: "hidden"}}><animated.div style={heroSpring}><Img fluid={content.hero_image.localFile.childImageSharp.fluid} /></animated.div></div>
+        <div style={{ overflow: "hidden" }}>
+          <animated.div style={heroSpring}>
+            <Img fluid={content.hero_image.localFile.childImageSharp.fluid} />
+          </animated.div>
+        </div>
       </ImageWrapper>
 
       {/* CONTENT START HERE  */}
       <ContentWrapper>
-        <Introduction style={slideIntro}>{content.project_introduction.text}</Introduction>
+        <Introduction style={slideIntro}>
+          {content.project_introduction.text}
+        </Introduction>
 
         {content.body.map((section, index) => {
           if (section.slice_type === "rich_text") {
@@ -208,7 +221,13 @@ const Project = ({data, transitionStatus, location, entry, exit}) => {
       <NextProject>
         <div> </div>
         <span>Next Project</span>
-        <TransitionLink to={`/projects/${nextProject.slug}`}  exit={{length: 0.5}} entry={{length: 0.5, delay:0.5}}>{nextProject.name}</TransitionLink>
+        <TransitionLink
+          to={`/projects/${nextProject.slug}`}
+          exit={{ length: 0.5 }}
+          entry={{ length: 0.5, delay: 0.5 }}
+        >
+          {nextProject.name}
+        </TransitionLink>
       </NextProject>
       <Footer />
     </PageWrapper>

@@ -69,8 +69,7 @@ const IntroContainer = styled(animated.div)`
 const LandingPage = ({transitionStatus, location, entry, exit, data }) => {
   const [selectedCase, setSelectedCase ] = useState(0)
   const slideText = useSpring({config: {friction: 35}, from: {opacity: 0, transform: 'translateY(100px)'}, to:{opacity: 1, transform: 'translateY(0px)'}, delay: 500})
-
-  console.log(transitionStatus, exit, entry)
+  
   return (
     <PageWrapper style={{display: 'flex', flexDirection:'column', justifyContent: 'space-between'}} location={location} transitionActive={transitionStatus}>
         <IntroContainer style={slideText}>

@@ -7,6 +7,7 @@ import Footer from "../components/Footer"
 import PageWrapper from "../components/PageWrapper"
 import { graphql } from "gatsby"
 import ProjectCard from "../components/ProjectCard"
+import SEO from "../components/SEO"
 
 const HeadTitle = styled(animated.h1)`
   font-size: 4.8rem;
@@ -26,7 +27,7 @@ const HeadTitle = styled(animated.h1)`
 
 const Work = ({ transitionStatus, location, entry, exit, data }) => {
   const projects = data.allPrismicProject.edges;
-  console.log(projects)
+
   const slideName = useSpring({
     config: { friction: 35 },
     from: { opacity: 0, transform: "translateY(100px)" },
@@ -50,6 +51,11 @@ const Work = ({ transitionStatus, location, entry, exit, data }) => {
       outerWrapperStyle={{ height: "auto" }}
       transitionActive={transitionStatus}
     >
+      <SEO
+        title={`Work`}
+        description="William is combo between a Frontend Developer and a Digital Designer.
+          Whose passion lies in creating smooth products & experiences."
+      />
       <HeadTitle style={{ gridColumn:'span 12', ...slideName}}>Work</HeadTitle>
       {slideInCards.map((style, index) => (
         <ProjectCard index={index} style={style} link={projects[index].node.uid} title={projects[index].node.data.project_name.text} image={projects[index].node.data.thumbnail_image.localFile.childImageSharp.fluid} category={projects[index].node.data.category.text}/>
@@ -63,7 +69,7 @@ const Work = ({ transitionStatus, location, entry, exit, data }) => {
 export const query = graphql`
   {
     allPrismicProject(
-      filter: { tags: { eq: "featured" } }
+      filter: { tags: { eq: "case" } }
       sort: { fields: data___order }
     ) {
       edges {

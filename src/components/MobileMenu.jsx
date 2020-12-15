@@ -58,6 +58,9 @@ const MobileLink = styled.span`
   &:nth-child(4) {
     transition-delay: 850ms;
   }
+  &:nth-child(5) {
+    transition-delay: 950ms;
+  }
   &:after {
     content: "";
     display: block;
@@ -116,10 +119,13 @@ const MobileMenu = ({ menuActive, closeMenu }) => {
           <Link to="/">Home</Link>
         </MobileLink>
         <MobileLink>
+          <Link to="/about">About</Link>
+        </MobileLink>
+        <MobileLink>
           <Link to="/work">Work</Link>
         </MobileLink>
         <MobileLink>
-          <Link to="/services">Services</Link>
+          <Link to="/writings">Writings</Link>
         </MobileLink>
         <MobileLink>
           <Link to="/contact">Contact</Link>

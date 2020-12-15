@@ -5,7 +5,7 @@ import { animated, useSpring, useSprings } from "react-spring"
 import styled from "styled-components"
 import { breakpoint } from "../mixins/breakpoint"
 
-const ProjectCardWrapper = styled.div`
+const ProjectCardWrapper = styled.a`
   grid-column: span 12;
   display: flex;
   flex-direction: column;
@@ -56,7 +56,7 @@ const Label = styled(animated.h5)`
   `}
 `
 
-const ProjectCard = ({image, title, category, type, style, index, link}) => {
+const ProjectCard = ({image, title, category, type, style, index, link, outsideOfWebsite}) => {
 //  const heroMaskSpring = useSpring({config: {friction: 35}, from: {transform: 'scale(1,1)'}, to:{ transform: 'scale(1,0)'}, delay: 800})
   const heroSpring = useSpring({config: {friction: 35}, from: {transform: 'scale(1.3)'}, to:{ transform: 'scale(1)'}, delay: 800 + (300 * index)})
   const slideTitle = useSpring({
@@ -72,11 +72,12 @@ const ProjectCard = ({image, title, category, type, style, index, link}) => {
     to: { opacity: 1, transform: "translateY(0px)" },
     delay: 1600 + 300 * index,
   })
+
   
   return (
-    <ProjectCardWrapper>
+    <ProjectCardWrapper href={outsideOfWebsite ? outsideOfWebsite : false} target='__blank'>
       <TransitionLink
-        to={`/projects/${link}`}
+        to={outsideOfWebsite ? false : `/projects/${link}`}
         exit={{ length: 0.5 }}
         entry={{ length: 0.5, delay: 0.5 }}
       >

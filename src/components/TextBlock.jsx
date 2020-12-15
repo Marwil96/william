@@ -26,7 +26,7 @@ const ContentContainer = styled.section`
   `}
 `
 
-const TextSection = styled.div`
+const TextSection = styled(animated.div)`
   display: flex;
   flex-direction: column;
   /* grid-column-start: 1;
@@ -103,18 +103,19 @@ const ImageWrapper = styled.div`
 const HeroMask = styled(animated.div)``
 
 
-const TextBlock = ({reverse, sectionItems, sectionTitle, image, style}) => {
-  const heroMaskSpring = useSpring({config: {friction: 35}, from: {transform: 'scale(1,1)'}, to:{ transform: 'scale(1,0)'}, delay: 800})
-  const heroSpring = useSpring({config: {friction: 35}, from: {transform: 'scale(1.3)'}, to:{ transform: 'scale(1)'}, delay: 800})
+const TextBlock = ({reverse, sectionItems, sectionTitle, image, style, animationDelay}) => {
+  const heroMaskSpring = useSpring({config: {friction: 35}, from: {transform: 'scale(1,1)'}, to:{ transform: 'scale(1,0)'}, delay: animationDelay ? animationDelay : 800})
+  const heroSpring = useSpring({config: {friction: 35}, from: {transform: 'scale(1.3)'}, to:{ transform: 'scale(1)'}, delay: animationDelay ? animationDelay : 800})
+  const slideText = useSpring({config: {friction: 35}, from: {opacity: 0, transform: 'translateY(100px)'}, to:{opacity: 1, transform: 'translateY(0px)'}, delay: animationDelay ? animationDelay : 800})
 
   return (
-    <TextBlockWrapper style={{...style}}>
+    <TextBlockWrapper style={{ ...style }}>
       <ContentContainer>
         <TextSection
           style={
             reverse
-              ? { gridColumnStart: 8, gridColumnEnd: 13 }
-              : { gridColumnStart: 1, gridColumnEnd: 6 }
+              ? { gridColumnStart: 8, gridColumnEnd: 13, ...slideText }
+              : { gridColumnStart: 1, gridColumnEnd: 6, ...slideText }
           }
         >
           <SectionTitle>{sectionTitle}</SectionTitle>
@@ -137,7 +138,7 @@ const TextBlock = ({reverse, sectionItems, sectionTitle, image, style}) => {
             className="mask"
             style={{
               height: "100%",
-              width: "100%",
+              width: "101%",
               position: "absolute",
               background: "white",
               transformOrigin: "top",

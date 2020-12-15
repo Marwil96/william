@@ -1,4 +1,5 @@
-import { Link } from 'gatsby';
+// import { Link } from 'gatsby';
+import TransitionLink from "gatsby-plugin-transition-link"
 import React from 'react';
 import styled from 'styled-components';
 import { breakpoint, variables } from "../mixins/breakpoint"
@@ -58,21 +59,22 @@ const Footer = ({style}) => {
       </FooterColumn>
       <FooterColumn style={{ gridColumn: "span 2" }}>
         <h1>Links</h1>
-        <Link>Home</Link>
-        <Link>About</Link>
-        <Link>All Projects</Link>
-        <Link>Writings</Link>
+        <TransitionLink exit={{length: 0.5}} entry={{length: 0.5, delay:0.5}} to='/'>Home</TransitionLink>
+        <TransitionLink exit={{length: 0.5}} entry={{length: 0.5, delay:0.5}} to='/about'>About</TransitionLink>
+        <TransitionLink exit={{length: 0.5}} entry={{length: 0.5, delay:0.5}} to='/work'>All Projects</TransitionLink>
+        <TransitionLink exit={{length: 0.5}} entry={{length: 0.5, delay:0.5}} to='/writings'>Writings</TransitionLink>
+        <TransitionLink exit={{length: 0.5}} entry={{length: 0.5, delay:0.5}} to='/contact'>Contact</TransitionLink>
       </FooterColumn>
       <FooterColumn style={{ gridColumn: "span 3" }}>
         <h1>Contact</h1>
-        <a>hi@williammartinsson.com</a>
+        <a href='mailto:hi@williammartinsson.com'>hi@williammartinsson.com</a>
         <a>+46768023804</a>
       </FooterColumn>
       <FooterColumn style={{ gridColumn: "span 3" }}>
         <h1>Socials</h1>
-        <a>Medium</a>
-        <a>Github</a>
-        <a>Linkedin</a>
+        <a href='https://williammartinsson.medium.com/' target='__blank'>Medium</a>
+        <a href='https://github.com/Marwil96' target='__blank'>Github</a>
+        <a href='https://www.linkedin.com/in/william-martinsson-a24a3b111/' target='__blank'>Linkedin</a>
       </FooterColumn>
     </FooterWrapper>
   )

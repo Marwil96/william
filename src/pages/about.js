@@ -2,10 +2,12 @@ import React from 'react';
 import { breakpoint, variables } from "../mixins/breakpoint"
 import { animated, useSpring } from 'react-spring';
 import Img from "gatsby-image"
+import TransitionLink from "gatsby-plugin-transition-link"
 import styled from 'styled-components';
 import Footer from '../components/Footer';
 import PageWrapper from '../components/PageWrapper';
 import TextBlock from '../components/TextBlock';
+import SEO from '../components/SEO';
 
 const HeadTitle = styled(animated.h1)`
   font-size: 4.8rem;
@@ -79,6 +81,77 @@ const Label = styled.h5`
   color: #464646;
   line-height: 180%;
 `
+const NextProject = styled.section`
+  width: 100%;
+  background-color: #131313;
+  padding: 6.4rem 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 6.4rem;
+
+  div {
+    position: absolute;
+    width: 100vw;
+    margin-left: -1.6rem;
+    background-color: black;
+    height: 100%;
+    margin-top: -6.4rem;
+    z-index: 0;
+  }
+
+  span {
+    font-size: 1.8rem;
+    font-weight: 300;
+    margin-bottom: 1.6rem;
+    color: white;
+    z-index: 10;
+  }
+
+  a {
+    color: white;
+    font-size: 3.2rem;
+    font-style: italic;
+    font-weight: 400;
+    z-index: 10;
+    position: relative;
+    width: fit-content;
+
+    &:before {
+      border-bottom: 3px solid #fff;
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 1px;
+      width: 0;
+      transition: width 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    &:hover {
+      cursor: pointer;
+      &:before {
+        width: 100%;
+      }
+    }
+  }
+
+  ${breakpoint.tabPort`
+    padding: 14rem 0;
+
+    div {
+      margin-left: -10rem;
+      margin-top: -14rem;
+    }
+
+    span {
+      font-size: 2.4rem;
+    }
+
+    a {
+      font-size: 6.4rem;
+    }
+  `}
+`
 
 const HeroMask = styled(animated.div)``
 
@@ -99,6 +172,11 @@ const About = ({transitionStatus, location, entry, exit, data }) => {
       outerWrapperStyle={{ height: "auto" }}
       transitionActive={transitionStatus}
     >
+      <SEO
+        title={`About William`}
+        description="William is combo between a Frontend Developer and a Digital Designer.
+          Whose passion lies in creating smooth products & experiences."
+      />
       <HeadTitle style={slideName}>About me</HeadTitle>
 
       {/* Hero Image */}
@@ -206,6 +284,17 @@ const About = ({transitionStatus, location, entry, exit, data }) => {
         <span style={{fontSize: '2.4rem'}}>Grab and drag</span>
         <DraqQuote>It was the saddest backflip of my career.</DraqQuote>
       </div> */}
+      <NextProject style={{ gridColumn: "span 12" }}>
+        <div> </div>
+        <span>How to reach William</span>
+        <TransitionLink
+          to={`/contact`}
+          exit={{ length: 0.5 }}
+          entry={{ length: 0.5, delay: 0.5 }}
+        >
+          Contact page
+        </TransitionLink>
+      </NextProject>
       <Footer />
     </PageWrapper>
   )
