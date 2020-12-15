@@ -47,6 +47,14 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.tl-wrapper {
+
+  @supports (-webkit-touch-callout: none) {
+    min-height: 100vh;
+    overflow: scroll;
+  }
+}
+
 body, html {
   height: 100%;
 }

@@ -24,6 +24,8 @@ const NavBarWrapper = styled.section`
 
   svg {
     width: 2.2rem;
+    height: 2.2rem;
+    
     display: block;
 
     ${breakpoint.tabPort`

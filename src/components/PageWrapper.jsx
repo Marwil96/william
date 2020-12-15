@@ -10,8 +10,11 @@ const OuterWrapper = styled.section`
   height: 100vh;
   background-color: white;
   box-sizing: border-box;
+  top: 0;
+  left: 0;
+  right: 0;
   /* border: 10px solid black; */
-  overscroll-behavior: 'contain';
+  /* overscroll-behavior: 'contain'; */
 `
 
 const InnerWrapper = styled(animated.section)`
