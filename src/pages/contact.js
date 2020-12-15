@@ -1,7 +1,6 @@
 import React from "react"
-import { breakpoint, variables } from "../mixins/breakpoint"
+import { breakpoint } from "../mixins/breakpoint"
 import { animated, useSpring } from "react-spring"
-import Img from "gatsby-image"
 import TransitionLink from "gatsby-plugin-transition-link"
 import styled from "styled-components"
 import Footer from "../components/Footer"

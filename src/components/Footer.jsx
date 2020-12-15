@@ -2,7 +2,7 @@
 import TransitionLink from "gatsby-plugin-transition-link"
 import React from 'react';
 import styled from 'styled-components';
-import { breakpoint, variables } from "../mixins/breakpoint"
+import { breakpoint } from "../mixins/breakpoint"
 
 const FooterWrapper = styled.section`
   width: 100%;

@@ -5,7 +5,7 @@ import TransitionLink from "gatsby-plugin-transition-link"
 import PageWrapper from "../components/PageWrapper"
 import styled from 'styled-components';
 import "../scss/main.scss"
-import { breakpoint, variables } from "../mixins/breakpoint"
+import { breakpoint } from "../mixins/breakpoint"
 import ProjectHeader from "../components/ProjectHeader";
 import Img from "gatsby-image";
 import { Bubble } from "../components/Bubble";
@@ -131,9 +131,10 @@ const HeroMask = styled(animated.div)`
 
 `
 
-const Project = ({data, transitionStatus, location, entry, exit}) => {
+const Project = ({data, transitionStatus}) => {
   const content = data.prismicProject.data;
   const [nextProject, setNextProject] = useState({slug: '', name:''})
+
   useEffect(() => {
     if(content.project_name.text === 'KNVB Rinus') setNextProject({slug: "master-digital-design", name:'Amsterdam University'})
     else if(content.project_name.text === 'Amsterdam University') setNextProject({ slug: "agenly", name: "Agenly" })

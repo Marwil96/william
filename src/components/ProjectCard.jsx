@@ -1,7 +1,7 @@
 import Img from 'gatsby-image';
 import TransitionLink from "gatsby-plugin-transition-link"
 import React from 'react';
-import { animated, useSpring, useSprings } from "react-spring"
+import { animated, useSpring } from "react-spring"
 import styled from "styled-components"
 import { breakpoint } from "../mixins/breakpoint"
 

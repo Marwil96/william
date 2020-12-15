@@ -1,5 +1,5 @@
 import React from "react"
-import { breakpoint, variables } from "../mixins/breakpoint"
+import { breakpoint } from "../mixins/breakpoint"
 import parse from "html-react-parser"
 import styled from "styled-components"
 

@@ -1,36 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styled, { css, keyframes } from 'styled-components';
 import TransitionLink from "gatsby-plugin-transition-link"
-import { breakpoint, variables } from "../mixins/breakpoint"
-import { useSprings, useTransition, interpolate, animated, useSpring } from 'react-spring';
+import { breakpoint } from "../mixins/breakpoint"
+import { animated, useSpring } from 'react-spring';
 import { Bubble } from './Bubble';
-
-const ProjectData = [
-  {
-    title: "Master Digital Design",
-    subTitle: "Alumnipage good enough for design students.",
-    image:
-      "https://williammartinsson.com/static/06ccbc3611ff4ef1a5001ce79bc222b8/5e592/3e9c83b6-3548-4304-983f-9324da792959_MDDLandingpage.png",
-  },
-  {
-    title: "Knodd",
-    subTitle: "Using Gatsby to create an SEO-optimized website.",
-    image:
-      "https://williammartinsson.com/static/270ee8579cdd7cccc528639592ede241/a0891/011062d2-89a5-4b73-973c-e3619d7756b2_KnoddLandingPageMockup.webp",
-  },
-  {
-    title: "KNVB",
-    subTitle: "The next generation training platform for football teams.",
-    image:
-      "https://williammartinsson.com/static/be276d5718b759fe90c5a508e5b64d0c/a0891/969fc8dd-640e-44d4-b7ac-6f7fd22fb2f8_KNVB%2BMOCKUP.webp",
-  },
-  {
-    title: "Agenly",
-    subTitle: "Building a product from a blank sheet.",
-    image:
-      "https://williammartinsson.com/static/88e506fb2c614972a784d1216d1a1bcd/a0891/46b95005-6cc1-4cda-a23d-0a1337f358f2_AgenlyMarketingLanding.webp",
-  },
-]
 
 
 const ProjectSliderWrapper = styled.section`
@@ -41,9 +14,13 @@ const ProjectSliderWrapper = styled.section`
   flex-direction: column;
   justify-content: center;
   bottom: 0;
-  left:0;
+  left: 0;
   right: 0;
   /* overflow: hidden; */
+
+  ${breakpoint.tabPort`
+    height: 45vh;
+  `}
 `
 
 const ProjectSliderItem = styled(animated.div)`
@@ -123,10 +100,11 @@ const ProjectTitle = styled.h1`
   z-index: 100;
   text-align: left;
   width: 100%;
+  line-height: 110%;
+  margin-bottom: 0.2rem;
   /* opacity: 0; */
 
   ${breakpoint.tabPort`
-    margin-bottom: 0.6rem;
     margin-top: -2.5vh;
     text-align: left;
     font-style: italic;
@@ -187,10 +165,21 @@ const ProjectSubtitle = styled.span`
 `
 
 const BubbleContainer = styled.div`
-  display: none;
-  
+  /* display: none; */
+  button {
+    top: -4.3vh !important;
+    right: 1.6rem !important;
+    height: 6.4rem !important;
+    width: 6.4rem !important;
+  }
+
   ${breakpoint.tabPort`
-    display: block;
+    button {
+      right: 10rem !important;
+      height: 11.4rem !important;
+      width: 11.4rem !important;
+      top: -6vh !important;
+    }
   `}
 `
 
@@ -199,12 +188,22 @@ const ProjectSlider = ({projects}) => {
   const [wheel, setWheel] = useState()
   const [scrollActive, setScrollActive] = useState(true)
   const [scrollDirectionForwards, setScrollDirectonForwards] = useState(true)
-  const [items, setItems] = useState(ProjectData)
 
   useEffect(() => {
     document.addEventListener("wheel", (wheel) => {
       setWheel(wheel)
     })
+
+    if(window.innerWidth < 800) {
+      document.addEventListener("scroll", wheel => {
+        setWheel(wheel)
+      })
+
+      document.addEventListener("touchmove", wheel => {
+        setWheel(wheel)
+      })
+    }
+
     setTimeout(() => {
       setCurrentSlide(0)
     }, 900)
@@ -245,16 +244,6 @@ const ProjectSlider = ({projects}) => {
 
   return (
     <ProjectSliderWrapper>
-      {/* {springs.map(({transform, zIndex}, index) => {
-        return (
-        <ProjectSliderItem key={index} style={{transform, zIndex}}>
-          <ProjectTitle >{ProjectData[index].title}</ProjectTitle>
-          <ProjectSubtitle >{ProjectData[index].subTitle}</ProjectSubtitle>
-          <ProjectImage image={ProjectData[index].image} forwards={scrollDirectionForwards} />
-          <div style={{position: "absolute", width: '100%', height: '100%', background: 'black', opacity: 0.3, marginLeft: '-10rem' }}></div>
-        </ProjectSliderItem>
-        )
-      })} */}
       <BubbleContainer>
         <Bubble
           style={{
@@ -320,7 +309,7 @@ const ProjectSlider = ({projects}) => {
 
           const title = item.node.data.title.text
           const name = item.node.data.project_name.text
-          const tags = item.node.data.category.text
+          // const tags = item.node.data.category.text
           const image = item.node.data.hero_image.url
           const link = item.node.uid
 

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import TransitionLink from "gatsby-plugin-transition-link"
 import styled from 'styled-components';
-import { breakpoint, variables } from "../mixins/breakpoint"
+import { breakpoint } from "../mixins/breakpoint"
 import MobileMenu from './MobileMenu';
 
 const NavBarWrapper = styled.section`
@@ -13,6 +13,10 @@ const NavBarWrapper = styled.section`
   padding: 2.4rem 1.6rem 0rem 1.6rem;
   position: absolute;
   z-index: 10000;
+
+  a {
+    display: inline-block;
+  }
 
   ${breakpoint.tabPort`
     padding: 4.6rem 10rem 0rem 10rem;

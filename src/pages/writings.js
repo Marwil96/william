@@ -1,7 +1,6 @@
 import React from "react"
-import { breakpoint, variables } from "../mixins/breakpoint"
+import { breakpoint } from "../mixins/breakpoint"
 import { animated, useSpring, useSprings } from "react-spring"
-import Img from "gatsby-image"
 import styled from "styled-components"
 import Footer from "../components/Footer"
 import PageWrapper from "../components/PageWrapper"
@@ -25,7 +24,7 @@ const HeadTitle = styled(animated.h1)`
   `}
 `
 
-const Writings = ({ transitionStatus, location, entry, exit, data }) => {
+const Writings = ({ transitionStatus, data }) => {
   const projects = data.allPrismicProject.edges
 
   const slideName = useSpring({

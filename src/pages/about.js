@@ -1,5 +1,5 @@
 import React from 'react';
-import { breakpoint, variables } from "../mixins/breakpoint"
+import { breakpoint } from "../mixins/breakpoint"
 import { animated, useSpring } from 'react-spring';
 import Img from "gatsby-image"
 import TransitionLink from "gatsby-plugin-transition-link"
@@ -62,15 +62,15 @@ const Introduction = styled(animated.div)`
   }
 `
 
-const DraqQuote = styled(animated.h2)`
-  font-weight: 300;
-  font-size: 26.2rem;
-  /* position: absolute; */
-  word-break: keep-all;
-  white-space: nowrap;
-  font-size: 20vw;
-  margin-left: -1.5vw;
-`
+// const DraqQuote = styled(animated.h2)`
+//   font-weight: 300;
+//   font-size: 26.2rem;
+//   /* position: absolute; */
+//   word-break: keep-all;
+//   white-space: nowrap;
+//   font-size: 20vw;
+//   margin-left: -1.5vw;
+// `
 
 const Label = styled.h5`
   font-size: 1.6rem;

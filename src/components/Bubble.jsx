@@ -1,6 +1,6 @@
 import { animated } from "react-spring";
 import styled from "styled-components";
-import { breakpoint, variables } from "../mixins/breakpoint"
+import { breakpoint } from "../mixins/breakpoint"
 import { colors } from "../mixins/colors";
 
 export const Bubble = styled(animated.button)`

@@ -1,22 +1,20 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import styled from 'styled-components';
-import NavBar from "../components/NavBar";
 import { breakpoint } from "../mixins/breakpoint"
 import PageWrapper from "../components/PageWrapper";
 import ProjectSlider from "../components/ProjectSlider";
-import { colors } from "../mixins/colors";
 import '../scss/main.scss';
 import { animated, useSpring } from "react-spring";
 
 const IntroContainer = styled(animated.div)`
-  height: 45vh;
+  height: 45%;
   display: flex;
   flex-direction: column;
   position: relative;
   justify-content: center;
 
   ${breakpoint.tabPort`
-    height: 40vh;
+    height: 45%;
   `}
 
   .phone {
@@ -67,11 +65,10 @@ const IntroContainer = styled(animated.div)`
 `
 
 const LandingPage = ({transitionStatus, location, entry, exit, data }) => {
-  const [selectedCase, setSelectedCase ] = useState(0)
   const slideText = useSpring({config: {friction: 35}, from: {opacity: 0, transform: 'translateY(100px)'}, to:{opacity: 1, transform: 'translateY(0px)'}, delay: 500})
-  
+
   return (
-    <PageWrapper style={{display: 'flex', flexDirection:'column', justifyContent: 'space-between'}} location={location} transitionActive={transitionStatus}>
+    <PageWrapper outerWrapperStyle={{position: 'fixed', height:'100%'}} style={{ display: 'flex', flexDirection:'column', justifyContent: 'space-between'}} location={location} transitionActive={transitionStatus}>
         <IntroContainer style={slideText}>
           <h1 className='phone'>
             William Martinsson
