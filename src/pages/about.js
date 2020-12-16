@@ -174,7 +174,7 @@ const About = ({transitionStatus, location, entry, exit, data }) => {
     >
       <SEO
         title={`About William`}
-        description="William is combo between a Frontend Developer and a Digital Designer.
+        description="William is a combo between a Frontend Developer and a Digital Designer.
           Whose passion lies in creating smooth products & experiences."
       />
       <HeadTitle style={slideName}>About me</HeadTitle>
@@ -224,7 +224,7 @@ const About = ({transitionStatus, location, entry, exit, data }) => {
           {
             title: "Sports.",
             text:
-              "William is a big Arsenal fan, sometimes he admits that it effects his general wellbeing to much, especially in the last couple of years. Outside of football, William follows Mclaren in Formula 1 and Team Liquid in Dota 2.",
+              "William is a big Arsenal fan, sometimes he admits that it affects his general wellbeing too much, especially in the last couple of years. Outside of football, William follows Mclaren in Formula 1 and Team Liquid in Dota 2.",
           },
         ]}
       />
@@ -232,8 +232,8 @@ const About = ({transitionStatus, location, entry, exit, data }) => {
       <Introduction style={{ gridColumn: "span 12" }}>
         <Label>Indiehacker but not an anarchist i promise</Label>
         <h3>
-          William likes to call himself a indiehacker, because he creates small
-          independent products that he hope will find market fit one day. He is
+          William likes to call himself an indiehacker because he creates small
+          independent products that he hopes will find market fit one day. He is
           currently working on a recipe network and a website builder.
         </h3>
       </Introduction>
@@ -245,17 +245,17 @@ const About = ({transitionStatus, location, entry, exit, data }) => {
           {
             title: "How he got entangled in the web.",
             text:
-              "When Williams brother introduced him to HTML & CSS he instantly got hooked to the ability to create something out of nothing. He started to make stupid websites, everything from political satire to art according to him.",
+              "When Williams's brother introduced him to HTML & CSS he instantly got hooked to the ability to create something out of nothing. He started to make stupid websites, everything from political satire to art according to him.",
           },
           {
             title: "Way of working.",
             text:
-              "William is primarily working with Javascript these days, often React or React Native. He has taken a liking to Gatsby a framework which makes it easy to create fast, small in size and easily scaleable static websites.",
+              "William is primarily working with Javascript these days, often React or React Native. He has taken a liking to Gatsby a framework that makes it easy to create fast, small in size, and easily scaleable static websites.",
           },
           {
             title: "Rapid, Fast, Sprint.",
             text:
-              "William is a big advocate of working fast and sprinting. He believes seeing a user interacting with the product is worth more then a million meetings. ",
+              "William is a big advocate of working fast and sprinting. He believes seeing a user interacting with the product is worth more than a million meetings. ",
           },
         ]}
       />
@@ -266,12 +266,12 @@ const About = ({transitionStatus, location, entry, exit, data }) => {
           {
             title: "A designer solves problems",
             text:
-              "One of the first lessons William learned about design was that the hard part is to find all the problems not to solve them. William have been using user-interviews, A/B testing and other methods to more easily find problems.",
+              "One of the first lessons William learned about design was that the hard part is to find all the problems not to solve them. William has been using user-interviews, A/B testing and other methods to more easily find problems.",
           },
           {
             title: "Design Systems",
             text:
-              "William likes to think that he creates systems and not static designs, he dreams about the day when all of his code components will be completely reusable and always in sync with his Figma file. Because todays digital products are not  static paintings they are fast moving platforms which forces the design to be more fluid and the documentation better.",
+              "William likes to think that he creates systems and not static designs, he dreams about the day when all of his code components will be completely reusable and always in sync with his Figma file. Because today's digital products are not  static paintings they are fast-moving platforms that force the design to be more fluid and the documentation better.",
           },
           {
             title: "Talking solves problems",

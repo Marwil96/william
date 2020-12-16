@@ -56,7 +56,7 @@ const Label = styled(animated.h5)`
   `}
 `
 
-const ProjectCard = ({image, title, category, type, style, index, link, outsideOfWebsite}) => {
+const ProjectCard = ({image, title, category, type, style, index, link, outsideOfWebsite, role}) => {
 //  const heroMaskSpring = useSpring({config: {friction: 35}, from: {transform: 'scale(1,1)'}, to:{ transform: 'scale(1,0)'}, delay: 800})
   const heroSpring = useSpring({config: {friction: 35}, from: {transform: 'scale(1.3)'}, to:{ transform: 'scale(1)'}, delay: 800 + (300 * index)})
   const slideTitle = useSpring({
@@ -109,7 +109,7 @@ const ProjectCard = ({image, title, category, type, style, index, link, outsideO
           }}
         >
           <Label>{category}</Label>
-          <Label>co-owner</Label>
+          <Label>{role}</Label>
         </animated.div>
       </TransitionLink>
     </ProjectCardWrapper>

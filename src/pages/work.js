@@ -57,7 +57,7 @@ const Work = ({ transitionStatus, data }) => {
       />
       <HeadTitle style={{ gridColumn:'span 12', ...slideName}}>Work</HeadTitle>
       {slideInCards.map((style, index) => (
-        <ProjectCard outsideOfWebsite={false} index={index} style={style} link={projects[index].node.uid} title={projects[index].node.data.project_name.text} image={projects[index].node.data.thumbnail_image.localFile.childImageSharp.fluid} category={projects[index].node.data.category.text}/>
+        <ProjectCard outsideOfWebsite={false} index={index} style={style} link={projects[index].node.uid} title={projects[index].node.data.project_name.text} image={projects[index].node.data.thumbnail_image.localFile.childImageSharp.fluid} category={projects[index].node.data.category.text} role={projects[index].node.data.role.text}/>
       ))}
 
       <Footer style={{marginTop: '10rem'}} />
@@ -108,6 +108,10 @@ export const query = graphql`
               text
             }
             title {
+              text
+            }
+
+            role {
               text
             }
           }

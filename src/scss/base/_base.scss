@@ -37,6 +37,7 @@ html {
   overflow-x: hidden;
   overflow-y: scroll; /* has to be scroll, not auto */
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain!important;
 
   // Remove ios standard :active pseudo class
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -44,7 +45,9 @@ html {
 
 body {
   font-size: 16px;
-  -webkit-font-smoothing: antialiased;
+  // font-smoothing: antialiased!important;
+ -webkit-font-smoothing: antialiased!important;
+  overscroll-behavior-y: contain;
 }
 
 .tl-wrapper {

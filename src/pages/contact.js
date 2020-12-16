@@ -137,8 +137,8 @@ const Contact = ({ transitionStatus, location, entry, exit, data }) => {
       <Introduction>
         <Label style={{ ...slideLabel }}>State of affairs</Label>
         <animated.h3 style={{ ...slideIntro }}>
-          William is currently freelancing and building on his side projects but
-          rumors say that he is open for new opportunities in early 2021 and
+          William is currently freelancing and building on his side projects,
+          but rumors say that he is open to new opportunities in early 2021 and
           forwards.
         </animated.h3>
       </Introduction>
@@ -154,7 +154,7 @@ const Contact = ({ transitionStatus, location, entry, exit, data }) => {
           {
             title: "Looking for a freelance dev or designer?",
             text:
-              "You have arrived at the right place, first thing you should is to send me an email at hi@williammartinsson.com so I can to know more how I can help you.",
+              "You have arrived at the right place, the first thing you should do is send me an email at hi@williammartinsson.com so I can get to know more about how I can help you.",
           },
         ]}
       />

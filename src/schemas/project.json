@@ -27,6 +27,14 @@
         "label": "title"
       }
     },
+    "role" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading4, heading5, heading6",
+        "label" : "role",
+        "placeholder" : "co-owner"
+      }
+    },
     "category": {
       "type": "StructuredText",
       "config": {

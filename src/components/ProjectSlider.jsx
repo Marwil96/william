@@ -194,12 +194,13 @@ const ProjectSlider = ({projects}) => {
       setWheel(wheel)
     })
 
+    const slider = document.getElementsByClassName("project_slider")[0];
     if(window.innerWidth < 800) {
-      document.addEventListener("scroll", wheel => {
+      slider.addEventListener("scroll", wheel => {
         setWheel(wheel)
       })
 
-      document.addEventListener("touchmove", wheel => {
+      slider.addEventListener("touchmove", wheel => {
         setWheel(wheel)
       })
     }
@@ -212,7 +213,12 @@ const ProjectSlider = ({projects}) => {
   useEffect(() => {
     let forwards
     if(wheel !== undefined){
-      wheel.deltaY > 0 ? (forwards = true) : (forwards = false)
+      if(wheel.type === 'touchmove') { 
+        forwards = false
+      }
+      else {
+        wheel.deltaY > 0 ? (forwards = true) : (forwards = false)
+      }
       changeSlide(forwards)
     }
   }, [wheel])
@@ -243,7 +249,7 @@ const ProjectSlider = ({projects}) => {
   let lastSlide
 
   return (
-    <ProjectSliderWrapper>
+    <ProjectSliderWrapper className='project_slider'>
       <BubbleContainer>
         <Bubble
           style={{
