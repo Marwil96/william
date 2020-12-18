@@ -166,6 +166,8 @@ const About = ({transitionStatus, location, entry, exit, data }) => {
 
   const heroImage = images.filter((edge) => edge.node.fluid.originalName === 'hero_image.png')[0].node.fluid
   const childImage = images.filter((edge) => edge.node.fluid.originalName === 'william_as_a_kid.png')[0].node.fluid
+  const portraitImage = images.filter((edge) => edge.node.fluid.originalName === 'portrait_image.png')[0].node.fluid
+  const designBooksImage = images.filter((edge) => edge.node.fluid.originalName === 'design_books.png')[0].node.fluid
 
   return (
     <PageWrapper
@@ -239,7 +241,7 @@ const About = ({transitionStatus, location, entry, exit, data }) => {
       </Introduction>
       <TextBlock
         sectionTitle="how he learned to love the web"
-        image={childImage}
+        image={portraitImage}
         reverse={true}
         sectionItems={[
           {
@@ -261,7 +263,7 @@ const About = ({transitionStatus, location, entry, exit, data }) => {
       />
       <TextBlock
         sectionTitle="design is not equal to Art"
-        image={childImage}
+        image={designBooksImage}
         sectionItems={[
           {
             title: "A designer solves problems",
