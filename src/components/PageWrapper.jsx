@@ -78,7 +78,7 @@ const PageWrapper = ({ children, location, style, outerWrapperStyle, transitionA
   // const [props, set, stop] = useSpring(() => ({config: { duration: 250 }, opacity: transitionActive ? 0 : 1 }))
 
   useEffect(() => {
-    fixedHeight ? document.querySelector("html").style.overflow = "hidden" : document.querySelector("html").style.overflow = "scroll" 
+    fixedHeight ? document.querySelector("html").style.overflowY = "hidden" : document.querySelector("html").style.overflowY = "scroll" 
   }, [])
   
   return (
