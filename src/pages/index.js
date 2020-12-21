@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from 'styled-components';
 import { breakpoint } from "../mixins/breakpoint"
 import PageWrapper from "../components/PageWrapper";
@@ -7,23 +7,24 @@ import '../scss/main.scss';
 import { animated, useSpring } from "react-spring";
 
 const IntroContainer = styled(animated.div)`
-  height: 45%;
+  height: 55%;
   display: flex;
   flex-direction: column;
   position: relative;
   justify-content: center;
 
   ${breakpoint.tabPort`
-    height: 45%;
+    height: 55vh;
   `}
 
   .phone {
-    /* font-size: ${window.innerHeight > 600 ? `48px` : '32px'}; */
+    /* font-size: ${window.innerHeight > 600 ? `48px` : "32px"}; */
     font-size: 4.8rem;
     line-height: 100%;
     font-weight: 400;
     text-align: left;
     margin-bottom: 1rem;
+    margin-top: 3.2vh;
 
     ${breakpoint.phone`
       display: none;
@@ -37,7 +38,7 @@ const IntroContainer = styled(animated.div)`
     line-height: 130%;
 
     ${breakpoint.phone`
-      margin-top: -8vh;
+      margin-top: 7vh;
       font-size: 4.2rem;
       font-weight: 300;
       max-width: 89.7rem;
@@ -69,7 +70,7 @@ const LandingPage = ({transitionStatus, location, entry, exit, data }) => {
   const slideText = useSpring({config: {friction: 35}, from: {opacity: 0, transform: 'translateY(100px)'}, to:{opacity: 1, transform: 'translateY(0px)'}, delay: 500})
 
   return (
-    <PageWrapper outerWrapperStyle={{position: 'fixed', height:'100%'}} style={{ display: 'flex', flexDirection:'column', justifyContent: 'space-between'}} location={location} transitionActive={transitionStatus}>
+    <PageWrapper outerWrapperStyle={{position: 'fixed', height:'100%'}} style={{ display: 'flex', flexDirection:'column', justifyContent: 'space-between', paddingTop: 0}} location={location} fixedHeight transitionActive={transitionStatus}>
         <IntroContainer style={slideText}>
           <h1 className='phone'>
             William Martinsson

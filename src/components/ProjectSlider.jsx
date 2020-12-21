@@ -110,17 +110,17 @@ const ProjectTitle = styled.h1`
     font-style: italic;
     font-size: 6.4rem;
     width: fit-content;
+    
+     &:before {
+      border-bottom: 3px solid #fff;
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 1px;
+      width: 0;
+      transition: width 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
   `}
-
-  &:before {
-    border-bottom: 3px solid #fff;
-    content: "";
-    display: block;
-    position: absolute;
-    bottom: 1px;
-    width: 0;
-    transition: width 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
-  }
 
   &.go_up {
     animation: 450ms ease ${SlideTitleUp} forwards;

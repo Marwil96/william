@@ -21,7 +21,7 @@ const ProjectName = styled(animated.h1)`
   margin-bottom: 1.6rem;
   margin-left: -2px;
   text-align: left;
-  word-break: break-all;
+  word-break: break-word;
 
   ${breakpoint.tabPort`
     font-size: 7vw;

@@ -214,17 +214,17 @@ const About = ({transitionStatus, location, entry, exit, data }) => {
         image={childImage}
         sectionItems={[
           {
-            title: "Born and Raised.",
+            title: "Born and Raised",
             text:
               "William grew up in Skara, a small countryside town in the middle of Sweden with his two brothers and his mom.",
           },
           {
-            title: "Education.",
+            title: "Education",
             text:
               "William studied Digital Design at YRGO in Gothenburg. He fondly looks back at those years where he could design and code whatever he felt like, everyday.",
           },
           {
-            title: "Sports.",
+            title: "Sports",
             text:
               "William is a big Arsenal fan, sometimes he admits that it affects his general wellbeing too much, especially in the last couple of years. Outside of football, William follows Mclaren in Formula 1 and Team Liquid in Dota 2.",
           },
@@ -245,17 +245,17 @@ const About = ({transitionStatus, location, entry, exit, data }) => {
         reverse={true}
         sectionItems={[
           {
-            title: "How he got entangled in the web.",
+            title: "How he got entangled in the web",
             text:
               "When Williams's brother introduced him to HTML & CSS he instantly got hooked to the ability to create something out of nothing. He started to make stupid websites, everything from political satire to art according to him.",
           },
           {
-            title: "Way of working.",
+            title: "Way of working",
             text:
               "William is primarily working with Javascript these days, often React or React Native. He has taken a liking to Gatsby a framework that makes it easy to create fast, small in size, and easily scaleable static websites.",
           },
           {
-            title: "Rapid, Fast, Sprint.",
+            title: "Working Fast",
             text:
               "William is a big advocate of working fast and sprinting. He believes seeing a user interacting with the product is worth more than a million meetings. ",
           },

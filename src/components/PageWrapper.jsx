@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from "styled-components"
 import { breakpoint } from "../mixins/breakpoint"
 import NavBar from './NavBar';
@@ -14,7 +14,7 @@ const OuterWrapper = styled.section`
   left: 0;
   right: 0;
   /* border: 10px solid black; */
-  /* overscroll-behavior: 'contain'; */
+  overscroll-behavior: contain;
 `
 
 const InnerWrapper = styled(animated.section)`
@@ -74,8 +74,12 @@ const InnerWrapper = styled(animated.section)`
 // `
 
 
-const PageWrapper = ({ children, location, style, outerWrapperStyle, transitionActive }) => {
+const PageWrapper = ({ children, location, style, outerWrapperStyle, transitionActive, fixedHeight }) => {
   // const [props, set, stop] = useSpring(() => ({config: { duration: 250 }, opacity: transitionActive ? 0 : 1 }))
+
+  useEffect(() => {
+    fixedHeight ? document.querySelector("html").style.overflow = "hidden" : document.querySelector("html").style.overflow = "scroll" 
+  }, [])
   
   return (
     <OuterWrapper style={{...outerWrapperStyle}}>
