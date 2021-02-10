@@ -27,6 +27,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`Manrope\:400,600,800`],
+      },
+    },
+    {
       resolve: 'gatsby-source-prismic-graphql',
       options: {
         repositoryName: 'williammartinsson', // required
