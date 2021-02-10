@@ -77,19 +77,19 @@ const NextProject = styled.section`
   span {
     font-size: 1.8rem;
     font-weight: 300;
-    margin-bottom: 1.6rem;
+    margin-bottom: 0.6rem;
     color: white;
     z-index: 10;
   }
 
   a {
-    color: white;
     font-size: 3.2rem;
-    font-style: italic;
     font-weight: 400;
     z-index: 10;
     position: relative;
     width: fit-content;
+    font-family: "fraunces";
+    color: #fff;
 
     &:before {
       border-bottom: 3px solid #fff;

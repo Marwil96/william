@@ -29,6 +29,15 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Manrope\:400,500, 600,800`, 
+          `Fraunces\:500`
+        ]
+      },
+    },
+    {
       resolve: "gatsby-plugin-simple-analytics",
       options: {
         trackPageViews: true,

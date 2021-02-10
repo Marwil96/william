@@ -94,22 +94,22 @@ const SlideTitleDown = keyframes`
 `
 
 const ProjectTitle = styled.h1`
-  font-size: 4.8rem;
+  font-size: 16vw;
   font-weight: 400;
   color: white;
   z-index: 100;
-  text-align: left;
   width: 100%;
   line-height: 110%;
   margin-bottom: 0.2rem;
-  /* opacity: 0; */
+  text-align: center;
+  font-family: "fraunces";
+  /* text-shadow: 1px 1px 30px black; */
 
   ${breakpoint.tabPort`
     margin-top: -2.5vh;
-    text-align: left;
-    font-style: italic;
-    font-size: 6.4rem;
+    font-size: 10rem;
     width: fit-content;
+    text-align: left;
     
      &:before {
       border-bottom: 3px solid #fff;
@@ -346,7 +346,7 @@ const ProjectSlider = ({projects}) => {
                 >
                   {name}
                 </ProjectTitle>
-                <ProjectSubtitle
+                {/* <ProjectSubtitle
                   className={
                     active
                       ? scrollDirectionForwards
@@ -356,7 +356,7 @@ const ProjectSlider = ({projects}) => {
                   }
                 >
                   {title}
-                </ProjectSubtitle>
+                </ProjectSubtitle> */}
                 <ProjectImage
                   style={slideInCard}
                   image={image}

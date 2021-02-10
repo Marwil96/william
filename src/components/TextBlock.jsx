@@ -50,6 +50,8 @@ const TextItem = styled.div`
     font-weight: 500;
     color: #333333;
     margin-bottom: 0.5rem;
+    font-family: "fraunces";
+    color: #e63a2e;
 
     ${breakpoint.tabPort`
       font-size: 2.4rem;

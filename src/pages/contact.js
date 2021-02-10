@@ -8,6 +8,7 @@ import PageWrapper from "../components/PageWrapper"
 import TextBlock from "../components/TextBlock"
 import { graphql } from "gatsby"
 import SEO from "../components/SEO"
+import { colors } from "../mixins/colors"
 
 const Introduction = styled(animated.div)`
   margin-bottom: 6.4rem;
@@ -23,27 +24,30 @@ const Introduction = styled(animated.div)`
 
   h3 {
     font-size: 2.4rem;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 4rem;
 
     ${breakpoint.tabPort`
-      font-size: 4.8rem;
-      line-height: 7rem;
-      font-size: 3.7vw;
-      line-height: 5.7vw;
+      font-size: 4.1vw;
+      line-height: 5.9vw;
       margin-bottom: 6.4rem;
     `}
   }
 `
 
   const Label = styled(animated.h5)`
-    font-size: 1.6rem;
-    font-style: italic;
+    font-size: 2rem;
+    color: #e63a2e;
     font-weight: 400;
-    margin-bottom: 1.2rem;
-    text-transform: uppercase;
-    color: #464646;
+    margin-bottom: 0.4rem;
+    color: ${colors.orange};
     line-height: 180%;
+    font-family: "fraunces";
+
+    ${breakpoint.tabPort`
+      font-size: 3.2rem;
+       margin-bottom: 1.2rem;
+    `}
   `
 
 
@@ -69,7 +73,7 @@ const NextProject = styled.section`
   span {
     font-size: 1.8rem;
     font-weight: 300;
-    margin-bottom: 1.6rem;
+    margin-bottom: 0.6rem;
     color: white;
     z-index: 10;
   }
@@ -77,7 +81,7 @@ const NextProject = styled.section`
   a {
     color: white;
     font-size: 3.2rem;
-    font-style: italic;
+    font-family: "fraunces";
     font-weight: 400;
     z-index: 10;
     position: relative;

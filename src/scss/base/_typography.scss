@@ -7,33 +7,8 @@
 //  font-style: normal;
 // }
 
-@font-face {
-  font-family: "Alaska";
-  src: url("../assets/fonts/AlaskaRegular.woff2") format("woff2");
-  font-style: normal;
-  font-weight: 400;
-}
-@font-face {
-  font-family: "Alaska";
-  src: url("../assets/fonts/AlaskaLight.woff2") format("woff2");
-  font-style: normal;
-  font-weight: 300;
-}
-@font-face {
-  font-family: "Alaska";
-  src: url("../assets/fonts/AlaskaMedium.woff2") format("woff2");
-  font-style: normal;
-  font-weight: 500;
-}
-@font-face {
-  font-family: "Alaska";
-  src: url("../assets/fonts/AlaskaExpandedRegular.woff2") format("woff2");
-  font-style: italic;
-  font-weight: 400;
-}
-
 body {
-    font-family: 'Alaska', 'Lato', sans-serif;
+    font-family: 'Manrope', 'Lato', sans-serif;
     font-weight: 400;
     font-size: $default-font-size;
     // line-height: 1.7;

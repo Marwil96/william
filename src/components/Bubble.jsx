@@ -10,6 +10,7 @@ export const Bubble = styled(animated.button)`
   height: 8rem;
   width: 8rem;
   font-size: 1.6rem;
+  font-family: 'fraunces';
   padding: 1rem;
   top: -6vh;
   right: 1.6rem;

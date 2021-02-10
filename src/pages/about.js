@@ -8,6 +8,8 @@ import Footer from '../components/Footer';
 import PageWrapper from '../components/PageWrapper';
 import TextBlock from '../components/TextBlock';
 import SEO from '../components/SEO';
+import { graphql } from 'gatsby';
+import { colors } from '../mixins/colors';
 
 const HeadTitle = styled(animated.h1)`
   font-size: 4.8rem;
@@ -73,13 +75,12 @@ const Introduction = styled(animated.div)`
 // `
 
 const Label = styled.h5`
-  font-size: 1.6rem;
-  font-style: italic;
+  font-size: 2.4rem;
+  font-family: "fraunces";
   font-weight: 400;
   margin-bottom: 1.2rem;
-  text-transform: uppercase;
-  color: #464646;
-  line-height: 180%;
+  color: ${colors.orange};
+  line-height: 130%;
 `
 const NextProject = styled.section`
   width: 100%;
@@ -103,7 +104,7 @@ const NextProject = styled.section`
   span {
     font-size: 1.8rem;
     font-weight: 300;
-    margin-bottom: 1.6rem;
+    margin-bottom: 0.6rem;
     color: white;
     z-index: 10;
   }
@@ -111,7 +112,7 @@ const NextProject = styled.section`
   a {
     color: white;
     font-size: 3.2rem;
-    font-style: italic;
+    font-family: "fraunces";
     font-weight: 400;
     z-index: 10;
     position: relative;

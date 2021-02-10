@@ -2,6 +2,7 @@ import React from "react"
 import { breakpoint } from "../mixins/breakpoint"
 import parse from "html-react-parser"
 import styled from "styled-components"
+import { colors } from "../mixins/colors"
 
 const RichTextWrapper = styled.section`
   width: 100%;
@@ -15,9 +16,11 @@ const RichTextWrapper = styled.section`
 
   h5,h4,h3,h1,h2 {
     margin-bottom: 0.6rem;
-    line-height: 150%;
+    line-height: 130%;
     font-weight: 500;
     font-size: 2.4rem;
+    color: ${colors.orange};
+    font-family: "fraunces";
 
     ${breakpoint.tabPort`
       font-size: 2.4rem;
@@ -26,12 +29,11 @@ const RichTextWrapper = styled.section`
   }
 
   h1 {
-    font-size: 1.6rem;
-    font-style: italic;
+    color: ${colors.orange};
+    font-family: "fraunces";
+    font-size: 3.2rem;
     font-weight: 400;
     margin-bottom: 1.2rem;
-    text-transform: uppercase;
-    color: #464646;
   }
 
   strong {
