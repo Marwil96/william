@@ -42,7 +42,7 @@ const NavBarWrapper = styled.section`
 `
 
 const NavBarTitle = styled.h1`
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 400;
 
   ${breakpoint.tabPort`

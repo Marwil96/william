@@ -2,6 +2,7 @@ import React from 'react';
 import { animated, useSpring, useSprings } from 'react-spring';
 import styled from 'styled-components';
 import { breakpoint } from "../mixins/breakpoint"
+import { colors } from '../mixins/colors';
 
 const ProjectHeaderWrapper = styled.section`
   display: flex;
@@ -22,6 +23,8 @@ const ProjectName = styled(animated.h1)`
   margin-left: -2px;
   text-align: left;
   word-break: break-word;
+  font-family: "fraunces";
+  color: ${colors.orange};
 
   ${breakpoint.tabPort`
     font-size: 7vw;
@@ -50,6 +53,8 @@ const MetaItem = styled(animated.div)`
     font-size: 1.6rem;
     font-weight: 300;
     margin-bottom: 0.5rem;
+    color: ${colors.orange};
+    font-family: "fraunces";
   }
 
   h3 {
@@ -63,7 +68,6 @@ const MetaItem = styled(animated.div)`
 
     span {
       font-size: 1.8rem;
-      font-style: italic;
       margin-bottom: 0.8rem;
     }
 

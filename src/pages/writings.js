@@ -99,7 +99,6 @@ export const query = graphql`
             }
             thumbnail_image {
               localFile {
-                url
                 childImageSharp {
                   fluid {
                     tracedSVG
@@ -117,7 +116,6 @@ export const query = graphql`
                   }
                 }
               }
-              url
             }
             project_name {
               text

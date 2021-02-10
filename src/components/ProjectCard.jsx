@@ -4,12 +4,13 @@ import React from 'react';
 import { animated, useSpring } from "react-spring"
 import styled from "styled-components"
 import { breakpoint } from "../mixins/breakpoint"
+import { colors } from '../mixins/colors';
 
 const ProjectCardWrapper = styled.a`
   grid-column: span 12;
   display: flex;
   flex-direction: column;
-  margin-bottom: 6.4rem;
+  margin-bottom: 8.2rem;
 
   ${breakpoint.tabPort`
     grid-column: span 6;
@@ -25,15 +26,17 @@ const ImageWrapper = styled.div`
   position: relative;
 
   ${breakpoint.tabPort`
-    margin-bottom: 2.4rem;
+    margin-bottom: 1.6rem;
     margin-left: none;
   `}
 `
 
 const ProjectTitle = styled(animated.h1)`
-  font-size: 2.4rem;
+  font-size: 3.2rem;
   margin-bottom: 1.2rem;
   font-weight: 400;
+  color: ${colors.orange};
+  font-family: "Fraunces";
 
   ${breakpoint.tabPort`
     font-size: 3.2rem;
@@ -42,17 +45,15 @@ const ProjectTitle = styled(animated.h1)`
 `
 
 const Label = styled(animated.h5)`
-  font-size: 1.2rem;
-  font-style: italic;
+  font-size: 1.6rem;
   font-weight: 400;
   /* margin-bottom: 1.2rem; */
-  text-transform: uppercase;
   /* color: #464646; */
   line-height: 180%;
   max-width: 70%;
 
   ${breakpoint.tabPort`
-    font-size: 1.4rem;
+    font-size: 2rem;
   `}
 `
 

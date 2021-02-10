@@ -20,7 +20,7 @@ const FooterColumn = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 2.4rem;
-  
+
   ${breakpoint.tabPort` 
     margin-bottom: 0rem;
   `}
@@ -29,6 +29,8 @@ const FooterColumn = styled.div`
     font-size: 2.4rem;
     font-weight: 500;
     margin-bottom: 1.6rem;
+    font-family: "fraunces";
+    color: #e63a2e;
   }
 
   h3 {
