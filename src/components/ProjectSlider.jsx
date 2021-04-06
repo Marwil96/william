@@ -94,7 +94,7 @@ const SlideTitleDown = keyframes`
 `
 
 const ProjectTitle = styled.h1`
-  font-size: 16vw;
+  font-size: ${props => props.longWord ? '13vw' : '16vw'};
   font-weight: 400;
   color: white;
   z-index: 100;
@@ -239,9 +239,9 @@ const ProjectSlider = ({projects}) => {
 
 
       if(forwards) {
-        setCurrentSlide(currentSlide !== 3 ? currentSlide + 1 : 0)
+        setCurrentSlide(currentSlide !== 4 ? currentSlide + 1 : 0)
       } else {
-        setCurrentSlide(currentSlide !== 0 ? currentSlide - 1 : 3)
+        setCurrentSlide(currentSlide !== 0 ? currentSlide - 1 : 4)
       }
     }
   }
@@ -262,7 +262,7 @@ const ProjectSlider = ({projects}) => {
           }}
           onClick={() => {
             setScrollDirectonForwards(true)
-            setCurrentSlide(currentSlide !== 3 ? currentSlide + 1 : 0)
+            setCurrentSlide(currentSlide !== 4 ? currentSlide + 1 : 0)
           }}
         >
           {" "}
@@ -312,6 +312,14 @@ const ProjectSlider = ({projects}) => {
               : currentSlide === 0
               ? (lastSlide = true)
               : (lastSlide = false)
+          if (index === 4)
+            !scrollDirectionForwards
+              ? currentSlide === 3
+                ? (lastSlide = true)
+                : (lastSlide = false)
+              : currentSlide === 0
+              ? (lastSlide = true)
+              : (lastSlide = false)
 
           const title = item.node.data.title.text
           const name = item.node.data.project_name.text
@@ -335,6 +343,7 @@ const ProjectSlider = ({projects}) => {
                 }
               >
                 <ProjectTitle
+                  longWord={name.split(' ')[0].length > 10}
                   className={
                     ("Project_Title",
                     active

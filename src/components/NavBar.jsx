@@ -4,6 +4,7 @@ import TransitionLink from "gatsby-plugin-transition-link"
 import styled from 'styled-components';
 import { breakpoint } from "../mixins/breakpoint"
 import MobileMenu from './MobileMenu';
+import { colors } from "../mixins/colors"
 
 const NavBarWrapper = styled.section`
   width: 100%;
@@ -16,6 +17,10 @@ const NavBarWrapper = styled.section`
 
   a {
     display: inline-block;
+
+    &:hover {
+      color: ${colors.orange};
+    }
   }
 
   ${breakpoint.tabPort`
@@ -25,7 +30,7 @@ const NavBarWrapper = styled.section`
   svg {
     width: 2.2rem;
     height: 2.2rem;
-    
+
     display: block;
 
     ${breakpoint.tabPort`
