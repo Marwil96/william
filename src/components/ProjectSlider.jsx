@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import styled, { css, keyframes } from 'styled-components';
+import React, { useState, useEffect } from "react"
+import styled, { css, keyframes } from "styled-components"
 import TransitionLink from "gatsby-plugin-transition-link"
 import { breakpoint } from "../mixins/breakpoint"
-import { animated, useSpring } from 'react-spring';
-import { Bubble } from './Bubble';
-import { GatsbyImage } from "gatsby-plugin-image"
-
+import { animated, useSpring } from "react-spring"
+import { Bubble } from "./Bubble"
 
 const ProjectSliderWrapper = styled.section`
   width: 100%;
@@ -18,7 +16,6 @@ const ProjectSliderWrapper = styled.section`
   left: 0;
   right: 0;
   /* overflow: hidden; */
-
   ${breakpoint.tabPort`
     height: 45vh;
   `}
@@ -35,11 +32,9 @@ const ProjectSliderItem = styled(animated.div)`
   left: 0;
   right: 0;
   padding: 0rem 1.6rem;
-
   ${breakpoint.tabPort`
     padding: 0rem 10rem;
   `}
-
   &:hover {
     cursor: pointer;
     h1 {
@@ -70,19 +65,25 @@ const ProjectImage = styled(animated.div)`
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5) ), url(${props => props.image});
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)),
+    url(${props => props.image});
   background-size: cover;
   background-position: 50%, 50%;
   /* transition: ease 450ms all; */
   /* transform: translateY(0); */
-  /* animation: ${props => props.active ? props.forwards ?  css`450ms ease ${SlideImageUp} forwards`  :  css`450ms ease ${SlideImageDown} forwards` : 'none' }; */
-  &.go_up{
+  /* animation: ${props =>
+    props.active
+      ? props.forwards
+        ? css`450ms ease ${SlideImageUp} forwards`
+        : css`450ms ease ${SlideImageDown} forwards`
+      : "none"}; */
+  &.go_up {
     animation: 750ms ease ${SlideImageUp} forwards;
   }
-  &.go_down{
+  &.go_down {
     animation: 750ms ease ${SlideImageDown} forwards;
   }
-` 
+`
 
 const SlideTitleUp = keyframes`
   from {transform: translateY(10vh); opacity: 0}
@@ -95,7 +96,7 @@ const SlideTitleDown = keyframes`
 `
 
 const ProjectTitle = styled.h1`
-  font-size: ${props => props.longWord ? '13vw' : '16vw'};
+  font-size: ${props => (props.longWord ? "13vw" : "16vw")};
   font-weight: 400;
   color: white;
   z-index: 100;
@@ -105,7 +106,6 @@ const ProjectTitle = styled.h1`
   text-align: center;
   font-family: "fraunces";
   /* text-shadow: 1px 1px 30px black; */
-
   ${breakpoint.tabPort`
     margin-top: -2.5vh;
     font-size: 10rem;
@@ -122,7 +122,6 @@ const ProjectTitle = styled.h1`
       transition: width 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
     }
   `}
-
   &.go_up {
     animation: 450ms ease ${SlideTitleUp} forwards;
     animation-delay: 400ms;
@@ -148,11 +147,9 @@ const ProjectSubtitle = styled.span`
   color: white;
   z-index: 100;
   /* opacity: 0; */
-
   ${breakpoint.tabPort`
     font-size: 3.2rem;
   `}
-
   &.go_up {
     animation: 450ms ease ${SlideTitleUp} forwards;
     animation-delay: 400ms;
@@ -173,7 +170,6 @@ const BubbleContainer = styled.div`
     height: 6.4rem !important;
     width: 6.4rem !important;
   }
-
   ${breakpoint.tabPort`
     button {
       right: 10rem !important;
@@ -184,19 +180,19 @@ const BubbleContainer = styled.div`
   `}
 `
 
-const ProjectSlider = ({projects}) => {
+const ProjectSlider = ({ projects }) => {
   const [currentSlide, setCurrentSlide] = useState(null)
   const [wheel, setWheel] = useState()
   const [scrollActive, setScrollActive] = useState(true)
   const [scrollDirectionForwards, setScrollDirectonForwards] = useState(true)
 
   useEffect(() => {
-    document.addEventListener("wheel", (wheel) => {
+    document.addEventListener("wheel", wheel => {
       setWheel(wheel)
     })
 
-    const slider = document.getElementsByClassName("project_slider")[0];
-    if(window.innerWidth < 800) {
+    const slider = document.getElementsByClassName("project_slider")[0]
+    if (window.innerWidth < 800) {
       slider.addEventListener("scroll", wheel => {
         setWheel(wheel)
       })
@@ -213,33 +209,39 @@ const ProjectSlider = ({projects}) => {
 
   useEffect(() => {
     let forwards
-    if(wheel !== undefined){
-      if(wheel.type === 'touchmove') { 
+    if (wheel !== undefined) {
+      if (wheel.type === "touchmove") {
         forwards = false
-      }
-      else {
+      } else {
         wheel.deltaY > 0 ? (forwards = true) : (forwards = false)
       }
       changeSlide(forwards)
     }
   }, [wheel])
 
-  const slideInCard = useSpring({config: {friction: 35}, from: {height: '0%', transform: 'scale(1.3)'}, to:{height: '100%', transform: 'scale(1)'}, delay: 500})
-  const slideBubble = useSpring({config: {friction: 10, tension: 400}, from: {transform: 'scale(0)'}, to:{ transform: 'scale(1)'}, delay: 1300})
-  
+  const slideInCard = useSpring({
+    config: { friction: 35 },
+    from: { height: "0%", transform: "scale(1.3)" },
+    to: { height: "100%", transform: "scale(1)" },
+    delay: 500,
+  })
+  const slideBubble = useSpring({
+    config: { friction: 10, tension: 400 },
+    from: { transform: "scale(0)" },
+    to: { transform: "scale(1)" },
+    delay: 1300,
+  })
 
-
-   const changeSlide = (forwards) => {
-    if(scrollActive){
+  const changeSlide = forwards => {
+    if (scrollActive) {
       setScrollDirectonForwards(forwards)
       setScrollActive(false)
 
       setTimeout(() => {
-         setScrollActive(true)
+        setScrollActive(true)
       }, 1000)
 
-
-      if(forwards) {
+      if (forwards) {
         setCurrentSlide(currentSlide !== 4 ? currentSlide + 1 : 0)
       } else {
         setCurrentSlide(currentSlide !== 0 ? currentSlide - 1 : 4)
@@ -250,7 +252,7 @@ const ProjectSlider = ({projects}) => {
   let lastSlide
 
   return (
-    <ProjectSliderWrapper className='project_slider'>
+    <ProjectSliderWrapper className="project_slider">
       <BubbleContainer>
         <Bubble
           style={{
@@ -325,7 +327,7 @@ const ProjectSlider = ({projects}) => {
           const title = item.node.data.title.text
           const name = item.node.data.project_name.text
           // const tags = item.node.data.category.text
-          const image = item.node.data.hero_image.localFile.childImageSharp.gatsbyImageData
+          const image = item.node.data.hero_image.localFile.publicURL
           const link = item.node.uid
 
           return (
@@ -344,7 +346,7 @@ const ProjectSlider = ({projects}) => {
                 }
               >
                 <ProjectTitle
-                  longWord={name.split(' ')[0].length > 10}
+                  longWord={name.split(" ")[0].length > 10}
                   className={
                     ("Project_Title",
                     active
@@ -378,9 +380,7 @@ const ProjectSlider = ({projects}) => {
                         : "go_down"
                       : ""
                   }
-                >
-                  <GatsbyImage image={image} />
-                </ProjectImage>
+                />
                 {/* <div style={{position: "absolute", width: '100%', height: '100%', background: 'black', opacity: 0.3, marginLeft: '-10rem' }}></div> */}
               </ProjectSliderItem>
             </TransitionLink>
@@ -391,4 +391,4 @@ const ProjectSlider = ({projects}) => {
   )
 }
 
-export default ProjectSlider;
+export default ProjectSlider

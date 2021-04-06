@@ -180,7 +180,7 @@ const Contact = ({ transitionStatus, location, entry, exit, data }) => {
 
 export const query = graphql`
   {
-    imageSharp(fluid: { originalName: { eq: "william_as_a_kid.png" } }) {
+    imageSharp(id: { eq: "8afa78c9-c205-5fb0-b514-f4c78bb251d1" }) {
       id
       gatsbyImageData(layout: FULL_WIDTH)
     }

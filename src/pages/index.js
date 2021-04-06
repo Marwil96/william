@@ -109,28 +109,9 @@ export const query = graphql`
             hero_image {
               url
               localFile {
+                publicURL
                 childImageSharp {
                   gatsbyImageData(layout: FULL_WIDTH)
-                }
-              }
-            }
-            thumbnail_image {
-              localFile {
-                childImageSharp {
-                  fluid {
-                    tracedSVG
-                    srcWebp
-                    srcSetWebp
-                    srcSet
-                    src
-                    sizes
-                    presentationWidth
-                    presentationHeight
-                    originalName
-                    originalImg
-                    base64
-                    aspectRatio
-                  }
                 }
               }
             }
