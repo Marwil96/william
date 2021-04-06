@@ -163,8 +163,6 @@ const About = ({transitionStatus, location, entry, exit, data}) => {
   const slideContent = useSpring({config: {friction: 35}, from: {opacity: 0, transform: 'translateY(100px)'}, to:{opacity: 1, transform: 'translateY(0px)'}, delay: 1200})
 
   const {heroImage, childImage, portraitImage, designBooksImage} = data;
-  
-  const wopwop = heroImage.gatsbyImageData;
 
   return (
     <PageWrapper
@@ -193,9 +191,9 @@ const About = ({transitionStatus, location, entry, exit, data}) => {
           }}
         ></HeroMask>
         <div style={{ overflow: "hidden" }}>
-          <animated.div style={heroSpring}>
-            <GatsbyImage image={wopwop} alt="About William Martinsson" />
-          </animated.div>
+          {/* <animated.div style={heroSpring}>
+            <GatsbyImage image={heroImage.gatsbyImageData} alt='About William Martinsson' />
+          </animated.div> */}
         </div>
       </ImageWrapper>
 
