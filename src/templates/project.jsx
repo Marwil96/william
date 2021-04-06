@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import "../scss/main.scss"
 import { breakpoint } from "../mixins/breakpoint"
 import ProjectHeader from "../components/ProjectHeader";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image"
 import { Bubble } from "../components/Bubble";
 import RichText from "../components/RichText";
 import Footer from "../components/Footer";
@@ -189,7 +189,7 @@ const Project = ({data, transitionStatus}) => {
         ></HeroMask>
         <div style={{ overflow: "hidden" }}>
           <animated.div style={heroSpring}>
-            <Img fluid={content.hero_image.localFile.childImageSharp.fluid} />
+            <GatsbyImage image={content.hero_image.localFile.childImageSharp.gatsbyImageData} alt={`${content.project_name.text} - ${content.title.text}`}/>
           </animated.div>
         </div>
       </ImageWrapper>
@@ -208,9 +208,11 @@ const Project = ({data, transitionStatus}) => {
               <ImageWrapper
                 style={{ gridColumn: "span 12", marginTop: "6.4rem" }}
               >
-                <Img
-                  fluid={section.primary.image.localFile.childImageSharp.fluid}
+                <GatsbyImage
+                  image={section.primary.image.localFile.childImageSharp.gatsbyImageData}
                   key={index}
+                  alt={`${content.project_name.text} - ${content.title.text}-image${index}`}
+                  placeholder="blurred"
                 />
               </ImageWrapper>
             )
@@ -261,20 +263,7 @@ export const query = graphql`
           url
           localFile {
             childImageSharp {
-              fluid(maxWidth: 3080, quality: 100) {
-                aspectRatio
-                base64
-                originalImg
-                originalName
-                presentationHeight
-                presentationWidth
-                sizes
-                src
-                srcSet
-                srcSetWebp
-                srcWebp
-                tracedSVG
-              }
+              gatsbyImageData(layout: FULL_WIDTH)
             }
           }
         }
@@ -295,20 +284,7 @@ export const query = graphql`
               image {
                 localFile {
                   childImageSharp {
-                    fluid(maxWidth: 3080, quality: 100) {
-                      aspectRatio
-                      base64
-                      originalImg
-                      originalName
-                      presentationHeight
-                      presentationWidth
-                      sizes
-                      src
-                      srcSet
-                      srcSetWebp
-                      srcWebp
-                      tracedSVG
-                    }
+                    gatsbyImageData(layout: FULL_WIDTH)
                   }
                 }
               }
@@ -324,40 +300,14 @@ export const query = graphql`
               left_image {
                 localFile {
                   childImageSharp {
-                    fluid(maxWidth: 3080, quality: 100) {
-                      aspectRatio
-                      base64
-                      originalImg
-                      originalName
-                      presentationHeight
-                      presentationWidth
-                      sizes
-                      src
-                      srcSet
-                      srcSetWebp
-                      srcWebp
-                      tracedSVG
-                    }
+                    gatsbyImageData(layout: FULL_WIDTH placeholder: BLURRED)
                   }
                 }
               }
               right_image {
                 localFile {
                   childImageSharp {
-                    fluid(maxWidth: 3080, quality: 100) {
-                      aspectRatio
-                      base64
-                      originalImg
-                      originalName
-                      presentationHeight
-                      presentationWidth
-                      sizes
-                      src
-                      srcSet
-                      srcSetWebp
-                      srcWebp
-                      tracedSVG
-                    }
+                    gatsbyImageData(layout: FULL_WIDTH)
                   }
                 }
               }

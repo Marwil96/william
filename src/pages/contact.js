@@ -147,7 +147,7 @@ const Contact = ({ transitionStatus, location, entry, exit, data }) => {
         </animated.h3>
       </Introduction>
       <TextBlock
-        image={data.imageSharp.fluid}
+        image={data.imageSharp.gatsbyImageData}
         animationDelay={1100}
         sectionItems={[
           {
@@ -182,20 +182,7 @@ export const query = graphql`
   {
     imageSharp(fluid: { originalName: { eq: "william_as_a_kid.png" } }) {
       id
-      fluid {
-        aspectRatio
-        base64
-        originalImg
-        originalName
-        presentationHeight
-        presentationWidth
-        sizes
-        src
-        srcSet
-        srcSetWebp
-        srcWebp
-        tracedSVG
-      }
+      gatsbyImageData(layout: FULL_WIDTH)
     }
   }
 `

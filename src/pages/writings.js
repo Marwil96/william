@@ -64,10 +64,7 @@ const Writings = ({ transitionStatus, data }) => {
           outsideOfWebsite={projects[index].node.data.link_to_website.url}
           link={projects[index].node.uid}
           title={projects[index].node.data.project_name.text}
-          image={
-            projects[index].node.data.thumbnail_image.localFile.childImageSharp
-              .fluid
-          }
+          image={projects[index].node.data.thumbnail_image.localFile.childImageSharp.gatsbyImageData}
           category={projects[index].node.data.category.text}
         />
       ))}
@@ -100,20 +97,7 @@ export const query = graphql`
             thumbnail_image {
               localFile {
                 childImageSharp {
-                  fluid {
-                    tracedSVG
-                    srcWebp
-                    srcSetWebp
-                    srcSet
-                    src
-                    sizes
-                    presentationWidth
-                    presentationHeight
-                    originalName
-                    originalImg
-                    base64
-                    aspectRatio
-                  }
+                  gatsbyImageData(layout: CONSTRAINED)
                 }
               }
             }

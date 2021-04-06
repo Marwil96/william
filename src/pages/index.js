@@ -106,9 +106,14 @@ export const query = graphql`
             category {
               text
             }
-          hero_image {
-            url
-          }
+            hero_image {
+              url
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(layout: FULL_WIDTH)
+                }
+              }
+            }
             thumbnail_image {
               localFile {
                 childImageSharp {

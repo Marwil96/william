@@ -1,4 +1,4 @@
-import Img from 'gatsby-image';
+import { GatsbyImage } from "gatsby-plugin-image"
 import TransitionLink from "gatsby-plugin-transition-link"
 import React from 'react';
 import { animated, useSpring } from "react-spring"
@@ -73,7 +73,6 @@ const ProjectCard = ({image, title, category, type, style, index, link, outsideO
     to: { opacity: 1, transform: "translateY(0px)" },
     delay: 1600 + 300 * index,
   })
-
   
   return (
     <ProjectCardWrapper href={outsideOfWebsite ? outsideOfWebsite : false} target='__blank'>
@@ -97,7 +96,7 @@ const ProjectCard = ({image, title, category, type, style, index, link, outsideO
           ></animated.div>
           <div style={{ overflow: "hidden" }}>
             <animated.div style={heroSpring}>
-              <Img fluid={image} />
+              <GatsbyImage image={image} alt={title} />
             </animated.div>
           </div>
         </ImageWrapper>

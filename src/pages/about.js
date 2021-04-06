@@ -1,7 +1,7 @@
 import React from 'react';
 import { breakpoint } from "../mixins/breakpoint"
 import { animated, useSpring } from 'react-spring';
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import TransitionLink from "gatsby-plugin-transition-link"
 import styled from 'styled-components';
 import Footer from '../components/Footer';
@@ -156,19 +156,13 @@ const NextProject = styled.section`
 
 const HeroMask = styled(animated.div)``
 
-const About = ({transitionStatus, location, entry, exit, data }) => {
+const About = ({transitionStatus, location, entry, exit, data}) => {
   const heroMaskSpring = useSpring({config: {friction: 35}, from: {transform: 'scale(1,1)'}, to:{ transform: 'scale(1,0)'}, delay: 800})
   const heroSpring = useSpring({config: {friction: 35}, from: {transform: 'scale(1.3)'}, to:{ transform: 'scale(1)'}, delay: 800})
   const slideName = useSpring({config: {friction: 35}, from: {opacity: 0, transform: 'translateY(100px)'}, to:{opacity: 1, transform: 'translateY(0px)'}, delay: 500})
   const slideContent = useSpring({config: {friction: 35}, from: {opacity: 0, transform: 'translateY(100px)'}, to:{opacity: 1, transform: 'translateY(0px)'}, delay: 1200})
 
-
-  const images = data.allImageSharp.edges;
-
-  const heroImage = images.filter((edge) => edge.node.fluid.originalName === 'hero_image.png')[0].node.fluid
-  const childImage = images.filter((edge) => edge.node.fluid.originalName === 'william_as_a_kid.png')[0].node.fluid
-  const portraitImage = images.filter((edge) => edge.node.fluid.originalName === 'portrait_image.png')[0].node.fluid
-  const designBooksImage = images.filter((edge) => edge.node.fluid.originalName === 'design_books.png')[0].node.fluid
+  const {heroImage, childImage, portraitImage, designBooksImage} = data;
 
   return (
     <PageWrapper
@@ -198,7 +192,7 @@ const About = ({transitionStatus, location, entry, exit, data }) => {
         ></HeroMask>
         <div style={{ overflow: "hidden" }}>
           <animated.div style={heroSpring}>
-            <Img fluid={heroImage} />
+            <GatsbyImage image={heroImage.gatsbyImageData} alt='About William Martinsson' />
           </animated.div>
         </div>
       </ImageWrapper>
@@ -212,7 +206,7 @@ const About = ({transitionStatus, location, entry, exit, data }) => {
       </Introduction>
       <TextBlock
         sectionTitle="Who is william"
-        image={childImage}
+        image={childImage.gatsbyImageData}
         sectionItems={[
           {
             title: "Born and Raised",
@@ -242,7 +236,7 @@ const About = ({transitionStatus, location, entry, exit, data }) => {
       </Introduction>
       <TextBlock
         sectionTitle="how he learned to love the web"
-        image={portraitImage}
+        image={portraitImage.gatsbyImageData}
         reverse={true}
         sectionItems={[
           {
@@ -264,7 +258,7 @@ const About = ({transitionStatus, location, entry, exit, data }) => {
       />
       <TextBlock
         sectionTitle="design is not equal to Art"
-        image={designBooksImage}
+        image={designBooksImage.gatsbyImageData}
         sectionItems={[
           {
             title: "A designer solves problems",
@@ -305,26 +299,23 @@ const About = ({transitionStatus, location, entry, exit, data }) => {
 
   export const query = graphql`
   {
-    allImageSharp {
-      edges {
-        node {
-          id
-          fluid {
-            aspectRatio
-            base64
-            originalImg
-            originalName
-            presentationHeight
-            presentationWidth
-            sizes
-            src
-            srcSet
-            srcSetWebp
-            srcWebp
-          }
-        }
-      }
+    heroImage: imageSharp(id: {eq: "a4c60f68-92dd-5d34-8e59-5f4a5cd46f67"}) {
+      id
+      gatsbyImageData(layout: FULL_WIDTH)
+    },
+    childImage: imageSharp(id: {eq: "8afa78c9-c205-5fb0-b514-f4c78bb251d1"}) {
+      id
+      gatsbyImageData(layout: FULL_WIDTH)
     }
+    portraitImage: imageSharp(id: {eq: "e78c579e-b981-5223-9533-342d8260c16a"}) {
+      id
+      gatsbyImageData(layout: FULL_WIDTH)
+    }
+    designBooksImage: imageSharp(id: {eq: "3c3ccc16-2329-5fea-8c80-8c279180aa3b"}) {
+      id
+      gatsbyImageData(layout: FULL_WIDTH)
+    }
+
   }
 `
   

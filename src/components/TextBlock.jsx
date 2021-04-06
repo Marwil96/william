@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import { breakpoint } from "../mixins/breakpoint"
 import { animated, useSpring } from "react-spring"
 
@@ -150,7 +150,7 @@ const TextBlock = ({reverse, sectionItems, sectionTitle, image, style, animation
           ></HeroMask>
           <div style={{ overflow: "hidden" }}>
             <animated.div style={heroSpring}>
-              <Img fluid={image} />
+              <GatsbyImage image={image} alt={sectionTitle} />
             </animated.div>
           </div>
         </ImageWrapper>

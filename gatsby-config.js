@@ -22,19 +22,14 @@ module.exports = {
       options: {
         // Available options and their defaults:
         base64Width: 20,
-        forceBase64Format: ``, // valid formats: png,jpg,webp
         stripMetadata: true,
         defaultQuality: 100,
-        background: "#E96E1F",
       },
     },
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [
-          `Manrope\:400,500, 600,800`, 
-          `Fraunces\:500`
-        ]
+        fonts: [`Manrope\:400,500, 600,800`, `Fraunces\:500`],
       },
     },
     {
@@ -48,6 +43,8 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-transition-link`,
     `gatsby-plugin-sitemap`,
+    `gatsby-plugin-image`,
+    `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

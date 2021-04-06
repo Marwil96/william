@@ -55,12 +55,25 @@ const Work = ({ transitionStatus, data }) => {
         description="William is combo between a Frontend Developer and a Digital Designer.
           Whose passion lies in creating smooth products & experiences."
       />
-      <HeadTitle style={{ gridColumn:'span 12', ...slideName}}>Work</HeadTitle>
+      <HeadTitle style={{ gridColumn: "span 12", ...slideName }}>
+        Work
+      </HeadTitle>
       {slideInCards.map((style, index) => (
-        <ProjectCard outsideOfWebsite={false} index={index} style={style} link={projects[index].node.uid} title={projects[index].node.data.project_name.text} image={projects[index].node.data.thumbnail_image.localFile.childImageSharp.fluid} category={projects[index].node.data.category.text} role={projects[index].node.data.role.text}/>
+        <ProjectCard
+          outsideOfWebsite={false}
+          index={index}
+          style={style}
+          link={projects[index].node.uid}
+          title={projects[index].node.data.project_name.text}
+          image={
+            projects[index].node.data.thumbnail_image.localFile.childImageSharp.gatsbyImageData
+          }
+          category={projects[index].node.data.category.text}
+          role={projects[index].node.data.role.text}
+        />
       ))}
 
-      <Footer style={{marginTop: '10rem'}} />
+      <Footer style={{ marginTop: "10rem" }} />
     </PageWrapper>
   )
 }
@@ -85,20 +98,7 @@ export const query = graphql`
             thumbnail_image {
               localFile {
                 childImageSharp {
-                  fluid {
-                    tracedSVG
-                    srcWebp
-                    srcSetWebp
-                    srcSet
-                    src
-                    sizes
-                    presentationWidth
-                    presentationHeight
-                    originalName
-                    originalImg
-                    base64
-                    aspectRatio
-                  }
+                  gatsbyImageData(layout: CONSTRAINED)
                 }
               }
             }

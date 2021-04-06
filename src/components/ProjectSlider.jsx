@@ -4,6 +4,7 @@ import TransitionLink from "gatsby-plugin-transition-link"
 import { breakpoint } from "../mixins/breakpoint"
 import { animated, useSpring } from 'react-spring';
 import { Bubble } from './Bubble';
+import { GatsbyImage } from "gatsby-plugin-image"
 
 
 const ProjectSliderWrapper = styled.section`
@@ -324,7 +325,7 @@ const ProjectSlider = ({projects}) => {
           const title = item.node.data.title.text
           const name = item.node.data.project_name.text
           // const tags = item.node.data.category.text
-          const image = item.node.data.hero_image.url
+          const image = item.node.data.hero_image.localFile.childImageSharp.gatsbyImageData
           const link = item.node.uid
 
           return (
@@ -377,7 +378,9 @@ const ProjectSlider = ({projects}) => {
                         : "go_down"
                       : ""
                   }
-                />
+                >
+                  <GatsbyImage image={image} />
+                </ProjectImage>
                 {/* <div style={{position: "absolute", width: '100%', height: '100%', background: 'black', opacity: 0.3, marginLeft: '-10rem' }}></div> */}
               </ProjectSliderItem>
             </TransitionLink>
