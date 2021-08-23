@@ -141,9 +141,9 @@ const Contact = ({ transitionStatus, location, entry, exit, data }) => {
       <Introduction>
         <Label style={{ ...slideLabel }}>State of affairs</Label>
         <animated.h3 style={{ ...slideIntro }}>
-          William is currently freelancing and building on his side projects,
-          but rumors say that he is open to new opportunities in early 2021 and
-          forwards.
+          William is currently working for Artscape while building on his side
+          projects, but rumors say that he is still open for shorter freelance
+          projects.
         </animated.h3>
       </Introduction>
       <TextBlock
