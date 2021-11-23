@@ -9,13 +9,15 @@ const posts = [
     title: 'How to use the grid',
     desc: 'How to use the CSS grid to implement a design on a website that uses Gatsby and styled-components.',
     action: 'Go to Article',
-    leftText: 'November 19th',
+    leftText: '19/12/20',
+    href: '/projects/knvb-rinus',
   },
   {
     title: 'Why should you use figma',
     desc: 'How to use the CSS grid to implement a design on a website that uses Gatsby and styled-components.',
     action: 'Go to Article',
-    leftText: 'November 15th',
+    leftText: '19/12/20',
+    href: '/projects/knvb-rinus',
   }
 ]
 

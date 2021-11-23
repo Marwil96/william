@@ -65,7 +65,7 @@ const LeftText = styled('span', {
   fontFamily: "$title",
   fontSize: "1.4rem",
   position: 'absolute',
-  marginLeft: '-9.2rem',
+  marginLeft: '-8.6rem',
   transform: 'rotate(90deg)',
   willChange: 'transform',
 })

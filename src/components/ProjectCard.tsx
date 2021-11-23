@@ -4,7 +4,7 @@ import SectionLabel from './SectionLabel';
 import { ArrowRightIcon } from '@modulz/radix-icons'
 
 
-const Wrapper = styled('div', {
+const Wrapper = styled('a', {
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
@@ -51,9 +51,9 @@ const Desc = styled('span', {
 })
 
 
-const ProjectCard = ({title, desc} : {title: string, desc: string}) => { 
+const ProjectCard = ({title, desc, href} : {title: string, desc: string, href: string}) => { 
   return (
-    <Wrapper>
+    <Wrapper href={href}>
       <TextWrapper>
         <Title>{title}</Title>
         <Desc>{desc}</Desc>

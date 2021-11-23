@@ -13,10 +13,10 @@ const metadata = [{label: 'Type', value: 'Freelance'}, {label: 'Tech', value: 'G
 const subtitle = 'Knodd is a medicare startup from Gothenburg, they allow you to consult a qualified health professional about your child via your smartphone or tablet. '
 
 
-const Knodd = () => {
+const HowToUseTheGrid = () => {
   return (
-    <Layout project={true}>
-      <ProjectComponent title='Knodd' metadata={metadata} subtitle={subtitle} heroImage={HeroImage} linkToWebsite='https://www.knodd.se/fakta-och-rad/'>
+    <Layout>
+      <ProjectComponent title='How to use the grid' metadata={metadata} subtitle={subtitle} heroImage={HeroImage} linkToWebsite='https://www.knodd.se/fakta-och-rad/'>
         <h5>Brief</h5>
         <p>Knodd needed help to make their website more attractive to potential customers. So we made a plan to remake the website in Gatsby to improve loading speeds, add a CMS to the existing site, and create an entirely new part of the website with articles about different child diseases.</p>
         <h5>Thoughts about the tech stack.</h5>
@@ -31,4 +31,4 @@ const Knodd = () => {
   )
 }
 
-export default Knodd;
+export default HowToUseTheGrid;

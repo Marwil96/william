@@ -67,7 +67,7 @@ const HeroImageContainer = styled('div', {
   }
 })
 
-const LinkBubble = styled('div', {
+const LinkBubble = styled('a', {
   width: '14.8rem',
   height: '14.8rem',
   display: 'flex',
@@ -143,7 +143,7 @@ const Content = styled('div', {
 })
 
 
-const ProjectComponent = ({title, subtitle, metadata, children, heroImage}: {title: string, subtitle: string, children: any, metadata: any, heroImage: any}) => {
+const ProjectComponent = ({title, subtitle, metadata, children, heroImage, linkToWebsite}: {title: string, subtitle: string, children: any, metadata: any, heroImage: any, linkToWebsite?: string}) => {
   return (
     <Container>
 
@@ -157,7 +157,7 @@ const ProjectComponent = ({title, subtitle, metadata, children, heroImage}: {tit
       ))}
       </MetaDataContainer>
       <HeroImageContainer>
-        <LinkBubble>Visit Website</LinkBubble>
+        {linkToWebsite && <LinkBubble target='__blank' href={linkToWebsite}>Visit Website</LinkBubble>}
         <Image src={heroImage} alt={`${title} hero image`} layout='fill' objectFit='cover' />
       </HeroImageContainer>
       <Content>

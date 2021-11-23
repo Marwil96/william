@@ -12,7 +12,7 @@ const subtitle = 'We were tasked to build the new version of KNVBs Rinus, a trai
 const KNVBRinus = () => {
   return (
     <Layout project={true}>
-      <ProjectComponent title='KNVB Rinus' metadata={metadata} subtitle={subtitle} heroImage={HeroImage}>
+      <ProjectComponent title='KNVB Rinus' metadata={metadata} subtitle={subtitle} heroImage={HeroImage} linkToWebsite='https://rinus.knvb.nl/'>
         <h5>My role</h5>
         <p>My Role in this project was mainly to implement the frontend and fine-tune all animations together with the motion designer. The hardest task with the project was to create an app-like experience for a website, so animations and transitions needed to be top class. And that while not making something that toasted the coaches' laptops, because the coaches mainly used old old laptops.<br/> <br /> One of the harder tasks was creating a dynamic calendar that was going to display all of the exercises. To make the load faster we used an intersection observer(the greatest thing coming out of javascript in the last couple of years) that only loaded days/weeks observed by the user. Which made it possible for us to create some nice animations, watch below.</p>
         <ComposedImage image={Image1}/>

@@ -54,19 +54,19 @@ const Home: NextPage = () => {
       </MainTextBlock>
       <SeactionHeader title='Building' />
       <CardWrapper>
-        <ProjectCard title='Radionight' desc='Livestream podcasts, create awesome communites.' />
-        <ProjectCard title='Lyssna' desc='Livestream podcasts, create awesome communites.' />
+        <ProjectCard title='Radionight' desc='Livestream podcasts, create awesome communites.' href='/projects/radionight' />
+        <ProjectCard title='Lyssna' desc='Livestream podcasts, create awesome communites.' href='/projects/lyssna' />
       </CardWrapper>
 
       <SeactionHeader title='Projects' />
       <CardWrapper>
-        <ProjectCard title='Knodd' desc='Livestream podcasts, create awesome communites.' />
-        <ProjectCard title='KNVB' desc='Livestream podcasts, create awesome communites.' />
+        <ProjectCard title='Knodd' desc='Livestream podcasts, create awesome communites.' href='/projects/knodd' />
+        <ProjectCard title='KNVB' desc='Livestream podcasts, create awesome communites.' href='/projects/knodd' />
       </CardWrapper>
 
        <SeactionHeader title='Writings' />
       <CardWrapper>
-        <ProjectCard title='CSS Grid' desc='How to use the CSS grid to implement a design on a website that uses Gatsby and styled-components.' />
+        <ProjectCard title='CSS Grid' desc='How to use the CSS grid to implement a design on a website that uses Gatsby and styled-components.' href='/writings/css-grid' />
       </CardWrapper>
       <SectionLabel>Right now...</SectionLabel>
       <TextBlock>
