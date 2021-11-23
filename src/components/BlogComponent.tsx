@@ -42,7 +42,7 @@ const BlogComponent = ({title, subtitle, posts}: {title: string, subtitle: strin
       <LeftBorder />
       <PageTitle>{title}</PageTitle>
       <PageSubtitle>{subtitle}</PageSubtitle>
-      {posts.map(({title, desc, action, leftText, subtitle, href}: {title: string, href: string, desc: string, action: string, leftText?: string, subtitle?: string}, index: any) => (
+      {posts.map(({title, desc, action, leftText, subtitle, href, external}: {title: string, href: string, desc: string, action: string, leftText?: string, subtitle?: string, external?: boolean}, index: any) => (
         <LinkItem 
           title={title}
           desc={desc}
@@ -50,6 +50,7 @@ const BlogComponent = ({title, subtitle, posts}: {title: string, subtitle: strin
           leftText={leftText}
           key={index}
           subtitle={subtitle}
+          external={external}
           href={href}
         />
       ))}

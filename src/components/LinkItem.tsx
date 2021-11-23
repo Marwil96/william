@@ -71,8 +71,16 @@ const LeftText = styled('span', {
 })
 
 
-const LinkItem = ({title, desc, action, leftText, key, subtitle, href} : {title: string, href: string, desc: string, action: string, subtitle?: string, leftText?: string, key: any}) => { 
-  return (
+const LinkItem = ({title, desc, action, leftText, key, subtitle, href, external} : {title: string, href: string, desc: string, action: string, subtitle?: string, leftText?: string, key: any, external?: boolean}) => { 
+  return external ? (
+    <a href={href} target='__blank'>
+      <Wrapper>
+        <Title>{title}</Title>
+        <Desc>{desc}</Desc>
+        <ReadMore>{action}</ReadMore>
+        {leftText && <LeftText>{leftText}</LeftText>}
+      </Wrapper>
+    </a>) : (
     <Link href={href} passHref>
       <Wrapper>
         <Title>{title}</Title>

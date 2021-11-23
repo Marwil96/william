@@ -66,7 +66,7 @@ const Home: NextPage = () => {
 
        <SeactionHeader title='Writings' />
       <CardWrapper>
-        <ProjectCard title='CSS Grid' desc='How to use the CSS grid to implement a design on a website that uses Gatsby and styled-components.' href='/writings/css-grid' />
+        <ProjectCard title='CSS Grid' desc='How to use the CSS grid to implement a design on a website that uses Gatsby and styled-components.' href='https://williammartinsson.medium.com/how-to-use-the-css-grid-to-implement-a-design-on-a-website-that-uses-gatsby-and-styled-components-ebccb77cade8' external={true} />
       </CardWrapper>
       <SectionLabel>Right now...</SectionLabel>
       <TextBlock>

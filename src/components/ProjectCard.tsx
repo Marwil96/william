@@ -2,9 +2,10 @@ import React from 'react';
 import {styled} from '@/stitches.config';
 import SectionLabel from './SectionLabel';
 import { ArrowRightIcon } from '@modulz/radix-icons'
+import Link from 'next/link';
 
 
-const Wrapper = styled('a', {
+const Wrapper = styled('div', {
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
@@ -51,15 +52,27 @@ const Desc = styled('span', {
 })
 
 
-const ProjectCard = ({title, desc, href} : {title: string, desc: string, href: string}) => { 
-  return (
-    <Wrapper href={href}>
-      <TextWrapper>
-        <Title>{title}</Title>
-        <Desc>{desc}</Desc>
-      </TextWrapper>
-      <ArrowRightIcon />
-    </Wrapper>
+const ProjectCard = ({title, desc, href, external} : {title: string, desc: string, href?: string, external?: boolean}) => { 
+  return !external ? (
+    <Link href={href} passHref>
+      <Wrapper>
+        <TextWrapper>
+          <Title>{title}</Title>
+          <Desc>{desc}</Desc>
+        </TextWrapper>
+        <ArrowRightIcon />
+      </Wrapper>
+    </Link>
+  ) : (
+    <a href={href} target='__blank'>
+      <Wrapper>
+        <TextWrapper>
+          <Title>{title}</Title>
+          <Desc>{desc}</Desc>
+        </TextWrapper>
+        <ArrowRightIcon />
+      </Wrapper>
+    </a>
   )
 }
 
