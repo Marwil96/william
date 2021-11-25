@@ -56,19 +56,19 @@ const Home: NextPage = () => {
       <MainTextBlock>
         <strong>Crafting digital products.</strong>  Building performant software and web experiences. Dreaming about design systems, new ways of creating components, and JavaScript. Currently designing and developing the new wave of internet art at <a>Artscape</a>. Helping businesses succeed under the name <a>Oh, Hi</a>.
       </MainTextBlock>
-      <SeactionHeader title='Building' />
+      <SeactionHeader title='Currently building' href='/projects' />
       <CardWrapper>
         <ProjectCard title='Radionight' desc='Livestream podcasts, create awesome communites.' href='/projects/radionight' />
         <ProjectCard title='Lyssna' desc='Livestream podcasts, create awesome communites.' href='/projects/lyssna' />
       </CardWrapper>
 
-      <SeactionHeader title='Projects' />
+      <SeactionHeader title='Products & Client Work' href='/projects' />
       <CardWrapper>
         <ProjectCard title='Knodd' desc='Livestream podcasts, create awesome communites.' href='/projects/knodd' />
         <ProjectCard title='KNVB' desc='Livestream podcasts, create awesome communites.' href='/projects/knodd' />
       </CardWrapper>
 
-       <SeactionHeader title='Writings' />
+       <SeactionHeader title='Writings' href='/projects' />
       <CardWrapper>
         <ProjectCard title='CSS Grid' desc='How to use the CSS grid to implement a design on a website that uses Gatsby and styled-components.' href='https://williammartinsson.medium.com/how-to-use-the-css-grid-to-implement-a-design-on-a-website-that-uses-gatsby-and-styled-components-ebccb77cade8' external={true} />
       </CardWrapper>

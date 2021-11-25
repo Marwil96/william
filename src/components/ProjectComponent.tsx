@@ -3,6 +3,7 @@ import Layout from '../components/Layout'
 import { styled } from "@/stitches.config";
 import LinkItem from 'src/components/LinkItem';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 const Container = styled('div', {
   display: 'flex',
@@ -15,7 +16,7 @@ const Container = styled('div', {
   }
 });
 
-const ProjectTitle = styled('h1', {
+const ProjectTitle = styled(motion.h1, {
   fontSize: '$6',
   fontFamily: '$title',
   fontWeight: '400',
@@ -53,7 +54,7 @@ const MetaDataContainer = styled('div', {
   }
 })
 
-const MetaDataItem = styled('div', { 
+const MetaDataItem = styled(motion.div, { 
   display: 'flex',
   flexDirection: 'column',
   marginBottom: '2.4rem',
@@ -68,7 +69,7 @@ const MetaDataItem = styled('div', {
   }
 })
 
-const MetaDataLabel = styled('span', {
+const MetaDataLabel = styled(motion.span, {
   fontFamily: '$title',
   fontSize: '$2',
   marginBottom: '0.7rem',
@@ -81,7 +82,7 @@ const MetaDataLabel = styled('span', {
 
 })
 
-const MetaDataValue = styled('span', {
+const MetaDataValue = styled(motion.span, {
   fontFamily: '$text',
   fontSize: '$2',
 
@@ -110,7 +111,7 @@ const HeroImageContainer = styled('div', {
   },
 })
 
-const LinkBubble = styled('a', {
+const LinkBubble = styled(motion.a, {
   width: '10rem',
   height: '10rem',
   display: 'flex',
@@ -127,8 +128,8 @@ const LinkBubble = styled('a', {
   zIndex: '1000',
   right: '1.6rem',
   top: '-4.5rem',
-  transition: 'transform 250ms ease',
-  willChange: 'transform',
+  // transition: 'transform 250ms ease',
+  // willChange: 'transform',
   cursor: 'pointer',
 
   '&:hover': {
@@ -144,7 +145,7 @@ const LinkBubble = styled('a', {
   }
 })
 
-const Subtitle = styled('h3', {
+const Subtitle = styled(motion.h3, {
   fontSize: '$4',
   fontFamily: '$title',
   fontWeight: '400',
@@ -200,26 +201,78 @@ const Content = styled('div', {
   }
 })
 
+const ImageContainer = styled(motion.div, {
+  position: 'relative',
+  width: '100%',
+  height: '100%',
+  overflow: 'hidden',
+  borderRadius: '0.8rem',
+  
+  '@bp1': {
+    borderRadius: '1.2rem'
+  }
+})
+
+const ImageBlocker = styled(motion.div, {
+  position: 'absolute',
+  width: '100%',
+  height: '100%',
+  background: '$bg',
+})
+
 
 const ProjectComponent = ({title, subtitle, metadata, children, heroImage, linkToWebsite}: {title: string, subtitle: string, children: any, metadata: any, heroImage: any, linkToWebsite?: string}) => {
   return (
     <Container>
 
-      <ProjectTitle>{title}</ProjectTitle>
+      <ProjectTitle
+        initial={{ opacity: 0, y: 75 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ type: "spring",
+        damping: 20,
+        stiffness: 100, delay: 0.1 }}
+      >{title}</ProjectTitle>
       <MetaDataContainer>
       {metadata.map(({label, value}: {label: string, value: string}, index: any) => (
         <MetaDataItem key={index}>
-          <MetaDataLabel>{label}</MetaDataLabel>
-          <MetaDataValue>{value}</MetaDataValue>
+          <MetaDataLabel
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{delay: 0.4 + index/2, duration: 0.3 }}
+          >{label}</MetaDataLabel>
+          <MetaDataValue
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{delay: 0.6 + index/2, duration: 0.3 }}>
+            {value}
+          </MetaDataValue>
         </MetaDataItem>
       ))}
       </MetaDataContainer>
       <HeroImageContainer>
-        {linkToWebsite && <LinkBubble target='__blank' href={linkToWebsite}>Visit Website</LinkBubble>}
-        <Image src={heroImage} alt={`${title} hero image`} layout='fill' objectFit='cover' />
+        {linkToWebsite && 
+          <LinkBubble 
+            initial={{ scale: 0}}
+            animate={{ scale: 1 }}
+            transition={{ type: "spring", bounce: 0.5, delay: 1.7 }} 
+            target='__blank' 
+            href={linkToWebsite}
+          >
+            Visit Website
+          </LinkBubble>}
+
+        <ImageContainer>
+          <Image src={heroImage} alt={`${title} hero image`} layout='fill' objectFit='cover'  />
+          <ImageBlocker 
+            initial={{ y: 0 }}
+            animate={{ y: '-100%' }}
+            transition={{ duration: 0.8, delay: 1, ease: "easeOut" }} />
+        </ImageContainer>
       </HeroImageContainer>
       <Content>
-        <Subtitle>{subtitle}</Subtitle>
+        <Subtitle initial={{ opacity: 0, y: 30 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{delay: 1.8, duration: 0.3 }}>{subtitle}</Subtitle>
         {children}
       </Content>
 

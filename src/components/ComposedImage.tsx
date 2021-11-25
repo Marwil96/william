@@ -16,7 +16,7 @@ const ImageContainer = styled('div', {
 
 const ComposedImage = ({image}) => (
   <ImageContainer>
-    <Image src={image} alt='mockup 1' layout='intrinsic' objectFit='contain' />
+    <Image src={image} alt='mockup 1' layout='intrinsic' objectFit='contain' placeholder="blur" blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=' />
   </ImageContainer>
 )
 

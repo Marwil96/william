@@ -2,6 +2,7 @@ import React from 'react';
 import {styled} from '@/stitches.config';
 import SectionLabel from './SectionLabel';
 import { ArrowRightIcon } from '@modulz/radix-icons'
+import Link from 'next/link';
 
 
 const Wrapper = styled('div', {
@@ -20,6 +21,11 @@ const SeeMore = styled('span', {
   alignItems: 'center',
   borderBottom: '1px solid #9F9F9F',
   paddingBottom: '0.3rem',
+  cursor: 'pointer',
+
+  '&:hover': {
+    opacity: '0.8',
+  },
 
   'svg': {
     marginLeft: '0.6rem',
@@ -31,11 +37,11 @@ const SeeMore = styled('span', {
 })
 
 
-const SeactionHeader = ({title} : {title: string}) => { 
+const SeactionHeader = ({title, href} : {title: string, href: string}) => { 
   return (
     <Wrapper>
       <SectionLabel>{title}</SectionLabel>
-      <SeeMore>See All <ArrowRightIcon /></SeeMore>
+      <Link href={href} passHref><SeeMore>See All <ArrowRightIcon /></SeeMore></Link>
     </Wrapper>
   )
 }
