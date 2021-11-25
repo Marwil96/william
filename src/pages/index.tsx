@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Layout from '../components/Layout'
-import { styled } from "@/stitches.config";
+import { styled } from "../../stitches.config";
 import SeactionHeader from 'src/components/SectioHeader';
 import ProjectCard from 'src/components/ProjectCard';
 import SectionLabel from 'src/components/SectionLabel';

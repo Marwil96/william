@@ -1,4 +1,4 @@
-import { styled } from "@/stitches.config";
+import { styled } from "../../stitches.config";
 
 const SectionLabel = styled("h2", {
   fontSize: "$2",

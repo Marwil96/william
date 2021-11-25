@@ -1,6 +1,4 @@
-import type { NextPage } from 'next'
-import Layout from '../components/Layout'
-import { styled } from "@/stitches.config";
+import { styled } from "../../stitches.config";
 import LinkItem from 'src/components/LinkItem';
 
 const Container = styled('div', {

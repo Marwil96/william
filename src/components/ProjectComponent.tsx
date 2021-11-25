@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Layout from '../components/Layout'
-import { styled } from "@/stitches.config";
+import { styled } from "../../stitches.config";
 import LinkItem from 'src/components/LinkItem';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -207,7 +207,7 @@ const ImageContainer = styled(motion.div, {
   height: '100%',
   overflow: 'hidden',
   borderRadius: '0.8rem',
-  
+
   '@bp1': {
     borderRadius: '1.2rem'
   }
