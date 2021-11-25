@@ -124,8 +124,8 @@ const LinkBubble = styled(motion.a, {
   fontSize: '1.4rem',
   textAlign: 'center',
   position: 'absolute',
-  background: '#E63A2E',
-  color: '#EAEAEA',
+  background: '#F1F1F1',
+  color: '#000',
   borderRadius: '100%',
   zIndex: '1000',
   right: '1.6rem',
@@ -135,7 +135,7 @@ const LinkBubble = styled(motion.a, {
   cursor: 'pointer',
 
   '&:hover': {
-    transform: 'scale(1.2)',
+    background: '#CCCCCC',
   },
 
   '@bp1': { 
