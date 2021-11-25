@@ -3,6 +3,7 @@ import { styled } from "../../stitches.config";
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { motion } from 'framer-motion';
+import { NextSeo } from 'next-seo';
 
 const Wrapper = styled('section', {
   width: '100%',
@@ -36,9 +37,13 @@ const ChildrenWrapper = styled(motion.div, {
    
 })
 
-const Layout = ({ children, project } : {children: any, project?: boolean}) => {
+const Layout = ({ children, project, title, desc } : {children: any, project?: boolean, title: string, desc: string}) => {
   return (
     <>
+    <NextSeo
+      title={title}
+      description={desc}
+    />
     <Wrapper>
       <Content layout initial={{ width: '61.5rem' }}
         animate={{ width: !project ? '61.5rem' : '100%' }}

@@ -51,21 +51,24 @@ const CardWrapper = styled('div', {
 
 const Home: NextPage = () => {
   return (
-    <Layout>
+    <Layout
+      title='William Martinsson - Designer & Developer'
+      desc='Crafting digital products. Building performant software and web experiences. Dreaming about design systems, new ways of creating components, and JavaScript. Currently designing and developing the new wave of internet art at Artscape. Helping businesses succeed under the name Oh, Hi.'
+    >
       <NameTag>William Martinsson -<br/>Designer & Developer</NameTag>
       <MainTextBlock>
-        <strong>Crafting digital products.</strong>  Building performant software and web experiences. Dreaming about design systems, new ways of creating components, and JavaScript. Currently designing and developing the new wave of internet art at <a>Artscape</a>. Helping businesses succeed under the name <a>Oh, Hi</a>.
+        <strong>Crafting digital products.</strong>  Building performant software and web experiences. Musing about design systems, new ways of creating components, and JavaScript. Currently designing and developing the new wave of internet art at <a>Artscape</a>. Helping businesses succeed under the name <a>Oh, Hi</a>.
       </MainTextBlock>
-      <SeactionHeader title='Currently building' href='/projects' />
+      <SeactionHeader title='Selected Products' href='/projects' />
       <CardWrapper>
-        <ProjectCard title='Radionight' desc='Livestream podcasts, create awesome communites.' href='/projects/radionight' />
-        <ProjectCard title='Lyssna' desc='Livestream podcasts, create awesome communites.' href='/projects/lyssna' />
+        <ProjectCard title='Superchicane' desc="A Formula One news platform made to tell stories with the help of data, everything from character portraits to the sport's technical aspects." href='/projects/superchicane' />
+        <ProjectCard title='Matie' desc='Matie is a recipe app, built around the feature to create cookbooks, which you can work on together with your friends and family.' href='/projects/matie' />
       </CardWrapper>
 
-      <SeactionHeader title='Products & Client Work' href='/projects' />
+      <SeactionHeader title='Selected Client Work' href='/projects' />
       <CardWrapper>
-        <ProjectCard title='Knodd' desc='Livestream podcasts, create awesome communites.' href='/projects/knodd' />
-        <ProjectCard title='KNVB' desc='Livestream podcasts, create awesome communites.' href='/projects/knodd' />
+        <ProjectCard title='Knodd' desc='An entirely new part of the website with articles about different child diseases and a rewrite to server rendering.' href='/projects/knodd' />
+        <ProjectCard title='Master Digital Design' desc='We were tasked to create an alumni page for Amsterdam University design students.' href='/projects/master-digital-design' />
       </CardWrapper>
 
        <SeactionHeader title='Writings' href='/projects' />
@@ -74,7 +77,7 @@ const Home: NextPage = () => {
       </CardWrapper>
       <SectionLabel>Right now...</SectionLabel>
       <TextBlock>
-        Trying to learn new things by<strong> reading, and building. </strong> Trying to be thoughtful and organized when I approach new obstacles. Feeling ownership over everything <br/>I do. <br/><br/>Next.js is my go-to tool for<strong> building </strong>things on the web. It makes JavaScript more enjoyable and easier to create performant websites. For styling I’m using styled-components, I’ve been trying out Stitches and been gladly suprised so a change might be on it’s way. <br/><br/>When I need a database, I like to go with noSQL. Often MongoDB sometimes Firebase. Usually I connect it to the frontend with GraphQL. Planning to learn more about SQL databases and PlanetScale. <br/><br/>When paper and pen isn’t enough I use Figma to visualize how the website, product or software will look like. The best testing is done in the real deal, so I try to code up small prototypes as fast as possible. <br/><br/>Learning piano after a couple of years away from it. Very hard, more keys on a piano compared to a keyboard. But it feels good to learn something musical again. Rooting for<strong> Änglarna </strong> in Allsvenskan, and <strong> McLaren </strong> in Formula One.
+        Trying to learn new things by<strong> reading, and building. </strong> Aspiring to be thoughtful and organized when I approach new obstacles. Feeling ownership over everything <br/>I do. <br/><br/>Next.js is my go-to tool for<strong> building </strong>things on the web. It makes JavaScript more enjoyable and easier to create performant websites. For styling I’m using styled-components, I’ve been trying out Stitches and been gladly surprised so a change might be on its way. <br/><br/>When I need a database, I like to go with NoSQL. Often MongoDB sometimes Firebase. Usually, I connect it to the frontend with GraphQL. Planning to learn more about SQL databases and PlanetScale. <br/><br/>When paper and pen aren’t enough I use <strong>Figma</strong> to visualize how the website, product or, software will look like. The best testing is done in the real deal, so I try to code up small prototypes as fast as possible. <br/><br/>Outside of work. I'm venturing outside to discover <strong>Stockholm</strong> for the first time, doing my best to learn a instrument, and trying to get a better grip on web3. Rooting for<strong> Änglarna </strong> in Allsvenskan, and <strong> McLaren </strong> in Formula One.
       </TextBlock>
       <SectionLabel>Reach Out</SectionLabel>
       <TextBlock>Looking for a chat, a freelance proposal or to exchange some puppy pictures? Say <a target='__blank' href='mailto:hi@williammartinsson.com'>hi@williammartinsson.com</a></TextBlock>

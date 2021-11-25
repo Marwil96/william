@@ -52,7 +52,10 @@ const posts = [
 
 const Projects: NextPage = () => {
   return (
-    <Layout>
+    <Layout 
+      title='Projects - William Martinsson - Designer & Developer'
+      desc='Crafting digital products. Building performant software and web experiences. Dreaming about design systems, new ways of creating components, and JavaScript. Currently designing and developing the new wave of internet art at Artscape. Helping businesses succeed under the name Oh, Hi.'
+    >
       <BlogComponent 
         title="Projects & Products"
         subtitle="A collection of my projects"

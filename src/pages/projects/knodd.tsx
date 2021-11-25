@@ -15,7 +15,11 @@ const subtitle = 'Knodd is a medicare startup from Gothenburg, they allow you to
 
 const Knodd = () => {
   return (
-    <Layout project={true}>
+    <Layout 
+      title='Knodd'
+      desc={subtitle} 
+      project={true}
+    >
       <ProjectComponent title='Knodd' metadata={metadata} subtitle={subtitle} heroImage={HeroImage} linkToWebsite='https://www.knodd.se/fakta-och-rad/'>
         <h5>Brief</h5>
         <p>Knodd needed help to make their website more attractive to potential customers. So we made a plan to remake the website in Gatsby to improve loading speeds, add a CMS to the existing site, and create an entirely new part of the website with articles about different child diseases.</p>

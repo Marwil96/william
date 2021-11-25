@@ -84,7 +84,10 @@ const ContactRow = styled('div', {
 
 const Contact: NextPage = () => {
   return (
-    <Layout>
+    <Layout 
+      title='Contact - William Martinsson - Designer & Developer'
+      desc='Crafting digital products. Building performant software and web experiences. Dreaming about design systems, new ways of creating components, and JavaScript. Currently designing and developing the new wave of internet art at Artscape. Helping businesses succeed under the name Oh, Hi.'
+    >
       <Container>
         <PageTitle>Contact</PageTitle>
         <PageSubtitle>Say hi, send proposals or ask me out for a walk.</PageSubtitle>
@@ -102,7 +105,7 @@ const Contact: NextPage = () => {
       
       <SectionLabel>Right now...</SectionLabel>
       <TextBlock>
-        Trying to learn new things by<strong> reading, and building. </strong> Trying to be thoughtful and organized when I approach new obstacles. Feeling ownership over everything <br/>I do. <br/><br/>Next.js is my go-to tool for<strong> building </strong>things on the web. It makes JavaScript more enjoyable and easier to create performant websites. For styling I’m using styled-components, I’ve been trying out Stitches and been gladly suprised so a change might be on it’s way. <br/><br/>When I need a database, I like to go with noSQL. Often MongoDB sometimes Firebase. Usually I connect it to the frontend with GraphQL. Planning to learn more about SQL databases and PlanetScale. <br/><br/>When paper and pen isn’t enough I use Figma to visualize how the website, product or software will look like. The best testing is done in the real deal, so I try to code up small prototypes as fast as possible. <br/><br/>Learning piano after a couple of years away from it. Very hard, more keys on a piano compared to a keyboard. But it feels good to learn something musical again. Rooting for<strong> Änglarna </strong> in Allsvenskan, and <strong> McLaren </strong> in Formula One.
+        Trying to learn new things by<strong> reading, and building. </strong> Aspiring to be thoughtful and organized when I approach new obstacles. Feeling ownership over everything <br/>I do. <br/><br/>Next.js is my go-to tool for<strong> building </strong>things on the web. It makes JavaScript more enjoyable and easier to create performant websites. For styling I’m using styled-components, I’ve been trying out Stitches and been gladly surprised so a change might be on its way. <br/><br/>When I need a database, I like to go with NoSQL. Often MongoDB sometimes Firebase. Usually, I connect it to the frontend with GraphQL. Planning to learn more about SQL databases and PlanetScale. <br/><br/>When paper and pen aren’t enough I use <strong>Figma</strong> to visualize how the website, product or, software will look like. The best testing is done in the real deal, so I try to code up small prototypes as fast as possible. <br/><br/>Outside of work. I'm venturing outside to discover <strong>Stockholm</strong> for the first time, doing my best to learn a instrument, and trying to get a better grip on web3. Rooting for<strong> Änglarna </strong> in Allsvenskan, and <strong> McLaren </strong> in Formula One.
       </TextBlock>
     </Layout>
   )

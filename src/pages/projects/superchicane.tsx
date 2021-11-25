@@ -17,7 +17,11 @@ const subtitle = "Superchicane is a Formula One news platform made to tell stori
 
 const Superchicane = () => {
   return (
-    <Layout project={true}>
+    <Layout 
+      title='Superchicane'
+      desc={subtitle} 
+      project={true}
+    >
       <ProjectComponent title='Superchicane' metadata={metadata} subtitle={subtitle} heroImage={HeroImage} linkToWebsite='https://superchicane.com/'>
         <h5>Making data understandable</h5>
         <p>The website contains information about 851 drivers, 74 circuits, 115 teams, and thousands of races so it was fundamental to make the huge amount of data understandable, and the relationship between it clear. My way of trying to succeed was to map out the data as clear as possible before I started working, work with images when I could, and presenting the data on the website with as many graphs as possible instead of tables where it made sense.</p>

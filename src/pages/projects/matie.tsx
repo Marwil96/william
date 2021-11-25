@@ -14,9 +14,13 @@ const metadata = [ {label: 'Tech', value: 'React Native, NodeJS, Express, Linux 
 const subtitle = "Matie is a recipe app, built around the feature to create cookbooks, which you can work on together with your friends and family."
 
 
-const Superchicane = () => {
+const Matie = () => {
   return (
-    <Layout project={true}>
+    <Layout 
+      title='Matie'
+      desc={subtitle} 
+      project={true}
+    >
       <ProjectComponent title='Matie' metadata={metadata} subtitle={subtitle} heroImage={HeroImage} linkToWebsite='https://apps.apple.com/se/app/matie-recept-och-matlagning/id1540745967'>
         <h5>Thoughts about the Techstack</h5>
         <p>React Native was my choice this time, mostly because that's what I'm used to. It has improved plenty the last couple of years so the development experience is quite good and you don't feel too hindered by it. it still got some bad parts like It's quite hard to get it to perform well on old devices and the size of the app becomes quite big.</p>
@@ -37,4 +41,4 @@ const Superchicane = () => {
   )
 }
 
-export default Superchicane;
+export default Matie;

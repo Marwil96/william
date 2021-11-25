@@ -18,7 +18,11 @@ const subtitle = 'This case is about my side project Agenly, a website builder w
 
 const Knodd = () => {
   return (
-    <Layout project={true}>
+    <Layout 
+      title='Agenly'
+      desc={subtitle}
+      project={true}
+    >
       <ProjectComponent title='Agenly' metadata={metadata} subtitle={subtitle} heroImage={HeroImage} linkToWebsite='https://agenly-web-7nctp6k0q.vercel.app/'>
         <h5>The big why</h5>
         <p>This side project came from a sort of frustration with today's big website builders(Squarespace, WiX, etc). They are hard to use for people lacking digital experience which a lot of small business owners do. The website builders also produce websites with horrendous performance(Look at lighthouse test below). That's why I went out looking for a solution.</p>
