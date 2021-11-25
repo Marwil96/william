@@ -18,6 +18,14 @@ const Wrapper = styled('div', {
   willChange: 'transform',
   marginBottom: '$3',
 
+  "svg": {
+    display: 'none',
+
+    "@bp1": {
+      display: 'block'
+    }
+  },
+
   '&:hover': { 
     transform: 'scale(1.02)',
     outline: '1px solid white'
@@ -32,7 +40,10 @@ const TextWrapper = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
-  maxWidth: '70%'
+
+  "@bp1": {
+    maxWidth: '70%',
+  }
 })
 
 const Title = styled('h3', {

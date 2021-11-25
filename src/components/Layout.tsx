@@ -21,8 +21,12 @@ const Wrapper = styled('section', {
 const Content = styled(motion.div, {
   maxWidth: '100%',
   // maxWidth: '61.5rem',
-  paddingBottom: '20rem',
+  paddingBottom: '6.4rem',
   minHeight: 'calc(100vh - 11.5rem)',
+
+  '@bp1': {
+    paddingBottom: '20rem',
+  },
 
   variants: {
     project: {

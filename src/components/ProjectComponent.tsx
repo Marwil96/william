@@ -85,9 +85,11 @@ const MetaDataLabel = styled(motion.span, {
 const MetaDataValue = styled(motion.span, {
   fontFamily: '$text',
   fontSize: '$2',
+  lineHeight: '$4',
 
   '@bp1': {
     fontSize: '$3',
+    lineHeight: 'normal'
   },
 })
 
