@@ -11,9 +11,13 @@ const NameTag = styled('h1', {
   fontFamily: '$serif',
   fontStyle: 'italic',
   fontWeight: '400',
-  marginTop: '25rem',
+  marginTop: '$5',
   lineHeight: '2rem',
-  marginBottom: '$3'
+  marginBottom: '$3',
+
+  '@bp1': {
+    marginTop: '25rem',
+  }
 })
 
 const MainTextBlock = styled('span', {

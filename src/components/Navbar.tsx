@@ -12,14 +12,20 @@ const Wrapper = styled('div', {
 
 const NavItems = styled('div', { 
   display: 'flex',
+  flexDirection: 'column',
+
+  '@bp1': {
+    flexDirection: 'row',
+  }
 })
 
 const NavItem = styled('span', {
   fontSize: '$2',
   fontFamily: '$serif',
-  marginRight: '$4',
+  marginBottom: '1rem',
   fontStyle: 'italic',
   cursor: 'pointer',
+  
 
   '&:last-child': {
     marginRight: '0'
@@ -27,6 +33,11 @@ const NavItem = styled('span', {
 
   '&:hover': {
     opacity: '0.5'
+  },
+
+  '@bp1': {
+    marginRight: '$4',
+    marginBottom: '0',
   }
 })
 

@@ -13,14 +13,20 @@ const Wrapper = styled('div', {
 
 const NavItems = styled('div', { 
   display: 'flex',
+  flexDirection: 'column',
+
+  '@bp1': {
+    flexDirection: 'row',
+  }
 })
 
 const NavItem = styled('span', {
   fontSize: '$2',
   fontFamily: '$serif',
-  marginRight: '$4',
+  marginBottom: '$1',
   fontStyle: 'italic',
   cursor: 'pointer',
+  
 
   '&:last-child': {
     marginRight: '0'
@@ -28,15 +34,27 @@ const NavItem = styled('span', {
 
   '&:hover': {
     opacity: '0.5'
+  },
+
+  '@bp1': {
+    marginRight: '$4',
+    marginBottom: '0',
   }
 })
 
 const Content = styled('div', {
   display: 'flex',
   justifyContent: 'space-between',
-  alignItems: 'center',
+  alignItems: 'flex-start',
   maxWidth: '61.5rem',
-  width: '100%'
+  width: '100%',
+  flexDirection: 'column',
+
+  '@bp1': {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  }
 })
 
 const Footer = () => {

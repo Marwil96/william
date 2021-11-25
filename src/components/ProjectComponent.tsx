@@ -8,15 +8,26 @@ const Container = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   position: 'relative',
-  marginTop: '$8'
+  marginTop: '0',
+
+  '@bp1': {
+    marginTop: '$8'
+  }
 });
 
 const ProjectTitle = styled('h1', {
-  fontSize: '10rem',
+  fontSize: '$6',
   fontFamily: '$title',
   fontWeight: '400',
-  marginBottom: '5.4rem',
-  marginTop: '10rem'
+  marginBottom: '$3',
+  marginTop: '$6',
+
+  '@bp1': {
+    marginTop: '10rem',
+    fontSize: '10rem',
+    marginBottom: '5.4rem',
+  }
+
 })
 
 const ProjectSubtitle= styled('span', {
@@ -31,13 +42,26 @@ const ProjectSubtitle= styled('span', {
 
 const MetaDataContainer = styled('div', {
   display: 'flex',
-  marginBottom: '$7',
+  marginBottom: '$4',
+  flexDirection: 'column',
+
+
+  '@bp1': {
+    marginBottom: '$7',
+    flexDirection: 'row',
+    maxWidth: '80%'
+  }
 })
 
 const MetaDataItem = styled('div', { 
   display: 'flex',
   flexDirection: 'column',
-  marginRight: '$8',
+  marginBottom: '2.4rem',
+
+  '@bp1': {
+    marginRight: '$8',
+    marginBottom: '0',
+  },
 
   '&:last-child': {
     marginRight: '0'
@@ -47,60 +71,94 @@ const MetaDataItem = styled('div', {
 const MetaDataLabel = styled('span', {
   fontFamily: '$title',
   fontSize: '$2',
-  marginBottom: '1rem',
-  color: '#9F9F9F'
+  marginBottom: '0.7rem',
+  color: '#9F9F9F',
+
+  '@bp1': {
+    fontSize: '$2',
+    marginBottom: '1rem',
+  },
+
 })
 
 const MetaDataValue = styled('span', {
   fontFamily: '$text',
-  fontSize: '$3',
+  fontSize: '$2',
+
+  '@bp1': {
+    fontSize: '$3',
+  },
 })
 
 const HeroImageContainer = styled('div', {
   position: 'relative',
   width: '100%',
-  height: '76.2rem',
-  marginBottom: '$8',
+  height: '30rem',
+  marginBottom: '$4',
 
   'img': {
-    borderRadius: '1.2rem'
-  }
+    borderRadius: '0.8rem'
+  },
+
+  '@bp1': {
+    height: '76.2rem',
+    marginBottom: '$8',
+    
+    'img': {
+      borderRadius: '1.2rem'
+    },
+  },
 })
 
 const LinkBubble = styled('a', {
-  width: '14.8rem',
-  height: '14.8rem',
+  width: '10rem',
+  height: '10rem',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
   fontFamily: '$text',
   fontWeight: '500',
-  fontSize: '$3',
+  fontSize: '1.4rem',
+  textAlign: 'center',
   position: 'absolute',
   background: '#E63A2E',
   color: '#EAEAEA',
   borderRadius: '100%',
   zIndex: '1000',
-  right: '10rem',
-  top: '-7.4rem',
+  right: '1.6rem',
+  top: '-4.5rem',
   transition: 'transform 250ms ease',
   willChange: 'transform',
   cursor: 'pointer',
 
   '&:hover': {
     transform: 'scale(1.2)',
+  },
+
+  '@bp1': { 
+    width: '14.8rem',
+    height: '14.8rem',
+    right: '10rem',
+    top: '-7.4rem',
+    fontSize: '$3',
   }
 })
 
 const Subtitle = styled('h3', {
-  fontSize: '$5',
+  fontSize: '$4',
   fontFamily: '$title',
   fontWeight: '400',
   fontStyle: 'italic',
   maxWidth: '79.2rem',
-  lineHeight: '5.4rem',
+  lineHeight: '3.9rem',
   color: '#F7F7F7',
-  marginBottom: '10rem',
+  marginBottom: '$5',
+
+  '@bp1': {
+    fontSize: '$5',
+    marginBottom: '10rem',
+    lineHeight: '5.4rem',
+  },
 })
 
 const Content = styled('div', {

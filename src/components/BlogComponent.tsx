@@ -7,7 +7,13 @@ const Container = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   position: 'relative',
-  marginTop: '$8'
+  marginTop: '$4',
+  paddingLeft: '$2',
+
+  '@bp1': {
+    marginTop: '$8',
+    paddingLeft: '0',
+  }
 });
 
 const PageTitle = styled('h1', {
@@ -32,7 +38,11 @@ const LeftBorder = styled('div', {
   height: '100%',
   borderRight: '1px dashed #A0A0A0',
   position: 'absolute',
-  marginLeft: '-2.4rem'
+  marginLeft: '-1.6rem',
+
+  '@bp1': {
+    marginLeft: '-2.4rem',
+  }
 })
 
 
