@@ -55,9 +55,9 @@ const Home: NextPage = () => {
       title='William Martinsson - Designer & Developer'
       desc='Crafting digital products. Building performant software and web experiences. Dreaming about design systems, new ways of creating components, and JavaScript. Currently designing and developing the new wave of internet art at Artscape. Helping businesses succeed under the name Oh, Hi.'
     >
-      <NameTag>William Martinsson -<br/>Designer & Developer</NameTag>
+      <NameTag>William Martinsson -<br/>Based in Stockholm</NameTag>
       <MainTextBlock>
-        <strong>Crafting digital products.</strong>  Building performant software and web experiences. Musing about design systems, new ways of creating components, and JavaScript. Currently designing and developing the new wave of internet art at <a>Artscape</a>. Helping businesses succeed under the name <a>Oh, Hi</a>.
+        <strong>Designer & Developer.</strong>  Builder of performant software and web experiences. Musing about design systems, the dev & designer relationship, and JavaScript. Currently designing and developing the new wave of internet art at <a>Artscape</a>. Helping businesses succeed under the name <a>Oh, Hi</a>.
       </MainTextBlock>
       <SeactionHeader title='Selected Products' href='/projects' />
       <CardWrapper>
@@ -75,9 +75,9 @@ const Home: NextPage = () => {
       <CardWrapper>
         <ProjectCard title='CSS Grid' desc='How to use the CSS grid to implement a design on a website that uses Gatsby and styled-components.' href='https://williammartinsson.medium.com/how-to-use-the-css-grid-to-implement-a-design-on-a-website-that-uses-gatsby-and-styled-components-ebccb77cade8' external={true} />
       </CardWrapper>
-      <SectionLabel>Right now...</SectionLabel>
+      <SectionLabel>Now.</SectionLabel>
       <TextBlock>
-        Trying to learn new things by<strong> reading, and building. </strong> Aspiring to be thoughtful and organized when I approach new obstacles. Feeling ownership over everything <br/>I do. <br/><br/>Next.js is my go-to tool for<strong> building </strong>things on the web. It makes JavaScript more enjoyable and easier to create performant websites. For styling I’m using styled-components, I’ve been trying out Stitches and been gladly surprised so a change might be on its way. <br/><br/>When I need a database, I like to go with NoSQL. Often MongoDB sometimes Firebase. Usually, I connect it to the frontend with GraphQL. Planning to learn more about SQL databases and PlanetScale. <br/><br/>When paper and pen aren’t enough I use <strong>Figma</strong> to visualize how the website, product or, software will look like. The best testing is done in the real deal, so I try to code up small prototypes as fast as possible. <br/><br/>Outside of work. I'm venturing outside to discover <strong>Stockholm</strong> for the first time, doing my best to learn a instrument, and trying to get a better grip on web3. Rooting for<strong> Änglarna </strong> in Allsvenskan, and <strong> McLaren </strong> in Formula One.
+        Trying to learn new things by<strong> playing, reading, and building. </strong> Aspiring to always be thoughtful and organized when I approach new obstacles. Want to feel ownership over everything I do. <br/><br/>Next.js is my go-to tool for<strong> building </strong>things on the web. It makes JavaScript more enjoyable and easier to create performant websites. For styling I’m using styled-components, I’ve been trying out Stitches and been gladly surprised so a change might be on its way. <br/><br/>When I need a database, I like to go with NoSQL. Often MongoDB sometimes Firebase. Usually, I connect it to the frontend with GraphQL. Planning to learn more about SQL databases and PlanetScale. <br/><br/>When paper and pen aren’t enough I use <strong>Figma</strong> to visualize how the website, product or, software will look like. The best testing is done in the real deal, so I try to code up small prototypes as fast as possible. <br/><br/>Outside of work. I'm venturing outside to discover <strong>Stockholm</strong> for the first time, doing my best to learn a instrument, and trying to get a better grip on web3. Rooting for<strong> Änglarna </strong> in Allsvenskan, and <strong> McLaren </strong> in Formula One.
       </TextBlock>
       <SectionLabel>Reach Out</SectionLabel>
       <TextBlock>Looking for a chat, a freelance proposal or to exchange some puppy pictures? Say <a target='__blank' href='mailto:hi@williammartinsson.com'>hi@williammartinsson.com</a></TextBlock>
