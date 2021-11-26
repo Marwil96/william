@@ -20,6 +20,13 @@ const posts = [
     href: '/projects/superchicane',
   },
   {
+    title: 'Radionight',
+    desc: "A podcasting platform designed to generate hype around new episodes. Taking advantage of live streaming to imitate the movie premiere feel and producing a sense of community.",
+    action: 'Go to Project',
+    leftText: 'Project',
+    href: '/projects/radionight',
+  },
+  {
     title: 'Master Digital Design',
     desc: "We were tasked to create an alumni page for Amsterdam University of Applied Sciences design students.",
     action: 'Go to Case',

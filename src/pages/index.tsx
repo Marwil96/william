@@ -62,7 +62,7 @@ const Home: NextPage = () => {
       <SeactionHeader title='Selected Products' href='/projects' />
       <CardWrapper>
         <ProjectCard title='Superchicane' desc="A Formula One news platform made to tell stories with the help of data, everything from character portraits to the sport's technical aspects." href='/projects/superchicane' />
-        <ProjectCard title='Matie' desc='Matie is a recipe app, built around the feature to create cookbooks, which you can work on together with your friends and family.' href='/projects/matie' />
+        <ProjectCard title='Radionight' desc='A podcasting platform designed to generate hype around new episodes. Taking advantage of live streaming to imitate the movie premiere feel and producing a sense of community.' href='/projects/radionight' />
       </CardWrapper>
 
       <SeactionHeader title='Selected Client Work' href='/projects' />
