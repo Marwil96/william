@@ -65,7 +65,7 @@ const Footer = () => {
           <Link href='/' passHref><NavItem>Home</NavItem></Link>
           <Link href='/writings' passHref><NavItem>Writings</NavItem></Link>
           <Link href='/projects' passHref><NavItem>Projects & Products</NavItem></Link>
-          <Link href='/contact' passHref><NavItem>Contact Me</NavItem></Link>
+          <Link href='/contact' passHref><NavItem>Contact</NavItem></Link>
         </NavItems>
         <a target='__blank' href='mailto:hi@williammartinsson.com'><NavItem>hi@williammartinsson.com</NavItem></a>
       </Content>

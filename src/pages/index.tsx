@@ -73,6 +73,7 @@ const Home: NextPage = () => {
 
        <SeactionHeader title='Writings' href='/projects' />
       <CardWrapper>
+        <ProjectCard title='Fuck WCAG! [New Hot Design Trend] Here I come.' desc='What’s the most important? Making the web accessible for all or letting the user make the website black?' href='https://williammartinsson.medium.com/fuck-screenreaders-darkmode-here-i-come-2d7eebe463ab' external={true} />
         <ProjectCard title='CSS Grid' desc='How to use the CSS grid to implement a design on a website that uses Gatsby and styled-components.' href='https://williammartinsson.medium.com/how-to-use-the-css-grid-to-implement-a-design-on-a-website-that-uses-gatsby-and-styled-components-ebccb77cade8' external={true} />
       </CardWrapper>
       <SectionLabel>Now.</SectionLabel>

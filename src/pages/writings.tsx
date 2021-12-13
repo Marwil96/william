@@ -6,6 +6,14 @@ import BlogComponent from 'src/components/BlogComponent';
 
 const posts = [
   {
+    title: 'Fuck WCAG! [New Hot Design Trend] Here I come.',
+    desc: 'What’s the most important? Making the web accessible for all or letting the user make the website black?',
+    action: 'Go to Article',
+    leftText: '13/12/21',
+    href: 'https://williammartinsson.medium.com/fuck-screenreaders-darkmode-here-i-come-2d7eebe463ab',
+    external: true
+  },
+  {
     title: 'How to use the grid',
     desc: 'How to use the CSS grid to implement a design on a website that uses Gatsby and styled-components.',
     action: 'Go to Article',

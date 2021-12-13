@@ -30,7 +30,7 @@ const Wrapper = styled('div', {
     transform: 'scale(1.02)',
     outline: '1px solid white'
   },
-
+  
   '&:last-child': {
     marginBottom: '0'
   }
@@ -62,6 +62,14 @@ const Desc = styled('span', {
   color: '#9F9F9F',
 })
 
+const ExternalLink = styled('a', {
+  marginBottom: '$3',
+  
+  '&:last-child': {
+    marginBottom: '0'
+  }
+})
+
 
 const ProjectCard = ({title, desc, href, external} : {title: string, desc: string, href?: string, external?: boolean}) => { 
   return !external ? (
@@ -75,7 +83,7 @@ const ProjectCard = ({title, desc, href, external} : {title: string, desc: strin
       </Wrapper>
     </Link>
   ) : (
-    <a href={href} target='__blank'>
+    <ExternalLink href={href} target='__blank'>
       <Wrapper>
         <TextWrapper>
           <Title>{title}</Title>
@@ -83,7 +91,7 @@ const ProjectCard = ({title, desc, href, external} : {title: string, desc: strin
         </TextWrapper>
         <ArrowRightIcon />
       </Wrapper>
-    </a>
+    </ExternalLink>
   )
 }
 
