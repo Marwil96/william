@@ -20,12 +20,13 @@ const NavItems = styled('div', {
   }
 })
 
-const NavItem = styled('span', {
+const NavItem = styled('a', {
   fontSize: '$2',
   fontFamily: '$serif',
   marginBottom: '$1',
   fontStyle: 'italic',
   cursor: 'pointer',
+  color: '$white',
   
 
   '&:last-child': {

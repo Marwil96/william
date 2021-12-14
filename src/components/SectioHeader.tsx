@@ -11,7 +11,7 @@ const Wrapper = styled('div', {
   alignItems: 'center',
 })
 
-const SeeMore = styled('span', {
+const SeeMore = styled('a', {
   fontSize: "1.4rem",
   fontFamily: "Inter",
   fontWeight: "500",

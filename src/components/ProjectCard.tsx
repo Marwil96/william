@@ -5,7 +5,7 @@ import { ArrowRightIcon } from '@modulz/radix-icons'
 import Link from 'next/link';
 
 
-const Wrapper = styled('div', {
+const Wrapper = styled('a', {
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',

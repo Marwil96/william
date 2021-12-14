@@ -3,7 +3,7 @@ import { styled } from "../../stitches.config";
 import Link from 'next/link';
 
 
-const Wrapper = styled('div', {
+const Wrapper = styled('a', {
   display: 'flex',
   flexDirection: 'column',
   padding: '$4 0',
