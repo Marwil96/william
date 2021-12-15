@@ -66,7 +66,7 @@ const ExternalLink = styled('a', {
   marginBottom: '$3',
   
   '&:last-child': {
-    marginBottom: '0'
+    // marginBottom: '0'
   }
 })
 
