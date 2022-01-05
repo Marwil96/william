@@ -6,7 +6,7 @@ import BlogComponent from 'src/components/BlogComponent';
 
 const posts = [
   {
-    title: 'Fuck WCAG! [New Hot Design Trend] Here I come.',
+    title: 'Fuck WCAG! [New Hot Design Trend] Here I come',
     desc: 'What’s the most important? Making the web accessible for all or letting the user make the website black?',
     action: 'Go to Article',
     leftText: '13/12/21',
@@ -22,8 +22,16 @@ const posts = [
     external: true
   },
   {
-    title: 'Why should you use figma',
-    desc: 'For a long time, the biggest players in the UI design market were Adobe(Photoshop, Illustrator) and Sketch. Both of these tools aren’t very collaborative',
+    title: 'The Greatest and the Cursed Car Numbers',
+    desc: 'Coming from football where the numbers are almost mythological, I wanted to find out more about the car numbers and try to discover their hidden meanings and status.',
+    action: 'Go to Article',
+    leftText: '30/03/21',
+    href: 'https://superchicane.com/articles/thecursedf1number',
+    external: true
+  },
+  {
+    title: 'Why Figma Beats Sketch',
+    desc: 'For a long time, the biggest players in the UI design market were Adobe(Photoshop, Illustrator) and Sketch. Both of these tools aren’t very collaborative.',
     action: 'Go to Article',
     leftText: '10/10/19',
     href: 'https://williammartinsson.medium.com/why-figma-is-better-then-sketch-872b7bf8631a',
