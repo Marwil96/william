@@ -26,13 +26,13 @@ const posts = [
     leftText: 'Project',
     href: '/projects/radionight',
   },
-  {
-    title: 'Master Digital Design',
-    desc: "We were tasked to create an alumni page for Amsterdam University of Applied Sciences design students.",
-    action: 'Go to Case',
-    leftText: 'Intern',
-    href: '/projects/master-digital-design',
-  },
+  // {
+  //   title: 'Master Digital Design',
+  //   desc: "We were tasked to create an alumni page for Amsterdam University of Applied Sciences design students.",
+  //   action: 'Go to Case',
+  //   leftText: 'Intern',
+  //   href: '/projects/master-digital-design',
+  // },
   {
     title: 'Agenly',
     desc: "a website builder where you build your sites through having a dialogue with a decision tree(semi-AI).",
@@ -47,13 +47,13 @@ const posts = [
     leftText: 'App',
     href: '/projects/matie',
   },
-  {
-    title: 'KNVB Rinus',
-    desc: "We were tasked to build the new version of KNVBs Rinus, a training platform for football teams. Where they can plan their exercises and get inspiration and advice from other football coaches.",
-    action: 'Go to Case',
-    leftText: 'Agency',
-    href: '/projects/knvb-rinus',
-  }
+  // {
+  //   title: 'KNVB Rinus',
+  //   desc: "We were tasked to build the new version of KNVBs Rinus, a training platform for football teams. Where they can plan their exercises and get inspiration and advice from other football coaches.",
+  //   action: 'Go to Case',
+  //   leftText: 'Agency',
+  //   href: '/projects/knvb-rinus',
+  // }
 ]
 
 

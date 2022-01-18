@@ -68,7 +68,7 @@ const Home: NextPage = () => {
       <SeactionHeader title='Selected Client Work' href='/projects' />
       <CardWrapper>
         <ProjectCard title='Knodd' desc='An entirely new part of the website with articles about different child diseases and a rewrite to server rendering.' href='/projects/knodd' />
-        <ProjectCard title='Master Digital Design' desc='We were tasked to create an alumni page for Amsterdam University design students.' href='/projects/master-digital-design' />
+        {/* <ProjectCard title='Master Digital Design' desc='We were tasked to create an alumni page for Amsterdam University design students.' href='/projects/master-digital-design' /> */}
       </CardWrapper>
 
        <SeactionHeader title='Writings' href='/writings' />
