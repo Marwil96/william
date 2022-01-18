@@ -8,7 +8,7 @@ import Image3 from '../../assets/masterdigitaldesign/image_3.png'
 import Image4 from '../../assets/masterdigitaldesign/image_4.png'
 import Image5 from '../../assets/masterdigitaldesign/image_5.png'
 
-const metadata = [{label: 'Client', value: 'Amsterdam University'}, {label: 'Role', value: 'Frontend developer'}, {label: 'Team', value: 'Momkai'}];
+const metadata = [{label: 'Client', value: 'Amsterdam University'}, {label: 'Role', value: 'Intern Frontend developer'}, {label: 'Team', value: 'Momkai'}];
 const subtitle = 'We were tasked to create an alumni page for Amsterdam University of Applied Sciences design students, where each student can have their page showing off their expertise, personality and skills.'
 
 
