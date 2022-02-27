@@ -5,6 +5,8 @@ import SeactionHeader from 'src/components/SectioHeader';
 import ProjectCard from 'src/components/ProjectCard';
 import SectionLabel from 'src/components/SectionLabel';
 import TextBlock from 'src/components/TextBlock';
+import Parser from 'rss-parser';
+
 
 const NameTag = styled('h1', {
   fontSize: '$2',
@@ -49,7 +51,7 @@ const CardWrapper = styled('div', {
   marginBottom: '$7'
 })
 
-const Home: NextPage = () => {
+const Home: NextPage = ({ currentlyReading, readRecently }: {currentlyReading: any [], readRecently: any []}) => {
   return (
     <Layout
       title='William Martinsson - Designer & Developer'
@@ -78,12 +80,26 @@ const Home: NextPage = () => {
       </CardWrapper>
       <SectionLabel>Now.</SectionLabel>
       <TextBlock>
-        I learn new things by<strong> playing, reading, and building. </strong> Aspiring to be thoughtful, open-minded, and organized when I approach a new obstacle to get a feel and ownership over it. <br/><br/>Next.js is my go-to tool for<strong> building </strong>things on the web. It makes JavaScript more enjoyable and easier to create performant websites. For styling I’m using styled-components. I’ve been trying out Stitches and been gladly surprised. A change might be on its way. <br/><br/>When I need a database, I like to go with NoSQL. Often MongoDB but sometimes Firebase. Usually, I connect it to the frontend with GraphQL. Planning to learn more about SQL databases and PlanetScale. <br/><br/>When paper and pen aren’t enough I use <strong>Figma</strong> to visualize the website, product or, software. I'm a big believer in going fast to the real deal, so I try to code up small prototypes as quickly as possible. <br/><br/>Outside of work. I'm venturing outside to discover <strong>Stockholm</strong> for the first time. I'm giving my all to learn an instrument. And trying to get a better grip on web3. Rooting for<strong> Änglarna </strong> in Allsvenskan and <strong> McLaren </strong> in Formula One.
+        I learn new things by<strong> playing, reading, and building. </strong> Aspiring to be thoughtful, open-minded, and organized when I approach a new obstacle to get a feel and ownership over it. <br/><br/>Next.js is my go-to tool for<strong> building </strong>things on the web. It makes JavaScript more enjoyable and easier to create performant websites. For styling I’m using styled-components. I’ve been trying out Stitches and been gladly surprised. A change might be on its way. <br/><br/>When I need a database, I like to go with NoSQL. Often MongoDB but sometimes Firebase. Usually, I connect it to the frontend with GraphQL. Planning to learn more about SQL databases and PlanetScale. <br/><br/>When paper and pen aren’t enough I use <strong>Figma</strong> to visualize the website, product or, software. I'm a big believer in going fast to the real deal, so I try to code up small prototypes as quickly as possible. <br/><br/>Outside of work. I'm venturing outside to discover <strong>Stockholm</strong> for the first time. I'm giving my all to learn an instrument. And trying to get a better grip on web3. Rooting for<strong> Änglarna </strong> in Allsvenskan and <strong> McLaren </strong> in Formula One. Currently reading {currentlyReading.length > 0 && currentlyReading.map((book, index) =><><strong><a href={book.link}>{book.title}</a> by {book.creator}{currentlyReading.length - 1 !== index && '&'}</strong></>)}, and recently read {readRecently.length > 0 && readRecently.map((book, index) => <><strong><a href={book.link}>{book.title}</a> by {book.creator}</strong>{readRecently.length - 1 !== index ? ' and ' : '.'}</>)}
       </TextBlock>
       <SectionLabel>Reach Out</SectionLabel>
       <TextBlock>Looking for a chat, a freelance proposal or to exchange some puppy pictures? Say <a target='__blank' href='mailto:hi@williammartinsson.com'>hi@williammartinsson.com</a></TextBlock>
     </Layout>
   )
+}
+
+export async function getServerSideProps() {
+  let parser = new Parser();
+
+  const currentlyReading = await parser.parseURL('https://oku.club/rss/collection/b4aUW');
+  const readRecently = await parser.parseURL('https://oku.club/rss/collection/8OVTk');
+
+  return {
+    props: {
+      currentlyReading: currentlyReading.items,
+      readRecently: readRecently.items
+    }
+  }
 }
 
 export default Home
