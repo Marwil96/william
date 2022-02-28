@@ -51,7 +51,7 @@ const CardWrapper = styled('div', {
   marginBottom: '$7'
 })
 
-const Home: NextPage = ({ currentlyReading, readRecently }: {currentlyReading: any [], readRecently: any []}) => {
+const Home = ({ currentlyReading, readRecently }: any) => {
   return (
     <Layout
       title='William Martinsson - Designer & Developer'
