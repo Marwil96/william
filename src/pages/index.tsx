@@ -59,7 +59,7 @@ const Home = ({ currentlyReading, readRecently }: any) => {
     >
       <NameTag>William Martinsson -<br/>Based in Stockholm</NameTag>
       <MainTextBlock>
-        <strong>Designer & Developer.</strong>  Builder of performant software and web experiences. Musing about design systems, the dev & designer relationship, and JavaScript. Currently designing and developing the new wave of internet art at <a>Artscape</a>. Helping businesses succeed under the name <a>Oh, Hi</a>.
+        <strong>Designer & Developer.</strong>  Builder of performant software and web experiences. Musing about design systems, the dev & designer relationship, and JavaScript. Currently designing and developing the new wave of internet art at <a href='https://artscape.se/' target='__blank'>Artscape</a> & building a great communication tool with <a href='https://www.levelshealth.com/' target='__blank'>Levels Health</a>.
       </MainTextBlock>
       <SeactionHeader title='Selected Products' href='/projects' />
       <CardWrapper>
