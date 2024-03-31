@@ -1,11 +1,11 @@
-import { styled } from "../../stitches.config";
+import React from "react";
 
-const SectionLabel = styled("h2", {
-  fontSize: "$2",
-  fontFamily: "Inter",
-  fontWeight: "500",
-  color: '#9F9F9F',
-  marginBottom: "$4",
-})
+const SectionLabel = ({ children }) => {
+  return (
+    <h2 className="text-base font-inter font-medium text-gray-400 mb-4">
+      {children}
+    </h2>
+  );
+};
 
 export default SectionLabel;

@@ -1,60 +1,48 @@
-import React from 'react';
-import { styled } from "../../stitches.config";
-import Link from 'next/link';
-
-
-const Wrapper = styled('div', {
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  paddingTop: '$5',
-})
-
-const NavItems = styled('div', { 
-  display: 'flex',
-  flexDirection: 'column',
-
-  '@bp1': {
-    flexDirection: 'row',
-  }
-})
-
-const NavItem = styled('a', {
-  fontSize: '$2',
-  fontFamily: '$serif',
-  marginBottom: '1rem',
-  fontStyle: 'italic',
-  cursor: 'pointer',
-  color: '$white',
-  
-
-  '&:last-child': {
-    marginRight: '0'
-  },
-
-  '&:hover': {
-    opacity: '0.5'
-  },
-
-  '@bp1': {
-    marginRight: '$4',
-    marginBottom: '0',
-  }
-})
+import React from "react";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <Wrapper> 
-      <NavItems>
-        <Link href='/' passHref><NavItem>Home</NavItem></Link>
-        <Link href='/writings' passHref><NavItem>Writings</NavItem></Link>
-        <Link href='/projects' passHref><NavItem>Projects & Products</NavItem></Link>
-        <Link href='/contact' passHref><NavItem>Contact</NavItem></Link>
-      </NavItems>
-      <a target='__blank' href='mailto:hi@williammartinsson.com'><NavItem>hi@williammartinsson.com</NavItem></a>
-    </Wrapper>
-  )
-}
+    <div className="flex justify-between items-center pt-5">
+      <div className="flex flex-col md:flex-row">
+        <Link
+          href="/"
+          passHref
+          className="text-base font-serif italic mb-1 cursor-pointer text-white hover:opacity-50 md:mr-4 md:mb-0"
+        >
+          Home
+        </Link>
+        <Link
+          href="/writings"
+          passHref
+          className="text-base font-serif italic mb-1 cursor-pointer text-white hover:opacity-50 md:mr-4 md:mb-0"
+        >
+          Writings
+        </Link>
+        <Link
+          href="/projects"
+          passHref
+          className="text-base font-serif italic mb-1 cursor-pointer text-white hover:opacity-50 md:mr-4 md:mb-0"
+        >
+          Projects & Products
+        </Link>
+        <Link
+          href="/contact"
+          passHref
+          className="text-base font-serif italic mb-1 cursor-pointer text-white hover:opacity-50 md:mr-4 md:mb-0"
+        >
+          Contact
+        </Link>
+      </div>
+      <a
+        target="__blank"
+        href="mailto:hi@williammartinsson.com"
+        className="text-base font-serif italic mb-1 cursor-pointer text-white hover:opacity-50 md:mr-4 md:mb-0"
+      >
+        hi@williammartinsson.com
+      </a>
+    </div>
+  );
+};
 
 export default Navbar;
-
