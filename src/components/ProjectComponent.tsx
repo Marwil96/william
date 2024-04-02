@@ -69,8 +69,8 @@ const ProjectComponent = ({
       <div className="relative w-full mb-4 rounded-lg md:mb-12">
         {linkToWebsite && (
           <motion.a
-            className="w-20 h-20 flex justify-center items-center font-text font-medium text-lg text-center absolute bg-white text-black rounded-full z-10 right-6 top-[-9rem] cursor-pointer hover:bg-gray-400 md:w-40 md:h-40 md:right-[30px] md:top-[-80px] md:text-lg"
             initial={{ scale: 0 }}
+            className="w-20 h-20 flex justify-center items-center font-text font-medium text-sm text-center absolute bg-white text-black rounded-full z-10 right-2 top-[-32px] cursor-pointer hover:bg-gray-400 md:w-40 md:h-40 md:right-[30px] md:top-[-80px] md:text-lg"
             animate={{ scale: 1 }}
             transition={{ type: "spring", bounce: 0.5, delay: 1 }}
             target="__blank"
@@ -92,11 +92,11 @@ const ProjectComponent = ({
           />
         </div>
       </div>
-      <div className="flex flex-col items-center text-left w-full max-w-[79.2rem] align-center justify-center self-center place-self-center [&>*]:w-full [&>*]:text-left prose-p:mb-10 prose-p:font-system prose-p:text-xl prose-headings:mb-2 prose-headings:font-title prose-headings:text-base prose-blockquote:text-xl prose-blockquote:font-title prose-blockquote:mb-4 prose-blockquote:italic prose-blockquote:text-white prose-blockquote:text-left prose-blockquote:w-full">
+      <div className="flex flex-col items-center text-left w-full max-w-[79.2rem] align-center justify-center self-center place-self-center [&>*]:w-full [&>*]:text-left prose-p:mb-10 prose-p:font-system prose-p:text-base lg:prose-p:text-xl prose-headings:mb-2 prose-headings:font-title prose-headings:text-xs lg:prose-headings:text-base prose-blockquote:text-xl prose-blockquote:font-title prose-blockquote:mb-4 prose-blockquote:italic prose-blockquote:text-white prose-blockquote:text-left prose-blockquote:w-full">
         <motion.h3
           ref={ref}
-          className="text-4xl font-title font-normal italic max-w-[79.2rem] text-gray-200 mb-5 md:text-5xl md:mb-20 !leading-[130%]"
-          animate={{ y: isInView ? 0 : 30, opacity: isInView ? 1 : 0 }}
+          className="!text-2xl font-title font-normal italic max-w-[79.2rem] text-gray-200 !mb-6 md:text-5xl md:mb-20 !leading-[130%]"
+          // animate={{ y: isInView ? 0 : 30, opacity: isInView ? 1 : 0 }}
         >
           {subtitle}
         </motion.h3>

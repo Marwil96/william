@@ -70,11 +70,11 @@ const Home = ({ currentlyReading, readRecently }: any) => {
       desc="Crafting digital products. Building performant software and web experiences. Dreaming about design systems, new ways of creating components, and JavaScript. Currently designing and developing the new wave of internet art at Artscape. Helping businesses succeed under the name Oh, Hi."
       framerKey="home"
     >
-      <h1 className="text-base font-title -tracking-tight italic font-normal mt-5 mb-4 md:mt-[250px]">
+      <h1 className="text-sm lg:text-base font-title -tracking-tight italic font-normal mt-5 mb-4 md:mt-[250px]">
         William Martinsson -<br />
         Based in Stockholm
       </h1>
-      <span className="text-base font-text mb-12 inline-block">
+      <span className="text-sm lg:text-base font-text mb-12 inline-block">
         <strong className="font-title italic font-medium">
           Design Engineer.
         </strong>{" "}
@@ -139,7 +139,9 @@ const Home = ({ currentlyReading, readRecently }: any) => {
       />
 
       {/* BIO BLOCK */}
-      <h2 className="text-sm font-inter font-medium mb-4 text-gray-400">Me</h2>
+      <h2 className="text-xs lg:text-sm font-inter font-medium mb-2 lg:mb-4 text-gray-400">
+        Me
+      </h2>
       <TextBlock>
         I'm all about learning through <strong>play</strong>, diving into good{" "}
         <strong>reads</strong>, and getting hands-on with{" "}
@@ -186,7 +188,7 @@ const Home = ({ currentlyReading, readRecently }: any) => {
             </>
           ))}
       </TextBlock>
-      <h2 className="text-sm font-inter font-medium mb-4 text-gray-400">
+      <h2 className="text-xs lg:text-sm font-inter font-medium mb-2 lg:mb-4 text-gray-400">
         Reach out
       </h2>
       <TextBlock>

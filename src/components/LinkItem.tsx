@@ -26,7 +26,7 @@ const LinkItem = ({
       target="__blank"
       className="flex flex-col group py-4 cursor-pointer transition-transform duration-350 ease-in-out transform relative justify-center border-b border-dashed border-gray-400 last:mb-0 hover:text-white"
     >
-      <h3 className="text-lg font-title group-hover:underline font-medium italic text-gray-200">
+      <h3 className="text-base lg:text-lg font-title group-hover:underline font-medium italic text-gray-200">
         {title}
       </h3>
       {desc && (
@@ -51,7 +51,7 @@ const LinkItem = ({
       passHref
       className="flex flex-col group py-4 cursor-pointer transition-transform duration-350 ease-in-out transform relative justify-center border-b border-dashed border-gray-400 last:mb-0 hover:text-white"
     >
-      <h3 className="text-lg font-title group-hover:underline font-medium italic text-gray-200">
+      <h3 className="text-base lg:text-lg font-title group-hover:underline font-medium italic text-gray-200">
         {title}
       </h3>
       <span className="text-sm font-text font-medium group-hover:underline mb-3 text-gray-500">

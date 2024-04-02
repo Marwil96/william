@@ -1,8 +1,5 @@
 import type { NextPage } from "next";
 import Layout from "../components/Layout";
-import BlogComponent from "src/components/BlogComponent";
-import { styled } from "../../stitches.config";
-import SectionLabel from "src/components/SectionLabel";
 import TextBlock from "src/components/TextBlock";
 
 const Contact: NextPage = () => {
