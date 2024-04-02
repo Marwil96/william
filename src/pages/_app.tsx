@@ -7,7 +7,7 @@ import React from "react";
 function MyApp({ Component, pageProps, router }: AppProps) {
   return (
     <React.Fragment>
-      <Script src="https://scripts.simpleanalyticscdn.com/latest.js" />
+      <Script src="ghttps://scripts.simpleanalyticscdn.com/latest.js" />
       <noscript>
         {/* eslint-disable @next/next/no-img-element */}
         <img

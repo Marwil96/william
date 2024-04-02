@@ -24,7 +24,7 @@ const ProjectCard = ({
         <h3 className="text-base font-inter font-medium text-gray-200 mb-1.5">
           {title}
         </h3>
-        <span className="text-base font-sans font-light leading-10 text-gray-400">
+        <span className="text-base font-system font-light leading-10 text-gray-400">
           {desc}
         </span>
       </div>
@@ -37,7 +37,7 @@ const ProjectCard = ({
           <h3 className="text-base font-inter font-medium text-gray-200 mb-1.5">
             {title}
           </h3>
-          <span className="text-base font-sans font-light leading-10 text-gray-400">
+          <span className="text-base font-system font-light leading-10 text-gray-400">
             {desc}
           </span>
         </div>

@@ -10,10 +10,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontSize: {},
       fontFamily: {
-        system: "Inconsolata, serif",
-        text: "Inconsolata, monospace",
-        title: "Newsreader, serif",
+        system: "Inconsolata",
+        text: "inconsolata",
+        title: "Newsreader",
+        inter: "Inter",
       },
       colors: {
         secondary: "#979797",
@@ -24,5 +26,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };
