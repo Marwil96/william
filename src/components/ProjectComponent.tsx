@@ -2,7 +2,8 @@ import type { NextPage } from "next";
 import Layout from "../components/Layout";
 import LinkItem from "src/components/LinkItem";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 const ProjectComponent = ({
   title,
@@ -19,6 +20,13 @@ const ProjectComponent = ({
   heroImage: any;
   linkToWebsite?: string;
 }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, {
+    once: true,
+    amount: 1,
+    margin: "0px -50px 0px 0px",
+  });
+
   return (
     <div className="flex flex-col relative mt-0 md:mt-8">
       <motion.h1
@@ -58,7 +66,7 @@ const ProjectComponent = ({
           )
         )}
       </div>
-      <div className="relative w-full h-120 mb-4 rounded-lg md:h-[76.2rem] md:mb-8">
+      <div className="relative w-full mb-4 rounded-lg md:mb-12">
         {linkToWebsite && (
           <motion.a
             className="w-20 h-20 flex justify-center items-center font-text font-medium text-lg text-center absolute bg-white text-black rounded-full z-10 right-6 top-[-9rem] cursor-pointer hover:bg-gray-400 md:w-40 md:h-40 md:right-[30px] md:top-[-80px] md:text-lg"
@@ -72,30 +80,23 @@ const ProjectComponent = ({
           </motion.a>
         )}
 
-        <div className="relative w-full h-full aspect-[16/10] overflow-hidden rounded-lg md:rounded-xl">
+        <div className="relative w-full aspect-[16/8] overflow-hidden rounded-lg md:rounded-xl">
           <Image
             src={heroImage}
             alt={`${title} hero image`}
-            className="aspect-[16/10] relative w-full h-full overflow-hidden rounded-lg md:rounded-xl"
+            className="aspect-[16/8] relative w-full h-full overflow-hidden rounded-lg md:rounded-xl object-cover"
             layout="intrinsic"
-            objectFit="contain"
+            objectFit="cover"
             placeholder="blur"
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII="
           />
-          {/* <motion.div
-            className="absolute w-full h-full bg-gray-100"
-            initial={{ y: 0 }}
-            animate={{ y: "-100%" }}
-            transition={{ duration: 0.8, delay: 1, ease: "easeOut" }}
-          /> */}
         </div>
       </div>
       <div className="flex flex-col items-center text-left w-full max-w-[79.2rem] align-center justify-center self-center place-self-center [&>*]:w-full [&>*]:text-left prose-p:mb-10 prose-p:font-system prose-p:text-xl prose-headings:mb-2 prose-headings:font-title prose-headings:text-base prose-blockquote:text-xl prose-blockquote:font-title prose-blockquote:mb-4 prose-blockquote:italic prose-blockquote:text-white prose-blockquote:text-left prose-blockquote:w-full">
         <motion.h3
+          ref={ref}
           className="text-4xl font-title font-normal italic max-w-[79.2rem] text-gray-200 mb-5 md:text-5xl md:mb-20 !leading-[130%]"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 1.8, duration: 0.3 }}
+          animate={{ y: isInView ? 0 : 30, opacity: isInView ? 1 : 0 }}
         >
           {subtitle}
         </motion.h3>
