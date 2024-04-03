@@ -35,7 +35,6 @@ export const MockedCartItems = [
     metaData: "Multi / 68/74",
     id: "25347",
     name: "Bioglow",
-    url: "mini-babies-baby-set-1100003500",
     images: [
       {
         src: "https://images.unsplash.com/photo-1615397349754-cfa2066a298e?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
