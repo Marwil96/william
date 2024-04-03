@@ -140,47 +140,49 @@ export const CartItemWithOptimistic = ({
       </h2>
 
       {isRemovingItem && (
-        <motion.svg
-          viewBox="25 25 50 50"
-          width="24px"
-          height="24px"
-          display="block"
-          z-index="1"
-          strokeWidth="3"
-          strokeMiterlimit="10"
-          strokeLinecap="round"
-          opacity="0"
-          className="-left-[80px] absolute"
-          animate={{
-            opacity: 1,
-          }}
-          transition={{
-            duration: 0.5,
-            ease: "easeIn",
-          }}
-        >
-          <motion.circle
-            cx="50"
-            cy="50"
-            r="20"
-            fill="none"
-            stroke="white"
-            stroke-dasharray="1, 200"
-            stroke-dashoffset="0"
+        <div className="-left-[80px] absolute">
+          <motion.svg
+            viewBox="25 25 50 50"
+            width="24px"
+            height="24px"
+            display="block"
+            z-index="1"
+            strokeWidth="3"
+            strokeMiterlimit="10"
+            strokeLinecap="round"
+            opacity="0"
+            // className="-left-[80px] absolute"
             animate={{
-              strokeDasharray: ["1 200", "89 200", "89 200"],
-              rotate: 360,
-              strokeDashoffset: [0, -35, -124],
+              opacity: 1,
             }}
             transition={{
-              type: "tween",
-              ease: "linear",
-              duration: 1.3,
-              repeat: Infinity,
-              repeatType: "loop",
+              duration: 0.5,
+              ease: "easeIn",
             }}
-          />
-        </motion.svg>
+          >
+            <motion.circle
+              cx="50"
+              cy="50"
+              r="20"
+              fill="none"
+              stroke="white"
+              stroke-dasharray="1,200"
+              stroke-dashoffset="0"
+              animate={{
+                strokeDasharray: ["1,200", "89,200", "89,200"],
+                rotate: 360,
+                strokeDashoffset: [0, -35, -124],
+              }}
+              transition={{
+                type: "tween",
+                ease: "linear",
+                duration: 1.3,
+                repeat: Infinity,
+                repeatType: "loop",
+              }}
+            />
+          </motion.svg>
+        </div>
       )}
 
       {/* Image */}
