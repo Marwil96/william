@@ -20,14 +20,14 @@ const Navbar = ({ isProject }) => {
         <Link
           href="/"
           passHref
-          className="text-sm lg:text-base font-title font-light italic mb-1 cursor-pointer text-white hover:opacity-50 md:mr-4 md:mb-0"
+          className="text-sm lg:text-base font-title font-light italic mb-1 cursor-pointer text-white lg:hover:text-[#ff5800] md:mr-4 md:mb-0"
         >
           Home
         </Link>
         <Link
           href="/experiments"
           passHref
-          className="text-sm lg:text-base font-title font-light italic mb-1 cursor-pointer text-white hover:opacity-50 md:mr-4 md:mb-0"
+          className="text-sm lg:text-base font-title font-light italic mb-1 cursor-pointer text-white lg:hover:text-[#ff5800] md:mr-4 md:mb-0"
         >
           Experiments
         </Link>
@@ -35,7 +35,7 @@ const Navbar = ({ isProject }) => {
         <Link
           href="/contact"
           passHref
-          className="text-sm lg:text-base font-title font-light italic mb-1 cursor-pointer text-white hover:opacity-50 md:mr-4 md:mb-0"
+          className="text-sm lg:text-base font-title font-light italic mb-1 cursor-pointer text-white lg:hover:text-[#ff5800] md:mr-4 md:mb-0"
         >
           Contact
         </Link>
@@ -43,7 +43,7 @@ const Navbar = ({ isProject }) => {
       <a
         target="__blank"
         href="mailto:hi@williammartinsson.com"
-        className="text-sm lg:text-base font-title font-light italic mb-1 cursor-pointer text-white hover:opacity-50 md:mr-4 md:mb-0"
+        className="text-sm lg:text-base font-title font-light italic mb-1 cursor-pointer text-white lg:hover:text-[#ff5800] md:mr-4 md:mb-0"
       >
         hi@williammartinsson.com
       </a>

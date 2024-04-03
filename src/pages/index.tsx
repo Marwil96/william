@@ -83,7 +83,7 @@ const Home = ({ currentlyReading, readRecently }: any) => {
         <a
           href="https://madepeople.se/"
           target="__blank"
-          className="font-title italic font-light underline cursor-pointer"
+          className="font-title italic font-light underline cursor-pointer lg:hover:text-[#ff5800]"
         >
           Made People
         </a>
@@ -91,7 +91,7 @@ const Home = ({ currentlyReading, readRecently }: any) => {
         <a
           href="https://minirodini.com/"
           target="__blank"
-          className="font-title italic font-light underline cursor-pointer"
+          className="font-title italic font-light underline cursor-pointer lg:hover:text-[#ff5800]"
         >
           Mini Rodini
         </a>
@@ -99,7 +99,7 @@ const Home = ({ currentlyReading, readRecently }: any) => {
         <a
           href="https://oascompany.com/"
           target="__blank"
-          className="font-title italic font-light underline cursor-pointer"
+          className="font-title italic font-light underline cursor-pointer lg:hover:text-[#ff5800]"
         >
           OAS
         </a>
@@ -107,7 +107,7 @@ const Home = ({ currentlyReading, readRecently }: any) => {
         <a
           href="https://www.rohnisch.com/"
           target="__blank"
-          className="font-title italic font-light underline cursor-pointer"
+          className="font-title italic font-light underline cursor-pointer lg:hover:text-[#ff5800]"
         >
           Röhnisch
         </a>
@@ -117,7 +117,7 @@ const Home = ({ currentlyReading, readRecently }: any) => {
         <a
           href="https://artscape.se/"
           target="__blank"
-          className="font-title italic font-light underline cursor-pointer"
+          className="font-title italic font-light underline cursor-pointer lg:hover:text-[#ff5800]"
         >
           Artscape
         </a>{" "}
@@ -125,7 +125,7 @@ const Home = ({ currentlyReading, readRecently }: any) => {
         <a
           href="https://www.levelshealth.com/"
           target="__blank"
-          className="font-title italic font-light underline cursor-pointer"
+          className="font-title italic font-light underline cursor-pointer lg:hover:text-[#ff5800]"
         >
           Levels Health
         </a>
