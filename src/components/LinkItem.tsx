@@ -1,95 +1,72 @@
-import React from 'react';
-import { styled } from "../../stitches.config";
-import Link from 'next/link';
+import React from "react";
+import Link from "next/link";
 
-
-const Wrapper = styled('a', {
-  display: 'flex',
-  flexDirection: 'column',
-  padding: '$4 0',
-  cursor: 'pointer',
-  transition: 'ease 350ms transform, ease 350ms outline',
-  willChange: 'transform',
-  position: 'relative',
-  justifyContent: 'center',
-  // borderTop: '1px dashed #A0A0A0',
-  borderBottom: '1px dashed #A0A0A0',
-
-  '&:hover': { 
-    // transform: 'scale(1.02)',
-    // outline: '1px solid white'
-
-    'span': {
-      color: '#fff'
-    },
-    'h3': {
-      textDecoration: 'underline'
-    }
-  },
-
-  '&:last-child': {
-    marginBottom: '0'
-  }
-})
-
-
-const Title = styled('h3', {
-  fontSize: "2.2rem",
-  fontFamily: "$title",
-  fontWeight: "500",
-  fontStyle: "italic",
-  lineHeight: "2.6rem",
-  color: '#F2F2F2',
-  marginBottom: "0.6rem",
-})
-
-const Desc = styled('span', {
-  fontSize: "$2",
-  fontFamily: "$text",
-  fontWeight: "500",
-  lineHeight: "2.5rem",
-  marginBottom: "1rem",
-  color: '#979797',
-})
-
-const ReadMore = styled('span', {
-  fontSize: "$2",
-  fontFamily: "$text",
-  color: '#F2F2F2',
-  fontWeight: "500",
-  lineHeight: "2.5rem",
-  textDecoration: 'underline',
-})
-
-const LeftText = styled('span', {
-  fontFamily: "$title",
-  fontSize: "1.4rem",
-  position: 'absolute',
-  marginLeft: '-8.6rem',
-  transform: 'rotate(90deg)',
-  willChange: 'transform',
-})
-
-
-const LinkItem = ({title, desc, action, leftText, key, subtitle, href, external} : {title: string, href: string, desc: string, action: string, subtitle?: string, leftText?: string, key: any, external?: boolean}) => { 
+const LinkItem = ({
+  title,
+  desc,
+  action,
+  leftText,
+  key,
+  subtitle,
+  href,
+  external,
+}: {
+  title: string;
+  href: string;
+  desc?: string;
+  action?: string;
+  subtitle?: string;
+  leftText?: string;
+  key: any;
+  external?: boolean;
+}) => {
   return external ? (
-    <a href={href} target='__blank'>
-      <Wrapper>
-        <Title>{title}</Title>
-        <Desc>{desc}</Desc>
-        <ReadMore>{action}</ReadMore>
-        {leftText && <LeftText>{leftText}</LeftText>}
-      </Wrapper>
-    </a>) : (
-    <Link href={href} passHref>
-      <Wrapper>
-        <Title>{title}</Title>
-        <Desc>{desc}</Desc>
-        <ReadMore>{action}</ReadMore>
-        {leftText && <LeftText>{leftText}</LeftText>}
-      </Wrapper>
+    <a
+      href={href}
+      target="__blank"
+      className="flex flex-col group py-4 cursor-pointer transition-transform duration-350 ease-in-out transform relative justify-center border-b border-dashed border-gray-400 last:mb-0 hover:text-white"
+    >
+      <h3 className="text-base lg:text-lg font-title group-hover:underline font-medium italic text-gray-200">
+        {title}
+      </h3>
+      {desc && (
+        <span className="text-sm font-text font-medium group-hover:underline mb-3 text-gray-500 text-balance">
+          {desc}
+        </span>
+      )}
+      {action && (
+        <span className="text-sm font-text font-medium underline text-gray-200">
+          {action}
+        </span>
+      )}
+      {leftText && (
+        <span className="font-title text-sm absolute underline-offset-2 group-hover:underline transition-transform ease-in-out duration-200 ml-[-85px] rotate-90">
+          {leftText}
+        </span>
+      )}
+    </a>
+  ) : (
+    <Link
+      href={href}
+      passHref
+      className="flex flex-col group py-4 cursor-pointer transition-transform duration-350 ease-in-out transform relative justify-center border-b border-dashed border-gray-400 last:mb-0 hover:text-white"
+    >
+      <h3 className="text-base lg:text-lg font-title group-hover:underline font-medium italic text-gray-200">
+        {title}
+      </h3>
+      <span className="text-sm font-text font-medium group-hover:underline mb-3 text-gray-500 text-balance">
+        {desc}
+      </span>
+      <span className="text-sm font-text font-medium underline text-gray-200">
+        {action}
+      </span>
+      {leftText && (
+        <span className="font-title text-sm absolute underline-offset-2 group-hover:underline ml-[-96px] rotate-90">
+          {leftText}
+        </span>
+      )}
     </Link>
-  )
-}
+  );
+};
 
 export default LinkItem;

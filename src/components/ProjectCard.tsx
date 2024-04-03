@@ -1,98 +1,50 @@
-import React from 'react';
-import { styled } from "../../stitches.config";
-import SectionLabel from './SectionLabel';
-import { ArrowRightIcon } from '@modulz/radix-icons'
-import Link from 'next/link';
+import React from "react";
+import SectionLabel from "./SectionLabel";
+import { ArrowRightIcon } from "@radix-ui/react-icons";
+import Link from "next/link";
 
-
-const Wrapper = styled('a', {
-  display: 'flex',
-  flexDirection: 'row',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  background: '$black',
-  borderRadius: '1.2rem',
-  padding: '$2',
-  cursor: 'pointer',
-  transition: 'ease 350ms transform, ease 350ms outline',
-  willChange: 'transform',
-  marginBottom: '$3',
-
-  "svg": {
-    display: 'none',
-
-    "@bp1": {
-      display: 'block'
-    }
-  },
-
-  '&:hover': { 
-    transform: 'scale(1.02)',
-    outline: '1px solid white'
-  },
-  
-  '&:last-child': {
-    marginBottom: '0'
-  }
-})
-
-const TextWrapper = styled('div', {
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'flex-start',
-
-  "@bp1": {
-    maxWidth: '70%',
-  }
-})
-
-const Title = styled('h3', {
-  fontSize: "$2",
-  fontFamily: "Inter",
-  fontWeight: "500",
-  color: '#E4E4E4',
-  marginBottom: "0.6rem",
-})
-
-const Desc = styled('span', {
-  fontSize: "$2",
-  fontFamily: "$text",
-  fontWeight: "400",
-  lineHeight: "2.5rem",
-  color: '#9F9F9F',
-})
-
-const ExternalLink = styled('a', {
-  marginBottom: '$3',
-  
-  '&:last-child': {
-    marginBottom: '0'
-  }
-})
-
-
-const ProjectCard = ({title, desc, href, external} : {title: string, desc: string, href?: string, external?: boolean}) => { 
+const ProjectCard = ({
+  title,
+  desc,
+  href,
+  external,
+}: {
+  title: string;
+  desc: string;
+  href?: string;
+  external?: boolean;
+}) => {
   return !external ? (
-    <Link href={href} passHref>
-      <Wrapper>
-        <TextWrapper>
-          <Title>{title}</Title>
-          <Desc>{desc}</Desc>
-        </TextWrapper>
-        <ArrowRightIcon />
-      </Wrapper>
+    <Link
+      href={href}
+      passHref
+      className="flex justify-between items-center bg-black rounded-xl p-2 cursor-pointer transition-transform duration-350 ease-in-out transform hover:scale-105 hover:outline-white mb-3 last:mb-0"
+    >
+      <div className="flex flex-col items-start max-w-70">
+        <h3 className="text-base font-inter font-medium text-gray-200 mb-1.5">
+          {title}
+        </h3>
+        <span className="text-base font-system font-light leading-10 text-gray-400">
+          {desc}
+        </span>
+      </div>
+      <ArrowRightIcon className="hidden md:block" />
     </Link>
   ) : (
-    <ExternalLink href={href} target='__blank'>
-      <Wrapper>
-        <TextWrapper>
-          <Title>{title}</Title>
-          <Desc>{desc}</Desc>
-        </TextWrapper>
-        <ArrowRightIcon />
-      </Wrapper>
-    </ExternalLink>
-  )
-}
+    <Link href={href} passHref target="__blank" className="mb-3 last:mb-0">
+      <div className="flex justify-between items-center bg-black rounded-xl p-2 cursor-pointer transition-transform duration-350 ease-in-out transform hover:scale-105 hover:outline-white mb-3 last:mb-0">
+        <div className="flex flex-col items-start max-w-70">
+          <h3 className="text-base font-inter font-medium text-gray-200 mb-1.5">
+            {title}
+          </h3>
+          <span className="text-base font-system font-light leading-10 text-gray-400">
+            {desc}
+          </span>
+        </div>
+        <ArrowRightIcon className="hidden md:block" />
+      </div>
+    </Link>
+  );
+};
 
 export default ProjectCard;

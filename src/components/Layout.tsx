@@ -1,71 +1,59 @@
-import React from 'react';
-import { styled } from "../../stitches.config";
-import Navbar from './Navbar';
-import Footer from './Footer';
-import { motion } from 'framer-motion';
-import { NextSeo } from 'next-seo';
+import React from "react";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+import { AnimatePresence, motion } from "framer-motion";
+import { NextSeo } from "next-seo";
 
-const Wrapper = styled('section', {
-  width: '100%',
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  /* justify-content: center, */
-  overflow: 'hidden',
-  padding: '0 1.6rem',
-
-  '@bp1': {
-    padding: '0 10rem',
-  }
-});
-const Content = styled(motion.div, {
-  maxWidth: '100%',
-  // maxWidth: '61.5rem',
-  paddingBottom: '6.4rem',
-  minHeight: 'calc(100vh - 11.5rem)',
-
-  '@bp1': {
-    paddingBottom: '20rem',
-  },
-
-  variants: {
-    project: {
-      true: {
-        // maxWidth: 'none',
-      },
-    },
-  },
-});
-
-const ChildrenWrapper = styled(motion.div, {
-   
-})
-
-const Layout = ({ children, project, title, desc } : {children: any, project?: boolean, title: string, desc: string}) => {
+const Layout = ({
+  children,
+  project,
+  title,
+  desc,
+  framerKey,
+}: {
+  children: any;
+  project?: boolean;
+  title: string;
+  desc: string;
+  framerKey: string;
+}) => {
   return (
     <>
-    <NextSeo
-      title={title}
-      description={desc}
-    />
-    <Wrapper>
-      <Content layout initial={{ width: '61.5rem' }}
-        animate={{ width: !project ? '61.5rem' : '100%' }}
-        exit={{ width: '61.5rem' }} project={project}
-        transition={{duration: project ? 1.35 : 0.2}}
-        >
-        <Navbar />
-        <ChildrenWrapper layout initial={{ opacity: 0}}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0  }} project={project}
-        transition={{duration: project ? 0.5 : 0.2}}>
-          {children}
-        </ChildrenWrapper>
-      </Content>
-      <Footer />
-    </Wrapper>
+      <NextSeo title={title} description={desc} />
+      <section className="w-full flex flex-col items-center px-6 md:px-40">
+        <AnimatePresence mode="wait">
+          <motion.div
+            className="w-full pb-8 min-h-screen md:pb-80 max-w-[100%]"
+            key={framerKey}
+            initial={{ width: "615px" }}
+            animate={{ width: !project ? "615px" : "100%" }}
+            exit={{ width: "615px" }}
+            transition={{
+              duration: project ? 0.35 : 0.2,
+              type: "spring",
+              damping: 20,
+              stiffness: 100,
+            }}
+          >
+            <Navbar isProject={project} />
+            <AnimatePresence mode="wait">
+              <motion.div
+                layout
+                key={framerKey}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: project ? 0.5 : 0.4 }}
+              >
+                {children}
+              </motion.div>
+            </AnimatePresence>
+          </motion.div>
+        </AnimatePresence>
+        <Footer />
+      </section>
     </>
   );
-}
+};
 
 export default Layout;

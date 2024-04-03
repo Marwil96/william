@@ -1,285 +1,109 @@
-import type { NextPage } from 'next'
-import Layout from '../components/Layout'
-import { styled } from "../../stitches.config";
-import LinkItem from 'src/components/LinkItem';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
+import type { NextPage } from "next";
+import Layout from "../components/Layout";
+import LinkItem from "src/components/LinkItem";
+import Image from "next/image";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
-const Container = styled('div', {
-  display: 'flex',
-  flexDirection: 'column',
-  position: 'relative',
-  marginTop: '0',
+const ProjectComponent = ({
+  title,
+  subtitle,
+  metadata,
+  children,
+  heroImage,
+  linkToWebsite,
+}: {
+  title: string;
+  subtitle: string;
+  children: any;
+  metadata: any;
+  heroImage: any;
+  linkToWebsite?: string;
+}) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, {
+    once: true,
+    amount: 1,
+    margin: "0px -50px 0px 0px",
+  });
 
-  '@bp1': {
-    marginTop: '$8'
-  }
-});
-
-const ProjectTitle = styled(motion.h1, {
-  fontSize: '$6',
-  fontFamily: '$title',
-  fontWeight: '400',
-  marginBottom: '$3',
-  marginTop: '$6',
-
-  '@bp1': {
-    marginTop: '10rem',
-    fontSize: '10rem',
-    marginBottom: '5.4rem',
-  }
-
-})
-
-const ProjectSubtitle= styled('span', {
-  fontSize: '$2',
-  fontFamily: '$text',
-  color: '#979797',
-  fontWeight: '500',
-  lineHeight: '2.6rem',
-  paddingBottom: '$4',
-  borderBottom: '1px dashed #A0A0A0'
-})
-
-const MetaDataContainer = styled('div', {
-  display: 'flex',
-  marginBottom: '$4',
-  flexDirection: 'column',
-
-
-  '@bp1': {
-    marginBottom: '$7',
-    flexDirection: 'row',
-    maxWidth: '80%'
-  }
-})
-
-const MetaDataItem = styled(motion.div, { 
-  display: 'flex',
-  flexDirection: 'column',
-  marginBottom: '2.4rem',
-
-  '@bp1': {
-    marginRight: '$8',
-    marginBottom: '0',
-  },
-
-  '&:last-child': {
-    marginRight: '0'
-  }
-})
-
-const MetaDataLabel = styled(motion.span, {
-  fontFamily: '$title',
-  fontSize: '$2',
-  marginBottom: '0.7rem',
-  color: '#9F9F9F',
-
-  '@bp1': {
-    fontSize: '$2',
-    marginBottom: '1rem',
-  },
-
-})
-
-const MetaDataValue = styled(motion.span, {
-  fontFamily: '$text',
-  fontSize: '$2',
-  lineHeight: '$4',
-
-  '@bp1': {
-    fontSize: '$3',
-    lineHeight: 'normal'
-  },
-})
-
-const HeroImageContainer = styled('div', {
-  position: 'relative',
-  width: '100%',
-  height: '30rem',
-  marginBottom: '$4',
-
-  'img': {
-    borderRadius: '0.8rem'
-  },
-
-  '@bp1': {
-    height: '76.2rem',
-    marginBottom: '$8',
-    
-    'img': {
-      borderRadius: '1.2rem'
-    },
-  },
-})
-
-const LinkBubble = styled(motion.a, {
-  width: '10rem',
-  height: '10rem',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  fontFamily: '$text',
-  fontWeight: '500',
-  fontSize: '1.4rem',
-  textAlign: 'center',
-  position: 'absolute',
-  background: '#F1F1F1',
-  color: '#000',
-  borderRadius: '100%',
-  zIndex: '1000',
-  right: '1.6rem',
-  top: '-4.5rem',
-  // transition: 'transform 250ms ease',
-  // willChange: 'transform',
-  cursor: 'pointer',
-
-  '&:hover': {
-    background: '#CCCCCC',
-  },
-
-  '@bp1': { 
-    width: '14.8rem',
-    height: '14.8rem',
-    right: '10rem',
-    top: '-7.4rem',
-    fontSize: '$3',
-  }
-})
-
-const Subtitle = styled(motion.h3, {
-  fontSize: '$4',
-  fontFamily: '$title',
-  fontWeight: '400',
-  fontStyle: 'italic',
-  maxWidth: '79.2rem',
-  lineHeight: '3.9rem',
-  color: '#F7F7F7',
-  marginBottom: '$5',
-
-  '@bp1': {
-    fontSize: '$5',
-    marginBottom: '10rem',
-    lineHeight: '5.4rem',
-  },
-})
-
-const Content = styled('div', {
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-
-  "h5": {
-    fontSize: '$2',
-    fontFamily: '$title',
-    marginBottom: '$2',
-    width: '100%',
-    maxWidth: '79.2rem',
-  },
-
-  "q": {
-    fontSize: '$4',
-    fontFamily: '$title',
-    fontStyle: 'italic',
-    color: '#F7F7F7',
-    marginBottom: '$5',
-    lineHeight: '3.7rem',
-    width: '100%',
-    maxWidth: '79.2rem',
-  },
-
-  "p": {
-    fontSize: '$3',
-    fontFamily: '$text',
-    lineHeight: '3.3rem',
-    marginBottom: '$6',
-    // marginBottom: '$4',
-    maxWidth: '79.2rem',
-    width: '100%'
-  },
-
-  "li": {
-    width: '100%'
-  }
-})
-
-const ImageContainer = styled(motion.div, {
-  position: 'relative',
-  width: '100%',
-  height: '100%',
-  overflow: 'hidden',
-  borderRadius: '0.8rem',
-
-  '@bp1': {
-    borderRadius: '1.2rem'
-  }
-})
-
-const ImageBlocker = styled(motion.div, {
-  position: 'absolute',
-  width: '100%',
-  height: '100%',
-  background: '$bg',
-})
-
-
-const ProjectComponent = ({title, subtitle, metadata, children, heroImage, linkToWebsite}: {title: string, subtitle: string, children: any, metadata: any, heroImage: any, linkToWebsite?: string}) => {
   return (
-    <Container>
-
-      <ProjectTitle
+    <div className="flex flex-col relative mt-0 md:mt-8">
+      <motion.h1
+        className="text-6xl font-title font-normal mb-3 mt-6 md:mt-40 md:text-8xl md:mb-10"
         initial={{ opacity: 0, y: 75 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ type: "spring",
-        damping: 20,
-        stiffness: 100, delay: 0.1 }}
-      >{title}</ProjectTitle>
-      <MetaDataContainer>
-      {metadata.map(({label, value}: {label: string, value: string}, index: any) => (
-        <MetaDataItem key={index}>
-          <MetaDataLabel
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{delay: 0.4 + index/2, duration: 0.3 }}
-          >{label}</MetaDataLabel>
-          <MetaDataValue
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{delay: 0.6 + index/2, duration: 0.3 }}>
-            {value}
-          </MetaDataValue>
-        </MetaDataItem>
-      ))}
-      </MetaDataContainer>
-      <HeroImageContainer>
-        {linkToWebsite && 
-          <LinkBubble 
-            initial={{ scale: 0}}
+        exit={{ opacity: 0, y: 75 }}
+        transition={{ type: "spring", damping: 20, stiffness: 100, delay: 0.1 }}
+      >
+        {title}
+      </motion.h1>
+      <div className="flex flex-col mb-4 md:mb-7 md:flex-row md:max-w-4/5">
+        {metadata.map(
+          ({ label, value }: { label: string; value: string }, index: any) => (
+            <motion.div
+              className="flex flex-col mb-6 md:mr-8 md:mb-0 last:mr-0 gap-2"
+              key={index}
+            >
+              <motion.span
+                className="font-title text-base text-gray-600 md:text-base !leading-none"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ opacity: 0, y: 30 }}
+                transition={{ delay: 0.25 + index / 2, duration: 0.25 }}
+              >
+                {label}
+              </motion.span>
+              <motion.span
+                className="font-text text-base md:text-lg !leading-none"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.5 + index / 2, duration: 0.25 }}
+              >
+                {value}
+              </motion.span>
+            </motion.div>
+          )
+        )}
+      </div>
+      <div className="relative w-full mb-4 rounded-lg md:mb-12">
+        {linkToWebsite && (
+          <motion.a
+            initial={{ scale: 0 }}
+            className="w-20 h-20 flex justify-center items-center font-text font-medium text-sm text-center absolute bg-white text-black rounded-full z-10 right-2 top-[-32px] cursor-pointer hover:bg-gray-400 md:w-40 md:h-40 md:right-[30px] md:top-[-80px] md:text-lg"
             animate={{ scale: 1 }}
-            transition={{ type: "spring", bounce: 0.5, delay: 1.7 }} 
-            target='__blank' 
+            transition={{ type: "spring", bounce: 0.5, delay: 1 }}
+            target="__blank"
             href={linkToWebsite}
           >
             Visit Website
-          </LinkBubble>}
+          </motion.a>
+        )}
 
-        <ImageContainer>
-          <Image src={heroImage} alt={`${title} hero image`} layout='fill' objectFit='cover'  />
-          <ImageBlocker 
-            initial={{ y: 0 }}
-            animate={{ y: '-100%' }}
-            transition={{ duration: 0.8, delay: 1, ease: "easeOut" }} />
-        </ImageContainer>
-      </HeroImageContainer>
-      <Content>
-        <Subtitle initial={{ opacity: 0, y: 30 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{delay: 1.8, duration: 0.3 }}>{subtitle}</Subtitle>
+        <div className="relative w-full aspect-[16/8] overflow-hidden rounded-lg md:rounded-xl">
+          <Image
+            src={heroImage}
+            alt={`${title} hero image`}
+            className="aspect-[16/8] relative w-full h-full overflow-hidden rounded-lg md:rounded-xl object-cover"
+            layout="intrinsic"
+            objectFit="cover"
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII="
+          />
+        </div>
+      </div>
+      <div className="flex flex-col items-center text-left w-full max-w-[79.2rem] align-center justify-center self-center place-self-center [&>*]:w-full [&>*]:text-left prose-p:mb-10 prose-p:font-system prose-p:text-base lg:prose-p:text-xl prose-headings:mb-2 prose-headings:font-title prose-headings:text-xs lg:prose-headings:text-base prose-blockquote:text-xl prose-blockquote:font-title prose-blockquote:mb-4 prose-blockquote:italic prose-blockquote:text-white prose-blockquote:text-left prose-blockquote:w-full">
+        <motion.h3
+          ref={ref}
+          className="!text-2xl font-title font-normal italic max-w-[79.2rem] text-gray-200 !mb-6 md:text-5xl md:mb-20 !leading-[130%]"
+          // animate={{ y: isInView ? 0 : 30, opacity: isInView ? 1 : 0 }}
+        >
+          {subtitle}
+        </motion.h3>
         {children}
-      </Content>
+      </div>
+    </div>
+  );
+};
 
-    </Container>
-  )
-}
-
-export default ProjectComponent
+export default ProjectComponent;

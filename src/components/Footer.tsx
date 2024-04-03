@@ -1,78 +1,50 @@
-import React from 'react';
-import { styled } from "../../stitches.config";
-import Link from 'next/link';
-
-
-const Wrapper = styled('div', {
-  padding: '$7 $6',
-  background: '#000000',
-  width: '100vw',
-  display: 'flex',
-  justifyContent: 'center',
-})
-
-const NavItems = styled('div', { 
-  display: 'flex',
-  flexDirection: 'column',
-
-  '@bp1': {
-    flexDirection: 'row',
-  }
-})
-
-const NavItem = styled('a', {
-  fontSize: '$2',
-  fontFamily: '$serif',
-  marginBottom: '$1',
-  fontStyle: 'italic',
-  cursor: 'pointer',
-  color: '$white',
-  
-
-  '&:last-child': {
-    marginRight: '0'
-  },
-
-  '&:hover': {
-    opacity: '0.5'
-  },
-
-  '@bp1': {
-    marginRight: '$4',
-    marginBottom: '0',
-  }
-})
-
-const Content = styled('div', {
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'flex-start',
-  maxWidth: '61.5rem',
-  width: '100%',
-  flexDirection: 'column',
-
-  '@bp1': {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  }
-})
+import React from "react";
+import Link from "next/link";
 
 const Footer = () => {
   return (
-    <Wrapper> 
-      <Content>
-        <NavItems>
-          <Link href='/' passHref><NavItem>Home</NavItem></Link>
-          <Link href='/writings' passHref><NavItem>Writings</NavItem></Link>
-          <Link href='/projects' passHref><NavItem>Projects & Products</NavItem></Link>
-          <Link href='/contact' passHref><NavItem>Contact</NavItem></Link>
-        </NavItems>
-        <a target='__blank' href='mailto:hi@williammartinsson.com'><NavItem>hi@williammartinsson.com</NavItem></a>
-      </Content>
-    </Wrapper>
-  )
-}
+    <div className=" py-6 lg:py-10 px-6 bg-black w-screen flex justify-center align-bottom">
+      <div className="flex justify-between items-start max-w-4xl w-full flex-col md:flex-row md:items-center">
+        <div className="flex flex-col md:flex-row">
+          <Link
+            href="/"
+            passHref
+            className="text-sm lg:text-base font-serif italic mb-1 text-white hover:opacity-50 md:mr-4 md:mb-0"
+          >
+            Home
+          </Link>
+          <Link
+            href="/writings"
+            passHref
+            className="text-sm lg:text-base font-serif italic mb-1 text-white hover:opacity-50 md:mr-4 md:mb-0"
+          >
+            Writings
+          </Link>
+          <Link
+            href="/projects"
+            passHref
+            className="text-sm lg:text-base font-serif italic mb-1 text-white hover:opacity-50 md:mr-4 md:mb-0"
+          >
+            Projects & Products
+          </Link>
+          <Link
+            href="/contact"
+            passHref
+            className="text-sm lg:text-base font-serif italic mb-1 text-white hover:opacity-50 md:mr-4 md:mb-0"
+          >
+            Contact
+          </Link>
+        </div>
+        <a
+          target="__blank"
+          href="mailto:hi@williammartinsson.com"
+          className="text-sm lg:text-base font-serif italic mb-1 text-white hover:opacity-50 md:mr-4 md:mb-0"
+        >
+          hi@williammartinsson.com
+        </a>
+      </div>
+    </div>
+  );
+};
 
 export default Footer;
-

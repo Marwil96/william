@@ -1,60 +1,54 @@
-import React from 'react';
-import { styled } from "../../stitches.config";
-import Link from 'next/link';
+import React from "react";
+import Link from "next/link";
+import { motion } from "framer-motion";
 
-
-const Wrapper = styled('div', {
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  paddingTop: '$5',
-})
-
-const NavItems = styled('div', { 
-  display: 'flex',
-  flexDirection: 'column',
-
-  '@bp1': {
-    flexDirection: 'row',
-  }
-})
-
-const NavItem = styled('a', {
-  fontSize: '$2',
-  fontFamily: '$serif',
-  marginBottom: '1rem',
-  fontStyle: 'italic',
-  cursor: 'pointer',
-  color: '$white',
-  
-
-  '&:last-child': {
-    marginRight: '0'
-  },
-
-  '&:hover': {
-    opacity: '0.5'
-  },
-
-  '@bp1': {
-    marginRight: '$4',
-    marginBottom: '0',
-  }
-})
-
-const Navbar = () => {
+const Navbar = ({ isProject }) => {
   return (
-    <Wrapper> 
-      <NavItems>
-        <Link href='/' passHref><NavItem>Home</NavItem></Link>
-        <Link href='/writings' passHref><NavItem>Writings</NavItem></Link>
-        <Link href='/projects' passHref><NavItem>Projects & Products</NavItem></Link>
-        <Link href='/contact' passHref><NavItem>Contact</NavItem></Link>
-      </NavItems>
-      <a target='__blank' href='mailto:hi@williammartinsson.com'><NavItem>hi@williammartinsson.com</NavItem></a>
-    </Wrapper>
-  )
-}
+    <motion.div
+      initial={{ width: "615px" }}
+      animate={{ width: !isProject ? "615px" : "100%" }}
+      exit={{ width: "615px" }}
+      transition={{
+        duration: isProject ? 0.35 : 0.2,
+        type: "spring",
+        damping: 20,
+        stiffness: 100,
+      }}
+      className="flex justify-between items-center pt-5 max-w-[100%]"
+    >
+      <div className="flex flex-col md:flex-row">
+        <Link
+          href="/"
+          passHref
+          className="text-sm lg:text-base font-title font-light italic mb-1 cursor-pointer text-white hover:opacity-50 md:mr-4 md:mb-0"
+        >
+          Home
+        </Link>
+        <Link
+          href="/experiments"
+          passHref
+          className="text-sm lg:text-base font-title font-light italic mb-1 cursor-pointer text-white hover:opacity-50 md:mr-4 md:mb-0"
+        >
+          Experiments
+        </Link>
+
+        <Link
+          href="/contact"
+          passHref
+          className="text-sm lg:text-base font-title font-light italic mb-1 cursor-pointer text-white hover:opacity-50 md:mr-4 md:mb-0"
+        >
+          Contact
+        </Link>
+      </div>
+      <a
+        target="__blank"
+        href="mailto:hi@williammartinsson.com"
+        className="text-sm lg:text-base font-title font-light italic mb-1 cursor-pointer text-white hover:opacity-50 md:mr-4 md:mb-0"
+      >
+        hi@williammartinsson.com
+      </a>
+    </motion.div>
+  );
+};
 
 export default Navbar;
-

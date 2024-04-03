@@ -1,114 +1,81 @@
-import type { NextPage } from 'next'
-import Layout from '../components/Layout';
-import BlogComponent from 'src/components/BlogComponent';
-import { styled } from '../../stitches.config';
-import SectionLabel from 'src/components/SectionLabel';
-import TextBlock from 'src/components/TextBlock';
-
-
-const Container = styled('div', {
-  display: 'flex',
-  flexDirection: 'column',
-  position: 'relative',
-  marginTop: '$5',
-  marginBottom: '$8',
-
-  '@bp1': {
-    marginTop: '$8',
-  }
-});
-
-const PageTitle = styled('h1', {
-  fontSize: '$4',
-  fontFamily: '$title',
-  lineHeight: '2.6rem',
-  marginBottom: '0.5rem'
-})
-
-const PageSubtitle= styled('span', {
-  fontSize: '$2',
-  fontFamily: '$text',
-  color: '#979797',
-  fontWeight: '500',
-  lineHeight: '2.6rem',
-  paddingBottom: '$4',
-  borderBottom: '1px dashed #A0A0A0'
-})
-
-const ContactRow = styled('div', {
-  display: 'flex',
-  flexDirection: 'column',
-  padding: '$2 0',
-  justifyContent: 'center',
-  borderBottom: '1px dashed #A0A0A0',
-
-  "h5": {
-    fontSize: '1.4rem',
-    fontFamily: '$title',
-    marginBottom: '0.7rem',
-    fontWeight: '400',
-    // color: '#979797'
-  },
-  
-  "a": {
-    fontSize: '$2',
-    fontFamily: '$text',
-    fontWeight: '400',
-    color: '#F2F2F2',
-    textDecoration: 'underline',
-    cursor: 'pointer',
-
-    '&:hover': {
-      opacity: '0.8'
-    }
-  },
-
-  '&:last-child': {
-    marginBottom: '0'
-  },
-
-  variants: {
-    row: {
-      true:{
-        flexDirection: 'row',
-        justifyContent: 'flex-start',
-        alignItems: 'flex-start',
-        "a": {
-          marginRight: '$5',
-          fontFamily: '$title',
-        }
-      }
-    }
-  }
-})
+import type { NextPage } from "next";
+import Layout from "../components/Layout";
+import TextBlock from "src/components/TextBlock";
 
 const Contact: NextPage = () => {
   return (
-    <Layout 
-      title='Contact - William Martinsson - Designer & Developer'
-      desc='Crafting digital products. Building performant software and web experiences. Dreaming about design systems, new ways of creating components, and JavaScript. Currently designing and developing the new wave of internet art at Artscape. Helping businesses succeed under the name Oh, Hi.'
+    <Layout
+      title="Contact - William Martinsson - Designer & Developer"
+      desc="Crafting digital products. Building performant software and web experiences. Dreaming about design systems, new ways of creating components, and JavaScript. Currently designing and developing the new wave of internet art at Artscape. Helping businesses succeed under the name Oh, Hi."
+      framerKey="contact"
     >
-      <Container>
-        <PageTitle>Contact</PageTitle>
-        <PageSubtitle>Say hi, send proposals or ask me out for a walk.</PageSubtitle>
-        <ContactRow>
-          <h5>Email</h5>
-          <a href='mailto:hi@williammartinsson.com'>hi@williammartinsson.com</a>
-        </ContactRow>
+      <div className="flex flex-col relative mt-5 mb-8 md:mt-20">
+        <h1 className="font-title text-2xl mb-0.5 leading-snug">Contact</h1>
+        <span className="text-base font-text text-gray-500 font-medium leading-snug flex pb-5 border-b border-dashed border-gray-400">
+          Say hi, send proposals or ask me out for a walk.
+        </span>
+        <div className="flex flex-col py-3 justify-center border-b border-dashed border-gray-400 last:mb-0">
+          <h5 className="text-sm font-title mb-1 leading-snug font-light text-white">
+            Email
+          </h5>
+          <a
+            href="mailto:hi@williammartinsson.com"
+            className="text-base font-text font-light leading-snug text-white underline cursor-pointer hover:opacity-80"
+          >
+            hi@williammartinsson.com
+          </a>
+        </div>
 
-        <ContactRow row>
-          <a href='https://www.linkedin.com/in/william-martinsson-a24a3b111/'>LinkedIn</a>
-          <a href='https://williammartinsson.medium.com/'>Medium</a>
-          <a href='https://github.com/Marwil96'>Github</a>
-        </ContactRow>
-      </Container>
-      
-      <SectionLabel>Now.</SectionLabel>
+        <div className="flex flex-row py-3 justify-start items-start border-b border-dashed border-gray-400 text-white">
+          <a
+            href="https://www.linkedin.com/in/william-martinsson-a24a3b111/"
+            className="text-base font-title mr-5"
+          >
+            LinkedIn
+          </a>
+          <a
+            href="https://williammartinsson.medium.com/"
+            className="text-base font-title mr-5"
+          >
+            Medium
+          </a>
+          <a
+            href="https://github.com/Marwil96"
+            className="text-base font-title"
+          >
+            Github
+          </a>
+        </div>
+      </div>
+      <h2 className="text-sm font-inter font-medium mb-4 text-gray-400">Me</h2>
       <TextBlock>
-        I learn new things by<strong> playing, reading, and building. </strong> Aspiring to be thoughtful, open-minded, and organized when I approach a new obstacle to get a feel and ownership over it. <br/><br/>Next.js is my go-to tool for<strong> building </strong>things on the web. It makes JavaScript more enjoyable and easier to create performant websites. For styling I’m using styled-components. I’ve been trying out Stitches and been gladly surprised. A change might be on its way. <br/><br/>When I need a database, I like to go with NoSQL. Often MongoDB but sometimes Firebase. Usually, I connect it to the frontend with GraphQL. Planning to learn more about SQL databases and PlanetScale. <br/><br/>When paper and pen aren’t enough I use <strong>Figma</strong> to visualize the website, product or, software. I'm a big believer in going fast to the real deal, so I try to code up small prototypes as quickly as possible. <br/><br/>Outside of work. I'm venturing outside to discover <strong>Stockholm</strong> for the first time. I'm giving my all to learn an instrument. And trying to get a better grip on web3. Rooting for<strong> Änglarna </strong> in Allsvenskan and <strong> McLaren </strong> in Formula One.
+        I'm all about learning through <strong>play</strong>, diving into good{" "}
+        <strong>reads</strong>, and getting hands-on with{" "}
+        <strong>building</strong>. When I tackle a new challenge, I aim to stay
+        thoughtful, and open-minded, and take full responsibility for <br />
+        figuring it out. <br />
+        <br />
+        I've been working with <strong>React</strong> since I made my first
+        website almost ten years ago. I still{" "}
+        <strong className="text-[pink]">love</strong> it, and I haven't found
+        anything that can make me work as fast as it can. For styling, I’m
+        usually using <strong>Tailwind</strong>.
+        <br />
+        <br />I take pride in working fast with a high level of detail. I
+        believe speed is one of the cornerstones of creating great software. You
+        have to be fast, if you want to have time to{" "}
+        <strong>collaborate</strong> with design and other engineers, do more{" "}
+        <strong>iterations</strong>, and dare to do things{" "}
+        <strong>differently</strong>.
+        <br />
+        <br /> When I'm not hunched over my laptop, I hunt after{" "}
+        <strong>Unknown Pleasures</strong> in <strong>Stockholms</strong> vinyl
+        shops. Rooting for
+        <strong className="text-[#89CFF0]"> Änglarna </strong> in Allsvenskan
+        and <strong className="text-[orange]"> McLaren </strong> in Formula One.
       </TextBlock>
     </Layout>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

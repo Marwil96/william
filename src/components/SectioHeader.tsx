@@ -1,49 +1,21 @@
-import React from 'react';
-import { styled } from "../../stitches.config";
-import SectionLabel from './SectionLabel';
-import { ArrowRightIcon } from '@modulz/radix-icons'
-import Link from 'next/link';
+import React from "react";
+import SectionLabel from "./SectionLabel";
+import { ArrowRightIcon } from "@radix-ui/react-icons";
+import Link from "next/link";
 
-
-const Wrapper = styled('div', {
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-})
-
-const SeeMore = styled('a', {
-  fontSize: "1.4rem",
-  fontFamily: "Inter",
-  fontWeight: "500",
-  color: '#9F9F9F',
-  marginBottom: "$4",
-  display: 'flex',
-  alignItems: 'center',
-  borderBottom: '1px solid #9F9F9F',
-  paddingBottom: '0.3rem',
-  cursor: 'pointer',
-
-  '&:hover': {
-    opacity: '0.8',
-  },
-
-  'svg': {
-    marginLeft: '0.6rem',
-
-    'path': {
-      fill: '#9F9F9F'
-    }
-  }
-})
-
-
-const SeactionHeader = ({title, href} : {title: string, href: string}) => { 
+const SeactionHeader = ({ title, href }: { title: string; href: string }) => {
   return (
-    <Wrapper>
+    <div className="flex justify-between items-center font-title mb-6">
       <SectionLabel>{title}</SectionLabel>
-      <Link href={href} passHref><SeeMore>See All <ArrowRightIcon /></SeeMore></Link>
-    </Wrapper>
-  )
-}
+      <Link
+        href={href}
+        passHref
+        className="text-sm font-text font-medium text-gray-400 flex items-center border-b border-gray-400 pb-0.5 cursor-pointer hover:opacity-80"
+      >
+        See All <ArrowRightIcon className="ml-1.5 fill-current text-gray-400" />
+      </Link>
+    </div>
+  );
+};
 
 export default SeactionHeader;
