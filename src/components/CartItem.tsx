@@ -20,64 +20,11 @@ export const CartItem = ({
   const [isRemovingItem, setIsRemovingItem] = useState(false);
 
   return (
-    <motion.div
-      layout
-      exit={{
-        x: "100%",
-        opacity: 0,
-        transition: { duration: 0.35, ease: "easeIn" },
-      }}
-      // animate={{ x: isRemovingItem ? 118 : 0, opacity: 1 }}
-      transition={{ duration: 0.25, ease: "easeInOut" }}
-      className="grid-rows-[max-content_max-content_max-content_1fr_max-content] grid-cols-[118px_1fr_max-content] grid w-[420px] mb-6 items-center [&>svg]:stroke-black"
-    >
+    <div className="grid-rows-[max-content_max-content_max-content_1fr_max-content] grid-cols-[100px_1fr_max-content] lg:grid-cols-[118px_1fr_max-content] grid lg:w-[420px] mb-4 lg:mb-6 items-center [&>svg]:stroke-black">
       {/* NAME  */}
       <h2 className="col-start-2 col-end-3 row-start-1 row-end-2 flex mb-1 text-xs text-[white] font-inter">
         {name}
       </h2>
-
-      {isRemovingItem && (
-        <motion.svg
-          viewBox="25 25 50 50"
-          width="24px"
-          height="24px"
-          display="block"
-          z-index="1"
-          strokeWidth="3"
-          strokeMiterlimit="10"
-          strokeLinecap="round"
-          opacity="0"
-          className="-left-[80px] absolute"
-          animate={{
-            opacity: 1,
-          }}
-          transition={{
-            duration: 0.5,
-            ease: "easeIn",
-          }}
-        >
-          <motion.circle
-            cx="50"
-            cy="50"
-            r="20"
-            fill="none"
-            stroke-dasharray="1, 200"
-            stroke-dashoffset="0"
-            animate={{
-              strokeDasharray: ["1 200", "89 200", "89 200"],
-              rotate: 360,
-              strokeDashoffset: [0, -35, -124],
-            }}
-            transition={{
-              type: "tween",
-              ease: "linear",
-              duration: 1.3,
-              repeat: Infinity,
-              repeatType: "loop",
-            }}
-          />
-        </motion.svg>
-      )}
 
       {/* Image */}
       <span
@@ -108,8 +55,7 @@ export const CartItem = ({
       </div>
 
       <div className="row-start-4 row-end-5 col-start-2 col-end-3 flex gap-4 items-center text-sm font-inter self-end">
-        <motion.button
-          whileTap={{ scale: quantity === 1 ? 1 : 1.2 }}
+        <button
           className="w-6 h-6 flex justify-center disabled:cursor-default cursor-pointer items-center [&>svg]:disabled:fill-[#bababa] [&>svg]:w-2 [&>svg]:h-2 [&>svg]:fill-[#161316] [&>svg]:hover:fill-[#161316]"
           disabled={quantity === 1}
           onClick={() => globalProvider?.updateQuantity(line, quantity - 1)}
@@ -117,18 +63,17 @@ export const CartItem = ({
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 1.13">
             <path d="M5.44 0h6a.56.56 0 1 1 0 1.12H.56A.56.56 0 1 1 .56 0h4.87Z" />
           </svg>{" "}
-        </motion.button>
+        </button>
         <span className="">{quantity}</span>
-        <motion.button
-          whileTap={{ scale: 1.2 }}
+        <button
           className="w-6 h-6 flex justify-center items-center [&>svg]:fill-[#161316] [&>svg]:hover:fill-[#161316] [&>svg]:hover:cursor-pointer disabled:[&>svg]:fill-[#f6f6f6] [&>svg]:w-2 [&>svg]:h-2"
           onClick={() => globalProvider?.updateQuantity(line, quantity + 1)}
         >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12">
             <path d="M11.44 5.44H6.57V.56a.56.56 0 1 0-1.12 0v4.87H.56a.56.56 0 1 0 0 1.12h4.87v4.87a.56.56 0 1 0 1.12 0V6.55h4.87a.56.56 0 1 0 0-1.12Z" />
           </svg>
-        </motion.button>
+        </button>
       </div>
-    </motion.div>
+    </div>
   );
 };

@@ -52,7 +52,10 @@ export const MockedCartProvider = ({
     removeItem: async (line) => {
       if (!data) return "failure";
       await new Promise((resolve) => setTimeout(resolve, 1500));
-      setData(data.filter((item) => item.line !== line));
+      const newData = data.filter((item) => item.line !== line);
+      setData(newData);
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      if (newData.length === 0) setData(MockedCartItems);
       return "success";
     },
     updateQuantity: async (line, newQuantity) => {

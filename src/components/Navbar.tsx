@@ -25,19 +25,13 @@ const Navbar = ({ isProject }) => {
           Home
         </Link>
         <Link
-          href="/writings"
+          href="/experiments"
           passHref
           className="text-sm lg:text-base font-title font-light italic mb-1 cursor-pointer text-white hover:opacity-50 md:mr-4 md:mb-0"
         >
-          Writings
+          Experiments
         </Link>
-        <Link
-          href="/projects"
-          passHref
-          className="text-sm lg:text-base font-title font-light italic mb-1 cursor-pointer text-white hover:opacity-50 md:mr-4 md:mb-0"
-        >
-          Projects & Products
-        </Link>
+
         <Link
           href="/contact"
           passHref

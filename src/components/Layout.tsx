@@ -20,7 +20,7 @@ const Layout = ({
   return (
     <>
       <NextSeo title={title} description={desc} />
-      <section className="w-full flex flex-col items-center overflow-hidden px-6 md:px-40">
+      <section className="w-full flex flex-col items-center px-6 md:px-40">
         <AnimatePresence mode="wait">
           <motion.div
             className="w-full pb-8 min-h-screen md:pb-80 max-w-[100%]"

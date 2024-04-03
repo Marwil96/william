@@ -30,7 +30,7 @@ const LinkItem = ({
         {title}
       </h3>
       {desc && (
-        <span className="text-sm font-text font-medium group-hover:underline mb-3 text-gray-500">
+        <span className="text-sm font-text font-medium group-hover:underline mb-3 text-gray-500 text-balance">
           {desc}
         </span>
       )}
@@ -54,7 +54,7 @@ const LinkItem = ({
       <h3 className="text-base lg:text-lg font-title group-hover:underline font-medium italic text-gray-200">
         {title}
       </h3>
-      <span className="text-sm font-text font-medium group-hover:underline mb-3 text-gray-500">
+      <span className="text-sm font-text font-medium group-hover:underline mb-3 text-gray-500 text-balance">
         {desc}
       </span>
       <span className="text-sm font-text font-medium underline text-gray-200">

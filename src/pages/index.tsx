@@ -5,6 +5,15 @@ import BlogComponent from "src/components/BlogComponent";
 
 export const latest = [
   {
+    title: "UI Experiments",
+    desc: "This is a playground for me to experiment with different animations, interactions, and design patterns.",
+    action: "Go to Playground",
+    leftText: "Experiments",
+    href: "/experiments",
+    external: false,
+    type: "experiments",
+  },
+  {
     title: "Fuck WCAG! [New Hot Design Trend] Here I come",
     desc: "What’s the most important? Making the web accessible for all or letting the user make the website black?",
     action: "Go to Article",
@@ -42,15 +51,6 @@ export const latest = [
     leftText: "Case Study",
     href: "/projects/radionight",
     type: "project",
-  },
-  {
-    title: "How to use the grid",
-    desc: "How to use the CSS grid to implement a design on a website that uses Gatsby and styled-components.",
-    action: "Go to Article",
-    leftText: "Writing ",
-    href: "https://williammartinsson.medium.com/how-to-use-the-css-grid-to-implement-a-design-on-a-website-that-uses-gatsby-and-styled-components-ebccb77cade8",
-    external: true,
-    type: "writing",
   },
   {
     title: "How to use the grid",
