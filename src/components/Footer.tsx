@@ -28,6 +28,13 @@ const Footer = () => {
             Projects & Products
           </Link>
           <Link
+            href="/experiments"
+            passHref
+            className="text-sm lg:text-base font-serif italic mb-1 text-white hover:opacity-50 md:mr-4 md:mb-0"
+          >
+            Experiments
+          </Link>
+          <Link
             href="/contact"
             passHref
             className="text-sm lg:text-base font-serif italic mb-1 text-white hover:opacity-50 md:mr-4 md:mb-0"
