@@ -50,9 +50,9 @@ const Experiments: NextPage = () => {
                 <span className="text-sm font-inter text-gray-400 leading-normal">
                   A ordinary cart item you can see on multiple ecom websites.
                   <ul style={{ listStyleType: "circle" }} className="pl-4 pt-2">
-                    <li className="decoration-dotted">Minimal Interactions</li>
-                    <li className="decoration-dotted">Feels Slow</li>
-                    <li className="decoration-dotted">Boring</li>
+                    <li className="decoration-dotted">Minimal Interactions.</li>
+                    <li className="decoration-dotted">Feels Slow.</li>
+                    <li className="decoration-dotted">Boring.</li>
                   </ul>
                 </span>
               </div>
@@ -77,7 +77,7 @@ const Experiments: NextPage = () => {
                     </li>
                     <li className="decoration-dotted">
                       Loading state indicators to provide real-time user
-                      feedback
+                      feedback.
                     </li>
                   </ul>
                   Better but the response time remains sluggish, detracting from
@@ -101,14 +101,14 @@ const Experiments: NextPage = () => {
                   Whats done:
                   <ul style={{ listStyleType: "circle" }} className="pl-4 py-2">
                     <li className="decoration-dotted">
-                      Optimistic UI for item removal and quantity adjustments{" "}
+                      Optimistic UI for item removal and quantity adjustments.
                     </li>
                   </ul>
                   Optimistic UI embodies the concept that the ideal loading
                   state is none at all. Rather than waiting for server
                   responses, it enables instant UI updates, making the user feel
-                  in contro. Its also a great way to improve the perceived speed
-                  of your component.
+                  in control. Its also a great way to improve the perceived
+                  speed of your component.
                 </span>
               </div>
 
