@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { AnimatePresence } from "framer-motion";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/react";
 import React from "react";
 
 function MyApp({ Component, pageProps, router }: AppProps) {
@@ -27,6 +28,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
           referrerPolicy="no-referrer-when-downgrade"
         />
       </noscript>
+      <Analytics />
       <AnimatePresence>
         <Component {...pageProps} key={router.route} />
       </AnimatePresence>
