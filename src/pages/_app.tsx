@@ -7,7 +7,18 @@ import React from "react";
 function MyApp({ Component, pageProps, router }: AppProps) {
   return (
     <React.Fragment>
-      <Script src="ghttps://scripts.simpleanalyticscdn.com/latest.js" />
+      <script
+        async
+        defer
+        src="https://scripts.simpleanalyticscdn.com/latest.js"
+      ></script>
+      <noscript>
+        <img
+          src="https://queue.simpleanalyticscdn.com/noscript.gif"
+          alt=""
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+      </noscript>
       <noscript>
         {/* eslint-disable @next/next/no-img-element */}
         <img
