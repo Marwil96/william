@@ -194,9 +194,9 @@ const Home = ({ currentlyReading, readRecently }: any) => {
       <TextBlock>
         Looking for a chat, a freelance proposal or advice?
         <br />
-        Say{" "}
-        <a target="__blank" href="mailto:hi@williammartinsson.com">
-          hi@williammartinsson.com
+        Say hi at{" "}
+        <a target="__blank" href="mailto:marwil1996@gmail.com">
+          marwil1996@gmail.com
         </a>
       </TextBlock>
     </Layout>

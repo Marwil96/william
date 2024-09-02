@@ -42,10 +42,10 @@ const Navbar = ({ isProject }) => {
       </div>
       <a
         target="__blank"
-        href="mailto:hi@williammartinsson.com"
+        href="mailto:marwil1996@gmail.com"
         className="text-sm lg:text-base font-title font-light italic mb-1 cursor-pointer text-white lg:hover:text-[#ff5800] md:mr-4 md:mb-0"
       >
-        hi@williammartinsson.com
+        marwil1996@gmail.com
       </a>
     </motion.div>
   );

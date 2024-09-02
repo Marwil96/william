@@ -44,10 +44,10 @@ const Footer = () => {
         </div>
         <a
           target="__blank"
-          href="mailto:hi@williammartinsson.com"
+          href="mailto:marwil1996@gmail.com"
           className="text-sm lg:text-base font-serif italic mb-1 text-white hover:opacity-50 md:mr-4 md:mb-0"
         >
-          hi@williammartinsson.com
+          marwil1996@gmail.com
         </a>
       </div>
     </div>
