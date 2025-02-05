@@ -2,6 +2,7 @@ import Layout from "../components/Layout";
 import TextBlock from "src/components/TextBlock";
 import Parser from "rss-parser";
 import BlogComponent from "src/components/BlogComponent";
+import React from "react";
 
 export const latest = [
   {
@@ -10,52 +11,66 @@ export const latest = [
     action: "Go to Playground",
     leftText: "Experiments",
     href: "/experiments",
+    key: "experiments",
     external: false,
     type: "experiments",
-  },
-  {
-    title: "Fuck WCAG! [New Hot Design Trend] Here I come",
-    desc: "What’s the most important? Making the web accessible for all or letting the user make the website black?",
-    action: "Go to Article",
-    leftText: "Writing ",
-    href: "https://williammartinsson.medium.com/fuck-screenreaders-darkmode-here-i-come-2d7eebe463ab",
-    external: true,
-    type: "writing",
   },
   {
     title: "Knodd",
     desc: "An entirely new part of the website with articles about different child diseases and a rewrite to server rendering.",
     action: "Go to case study",
     leftText: "Case Study",
+    key: "knodd",
     href: "/projects/knodd",
   },
   {
     title: "Master Digital Design",
     desc: "We were tasked to create an alumni page for Amsterdam University of Applied Sciences design students.",
     action: "Go to Case Study Study",
+    key: "master-digital-design",
     leftText: "Case Study",
     href: "/projects/master-digital-design",
   },
+  // {
+  //   title: "Superchicane",
+  //   desc: "Superchicane is a Formula One news platform made to tell stories with the help of data, everything from character portraits to the sport's technical aspects.",
+  //   action: "Go to Project",
+  //   leftText: "Case Study",
+  //   href: "/projects/superchicane",
+  //   type: "project",
+  // },
   {
-    title: "Superchicane",
-    desc: "Superchicane is a Formula One news platform made to tell stories with the help of data, everything from character portraits to the sport's technical aspects.",
-    action: "Go to Project",
+    title: "Dutch Football Association",
+    desc: "We were tasked to build the new version of KNVBs Rinus, a training platform for football teams. Where they can plan their exercises and get inspiration and advice from other football coaches.",
+    action: "Go to Case",
+    key: "knvb-rinus",
     leftText: "Case Study",
-    href: "/projects/superchicane",
-    type: "project",
+    href: "/projects/knvb-rinus",
   },
   {
     title: "Radionight",
     desc: "A podcasting platform designed to generate hype around new episodes. Taking advantage of live streaming to imitate the movie premiere feel and producing a sense of community.",
     action: "Go to Project",
     leftText: "Case Study",
+    key: "radionight",
     href: "/projects/radionight",
     type: "project",
+  },
+  {
+    title: "Fuck WCAG! [New Hot Design Trend] Here I come",
+    desc: "What’s the most important? Making the web accessible for all or letting the user make the website black?",
+    action: "Go to Article",
+    leftText: "Writing",
+    key: "writing",
+    href: "https://williammartinsson.medium.com/fuck-screenreaders-darkmode-here-i-come-2d7eebe463ab",
+    external: true,
+    type: "writing",
   },
   {
     title: "How to use the grid",
     desc: "How to use the CSS grid to implement a design on a website that uses Gatsby and styled-components.",
     action: "Go to Article",
+    key: "go-to-article",
     leftText: "Writing ",
     href: "https://williammartinsson.medium.com/how-to-use-the-css-grid-to-implement-a-design-on-a-website-that-uses-gatsby-and-styled-components-ebccb77cade8",
     external: true,
@@ -63,12 +78,13 @@ export const latest = [
   },
 ];
 
-const Home = ({ currentlyReading, readRecently }: any) => {
+const Home = ({ currentlyReading, readRecently }) => {
   return (
     <Layout
       title="William Martinsson - Designer & Developer"
       desc="Crafting digital products. Building performant software and web experiences. Dreaming about design systems, new ways of creating components, and JavaScript. Currently designing and developing the new wave of internet art at Artscape. Helping businesses succeed under the name Oh, Hi."
       framerKey="home"
+      className="w-[615px]"
     >
       <h1 className="text-base font-title -tracking-tight italic font-normal mt-5 mb-4 md:mt-[250px]">
         William Martinsson -<br />
@@ -170,22 +186,20 @@ const Home = ({ currentlyReading, readRecently }: any) => {
         Currently reading{" "}
         {currentlyReading.length > 0 &&
           currentlyReading.map((book, index) => (
-            <>
-              <strong>
-                <a href={book.link}>{book.title}</a> by {book.creator}
-                {currentlyReading.length - 1 !== index && "&"}
-              </strong>
-            </>
+            <strong key={index}>
+              <a href={book.link}>{book.title}</a> by {book.creator}
+              {currentlyReading.length - 1 !== index && "&"}
+            </strong>
           ))}
         , and recently read{" "}
         {readRecently.length > 0 &&
           readRecently.map((book, index) => (
-            <>
+            <React.Fragment key={index}>
               <strong>
                 <a href={book.link}>{book.title}</a> by {book.creator}
               </strong>
               {readRecently.length - 1 !== index ? " and " : "."}
-            </>
+            </React.Fragment>
           ))}
       </TextBlock>
       <h2 className="text-xs lg:text-sm font-inter font-medium mb-2 lg:mb-4 text-gray-400">

@@ -31,7 +31,9 @@ const MasterDigitalDesign = () => {
         heroImage={HeroImage}
         linkToWebsite="https://www.masterdigitaldesign.com/alumni"
       >
-        <h5>About the project</h5>
+        <br />
+        <br />
+        {/* <h5>About the project</h5>
         <p>
           My role in the project was to implement the frontend and connect it to
           the CraftCMS. The most important aspects of this project were that the
@@ -45,7 +47,7 @@ const MasterDigitalDesign = () => {
           a student. Also on the collection page, we needed to combine quotes
           from the students with all the different students on the collection
           page.
-        </p>
+        </p> */}
         <ComposedImage image={Image2} />
         <ComposedImage image={Image3} />
         <ComposedImage image={Image4} />

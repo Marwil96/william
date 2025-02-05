@@ -28,7 +28,7 @@ const KNVBRinus = () => {
         heroImage={HeroImage}
         linkToWebsite="https://rinus.knvb.nl/"
       >
-        <h5>My role</h5>
+        {/* <h5>My role</h5>
         <p>
           My Role in this project was mainly to implement the frontend and
           fine-tune all animations together with the motion designer. The
@@ -42,7 +42,7 @@ const KNVBRinus = () => {
           of javascript in the last couple of years) that only loaded days/weeks
           observed by the user. Which made it possible for us to create some
           nice animations, watch below.
-        </p>
+        </p> */}
         <ComposedImage image={Image1} />
       </ProjectComponent>
     </Layout>

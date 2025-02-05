@@ -6,7 +6,6 @@ const LinkItem = ({
   desc,
   action,
   leftText,
-  key,
   subtitle,
   href,
   external,
@@ -17,7 +16,6 @@ const LinkItem = ({
   action?: string;
   subtitle?: string;
   leftText?: string;
-  key: any;
   external?: boolean;
 }) => {
   return external ? (

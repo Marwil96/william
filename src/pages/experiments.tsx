@@ -3,14 +3,19 @@ import Layout from "src/components/Layout";
 import { motion } from "framer-motion";
 import { CartItems } from "src/components/CartSummary";
 import { MockedCartProvider } from "src/components/MockCartProvider";
+import { useState } from "react";
 
 const Experiments: NextPage = () => {
+  const [openExperiement, setOpenExperiment] = useState<false | string>(
+    undefined
+  );
   return (
     <Layout
       title="Experiments - William Martinsson - Designer & Developer"
       desc="Crafting digital products. Building performant software and web experiences. Dreaming about design systems, new ways of creating components, and JavaScript. Currently designing and developing the new wave of internet art at Artscape. Helping businesses succeed under the name Oh, Hi."
       framerKey="experiment"
       project={true}
+      className="w-full px-6 md:px-40"
     >
       <div className="flex flex-col relative mt-0 md:mt-8">
         <div className="flex justify-between flex-col gap-2 lg:gap-0 lg:flex-row align-bottom mb-3 mt-6 md:mb-10 md:mt-10">
@@ -35,7 +40,10 @@ const Experiments: NextPage = () => {
         </div>
 
         <div className="border border-dashed border-gray-400 flex flex-col lg:flex-row w-full">
-          <div className="h-full flex flex-col lg:w-[64px] lg:border-0 border-b w-full border-dashed border-gray-400 lg:sticky top-0 left-0 right-0">
+          <div
+            onClick={() => setOpenExperiment("minicart")}
+            className="h-full flex flex-col lg:w-[64px] lg:border-0 border-b w-full border-dashed border-gray-400 lg:sticky top-0 left-0 right-0 cursor-pointer"
+          >
             <span className="text-base  lg:text-xl p-4 lg:p-0 lg:mt-10 font-title lg:mb-1 lg:rotate-90">
               Minicart
             </span>

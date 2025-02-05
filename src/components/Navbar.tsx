@@ -5,15 +5,15 @@ import { motion } from "framer-motion";
 const Navbar = ({ isProject }) => {
   return (
     <motion.div
-      initial={{ width: "615px" }}
-      animate={{ width: !isProject ? "615px" : "100%" }}
-      exit={{ width: "615px" }}
-      transition={{
-        duration: isProject ? 0.35 : 0.2,
-        type: "spring",
-        damping: 20,
-        stiffness: 100,
-      }}
+      // initial={{ width: "615px" }}
+      // animate={{ width: !isProject ? "615px" : "100%" }}
+      // exit={{ width: "615px" }}
+      // transition={{
+      //   duration: isProject ? 0.35 : 0.2,
+      //   type: "spring",
+      //   damping: 20,
+      //   stiffness: 100,
+      // }}
       className="flex justify-between items-center pt-5 max-w-[100%]"
     >
       <div className="flex flex-col md:flex-row">

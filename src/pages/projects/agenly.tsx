@@ -14,7 +14,7 @@ import SeoImage from "../../assets/agenly/seo.png";
 
 const metadata = [
   { label: "Role", value: "Design & Development" },
-  { label: "State", value: "Sold/Shutdown" },
+  { label: "State", value: "Shutdown" },
   { label: "Type", value: "SaaS" },
   {
     label: "Tech",

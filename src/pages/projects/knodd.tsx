@@ -22,12 +22,12 @@ const Knodd = () => {
       <ProjectComponent
         title="Knodd"
         metadata={metadata}
-        subtitle={subtitle}
+        // subtitle={subtitle}
         heroImage={HeroImage}
         linkToWebsite="https://www.knodd.se/fakta-och-rad/"
       >
-        <h5>Brief</h5>
-        <p>
+        {/* <h5>Brief</h5> */}
+        {/* <p>
           Knodd needed help to make their website more attractive to potential
           customers. So we made a plan to remake the website in Gatsby to
           improve loading speeds, add a CMS to the existing site, and create an
@@ -41,7 +41,7 @@ const Knodd = () => {
           sites. For this project, my CMS of choice was Prismic because it works
           great with Gatsby and has an awesome backend/interface. That makes it
           really easy for the client to keep the website up to date.
-        </p>
+        </p> */}
         <ComposedImage image={Image1} />
         <ComposedImage image={Image2} />
         <ComposedImage image={Image3} />

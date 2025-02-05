@@ -1,8 +1,6 @@
 import type { NextPage } from "next";
-import Layout from "../components/Layout";
-import LinkItem from "src/components/LinkItem";
 import Image from "next/image";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRef } from "react";
 
 const ProjectComponent = ({
@@ -14,18 +12,13 @@ const ProjectComponent = ({
   linkToWebsite,
 }: {
   title: string;
-  subtitle: string;
+  subtitle?: string;
   children: any;
   metadata: any;
   heroImage: any;
   linkToWebsite?: string;
 }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, {
-    once: true,
-    amount: 1,
-    margin: "0px -50px 0px 0px",
-  });
 
   return (
     <div className="flex flex-col relative mt-0 md:mt-8">
@@ -93,13 +86,15 @@ const ProjectComponent = ({
         </div>
       </div>
       <div className="flex flex-col items-center text-left w-full max-w-[79.2rem] align-center justify-center self-center place-self-center [&>*]:w-full [&>*]:text-left prose-p:mb-10 prose-p:font-system prose-p:text-base lg:prose-p:text-xl prose-headings:mb-2 prose-headings:font-title prose-headings:text-xs lg:prose-headings:text-base prose-blockquote:text-xl prose-blockquote:font-title prose-blockquote:mb-4 prose-blockquote:italic prose-blockquote:text-white prose-blockquote:text-left prose-blockquote:w-full">
-        <motion.h3
-          ref={ref}
-          className="!text-2xl font-title font-normal italic max-w-[79.2rem] text-gray-200 !mb-6 md:text-5xl md:mb-20 !leading-[130%]"
-          // animate={{ y: isInView ? 0 : 30, opacity: isInView ? 1 : 0 }}
-        >
-          {subtitle}
-        </motion.h3>
+        {subtitle && (
+          <motion.h3
+            ref={ref}
+            className="!text-2xl font-title font-normal italic max-w-[79.2rem] text-gray-200 !mb-6 md:text-5xl md:mb-20 !leading-[130%]"
+            // animate={{ y: isInView ? 0 : 30, opacity: isInView ? 1 : 0 }}
+          >
+            {subtitle}
+          </motion.h3>
+        )}
         {children}
       </div>
     </div>

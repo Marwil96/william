@@ -10,24 +10,28 @@ const Layout = ({
   title,
   desc,
   framerKey,
+  className = "w-full px-6 md:px-40",
 }: {
   children: any;
   project?: boolean;
   title: string;
   desc: string;
   framerKey: string;
+  className?: string;
 }) => {
   return (
     <>
       <NextSeo title={title} description={desc} />
-      <section className="w-full flex flex-col items-center px-6 md:px-40">
+      <section
+        className={`w-full flex flex-col items-center mx-auto transition-all ${className}`}
+      >
         <AnimatePresence mode="wait">
           <motion.div
             className="w-full pb-8 min-h-screen md:pb-80 max-w-[100%]"
             key={framerKey}
-            initial={{ width: "615px" }}
-            animate={{ width: !project ? "615px" : "100%" }}
-            exit={{ width: "615px" }}
+            // initial={{ width: "615px" }}
+            // animate={{ width: !project ? "615px" : "100%" }}
+            // exit={{ width: "615px" }}
             transition={{
               duration: project ? 0.35 : 0.2,
               type: "spring",
