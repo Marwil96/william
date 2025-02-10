@@ -84,7 +84,7 @@ const Home = ({ currentlyReading, readRecently }) => {
       title="William Martinsson - Designer & Developer"
       desc="Crafting digital products. Building performant software and web experiences. Dreaming about design systems, new ways of creating components, and JavaScript. Currently designing and developing the new wave of internet art at Artscape. Helping businesses succeed under the name Oh, Hi."
       framerKey="home"
-      className="w-[615px]"
+      className="lg:w-[655px] mx-auto"
     >
       <h1 className="text-base font-title -tracking-tight italic font-normal mt-5 mb-4 md:mt-[250px]">
         William Martinsson -<br />

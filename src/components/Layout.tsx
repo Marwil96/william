@@ -23,7 +23,7 @@ const Layout = ({
     <>
       <NextSeo title={title} description={desc} />
       <section
-        className={`w-full flex flex-col items-center mx-auto transition-all ${className}`}
+        className={`px-6 flex flex-col items-center mx-auto transition-all ${className}`}
       >
         <AnimatePresence mode="wait">
           <motion.div
