@@ -63,9 +63,7 @@ const experimentsData: Experiment[] = [
 ];
 
 const Experiments: NextPage = () => {
-  const [openExperiment, setOpenExperiment] = useState<string | null>(
-    "minicart"
-  );
+  const [openExperiment, setOpenExperiment] = useState<string | null>();
 
   return (
     <Layout
@@ -107,59 +105,54 @@ const Experiments: NextPage = () => {
 
         {/* Main Content */}
         <div className="flex w-full">
-          <div className="flex flex-col lg:flex-row border border-dashed border-gray-400 w-full">
+          <div className="flex flex-col border border-dashed border-gray-400 w-full">
             {/* Navigation Pane */}
-            <motion.div
+            <button
               onClick={() => setOpenExperiment("minicart")}
-              className="cursor-pointer border-b lg:border-0 border-dashed border-gray-400 flex flex-col lg:w-[64px] lg:sticky top-0"
-              whileHover={{ scale: 1.05 }}
-              layout
+              className="cursor-pointer border-b border-dashed border-gray-400 flex flex-col lg:sticky top-0 w-full lg:text-left"
+              aria-label="Open Mini Cart Experiment"
+              // layout
             >
-              <span className="text-base lg:text-xl p-4 lg:p-0 lg:mt-10 font-title lg:mb-1 lg:rotate-90">
+              <span className="text-base lg:text-xl p-4 lg:p-4 font-title">
                 Minicart
               </span>
-            </motion.div>
+            </button>
 
             {/* Experiment Details */}
-            <AnimatePresence mode="wait">
-              {openExperiment === "minicart" && (
-                <motion.div
-                  key="minicart"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="flex flex-col w-full"
-                  layout
-                >
-                  {experimentsData.map((experiment) => (
-                    <motion.div
-                      key={experiment.id}
-                      layout
-                      className="flex flex-col lg:flex-row border-b border-dashed border-gray-400 justify-between w-full"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 20 }}
-                      transition={{ duration: 0.4 }}
-                    >
-                      <div className="flex flex-col justify-start p-4 border-dashed border-gray-400 border-b lg:border-b-0 lg:border-x lg:border-y-0 lg:max-w-[250px]">
-                        <h3 className="text-base lg:text-lg font-title font-medium italic text-gray-200 mb-1">
-                          {experiment.title}
-                        </h3>
-                        <span className="text-sm font-inter text-gray-400 leading-normal">
-                          {experiment.description}
-                        </span>
-                      </div>
-                      <div className="flex p-4">
-                        <MockedCartProvider>
-                          <CartItems step={experiment.step} />
-                        </MockedCartProvider>
-                      </div>
-                    </motion.div>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
+            {/* <AnimatePresence mode="wait"> */}
+            {openExperiment === "minicart" && (
+              <div
+                key="minicart"
+                // transition={{ duration: 0.3 }}
+                className="flex flex-col w-full"
+              >
+                {experimentsData.map((experiment) => (
+                  <div
+                    key={experiment.id}
+                    className="flex flex-col lg:flex-row border-b border-dashed border-gray-400 justify-between w-full"
+                    // initial={{ opacity: 0, y: 20 }}
+                    // animate={{ opacity: 1, y: 0 }}
+                    // exit={{ opacity: 0, y: 20 }}
+                    // transition={{ duration: 0.4 }}
+                  >
+                    <div className="flex flex-col justify-start p-4 border-dashed border-gray-400 border-b lg:border-b-0 lg:border-x lg:border-y-0 lg:max-w-[250px]">
+                      <h3 className="text-base lg:text-lg font-title font-medium italic text-gray-200 mb-1">
+                        {experiment.title}
+                      </h3>
+                      <span className="text-sm font-inter text-gray-400 leading-normal">
+                        {experiment.description}
+                      </span>
+                    </div>
+                    <div className="flex p-4">
+                      <MockedCartProvider>
+                        <CartItems step={experiment.step} />
+                      </MockedCartProvider>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+            {/* </AnimatePresence> */}
           </div>
         </div>
       </div>

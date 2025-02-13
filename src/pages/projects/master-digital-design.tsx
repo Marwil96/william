@@ -10,7 +10,7 @@ import Image5 from "../../assets/masterdigitaldesign/image_5.png";
 
 const metadata = [
   { label: "Client", value: "Amsterdam University" },
-  { label: "Role", value: "Frontend developer" },
+  { label: "Role", value: "Frontend" },
   { label: "Team", value: "Momkai" },
 ];
 const subtitle =

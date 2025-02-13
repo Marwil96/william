@@ -7,7 +7,7 @@ import Image1 from "../../assets/knvb/image_1.png";
 
 const metadata = [
   { label: "Client", value: "KNVB" },
-  { label: "Role", value: "Intern Frontend developer" },
+  { label: "Role", value: "Frontend" },
   { label: "Team", value: "Momkai" },
 ];
 const subtitle =

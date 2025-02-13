@@ -16,7 +16,6 @@ const metadata = [
     label: "Tech",
     value: "React, Gatsby, NodeJS, WikiAPI, Python, Styled-components",
   },
-  { label: "Status", value: "Lack of time" },
 ];
 const subtitle =
   "Superchicane is a Formula One news platform made to tell stories with the help of data, everything from character portraits to the sport's technical aspects.";
