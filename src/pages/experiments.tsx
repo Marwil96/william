@@ -121,10 +121,10 @@ const Experiments: NextPage = () => {
             {/* Experiment Details */}
             {/* <AnimatePresence mode="wait"> */}
             {openExperiment === "minicart" && (
-              <div
+              <motion.div
                 key="minicart"
-                // transition={{ duration: 0.3 }}
-                className="flex flex-col w-full"
+                transition={{ duration: 0 }}
+                className="flex flex-col"
               >
                 {experimentsData.map((experiment) => (
                   <div
@@ -150,7 +150,7 @@ const Experiments: NextPage = () => {
                     </div>
                   </div>
                 ))}
-              </div>
+              </motion.div>
             )}
             {/* </AnimatePresence> */}
           </div>
