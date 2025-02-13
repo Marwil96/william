@@ -95,7 +95,7 @@ const Home = ({ currentlyReading, readRecently }) => {
           Design Engineer.
         </strong>{" "}
         Builder of performant software and web experiences. Musing about design
-        systems and the dev & designer relationship. Currently UI Team Lead at{" "}
+        systems and the dev & designer relationship. Currently Team Lead at{" "}
         <a
           href="https://madepeople.se/"
           target="__blank"
