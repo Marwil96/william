@@ -20,10 +20,10 @@ const Contact: NextPage = () => {
             Email
           </h5>
           <a
-            href="mailto:marwil1996@gmail.com"
+            href="mailto:william.c.o.martinsson@gmail.com"
             className="text-base font-text font-light leading-snug text-white underline cursor-pointer hover:opacity-80"
           >
-            marwil1996@gmail.com
+            william.c.o.martinsson@gmail.com
           </a>
         </div>
 

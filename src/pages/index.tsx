@@ -209,8 +209,8 @@ const Home = ({ currentlyReading, readRecently }) => {
         Looking for a chat, a freelance proposal or advice?
         <br />
         Say hi at{" "}
-        <a target="__blank" href="mailto:marwil1996@gmail.com">
-          marwil1996@gmail.com
+        <a target="__blank" href="mailto:william.c.o.martinsson@gmail.com">
+          william.c.o.martinsson@gmail.com
         </a>
       </TextBlock>
     </Layout>
