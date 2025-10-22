@@ -97,11 +97,11 @@ const Home = ({ currentlyReading, readRecently }) => {
         Builder of performant software and web experiences. Musing about design
         systems and the dev & designer relationship. Currently Team Lead at{" "}
         <a
-          href="https://madepeople.se/"
+          href="https://trystockholm.se/"
           target="__blank"
           className="font-title italic font-light underline cursor-pointer lg:hover:text-[#ff5800]"
         >
-          Made People
+          Try Stockholm
         </a>
         , creating ecom sites for some of Swedens biggest fashion brands(
         <a
@@ -121,11 +121,11 @@ const Home = ({ currentlyReading, readRecently }) => {
         </a>
         ,{" "}
         <a
-          href="https://www.rohnisch.com/"
+          href="https://www.strongerlabel.com/se"
           target="__blank"
           className="font-title italic font-light underline cursor-pointer lg:hover:text-[#ff5800]"
         >
-          Röhnisch
+          Stronger
         </a>
         ) and internal tools.
         <br /> <br /> Previously, designed and developed the new wave of
