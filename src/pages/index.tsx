@@ -97,11 +97,11 @@ const Home = ({ currentlyReading, readRecently }) => {
         Builder of performant software and web experiences. Musing about design
         systems and the dev & designer relationship. Currently Team Lead at{" "}
         <a
-          href="https://trystockholm.se/"
+          href="https://trystockholm.com/"
           target="__blank"
           className="font-title italic font-light underline cursor-pointer lg:hover:text-[#ff5800]"
         >
-          Try Stockholm
+          TRY Stockholm
         </a>
         , creating ecom sites for some of Swedens biggest fashion brands(
         <a
