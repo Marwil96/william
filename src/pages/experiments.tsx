@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import Layout from "src/components/Layout";
 import { CartItems } from "src/components/CartSummary";
 import { MockedCartProvider } from "src/components/MockCartProvider";

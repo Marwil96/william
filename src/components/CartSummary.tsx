@@ -1,4 +1,4 @@
-import { LayoutGroup, motion, AnimatePresence } from "framer-motion";
+import { LayoutGroup, motion, AnimatePresence } from "motion/react";
 import { CartItem } from "./CartItem";
 import { MockedCartContext } from "./MockCartProvider";
 import { useContext } from "react";
