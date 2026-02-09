@@ -21,7 +21,8 @@ const LinkItem = ({
   return external ? (
     <a
       href={href}
-      target="__blank"
+      target="_blank"
+      rel="noopener noreferrer"
       className="flex flex-col group py-4 cursor-pointer transition-transform duration-350 ease-in-out transform relative justify-center border-b border-dashed border-gray-400 last:mb-0 hover:text-white"
     >
       <h3 className="text-base lg:text-lg font-title group-hover:underline font-medium italic text-balance text-gray-200">
@@ -38,7 +39,7 @@ const LinkItem = ({
         </span>
       )}
       {leftText && (
-        <span className="font-title text-sm absolute underline-offset-2 group-hover:underline transition-transform ease-in-out duration-200 ml-[-85px] rotate-90">
+        <span className="font-title text-sm absolute underline-offset-2 group-hover:underline transition-transform ease-in-out duration-200 ml-[-96px] rotate-90">
           {leftText}
         </span>
       )}

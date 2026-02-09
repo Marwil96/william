@@ -28,8 +28,8 @@ const ProgressIndicator = () => (
       cy="50"
       r="20"
       fill="none"
-      stroke-dasharray="1, 200"
-      stroke-dashoffset="0"
+      strokeDasharray="1, 200"
+      strokeDashoffset="0"
       stroke="white"
       animate={{
         strokeDasharray: ["1 200", "89 200", "89 200"],
@@ -105,21 +105,9 @@ export const CartItemWithOptimistic = ({
     setUpdateQueue((prevQueue) => [...prevQueue, { line, newQuantity }]);
   };
 
-  const updateQuantityHelper = async (
-    line: string,
-    type: "increase" | "decrease"
-  ) => {
-    const newQuantity = type === "increase" ? quantity + 1 : quantity - 1;
-    if (type === "increase") setIsAddingQuantity(true);
-    if (type === "decrease") setIsRemovingQuantity(true);
-    await globalProvider?.updateQuantity(line, newQuantity);
-    setIsAddingQuantity(false);
-    setIsRemovingQuantity(false);
-  };
-
   const removeItemHelper = async (line: string) => {
     setIsRemovingItem(true);
-    await globalProvider.removeItem(line);
+    await globalProvider?.removeItem(line);
     setIsRemovingItem(false);
   };
   return (
@@ -166,8 +154,8 @@ export const CartItemWithOptimistic = ({
               r="20"
               fill="none"
               stroke="white"
-              stroke-dasharray="1,200"
-              stroke-dashoffset="0"
+              strokeDasharray="1,200"
+              strokeDashoffset="0"
               animate={{
                 strokeDasharray: ["1,200", "89,200", "89,200"],
                 rotate: 360,
@@ -194,9 +182,10 @@ export const CartItemWithOptimistic = ({
         <Image
           className={"w-full object-cover bg-[#F6F6F6] h-full rounded-[8px]"}
           src={src}
-          layout={"fill"}
-          objectFit="cover"
-          alt={"yabbayabba"}
+          fill
+          style={{ objectFit: "cover" }}
+          sizes="118px"
+          alt={name}
         />
       </span>
 

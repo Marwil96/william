@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import Image from "next/image";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { MockedCartContext } from "./MockCartProvider";
 
 export const CartItem = ({
@@ -17,7 +17,6 @@ export const CartItem = ({
   quantity: number;
 }) => {
   const globalProvider = useContext(MockedCartContext);
-  const [isRemovingItem, setIsRemovingItem] = useState(false);
 
   return (
     <div className="grid-rows-[max-content_max-content_max-content_1fr_max-content] grid-cols-[100px_1fr_max-content] lg:grid-cols-[118px_1fr_max-content] grid lg:w-[420px] mb-4 lg:mb-6 items-center [&>svg]:stroke-black">
@@ -35,15 +34,16 @@ export const CartItem = ({
         <Image
           className={"w-full object-cover bg-[#F6F6F6] h-full rounded-[8px]"}
           src={src}
-          layout={"fill"}
-          objectFit="cover"
-          alt={"yabbayabba"}
+          fill
+          style={{ objectFit: "cover" }}
+          sizes="118px"
+          alt={name}
         />
       </span>
 
       {/* REMOVE  */}
       <button
-        onClick={() => globalProvider.removeItem(line)}
+        onClick={() => globalProvider?.removeItem(line)}
         className="col-start-3 col-end-4 row-start-4 row-end-5 flex justify-end font-light text-xs text-[white] font-inter self-end"
       >
         [ Remove ]

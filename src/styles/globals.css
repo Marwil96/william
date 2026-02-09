@@ -4,7 +4,6 @@
 
 html,
 body {
-  background-color: #161616;
   background: #161616;
   padding: 0;
   margin: 0;
@@ -13,9 +12,6 @@ body {
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-path {
-  fill: #fff;
-}
 
 /* @media screen and (max-width: 1440px) {
   html,body {
@@ -47,7 +43,7 @@ p,
 q {
   padding: 0;
   margin: 0;
-  color: #f2f2f2;
+  color: #F7F7F7;
 }
 
 h1 {

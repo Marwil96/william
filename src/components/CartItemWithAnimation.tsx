@@ -28,8 +28,8 @@ const ProgressIndicator = () => (
       cy="50"
       r="20"
       fill="none"
-      stroke-dasharray="1, 200"
-      stroke-dashoffset="0"
+      strokeDasharray="1, 200"
+      strokeDashoffset="0"
       stroke="white"
       animate={{
         strokeDasharray: ["1 200", "89 200", "89 200"],
@@ -78,7 +78,7 @@ export const CartItemWithAnimation = ({
 
   const removeItemHelper = async (line: string) => {
     setIsRemovingItem(true);
-    await globalProvider.removeItem(line);
+    await globalProvider?.removeItem(line);
     setIsRemovingItem(false);
   };
   return (
@@ -97,49 +97,6 @@ export const CartItemWithAnimation = ({
         {name}
       </h2>
 
-      {/* {isRemovingItem && (
-        <motion.svg
-          viewBox="25 25 50 50"
-          width="24px"
-          height="24px"
-          display="block"
-          z-index="1"
-          strokeWidth="3"
-          strokeMiterlimit="10"
-          strokeLinecap="round"
-          opacity="0"
-          className="-left-[80px] absolute"
-          animate={{
-            opacity: 1,
-          }}
-          transition={{
-            duration: 0.5,
-            ease: "easeIn",
-          }}
-        >
-          <motion.circle
-            cx="50"
-            cy="50"
-            r="20"
-            fill="none"
-            stroke-dasharray="1, 200"
-            stroke-dashoffset="0"
-            animate={{
-              strokeDasharray: ["1 200", "89 200", "89 200"],
-              rotate: 360,
-              strokeDashoffset: [0, -35, -124],
-            }}
-            transition={{
-              type: "tween",
-              ease: "linear",
-              duration: 1.3,
-              repeat: Infinity,
-              repeatType: "loop",
-            }}
-          />
-        </motion.svg>
-      )} */}
-
       {/* Image */}
       <span
         className={
@@ -149,9 +106,10 @@ export const CartItemWithAnimation = ({
         <Image
           className={"w-full object-cover bg-[#F6F6F6] h-full rounded-[8px]"}
           src={src}
-          layout={"fill"}
-          objectFit="cover"
-          alt={"yabbayabba"}
+          fill
+          style={{ objectFit: "cover" }}
+          sizes="118px"
+          alt={name}
         />
       </span>
 

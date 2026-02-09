@@ -1,6 +1,5 @@
 import Layout from "../components/Layout";
 import TextBlock from "src/components/TextBlock";
-import Parser from "rss-parser";
 import BlogComponent from "src/components/BlogComponent";
 import React from "react";
 
@@ -26,7 +25,7 @@ export const latest = [
   {
     title: "Master Digital Design",
     desc: "We were tasked to create an alumni page for Amsterdam University of Applied Sciences design students.",
-    action: "Go to Case Study Study",
+    action: "Go to Case Study",
     key: "master-digital-design",
     leftText: "Case Study",
     href: "/projects/master-digital-design",
@@ -98,7 +97,7 @@ const Home = ({ currentlyReading, readRecently }) => {
         systems and the dev & designer relationship. Currently Team Lead at{" "}
         <a
           href="https://trystockholm.com/"
-          target="__blank"
+          target="_blank" rel="noopener noreferrer"
           className="font-title italic font-light underline cursor-pointer lg:hover:text-[#ff5800]"
         >
           TRY Stockholm
@@ -106,7 +105,7 @@ const Home = ({ currentlyReading, readRecently }) => {
         , creating ecom sites for some of Swedens biggest fashion brands(
         <a
           href="https://minirodini.com/"
-          target="__blank"
+          target="_blank" rel="noopener noreferrer"
           className="font-title italic font-light underline cursor-pointer lg:hover:text-[#ff5800]"
         >
           Mini Rodini
@@ -114,7 +113,7 @@ const Home = ({ currentlyReading, readRecently }) => {
         ,{" "}
         <a
           href="https://oascompany.com/"
-          target="__blank"
+          target="_blank" rel="noopener noreferrer"
           className="font-title italic font-light underline cursor-pointer lg:hover:text-[#ff5800]"
         >
           OAS
@@ -122,7 +121,7 @@ const Home = ({ currentlyReading, readRecently }) => {
         ,{" "}
         <a
           href="https://www.strongerlabel.com/se"
-          target="__blank"
+          target="_blank" rel="noopener noreferrer"
           className="font-title italic font-light underline cursor-pointer lg:hover:text-[#ff5800]"
         >
           Stronger
@@ -132,7 +131,7 @@ const Home = ({ currentlyReading, readRecently }) => {
         internet art at{" "}
         <a
           href="https://artscape.se/"
-          target="__blank"
+          target="_blank" rel="noopener noreferrer"
           className="font-title italic font-light underline cursor-pointer lg:hover:text-[#ff5800]"
         >
           Artscape
@@ -140,7 +139,7 @@ const Home = ({ currentlyReading, readRecently }) => {
         & built a great communication tool with{" "}
         <a
           href="https://www.levelshealth.com/"
-          target="__blank"
+          target="_blank" rel="noopener noreferrer"
           className="font-title italic font-light underline cursor-pointer lg:hover:text-[#ff5800]"
         >
           Levels Health
@@ -209,7 +208,7 @@ const Home = ({ currentlyReading, readRecently }) => {
         Looking for a chat, a freelance proposal or advice?
         <br />
         Say hi at{" "}
-        <a target="__blank" href="mailto:william.c.o.martinsson@gmail.com">
+        <a target="_blank" rel="noopener noreferrer" href="mailto:william.c.o.martinsson@gmail.com">
           william.c.o.martinsson@gmail.com
         </a>
       </TextBlock>
@@ -217,22 +216,34 @@ const Home = ({ currentlyReading, readRecently }) => {
   );
 };
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
+  const Parser = (await import("rss-parser")).default;
   let parser = new Parser();
 
-  const currentlyReading = await parser.parseURL(
-    "https://oku.club/rss/collection/b4aUW"
-  );
-  const readRecently = await parser.parseURL(
-    "https://oku.club/rss/collection/8OVTk"
-  );
+  try {
+    const currentlyReading = await parser.parseURL(
+      "https://oku.club/rss/collection/b4aUW"
+    );
+    const readRecently = await parser.parseURL(
+      "https://oku.club/rss/collection/8OVTk"
+    );
 
-  return {
-    props: {
-      currentlyReading: currentlyReading.items,
-      readRecently: readRecently.items,
-    },
-  };
+    return {
+      props: {
+        currentlyReading: currentlyReading.items,
+        readRecently: readRecently.items,
+      },
+      revalidate: 3600,
+    };
+  } catch (error) {
+    return {
+      props: {
+        currentlyReading: [],
+        readRecently: [],
+      },
+      revalidate: 60,
+    };
+  }
 }
 
 export default Home;

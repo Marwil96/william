@@ -25,7 +25,7 @@ const metadata = [
 const subtitle =
   "This case is about my side project Agenly, a website builder where you build your sites through having a dialogue with a decision tree(semi-AI).";
 
-const Knodd = () => {
+const Agenly = () => {
   return (
     <Layout title="Agenly" desc={subtitle} project={true} framerKey="agenly">
       <ProjectComponent
@@ -124,4 +124,4 @@ const Knodd = () => {
   );
 };
 
-export default Knodd;
+export default Agenly;

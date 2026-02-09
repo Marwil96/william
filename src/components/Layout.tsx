@@ -40,18 +40,7 @@ const Layout = ({
             }}
           >
             <Navbar isProject={project} />
-            <AnimatePresence mode="wait">
-              <motion.div
-                layout
-                key={framerKey}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: project ? 0.5 : 0.4 }}
-              >
                 {children}
-              </motion.div>
-            </AnimatePresence>
           </motion.div>
         </AnimatePresence>
         <Footer />

@@ -46,7 +46,7 @@ const BlogComponent = ({
             subtitle?: string;
             external?: boolean;
           },
-          index: any
+          index: number
         ) => (
           <LinkItem
             title={title}

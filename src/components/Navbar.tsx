@@ -5,15 +5,6 @@ import { motion } from "motion/react";
 const Navbar = ({ isProject }) => {
   return (
     <motion.div
-      // initial={{ width: "615px" }}
-      // animate={{ width: !isProject ? "615px" : "100%" }}
-      // exit={{ width: "615px" }}
-      // transition={{
-      //   duration: isProject ? 0.35 : 0.2,
-      //   type: "spring",
-      //   damping: 20,
-      //   stiffness: 100,
-      // }}
       className="flex justify-between items-center pt-5 max-w-[100%]"
     >
       <div className="flex flex-col md:flex-row">
@@ -41,7 +32,6 @@ const Navbar = ({ isProject }) => {
         </Link>
       </div>
       <a
-        target="__blank"
         href="mailto:william.c.o.martinsson@gmail.com"
         className="text-sm lg:text-base font-title font-light italic mb-1 cursor-pointer text-white lg:hover:text-[#ff5800] md:mr-4 md:mb-0"
       >

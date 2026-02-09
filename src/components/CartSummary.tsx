@@ -83,7 +83,7 @@ export const CartItems = ({ step }: { step: number }) => {
         className="flex flex-col p-4 lg:p-6 bg-black overflow-hidden max-w-[550px] rounded-lg w-full"
       >
         <AnimatePresence>
-          {cartContext.items.map((item) => (
+          {cartContext?.items.map((item) => (
             <CartItemInUse
               src={item.images[0].src}
               quantity={item.quantity}
