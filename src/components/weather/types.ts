@@ -49,4 +49,6 @@ export interface WeatherSeasonContextValue {
   weather: WeatherData | null;
   theme: WeatherTheme;
   isLoading: boolean;
+  bgEnabled: boolean;
+  setBgEnabled: (enabled: boolean) => void;
 }

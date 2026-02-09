@@ -3,12 +3,11 @@ import type { AppProps } from "next/app";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
 import React from "react";
-import { WeatherSeasonProvider, SeasonalTheme } from "../components/weather";
+import { WeatherSeasonProvider } from "../components/weather";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <WeatherSeasonProvider>
-      <SeasonalTheme />
       <Script
         src="https://scripts.simpleanalyticscdn.com/latest.js"
         strategy="afterInteractive"

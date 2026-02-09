@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useMemo } from "react";
+import React, { createContext, useContext, useMemo, useState, useCallback } from "react";
 import { useWeatherData } from "./useWeatherData";
 import { monthToSeason, SEASON_PALETTES } from "./constants";
 import { Season, WeatherSeasonContextValue, WeatherTheme } from "./types";
@@ -18,6 +18,8 @@ export function WeatherSeasonProvider({
 }) {
   const { weather, isLoading } = useWeatherData();
   const season = getCurrentSeason();
+  const [bgEnabled, setBgEnabledRaw] = useState(false);
+  const setBgEnabled = useCallback((enabled: boolean) => setBgEnabledRaw(enabled), []);
 
   const theme: WeatherTheme = useMemo(() => {
     const palette = SEASON_PALETTES[season];
@@ -31,8 +33,8 @@ export function WeatherSeasonProvider({
   }, [season, weather]);
 
   const value: WeatherSeasonContextValue = useMemo(
-    () => ({ season, weather, theme, isLoading }),
-    [season, weather, theme, isLoading]
+    () => ({ season, weather, theme, isLoading, bgEnabled, setBgEnabled }),
+    [season, weather, theme, isLoading, bgEnabled, setBgEnabled]
   );
 
   return (
@@ -58,6 +60,8 @@ export function useWeatherSeason(): WeatherSeasonContextValue {
         temperature: 15,
       },
       isLoading: false,
+      bgEnabled: false,
+      setBgEnabled: () => {},
     };
   }
   return ctx;

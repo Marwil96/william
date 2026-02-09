@@ -1,8 +1,6 @@
 export { WeatherSeasonProvider, useWeatherSeason } from "./WeatherSeasonProvider";
-export { SeasonalTheme } from "./SeasonalTheme";
 export { WeatherIndicator } from "./WeatherIndicator";
 export { WeatherBackground } from "./WeatherBackground";
-export { WeatherCanvas } from "./WeatherCanvas";
 export { useWeatherData } from "./useWeatherData";
 export {
   SEASON_PALETTES,

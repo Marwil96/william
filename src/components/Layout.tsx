@@ -2,7 +2,7 @@ import React from "react";
 import dynamic from "next/dynamic";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import { WeatherIndicator } from "./weather";
+import { WeatherIndicator, useWeatherSeason } from "./weather";
 import { AnimatePresence, motion } from "motion/react";
 import { NextSeo } from "next-seo";
 
@@ -27,12 +27,14 @@ const Layout = ({
   framerKey: string;
   className?: string;
 }) => {
+  const { bgEnabled } = useWeatherSeason();
+
   return (
     <>
       <NextSeo title={title} description={desc} />
-      <WeatherBackground />
+      {bgEnabled && <WeatherBackground />}
       <section
-        className={`relative z-10 px-6 flex flex-col items-center mx-auto transition-all ${className}`}
+        className={`${bgEnabled ? "relative z-10 " : ""}px-6 flex flex-col items-center mx-auto transition-all ${className}`}
       >
         <AnimatePresence mode="wait">
           <motion.div
