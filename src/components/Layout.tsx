@@ -1,8 +1,16 @@
 import React from "react";
+import dynamic from "next/dynamic";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import { WeatherIndicator } from "./weather";
 import { AnimatePresence, motion } from "motion/react";
 import { NextSeo } from "next-seo";
+
+const WeatherBackground = dynamic(
+  () =>
+    import("./weather/WeatherBackground").then((mod) => mod.WeatherBackground),
+  { ssr: false }
+);
 
 const Layout = ({
   children,
@@ -22,8 +30,9 @@ const Layout = ({
   return (
     <>
       <NextSeo title={title} description={desc} />
+      <WeatherBackground />
       <section
-        className={`px-6 flex flex-col items-center mx-auto transition-all ${className}`}
+        className={`relative z-10 px-6 flex flex-col items-center mx-auto transition-all ${className}`}
       >
         <AnimatePresence mode="wait">
           <motion.div
@@ -45,6 +54,7 @@ const Layout = ({
         </AnimatePresence>
       </section>
       <Footer />
+      <WeatherIndicator />
     </>
   );
 };
