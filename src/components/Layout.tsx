@@ -27,7 +27,7 @@ const Layout = ({
       >
         <AnimatePresence mode="wait">
           <motion.div
-            className="w-full pb-8 min-h-screen md:pb-80 max-w-[100%]"
+            className="w-full pb-8 min-h-screen md:pb-20 max-w-[100%]"
             key={framerKey}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -43,8 +43,8 @@ const Layout = ({
                 {children}
           </motion.div>
         </AnimatePresence>
-        <Footer />
       </section>
+      <Footer />
     </>
   );
 };
