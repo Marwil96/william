@@ -1,20 +1,12 @@
 import { NextPage } from "next";
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import dynamic from "next/dynamic";
+
 import clsx from "clsx";
 import Layout from "src/components/Layout";
 import { CartItems } from "src/components/CartSummary";
 import { MockedCartProvider } from "src/components/MockCartProvider";
-
-// Dynamic import for DynamicIsland (keeps react-use-measure out of initial bundle)
-const DynamicIslandDemo = dynamic(
-  () =>
-    import("src/components/dynamic-island/DynamicIsland").then((mod) => ({
-      default: mod.DynamicIsland,
-    })),
-  { ssr: false, loading: () => <div className="h-[44px]" /> }
-);
+import { AddToCartDemo } from "src/components/AddToCartDemo";
 
 // ─── Experiment Data ─────────────────────────────────────────────
 // To add a new experiment: add an entry here + a case in ExperimentDemo
@@ -69,13 +61,13 @@ const experiments: ExperimentConfig[] = [
     ],
   },
   {
-    id: "dynamic-island",
-    title: "Dynamic Island",
+    id: "add-to-cart",
+    title: "Add to Cart",
     shortDescription:
-      "A spatial UI element inspired by iOS, reimagined for web.",
+      "A morphing button with spring-driven state transitions.",
     description:
-      "A persistent, morphing element that adapts its shape and content using spring physics and letter-by-letter blur animations.",
-    tags: ["React", "Motion", "Spatial UI", "Spring Physics"],
+      "An exploration of micro-interactions in a single button — morphing between idle, loading, and success states with spring physics and layout animations.",
+    tags: ["React", "Motion", "Micro-interaction", "E-commerce"],
   },
 ];
 
@@ -150,14 +142,6 @@ const MinicartDemo = ({
   );
 };
 
-// ─── Dynamic Island Demo ─────────────────────────────────────────
-
-const DynamicIslandDemoWrapper = () => (
-  <div className="relative w-full min-h-[250px] [&>div]:left-1/2 [&>div]:-translate-x-1/2 [&>div]:top-1/2 [&>div]:-translate-y-1/2">
-    <DynamicIslandDemo />
-  </div>
-);
-
 // ─── Experiment Demo Renderer ────────────────────────────────────
 
 const ExperimentDemo = ({
@@ -168,8 +152,8 @@ const ExperimentDemo = ({
   switch (experiment.id) {
     case "minicart":
       return <MinicartDemo iterations={experiment.iterations!} />;
-    case "dynamic-island":
-      return <DynamicIslandDemoWrapper />;
+    case "add-to-cart":
+      return <AddToCartDemo />;
     default:
       return null;
   }
