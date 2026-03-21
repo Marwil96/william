@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
 type ButtonState = "idle" | "loading" | "success";
@@ -71,35 +71,36 @@ export const AddToCartButton = ({
   forcedState?: ButtonState | null;
 }) => {
   const [state, setState] = useState<ButtonState>("idle");
+  const timersRef = useRef<NodeJS.Timeout[]>([]);
   const isControlled = forcedState != null;
   const currentState = isControlled ? forcedState : state;
 
   const handleClick = () => {
     if (isControlled || currentState !== "idle") return;
     setState("loading");
-    setTimeout(() => setState("success"), 1800);
-    setTimeout(() => setState("idle"), 3800);
+    timersRef.current.push(setTimeout(() => setState("success"), 1800));
+    timersRef.current.push(setTimeout(() => setState("idle"), 3800));
   };
 
   useEffect(() => {
-    if (isControlled) setState(forcedState);
-  }, [forcedState, isControlled]);
+    return () => timersRef.current.forEach(clearTimeout);
+  }, []);
 
   return (
     <motion.button
       onClick={handleClick}
       disabled={currentState !== "idle" && !isControlled}
       layout
-      className={`relative flex items-center justify-center gap-2 h-12 overflow-hidden rounded-full font-inter text-sm font-medium tracking-wide cursor-pointer
+      className={`relative flex items-center justify-center gap-2 h-12 overflow-hidden rounded-full font-inter text-sm font-medium tracking-wide disabled:cursor-default
         ${currentState === "success" ? "bg-emerald-400 text-emerald-950" : "bg-white text-black"}
         ${currentState === "loading" ? "px-6" : "px-8"}
-        ${currentState === "idle" && !isControlled ? "hover:scale-[1.03] active:scale-[0.97]" : ""}
+        ${currentState === "idle" && !isControlled ? "cursor-pointer" : ""}
         transition-colors duration-300`}
       animate={{
         width: currentState === "loading" ? 56 : "auto",
       }}
       transition={springTransition}
-      whileHover={currentState === "idle" && !isControlled ? { y: -1 } : {}}
+      whileHover={currentState === "idle" && !isControlled ? { y: -1, scale: 1.03 } : {}}
       whileTap={currentState === "idle" && !isControlled ? { scale: 0.97 } : {}}
     >
       <AnimatePresence mode="wait" initial={false}>
