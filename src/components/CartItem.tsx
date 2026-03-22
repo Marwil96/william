@@ -19,9 +19,9 @@ export const CartItem = ({
   const globalProvider = useContext(MockedCartContext);
 
   return (
-    <div className="grid-rows-[max-content_max-content_max-content_1fr_max-content] grid-cols-[100px_1fr_max-content] lg:grid-cols-[118px_1fr_max-content] grid lg:w-[420px] mb-4 lg:mb-6 items-center [&>svg]:stroke-black">
+    <div className="grid-rows-[max-content_max-content_max-content_1fr_max-content] grid-cols-[100px_1fr_max-content] lg:grid-cols-[118px_1fr_max-content] grid lg:w-[420px] mb-4 lg:mb-6 items-center">
       {/* NAME  */}
-      <h2 className="col-start-2 col-end-3 row-start-1 row-end-2 flex mb-1 text-xs text-[white] font-inter">
+      <h2 className="col-start-2 col-end-3 row-start-1 row-end-2 flex mb-1 text-xs text-[#F7F7F7] font-inter">
         {name}
       </h2>
 
@@ -42,37 +42,44 @@ export const CartItem = ({
       </span>
 
       {/* REMOVE  */}
-      <button
+      <motion.button
         onClick={() => globalProvider?.removeItem(line)}
-        className="col-start-3 col-end-4 row-start-4 row-end-5 flex justify-end font-light text-xs text-[white] font-inter self-end"
+        whileTap={{ scale: 0.96 }}
+        className="col-start-3 col-end-4 row-start-4 row-end-5 flex justify-end font-light text-xs text-gray-500 hover:text-[#F7F7F7] transition-colors duration-200 font-inter self-end cursor-pointer"
       >
         [ Remove ]
-      </button>
+      </motion.button>
 
       {/* PRICE */}
-      <div className="col-start-2 col-end-3 row-start-2 row-end-3 flex flex-col mb-1 justify-end text-[white] font-mono text-xs uppercase">
+      <div className="col-start-2 col-end-3 row-start-2 row-end-3 flex flex-col mb-1 justify-end text-[#F7F7F7] font-mono text-xs uppercase">
         <span>{price}</span>
       </div>
 
       <div className="row-start-4 row-end-5 col-start-2 col-end-3 flex gap-4 items-center text-sm font-inter self-end">
-        <button
-          className="w-6 h-6 flex justify-center disabled:cursor-default cursor-pointer items-center [&>svg]:disabled:fill-[#bababa] [&>svg]:w-2 [&>svg]:h-2 [&>svg]:fill-[#161316] [&>svg]:hover:fill-[#161316]"
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.85 }}
+          className="w-6 h-6 flex justify-center disabled:cursor-default cursor-pointer items-center [&>svg]:disabled:fill-gray-600 [&>svg]:w-2 [&>svg]:h-2 [&>svg]:fill-gray-400 [&>svg]:hover:fill-[#F7F7F7] transition-colors duration-200"
           disabled={quantity === 1}
           onClick={() => globalProvider?.updateQuantity(line, quantity - 1)}
         >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 1.13">
             <path d="M5.44 0h6a.56.56 0 1 1 0 1.12H.56A.56.56 0 1 1 .56 0h4.87Z" />
-          </svg>{" "}
-        </button>
-        <span className="">{quantity}</span>
-        <button
-          className="w-6 h-6 flex justify-center items-center [&>svg]:fill-[#161316] [&>svg]:hover:fill-[#161316] [&>svg]:hover:cursor-pointer disabled:[&>svg]:fill-[#f6f6f6] [&>svg]:w-2 [&>svg]:h-2"
+          </svg>
+        </motion.button>
+        <span className="text-[#F7F7F7] font-mono text-xs tabular-nums w-[2ch] text-center inline-block">
+          {quantity}
+        </span>
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.85 }}
+          className="w-6 h-6 flex justify-center cursor-pointer items-center [&>svg]:fill-gray-400 [&>svg]:hover:fill-[#F7F7F7] [&>svg]:w-2 [&>svg]:h-2 transition-colors duration-200"
           onClick={() => globalProvider?.updateQuantity(line, quantity + 1)}
         >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12">
             <path d="M11.44 5.44H6.57V.56a.56.56 0 1 0-1.12 0v4.87H.56a.56.56 0 1 0 0 1.12h4.87v4.87a.56.56 0 1 0 1.12 0V6.55h4.87a.56.56 0 1 0 0-1.12Z" />
           </svg>
-        </button>
+        </motion.button>
       </div>
     </div>
   );

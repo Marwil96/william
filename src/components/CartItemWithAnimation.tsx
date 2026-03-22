@@ -2,50 +2,8 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import { useContext, useState } from "react";
 import { MockedCartContext } from "./MockCartProvider";
+import { AsciiSpinner } from "./cart-utils";
 
-const ProgressIndicator = () => (
-  <motion.svg
-    viewBox="25 25 50 50"
-    width="24px"
-    height="24px"
-    display="block"
-    z-index="1"
-    strokeWidth="3"
-    color="white"
-    strokeMiterlimit="10"
-    strokeLinecap="round"
-    opacity="0"
-    animate={{
-      opacity: 1,
-    }}
-    transition={{
-      duration: 0.5,
-      ease: "easeIn",
-    }}
-  >
-    <motion.circle
-      cx="50"
-      cy="50"
-      r="20"
-      fill="none"
-      strokeDasharray="1, 200"
-      strokeDashoffset="0"
-      stroke="white"
-      animate={{
-        strokeDasharray: ["1 200", "89 200", "89 200"],
-        rotate: 360,
-        strokeDashoffset: [0, -35, -124],
-      }}
-      transition={{
-        type: "tween",
-        ease: "linear",
-        duration: 1.3,
-        repeat: Infinity,
-        repeatType: "loop",
-      }}
-    />
-  </motion.svg>
-);
 export const CartItemWithAnimation = ({
   src,
   name,
@@ -90,10 +48,10 @@ export const CartItemWithAnimation = ({
         transition: { duration: 0.35, ease: "easeIn" },
       }}
       transition={{ duration: 0.25, ease: "easeInOut" }}
-      className="grid-rows-[max-content_max-content_max-content_1fr_max-content] grid-cols-[100px_1fr_max-content] lg:grid-cols-[118px_1fr_max-content] grid lg:w-[420px] mb-4 lg:mb-6 items-center [&>svg]:stroke-black"
+      className="grid-rows-[max-content_max-content_max-content_1fr_max-content] grid-cols-[100px_1fr_max-content] lg:grid-cols-[118px_1fr_max-content] grid lg:w-[420px] mb-4 lg:mb-6 items-center"
     >
       {/* NAME  */}
-      <h2 className="col-start-2 col-end-3 row-start-1 row-end-2 flex mb-1 text-xs text-[white] font-inter">
+      <h2 className="col-start-2 col-end-3 row-start-1 row-end-2 flex mb-1 text-xs text-[#F7F7F7] font-inter">
         {name}
       </h2>
 
@@ -114,22 +72,30 @@ export const CartItemWithAnimation = ({
       </span>
 
       {/* REMOVE  */}
-      <button
+      <motion.button
         onClick={() => removeItemHelper(line)}
-        className="col-start-3 col-end-4 row-start-4 row-end-5 flex justify-end font-light text-xs text-[white] font-inter self-end"
+        whileTap={{ scale: 0.96 }}
+        className="col-start-3 col-end-4 row-start-4 row-end-5 flex justify-end font-light text-xs text-gray-500 hover:text-[#F7F7F7] transition-colors duration-200 font-inter self-end cursor-pointer"
       >
-        {isRemovingItem ? <ProgressIndicator /> : "[ Remove ]"}
-      </button>
+        {isRemovingItem ? (
+          <span className="font-mono text-gray-400">
+            [ <AsciiSpinner className="font-mono text-xs text-gray-400" /> ]
+          </span>
+        ) : (
+          "[ Remove ]"
+        )}
+      </motion.button>
 
       {/* PRICE */}
-      <div className="col-start-2 col-end-3 row-start-2 row-end-3 flex flex-col mb-1 justify-end text-[white] font-mono text-xs uppercase">
+      <div className="col-start-2 col-end-3 row-start-2 row-end-3 flex flex-col mb-1 justify-end text-[#F7F7F7] font-mono text-xs uppercase">
         <span>{price}</span>
       </div>
 
       <div className="row-start-4 row-end-5 col-start-2 col-end-3 flex gap-4 items-center text-sm font-inter self-end">
         <motion.button
-          // whileTap={{ scale: quantity === 1 ? 1 : 1.2 }}
-          className="w-6 h-6 flex justify-center disabled:cursor-default cursor-pointer items-center [&>svg]:disabled:fill-[#bababa] [&>svg]:w-3 [&>svg]:h-3 [&>svg]:fill-[#161316] [&>svg]:hover:fill-[#161316]"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.85 }}
+          className="w-6 h-6 flex justify-center disabled:cursor-default cursor-pointer items-center [&>svg]:disabled:fill-gray-600 [&>svg]:w-3 [&>svg]:h-3 [&>svg]:fill-gray-400 [&>svg]:hover:fill-[#F7F7F7] transition-colors duration-200"
           disabled={quantity === 1}
           onClick={() => updateQuantityHelper(line, "decrease")}
         >
@@ -138,15 +104,22 @@ export const CartItemWithAnimation = ({
               <path d="M5.44 0h6a.56.56 0 1 1 0 1.12H.56A.56.56 0 1 1 .56 0h4.87Z" />
             </svg>
           ) : (
-            <ProgressIndicator />
+            <AsciiSpinner className="font-mono text-xs text-gray-400" />
           )}
         </motion.button>
-        <motion.span key={quantity} className="">
+        <motion.span
+          key={quantity}
+          className="text-[#F7F7F7] font-mono text-xs tabular-nums w-[2ch] text-center inline-block"
+          initial={{ opacity: 0, y: -4 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.15 }}
+        >
           {quantity}
         </motion.span>
         <motion.button
-          // whileTap={{ scale: 1.3 }}
-          className="w-6 h-6 flex justify-center items-center [&>svg]:fill-[#161316] [&>svg]:hover:fill-[#161316] [&>svg]:hover:cursor-pointer disabled:[&>svg]:fill-[#f6f6f6] [&>svg]:w-3 [&>svg]:h-3"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.85 }}
+          className="w-6 h-6 flex justify-center cursor-pointer items-center [&>svg]:fill-gray-400 [&>svg]:hover:fill-[#F7F7F7] [&>svg]:w-3 [&>svg]:h-3 transition-colors duration-200"
           onClick={() => updateQuantityHelper(line, "increase")}
         >
           {!isAddingQuantity ? (
@@ -154,7 +127,7 @@ export const CartItemWithAnimation = ({
               <path d="M11.44 5.44H6.57V.56a.56.56 0 1 0-1.12 0v4.87H.56a.56.56 0 1 0 0 1.12h4.87v4.87a.56.56 0 1 0 1.12 0V6.55h4.87a.56.56 0 1 0 0-1.12Z" />
             </svg>
           ) : (
-            <ProgressIndicator />
+            <AsciiSpinner className="font-mono text-xs text-gray-400" />
           )}
         </motion.button>
       </div>

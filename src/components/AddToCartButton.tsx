@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion } from "motion/react";
+import { useAsciiSpinner } from "./cart-utils";
 
 export type ButtonState = "idle" | "loading" | "success";
 
@@ -39,26 +40,6 @@ function useScrambleText(target: string, trigger: number, speed = 30) {
   }, [target, trigger, speed]);
 
   return display;
-}
-
-// ─── ASCII Spinner ────────────────────────────────────────────
-const LOADING_FRAMES = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"];
-
-function useAsciiSpinner(active: boolean, speed = 80) {
-  const [frame, setFrame] = useState(0);
-
-  useEffect(() => {
-    if (!active) {
-      setFrame(0);
-      return;
-    }
-    const interval = setInterval(() => {
-      setFrame((f) => (f + 1) % LOADING_FRAMES.length);
-    }, speed);
-    return () => clearInterval(interval);
-  }, [active, speed]);
-
-  return LOADING_FRAMES[frame];
 }
 
 // ─── Check Icon (path draw) ──────────────────────────────────
