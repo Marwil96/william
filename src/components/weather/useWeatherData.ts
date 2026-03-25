@@ -33,19 +33,8 @@ async function fetchWeather(
   };
 }
 
-function getGeolocation(): Promise<{ lat: number; lon: number }> {
-  return new Promise((resolve) => {
-    if (typeof navigator === "undefined" || !navigator.geolocation) {
-      resolve({ lat: DEFAULT_LATITUDE, lon: DEFAULT_LONGITUDE });
-      return;
-    }
-    navigator.geolocation.getCurrentPosition(
-      (pos) =>
-        resolve({ lat: pos.coords.latitude, lon: pos.coords.longitude }),
-      () => resolve({ lat: DEFAULT_LATITUDE, lon: DEFAULT_LONGITUDE }),
-      { timeout: 5000, maximumAge: 600000 }
-    );
-  });
+function getLocation(): { lat: number; lon: number } {
+  return { lat: DEFAULT_LATITUDE, lon: DEFAULT_LONGITUDE };
 }
 
 export function useWeatherData() {
@@ -56,7 +45,7 @@ export function useWeatherData() {
 
   const load = useCallback(async () => {
     try {
-      const { lat, lon } = await getGeolocation();
+      const { lat, lon } = getLocation();
       const data = await fetchWeather(lat, lon);
       setWeather(data);
       setError(null);
