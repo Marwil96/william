@@ -1,9 +1,100 @@
 import Layout from "../components/Layout";
 import TextBlock from "src/components/TextBlock";
 import BlogComponent from "src/components/BlogComponent";
+import ProjectList, { ProjectRow } from "src/components/ProjectList";
 import React from "react";
 
-export const latest = [
+import KnoddHero from "../assets/knodd/hero.png";
+import SuperchicaneHero from "../assets/superchicane/hero.png";
+import RadionightHero from "../assets/radionight/hero.png";
+import MasterDigitalDesignHero from "../assets/masterdigitaldesign/hero.png";
+import AgenlyHero from "../assets/agenly/hero.png";
+import MatieHero from "../assets/matie/hero.png";
+import KnvbHero from "../assets/knvb/hero.png";
+
+// PLACEHOLDER DATA — agency mapping is a best-guess. William will refine.
+export const projects: ProjectRow[] = [
+  {
+    title: "Knodd",
+    agency: "Momkai",
+    year: "2019",
+    desc: "An entirely new part of the website with articles about different child diseases and a rewrite to server rendering.",
+    href: "/projects/knodd",
+    image: KnoddHero,
+  },
+  {
+    title: "Radionight",
+    agency: "Oh Hi",
+    year: "2022",
+    desc: "A podcasting platform designed to generate hype around new episodes. Taking advantage of live streaming to imitate the movie premiere feel and producing a sense of community.",
+    href: "/projects/radionight",
+    image: RadionightHero,
+  },
+  {
+    title: "Superchicane",
+    agency: "Personal",
+    year: "2021",
+    desc: "Superchicane is a Formula One news platform made to tell stories with the help of data, everything from character portraits to the sport's technical aspects.",
+    href: "/projects/superchicane",
+    image: SuperchicaneHero,
+  },
+  {
+    title: "Matie",
+    agency: "Personal",
+    year: "2021",
+    desc: "Matie is a recipe app, built around the feature to create cookbooks, which you can work on together with your friends and family.",
+    href: "/projects/matie",
+    image: MatieHero,
+  },
+  {
+    title: "Agenly",
+    agency: "Personal",
+    year: "2019",
+    desc: "A website builder where you build your sites through having a dialogue with a decision tree (semi-AI).",
+    href: "/projects/agenly",
+    image: AgenlyHero,
+  },
+  {
+    title: "KNVB Rinus",
+    agency: "Momkai",
+    year: "2019",
+    desc: "The new version of KNVB's Rinus, a training platform for football teams where they plan exercises and get advice from other coaches.",
+    href: "/projects/knvb-rinus",
+    image: KnvbHero,
+  },
+  {
+    title: "Master Digital Design",
+    agency: "Momkai",
+    year: "2018",
+    desc: "An alumni page for Amsterdam University of Applied Sciences design students.",
+    href: "/projects/master-digital-design",
+    image: MasterDigitalDesignHero,
+  },
+  // TRY Stockholm work — no case study pages yet, no images yet.
+  {
+    title: "Mini Rodini",
+    agency: "TRY Stockholm",
+    year: "2024",
+    desc: "Ecom site for the Swedish kidswear brand.",
+    externalHref: "https://minirodini.com/",
+  },
+  {
+    title: "Stronger",
+    agency: "TRY Stockholm",
+    year: "2024",
+    desc: "Ecom site for the activewear brand.",
+    externalHref: "https://www.strongerlabel.com/se",
+  },
+  {
+    title: "OAS",
+    agency: "TRY Stockholm",
+    year: "2024",
+    desc: "Ecom site for OAS Company.",
+    externalHref: "https://oascompany.com/",
+  },
+];
+
+export const writings = [
   {
     title: "UI Experiments",
     desc: "This is a playground for me to experiment with different animations, interactions, and design patterns.",
@@ -13,47 +104,6 @@ export const latest = [
     key: "experiments",
     external: false,
     type: "experiments",
-  },
-  {
-    title: "Knodd",
-    desc: "An entirely new part of the website with articles about different child diseases and a rewrite to server rendering.",
-    action: "Go to case study",
-    leftText: "Case Study",
-    key: "knodd",
-    href: "/projects/knodd",
-  },
-  {
-    title: "Master Digital Design",
-    desc: "We were tasked to create an alumni page for Amsterdam University of Applied Sciences design students.",
-    action: "Go to Case Study",
-    key: "master-digital-design",
-    leftText: "Case Study",
-    href: "/projects/master-digital-design",
-  },
-  // {
-  //   title: "Superchicane",
-  //   desc: "Superchicane is a Formula One news platform made to tell stories with the help of data, everything from character portraits to the sport's technical aspects.",
-  //   action: "Go to Project",
-  //   leftText: "Case Study",
-  //   href: "/projects/superchicane",
-  //   type: "project",
-  // },
-  {
-    title: "Dutch Football Association",
-    desc: "We were tasked to build the new version of KNVBs Rinus, a training platform for football teams. Where they can plan their exercises and get inspiration and advice from other football coaches.",
-    action: "Go to Case",
-    key: "knvb-rinus",
-    leftText: "Case Study",
-    href: "/projects/knvb-rinus",
-  },
-  {
-    title: "Radionight",
-    desc: "A podcasting platform designed to generate hype around new episodes. Taking advantage of live streaming to imitate the movie premiere feel and producing a sense of community.",
-    action: "Go to Project",
-    leftText: "Case Study",
-    key: "radionight",
-    href: "/projects/radionight",
-    type: "project",
   },
   {
     title: "Fuck WCAG! [New Hot Design Trend] Here I come",
@@ -146,10 +196,16 @@ const Home = ({ currentlyReading, readRecently }) => {
         </a>
         .
       </span>
+      <h2 className="text-sm font-inter font-medium mb-2 lg:mb-4 text-gray-400">
+        Projects
+      </h2>
+      <div className="mb-12">
+        <ProjectList projects={projects} />
+      </div>
       <BlogComponent
-        title="Suggested Reading"
-        subtitle="Stories, Case reports and more."
-        posts={latest}
+        title="Writing & Experiments"
+        subtitle="Articles, playground, and side projects."
+        posts={writings}
         className="mb-12"
       />
 

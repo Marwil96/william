@@ -170,10 +170,10 @@ const ExperimentsV2: NextPage = () => {
       project
       className="w-full px-6 md:px-40"
     >
-      <div className="flex flex-col relative mt-6 md:mt-10">
+      <div className="flex flex-col relative">
         {/* ─── Header ─── */}
         <motion.h1
-          className="text-4xl md:text-7xl lg:text-8xl font-title font-thin italic leading-[0.95]"
+          className="text-2xl font-title italic mt-5 mb-2 md:mt-[120px] text-[#F7F7F7]"
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
@@ -187,7 +187,7 @@ const ExperimentsV2: NextPage = () => {
         </motion.h1>
 
         <motion.p
-          className="text-sm md:text-base font-system text-gray-400 mt-3 md:mt-4 max-w-[420px] leading-relaxed"
+          className="text-sm font-system text-gray-500 max-w-md"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.15, duration: 0.4 }}

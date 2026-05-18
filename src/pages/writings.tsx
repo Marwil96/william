@@ -4,6 +4,20 @@ import BlogComponent from "src/components/BlogComponent";
 
 const posts = [
   {
+    title: "A button that answers back",
+    desc: "Notes on the add-to-cart button — marching ants, ASCII scramble, and a confirmation that lives where the user is already looking.",
+    action: "Go to Article",
+    leftText: "17/05/26",
+    href: "/writings/add-to-cart",
+  },
+  {
+    title: "A cart is a list. A minicart is a feeling.",
+    desc: "Three iterations of a cart UI — classic, animated, optimistic — and a working theory about what was actually changing between them.",
+    action: "Go to Article",
+    leftText: "17/05/26",
+    href: "/writings/minicart",
+  },
+  {
     title: "Fuck WCAG! [New Hot Design Trend] Here I come",
     desc: "What’s the most important? Making the web accessible for all or letting the user make the website black?",
     action: "Go to Article",
