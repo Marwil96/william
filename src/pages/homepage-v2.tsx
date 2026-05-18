@@ -450,9 +450,12 @@ const HomepageV2 = ({ currentlyReading, readRecently }: any) => {
         <WritingsSlider rows={articles} />
       </div>
 
-      <h2 className="text-sm font-inter font-medium mb-2 lg:mb-4 text-gray-400">
-        Me
-      </h2>
+      <SectionHeader
+        index="03"
+        title="Me"
+        lead="How I work, what I read, who I cheer for."
+      />
+      <div className="mt-6 mb-6">
       <TextBlock>
         I'm all about learning through <strong>play</strong>, diving into good{" "}
         <strong>reads</strong>, and getting hands-on with{" "}
@@ -497,9 +500,13 @@ const HomepageV2 = ({ currentlyReading, readRecently }: any) => {
             </React.Fragment>
           ))}
       </TextBlock>
-      <h2 className="text-xs lg:text-sm font-inter font-medium mb-2 lg:mb-4 text-gray-400">
-        Reach out
-      </h2>
+      </div>
+      <SectionHeader
+        index="04"
+        title="Reach out"
+        lead="A chat, freelance proposal, or advice."
+      />
+      <div className="mt-6">
       <TextBlock>
         Looking for a chat, a freelance proposal or advice?
         <br />
@@ -512,6 +519,7 @@ const HomepageV2 = ({ currentlyReading, readRecently }: any) => {
           william.c.o.martinsson@gmail.com
         </a>
       </TextBlock>
+      </div>
     </Layout>
   );
 };

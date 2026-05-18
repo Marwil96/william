@@ -2,7 +2,7 @@ import React from "react";
 import dynamic from "next/dynamic";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import { WeatherIndicator, useWeatherSeason } from "./weather";
+import { useWeatherSeason } from "./weather";
 import { AnimatePresence, motion } from "motion/react";
 import { NextSeo } from "next-seo";
 
@@ -56,7 +56,6 @@ const Layout = ({
         </AnimatePresence>
       </section>
       <Footer />
-      <WeatherIndicator />
     </>
   );
 };
