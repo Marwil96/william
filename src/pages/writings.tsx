@@ -4,15 +4,15 @@ import BlogComponent from "src/components/BlogComponent";
 
 const posts = [
   {
-    title: "A button that answers back",
-    desc: "Notes on the add-to-cart button — marching ants, ASCII scramble, and a confirmation that lives where the user is already looking.",
+    title: "Marching ants and scrambling text",
+    desc: "A step-by-step walkthrough of the two effects that carry the personality of the add-to-cart button — a marching SVG border and a label that scrambles between states.",
     action: "Go to Article",
     leftText: "17/05/26",
     href: "/writings/add-to-cart",
   },
   {
-    title: "A cart is a list. A minicart is a feeling.",
-    desc: "Three iterations of a cart UI — classic, animated, optimistic — and a working theory about what was actually changing between them.",
+    title: "A cart is not a list",
+    desc: "Notes on what the design of a minicart is actually for. Three iterations of the same cart, one citation, one position.",
     action: "Go to Article",
     leftText: "17/05/26",
     href: "/writings/minicart",

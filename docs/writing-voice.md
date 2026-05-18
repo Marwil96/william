@@ -2,9 +2,9 @@
 
 A reference for writing portfolio essays on this site in the register of
 Karri Saarinen's *Output isn't design*. Came out of working on the
-minicart and add-to-cart pieces. Living examples are at
-`/writings/minicart-combined` (target) and `/writings/minicart` (what
-to avoid).
+minicart and add-to-cart pieces. The living example is at
+`/writings/minicart` — the version of my own work that landed in this
+register.
 
 This is one register, not the only register. The Medium pieces (CSS
 grid, WCAG, Figma vs Sketch) are written warmer and more first-person.
@@ -206,10 +206,11 @@ Run through these:
 - **Karri Saarinen, *Output isn't design*** — the target voice.
   Linear blog. ~500 words, no headers, one citation (Christopher
   Alexander), aphoristic close.
-- **`/writings/minicart-combined`** — the version of my own work that
-  landed in this register. Use as a structural reference.
-- **`/writings/minicart`** — the build-log version. Use as a "what to
-  avoid" reference.
+- **`/writings/minicart`** — the version of my own work that landed in
+  this register. Use as a structural reference.
+- **`/writings/add-to-cart`** — the tutorial example for when the
+  warmer code-led register is the right call instead. Same site,
+  different job.
 - **My own Medium pieces** (CSS grid, WCAG, Figma vs Sketch) — the
   warmer register, for tutorials and personal posts. Keep them
   separate from the essays here.

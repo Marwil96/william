@@ -1,90 +1,185 @@
+import { useEffect, useRef, useState } from "react";
 import type { NextPage } from "next";
 import Link from "next/link";
 import { motion } from "motion/react";
 import Layout from "src/components/Layout";
 import { AddToCartButton } from "src/components/AddToCartButton";
 
-// ─── Reusable article blocks ──────────────────────────────────
+// ─── Mini demo: marching ants ─────────────────────────────────
 
-const Section = ({
-  label,
-  title,
+const MarchingDemo = () => {
+  const [mode, setMode] = useState<"stop" | "slow" | "fast">("slow");
+  const duration = mode === "fast" ? "0.5s" : "1.5s";
+  const shouldAnimate = mode !== "stop";
+
+  return (
+    <div className="flex flex-col items-center gap-5">
+      <div className="relative w-[240px] h-[80px] flex items-center justify-center">
+        <svg className="absolute inset-0 w-full h-full pointer-events-none">
+          <style>{`@keyframes march-demo { to { stroke-dashoffset: -28; } }`}</style>
+          <rect
+            x="0.5"
+            y="0.5"
+            width="calc(100% - 1px)"
+            height="calc(100% - 1px)"
+            fill="none"
+            stroke="#F7F7F7"
+            strokeWidth="1"
+            strokeDasharray="4 3"
+            style={{
+              animation: shouldAnimate
+                ? `march-demo ${duration} linear infinite`
+                : "none",
+            }}
+          />
+        </svg>
+        <span className="font-inter text-[10px] uppercase tracking-[0.2em] text-gray-400">
+          {mode === "stop" ? "Idle" : mode === "slow" ? "Hover" : "Loading"}
+        </span>
+      </div>
+      <div className="flex gap-2">
+        {(["stop", "slow", "fast"] as const).map((m) => (
+          <button
+            key={m}
+            onClick={() => setMode(m)}
+            className={`px-3 py-1.5 text-[10px] font-inter uppercase tracking-[0.15em] border border-dashed cursor-pointer transition-colors ${
+              mode === m
+                ? "text-[#F7F7F7] border-gray-300 bg-[#1a1a1a]"
+                : "text-gray-500 border-gray-600 hover:text-gray-300"
+            }`}
+          >
+            {m}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+// ─── Mini demo: scramble ───────────────────────────────────────
+
+const DEMO_GLYPHS =
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&*+=-~<>[]{}|/\\";
+
+const ScrambleDemo = () => {
+  const targets = ["Add to bag", "Adding", "Added to bag"];
+  const [idx, setIdx] = useState(0);
+  const target = targets[idx];
+  const [display, setDisplay] = useState(target);
+  const frameRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    let iteration = 0;
+    const totalFrames = target.length * 3;
+    const tick = () => {
+      setDisplay(
+        target
+          .split("")
+          .map((char, i) => {
+            if (char === " ") return " ";
+            if (i < iteration / 3) return target[i];
+            return DEMO_GLYPHS[
+              Math.floor(Math.random() * DEMO_GLYPHS.length)
+            ];
+          })
+          .join("")
+      );
+      iteration++;
+      if (iteration <= totalFrames) {
+        frameRef.current = setTimeout(tick, 30);
+      }
+    };
+    tick();
+    return () => {
+      if (frameRef.current) clearTimeout(frameRef.current);
+    };
+  }, [target]);
+
+  return (
+    <div className="flex flex-col items-center gap-5">
+      <div className="w-[200px] text-center">
+        <span className="font-mono text-base text-[#F7F7F7] tracking-wide">
+          {display}
+        </span>
+      </div>
+      <button
+        onClick={() => setIdx((idx + 1) % targets.length)}
+        className="px-3 py-1.5 text-[10px] font-inter uppercase tracking-[0.15em] border border-dashed border-gray-600 text-gray-400 hover:text-[#F7F7F7] cursor-pointer transition-colors"
+      >
+        Cycle label
+      </button>
+    </div>
+  );
+};
+
+// ─── Article building blocks ──────────────────────────────────
+
+const Figure = ({
+  n,
+  caption,
   children,
 }: {
-  label?: string;
-  title?: string;
+  n: number;
+  caption: string;
   children: React.ReactNode;
 }) => (
-  <section className="border-t border-dashed border-gray-400 pt-8 md:pt-10 mt-10 md:mt-14">
-    {label && (
-      <span className="text-[10px] font-inter uppercase tracking-[0.2em] text-gray-500 block mb-3">
-        {label}
-      </span>
-    )}
-    {title && (
-      <h2 className="text-2xl md:text-3xl font-title italic font-light mb-6 leading-tight">
-        {title}
-      </h2>
-    )}
-    {children}
-  </section>
-);
-
-const P = ({ children }: { children: React.ReactNode }) => (
-  <p className="text-base md:text-[17px] font-text text-gray-300 leading-[1.7] mb-5">
-    {children}
-  </p>
-);
-
-const Pull = ({ children }: { children: React.ReactNode }) => (
-  <p className="text-xl md:text-2xl font-title italic text-[#F7F7F7] leading-snug my-8 md:my-10 border-l border-dashed border-gray-500 pl-5 md:pl-6">
-    {children}
-  </p>
-);
-
-const Frame = ({
-  label,
-  forcedState,
-  children,
-}: {
-  label: string;
-  forcedState?: "idle" | "loading" | "success";
-  children?: React.ReactNode;
-}) => (
-  <figure className="border border-dashed border-gray-400 bg-[#0d0d0d] my-8 md:my-10 overflow-hidden">
-    <figcaption className="flex items-center justify-between px-3 py-2 border-b border-dashed border-gray-400">
-      <span className="text-[10px] font-inter uppercase tracking-[0.15em] text-gray-500">
-        Live preview
-      </span>
-      <span className="text-[10px] font-inter uppercase tracking-[0.15em] text-gray-500">
-        {label}
-      </span>
+  <figure className="my-8 md:my-10">
+    <figcaption className="text-[10px] font-inter uppercase tracking-[0.2em] text-gray-500 mb-3">
+      Fig. {String(n).padStart(2, "0")} — {caption}
     </figcaption>
-    <div className="flex flex-col items-center justify-center p-6 md:p-10 min-h-[160px] gap-5">
-      {children ?? <AddToCartButton forcedState={forcedState ?? null} />}
+    <div className="border-t border-b border-dashed border-gray-500 bg-[#0d0d0d] flex items-center justify-center p-8 md:p-10 min-h-[260px]">
+      {children}
     </div>
   </figure>
 );
 
-const Code = ({ children }: { children: React.ReactNode }) => (
-  <pre className="bg-[#0d0d0d] border border-dashed border-gray-400 p-4 md:p-5 my-6 overflow-x-auto text-[12px] md:text-[13px] leading-relaxed font-mono text-gray-300">
-    <code>{children}</code>
-  </pre>
+const P = ({ children }: { children: React.ReactNode }) => (
+  <p className="text-[16px] md:text-[17px] font-text text-gray-300 leading-[1.7] mb-5">
+    {children}
+  </p>
 );
 
-// ─── Article ─────────────────────────────────────────────────
+const H2 = ({ children }: { children: React.ReactNode }) => (
+  <h2 className="text-2xl md:text-3xl font-title italic font-light mt-16 mb-5 leading-tight">
+    {children}
+  </h2>
+);
 
-const AddToCartArticle: NextPage = () => {
+const H3 = ({ children }: { children: React.ReactNode }) => (
+  <h3 className="text-[11px] font-inter uppercase tracking-[0.2em] text-gray-500 mt-10 mb-3">
+    {children}
+  </h3>
+);
+
+const Code = ({
+  lang = "tsx",
+  children,
+}: {
+  lang?: string;
+  children: React.ReactNode;
+}) => (
+  <div className="my-5">
+    <div className="text-[9px] font-inter uppercase tracking-[0.2em] text-gray-600 mb-1">
+      {lang}
+    </div>
+    <pre className="bg-[#0d0d0d] border border-dashed border-gray-500 p-4 md:p-5 overflow-x-auto text-[12px] md:text-[13px] leading-relaxed font-mono text-gray-300">
+      <code>{children}</code>
+    </pre>
+  </div>
+);
+
+// ─── Article ──────────────────────────────────────────────────
+
+const AddToCartTutorial: NextPage = () => {
   return (
     <Layout
-      title="Notes on the add-to-cart button — William Martinsson"
-      desc="A single button doing three jobs. How a morphing add-to-cart button stops being a button and starts being a conversation."
+      title="Marching ants and scrambling text — William Martinsson"
+      desc="A step-by-step walkthrough of the two effects that carry the personality of the add-to-cart button."
       framerKey="writings-add-to-cart"
       project
       className="w-full px-6 md:px-0 md:max-w-[680px] mx-auto"
     >
       <article className="flex flex-col mt-6 md:mt-12">
-        {/* ─── Title block ─── */}
         <div className="mb-2">
           <Link
             href="/writings"
@@ -95,144 +190,235 @@ const AddToCartArticle: NextPage = () => {
         </div>
 
         <motion.h1
-          className="text-3xl md:text-5xl lg:text-6xl font-title font-thin italic leading-[1.05] mt-4 mb-3"
-          initial={{ opacity: 0, y: 30 }}
+          className="text-3xl md:text-4xl lg:text-5xl font-title font-thin italic leading-[1.1] mt-4 mb-2"
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ type: "spring", damping: 22, stiffness: 90 }}
         >
-          A button that answers back.
+          Marching ants and scrambling text
         </motion.h1>
 
-        <div className="flex items-center gap-3 mt-4 mb-10 text-[11px] font-inter uppercase tracking-[0.15em] text-gray-500">
-          <span>Experiment 02</span>
-          <span className="text-gray-700">·</span>
-          <span>Add to Cart</span>
-          <span className="text-gray-700">·</span>
-          <span>~6 min read</span>
-        </div>
+        <p className="text-sm font-inter text-gray-500 mt-3 mb-10">
+          William Martinsson · May 17, 2026 · ~10 min build
+        </p>
 
         {/* ─── Lede ─── */}
-        <P>
-          Most add-to-cart buttons get replaced after a click. They show a
-          toast somewhere else, or open a panel, or refresh the cart icon up
-          in the navbar — and the button itself, the thing the user actually
-          pressed, just sits there unchanged. The pointer is gone, the
-          confirmation is somewhere offscreen, and the user has to assemble
-          the story themselves: I pressed it, the toast popped, therefore it
-          worked.
-        </P>
 
         <P>
-          That assembly is a small tax the interface charges the user for not
-          paying attention to them. So I wanted to build a button where the
-          confirmation happens in the place the user is already looking.
+          Two effects do almost all the work on the add-to-cart button on
+          this site. The first is a dashed border that crawls around the
+          edge while the system is busy. The second is a label that
+          scrambles through random characters before resolving into the
+          next word. Neither is technically new. Together they handle every
+          state transition the button needs, without anything sliding into
+          the page from somewhere else.
         </P>
 
-        <Pull>
-          A click is a question. The button is the part of the system that
-          should answer it.
-        </Pull>
+        <Figure n={1} caption="The button you are about to build">
+          <AddToCartButton />
+        </Figure>
 
-        {/* ─── The thing ─── */}
-        <Section label="The button" title="Three states, one place">
-          <P>
-            This button has three states — <em>idle</em>, <em>loading</em>,{" "}
-            <em>success</em> — and they all live in the same 260×48 pixel
-            slot. The label morphs. A spinner appears. A check draws. The
-            border switches behavior. Nothing moves the layout, nothing pops
-            up elsewhere on the page, and the cursor never has to chase a
-            confirmation.
-          </P>
-
-          <Frame label="Click it" />
-
-          <P>
-            You can also step through each state manually:
-          </P>
-
-          <div className="grid grid-cols-3 gap-3 my-6">
-            <Frame label="idle" forcedState="idle" />
-            <Frame label="loading" forcedState="loading" />
-            <Frame label="success" forcedState="success" />
-          </div>
-
-          <P>
-            The interesting part isn&apos;t any single state. It&apos;s the
-            transition between them, because that&apos;s where the button gets
-            to perform the thing it claims to do.
-          </P>
-        </Section>
+        <P>
+          What follows is the two recipes, step by step, in the order I&apos;d
+          build them if I were starting from scratch. The full
+          implementation in this repo is in{" "}
+          <span className="font-mono text-gray-200">
+            src/components/AddToCartButton.tsx
+          </span>
+          .
+        </P>
 
         {/* ─── Marching ants ─── */}
-        <Section label="Detail 01" title="The marching ants border">
-          <P>
-            The border around the button is the loudest signal it has, and I
-            wanted it to do real work. At rest, it sits still. On hover, it
-            starts to march slowly. On <em>loading</em>, it marches three
-            times faster. On <em>success</em>, it solidifies into a clean
-            line and the marching stops. It&apos;s the same border the whole
-            time — only the rhythm changes.
-          </P>
 
-          <P>
-            The pattern is borrowed wholesale from Photoshop&apos;s &ldquo;marching
-            ants&rdquo; selection — the dashed line that crawls around the edge of
-            whatever you just selected. The reason I like it here is that
-            it&apos;s already a piece of UI grammar that means{" "}
-            <em>this thing is active and you are doing something to it</em>.
-            Borrowing that meaning means the loading state doesn&apos;t have
-            to teach the user anything new.
-          </P>
+        <H2>Marching ants</H2>
 
-          <Code>{`<svg className="absolute inset-0 pointer-events-none">
-  <style>{\`@keyframes march { to { stroke-dashoffset: -28; } }\`}</style>
+        <P>
+          The dashed line that crawls around a Photoshop selection is one
+          of the oldest motion patterns in computer interfaces. It already
+          means something: <em>this thing is active, and something is
+          happening to it</em>. Borrowing it for a loading state means the
+          user does not have to learn anything new. Most of the work is
+          done before we write a line of code.
+        </P>
+
+        <P>
+          Underneath the effect is one SVG rect, one CSS keyframe, and a
+          handful of conditionals. We&apos;ll build it in three steps.
+        </P>
+
+        <H3>Step 1 — A dashed rect</H3>
+
+        <P>
+          Start with the bare element. An SVG rectangle, transparent fill,
+          dashed stroke, positioned absolutely so it covers the button.
+        </P>
+
+        <Code>
+          {`<svg className="absolute inset-0 w-full h-full pointer-events-none">
   <rect
-    x="0.5" y="0.5"
+    x="0.5"
+    y="0.5"
     width="calc(100% - 1px)"
     height="calc(100% - 1px)"
     fill="none"
-    stroke={state === "success" ? "#F7F7F7" : "#6b7280"}
-    strokeDasharray={state === "success" ? "0 0" : "4 3"}
-    style={{
-      animation: shouldAnimate ? \`march \${duration} linear infinite\` : "none",
-      transition: "stroke 0.5s, stroke-dasharray 0.5s",
-    }}
+    stroke="#F7F7F7"
+    strokeWidth="1"
+    strokeDasharray="4 3"
   />
-</svg>`}</Code>
+</svg>`}
+        </Code>
 
-          <P>
-            It&apos;s one rect, one keyframe, and a couple of conditionals.
-            What you get is a border that meaningfully reports the state of
-            the system without ever needing a separate progress indicator.
-          </P>
+        <P>
+          The <span className="font-mono text-gray-200">0.5px</span> inset
+          and <span className="font-mono text-gray-200">calc(100% - 1px)</span>{" "}
+          sizing prevent the stroke from being clipped at the SVG edges.
+          The <span className="font-mono text-gray-200">4 3</span> dash
+          array sets the rhythm — four pixels of line, three pixels of gap.
+          Different values produce different feels.
+        </P>
 
-          <Pull>
-            Reuse existing visual grammar before inventing your own. The user
-            has already paid the tuition.
-          </Pull>
-        </Section>
+        <H3>Step 2 — Make it march</H3>
 
-        {/* ─── Scramble ─── */}
-        <Section label="Detail 02" title="The label scrambles, on purpose">
-          <P>
-            The button has three labels: <em>Add to bag</em>, <em>Adding</em>,
-            and <em>Added to bag</em>. The lazy thing to do is swap them with
-            a fade or a slide. The lazy thing also makes the transition
-            forgettable, which means the user has to read the new label cold
-            to find out what changed.
-          </P>
+        <P>
+          Animate <span className="font-mono text-gray-200">stroke-dashoffset</span>.
+          Shifting the offset slides the dash pattern along the path of
+          the stroke, so the dashes appear to crawl.
+        </P>
 
-          <P>
-            So instead, the label scrambles through random glyphs and
-            resolves into the new word, left to right. It takes around half a
-            second, which is long enough to register but short enough that it
-            doesn&apos;t feel slow. The effect is small but specific: your
-            eyes track the resolve, and by the time the new word lands,
-            you&apos;ve already noticed the state changed.
-          </P>
+        <Code lang="css">{`@keyframes march {
+  to { stroke-dashoffset: -28; }
+}`}</Code>
 
-          <Code>{`function useScrambleText(target: string, trigger: number, speed = 30) {
+        <Code>
+          {`<rect
+  /* ...same as before */
+  style={{ animation: "march 1.5s linear infinite" }}
+/>`}
+        </Code>
+
+        <P>
+          The <span className="font-mono text-gray-200">-28</span> is the
+          length of one full dash cycle. For a{" "}
+          <span className="font-mono text-gray-200">4 3</span> array (total
+          7px per repeat), <span className="font-mono text-gray-200">-28</span>{" "}
+          is exactly four cycles, which produces a clean loop with no
+          visible jump. Pick any multiple of the dash total.
+        </P>
+
+        <H3>Step 3 — React to state</H3>
+
+        <P>
+          The button has three states —{" "}
+          <span className="font-mono text-gray-200">idle</span>,{" "}
+          <span className="font-mono text-gray-200">loading</span>,{" "}
+          <span className="font-mono text-gray-200">success</span> — and a
+          hover boolean. The march responds to all of them. On idle, no
+          animation. On hover, slow march. On loading, fast march (three
+          times faster). On success, the dashes collapse into a solid
+          line.
+        </P>
+
+        <Code>
+          {`const dashArray = state === "success" ? "0 0" : "4 3";
+const shouldAnimate = state === "loading" || hovered;
+const duration = state === "loading" ? "0.5s" : "1.5s";
+const strokeColor =
+  state === "success" ? "#F7F7F7" :
+  hovered             ? "#F7F7F7" :
+                        "#6b7280";
+
+return (
+  <svg className="absolute inset-0 w-full h-full pointer-events-none">
+    <style>{\`@keyframes march { to { stroke-dashoffset: -28; } }\`}</style>
+    <rect
+      x="0.5"
+      y="0.5"
+      width="calc(100% - 1px)"
+      height="calc(100% - 1px)"
+      fill="none"
+      stroke={strokeColor}
+      strokeWidth="1"
+      strokeDasharray={dashArray}
+      style={{
+        animation: shouldAnimate
+          ? \`march \${duration} linear infinite\`
+          : "none",
+        transition: "stroke 0.5s, stroke-dasharray 0.5s",
+      }}
+    />
+  </svg>
+);`}
+        </Code>
+
+        <P>
+          The CSS{" "}
+          <span className="font-mono text-gray-200">transition</span> on{" "}
+          <span className="font-mono text-gray-200">stroke</span> and{" "}
+          <span className="font-mono text-gray-200">strokeDasharray</span>{" "}
+          is the small move that pulls the success state together.
+          Without it, the border snaps from dashed to solid. With it, the
+          dashes glide into a single line.
+        </P>
+
+        <Figure n={2} caption="Marching ants — toggle the speed">
+          <MarchingDemo />
+        </Figure>
+
+        {/* ─── Scrambling text ─── */}
+
+        <H2>Scrambling text</H2>
+
+        <P>
+          The label scrambles through random glyphs and resolves into the
+          new word, left to right. It is the visual move from any 90s
+          movie where someone is &ldquo;decrypting&rdquo; something.
+          Lifted into a UI, it does one specific job: it draws the eye
+          through the transition, so by the time the new label has landed
+          the user has already noticed something changed.
+        </P>
+
+        <H3>Step 1 — The character pool</H3>
+
+        <P>
+          Any legible set of characters works. I use a mix of letters,
+          digits, and symbols.
+        </P>
+
+        <Code lang="ts">
+          {`const GLYPHS =
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
+  "abcdefghijklmnopqrstuvwxyz" +
+  "0123456789!@#$%&*+=-~<>[]{}|/\\\\";`}
+        </Code>
+
+        <P>
+          If you are not using a monospace font, avoid characters whose
+          width varies a lot (
+          <span className="font-mono text-gray-200">i</span>,{" "}
+          <span className="font-mono text-gray-200">l</span>,{" "}
+          <span className="font-mono text-gray-200">1</span>,{" "}
+          <span className="font-mono text-gray-200">.</span>) — they cause
+          the label to jitter horizontally mid-scramble. Monospace dodges
+          this entirely, which is why the button uses{" "}
+          <span className="font-mono text-gray-200">font-mono</span> for
+          the label.
+        </P>
+
+        <H3>Step 2 — The per-character lock</H3>
+
+        <P>
+          The trick that makes the effect read as &ldquo;decrypting&rdquo;
+          rather than &ldquo;random noise&rdquo; is the lock. Characters
+          from the left freeze into their final value first; characters on
+          the right keep scrambling until their turn comes. The whole
+          thing is one hook that returns a display string for a given
+          target.
+        </P>
+
+        <Code lang="ts">
+          {`function useScrambleText(target: string, trigger: number, speed = 30) {
   const [display, setDisplay] = useState(target);
+  const frameRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     let iteration = 0;
@@ -240,107 +426,109 @@ const AddToCartArticle: NextPage = () => {
 
     const tick = () => {
       setDisplay(
-        target.split("").map((char, i) => {
-          if (char === " ") return " ";
-          // Each character "locks in" once iteration passes it
-          if (i < iteration / 3) return target[i];
-          return GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
-        }).join("")
+        target
+          .split("")
+          .map((char, i) => {
+            if (char === " ") return " ";              // skip spaces
+            if (i < iteration / 3) return target[i];    // locked
+            return GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
+          })
+          .join("")
       );
       iteration++;
-      if (iteration <= totalFrames) setTimeout(tick, speed);
+      if (iteration <= totalFrames) {
+        frameRef.current = setTimeout(tick, speed);
+      }
     };
 
     tick();
+    return () => {
+      if (frameRef.current) clearTimeout(frameRef.current);
+    };
   }, [target, trigger, speed]);
 
   return display;
-}`}</Code>
+}`}
+        </Code>
 
-          <P>
-            The trick is the per-character lock: as the iteration counter
-            climbs, characters from the left freeze into their final value
-            while characters on the right keep scrambling. The eye reads
-            order out of the noise, which is exactly what good motion design
-            should do — direct attention without spelling out the
-            instructions.
-          </P>
+        <P>
+          The <span className="font-mono text-gray-200">iteration / 3</span>{" "}
+          ratio controls how quickly the lock progresses. With a 30ms{" "}
+          <span className="font-mono text-gray-200">speed</span>, each
+          character takes about 90ms to lock — a 10-character label
+          resolves in roughly 900ms. Adjust speed and ratio to taste.
+          Under 500ms feels snappy. Closer to a full second feels
+          deliberate.
+        </P>
 
-          <P>
-            I also fire a scramble on hover, even before any click. It&apos;s
-            a tiny acknowledgement that the user has touched the button — a
-            way for the button to say &ldquo;I see you&rdquo; without doing anything
-            irreversible yet. That kind of pre-click feedback is cheap, and
-            it builds confidence that the system is listening.
-          </P>
-        </Section>
+        <H3>Step 3 — Re-running on state change</H3>
 
-        {/* ─── The spinner ─── */}
-        <Section label="Detail 03" title="Loading lives where the button does">
-          <P>
-            The loading indicator is a single-character Braille spinner that
-            sits inside the same row as the label. It&apos;s monospace,
-            it&apos;s exactly one character wide, and it doesn&apos;t shift
-            anything around it.
-          </P>
+        <P>
+          The hook re-runs whenever{" "}
+          <span className="font-mono text-gray-200">target</span> changes,
+          which covers the obvious case (the button&apos;s label switches
+          from <em>Add to bag</em> to <em>Adding</em>). To re-trigger it
+          without a target change — say, on hover — pass an extra trigger
+          counter and bump it from the parent.
+        </P>
 
-          <Code>{`const LOADING_FRAMES = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"];
+        <Code lang="ts">
+          {`const [trigger, setTrigger] = useState(0);
 
-function useAsciiSpinner(active: boolean, speed = 80) {
-  const [frame, setFrame] = useState(0);
-  useEffect(() => {
-    if (!active) { setFrame(0); return; }
-    const i = setInterval(() => setFrame((f) => (f + 1) % LOADING_FRAMES.length), speed);
-    return () => clearInterval(i);
-  }, [active, speed]);
-  return LOADING_FRAMES[frame];
-}`}</Code>
+// usage
+const display = useScrambleText(label, trigger);
 
-          <P>
-            I could have used a spinning SVG. A spinning SVG is fine. But the
-            rest of the button leans on monospace text — the scramble, the
-            label, the tracking — and an ASCII spinner stays inside that
-            language. It feels like part of the same object instead of an
-            ornament glued on.
-          </P>
+// re-fire externally (on hover, focus, anything)
+setTrigger((t) => t + 1);`}
+        </Code>
 
-          <Pull>
-            Pick a material and stay in it. The button is text and dashes. So
-            is its loading state.
-          </Pull>
-        </Section>
+        <P>
+          In the button, the scramble also fires on hover, before any
+          click. That tiny pre-click acknowledgement is half of what
+          makes the button feel like it is paying attention.
+        </P>
 
-        {/* ─── Stepping back ─── */}
-        <Section label="Stepping back" title="The button isn't the feature">
-          <P>
-            Add to cart is one of the most-pressed buttons in the entire e-com
-            stack. It&apos;s also one of the most generic. The default version
-            in every framework does the same thing: trigger a mutation,
-            update some state somewhere else, hope the user finds the
-            confirmation. The button itself is treated as plumbing.
-          </P>
+        <Figure n={3} caption="Scrambling text — cycle the label">
+          <ScrambleDemo />
+        </Figure>
 
-          <P>
-            Treating it as plumbing is the misunderstanding. The button is
-            the only piece of the system the user is actually looking at when
-            they commit. Everything that happens after their click is a
-            response to that commitment, and the most direct place to put
-            that response is the button they just touched.
-          </P>
+        {/* ─── Bringing them together ─── */}
 
-          <P>
-            None of the techniques here are new. Marching ants are from the
-            90s. Scrambling text effects are older than the web. Braille
-            spinners are from terminals. The work wasn&apos;t inventing any
-            of them. The work was deciding that a button could carry that
-            much, and then refusing to put the confirmation anywhere else.
-          </P>
+        <H2>In the button</H2>
 
-          <Pull>
-            A button is a small place. That&apos;s exactly why it should do
-            its own talking.
-          </Pull>
-        </Section>
+        <P>
+          The two effects sit on top of each other inside the same
+          element. The marching border carries the system status — am I
+          busy, am I done. The scrambled label carries the system message
+          — what just changed. Both live in the same 260×48 pixel slot
+          the user&apos;s cursor is already pointed at. Nothing pops up
+          somewhere else.
+        </P>
+
+        <P>
+          Combined, they look like this — same demo as the top of the
+          page, with the recipes now visible underneath.
+        </P>
+
+        <Figure n={4} caption="The two effects, together">
+          <AddToCartButton />
+        </Figure>
+
+        <P>
+          Both effects are short. A few dozen lines each. The reason they
+          punch above their weight is not the implementation — it is that
+          they borrow meanings the user already has. Marching ants from
+          Photoshop. Scrambling glyphs from terminals and movie tropes.
+          The work was not in inventing them. The work was deciding that
+          an ordinary button could carry them, and then putting them in
+          the place the user was already looking.
+        </P>
+
+        <P>
+          Take the code, change the dash array, change the glyph set,
+          change the speeds. Both effects survive a lot of tuning before
+          they stop working. Have fun.
+        </P>
 
         {/* ─── Footer ─── */}
         <div className="border-t border-dashed border-gray-400 mt-14 pt-6 pb-12 flex items-center justify-between text-[11px] font-inter uppercase tracking-[0.15em] text-gray-500">
@@ -348,7 +536,7 @@ function useAsciiSpinner(active: boolean, speed = 80) {
             href="/writings/minicart"
             className="hover:text-gray-200 transition-colors no-underline"
           >
-            ← Previous — Minicart
+            ← Previous — A cart is not a list
           </Link>
           <Link
             href="/writings"
@@ -362,4 +550,4 @@ function useAsciiSpinner(active: boolean, speed = 80) {
   );
 };
 
-export default AddToCartArticle;
+export default AddToCartTutorial;

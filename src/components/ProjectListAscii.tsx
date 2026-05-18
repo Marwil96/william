@@ -280,8 +280,8 @@ const ProjectListAscii = ({ projects }: Props) => {
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
                   transition={{
-                    duration: 0.3,
-                    delay: idx * 0.05,
+                    duration: 0.2,
+                    delay: idx * 0.03,
                     ease: [0.22, 1, 0.36, 1],
                   }}
                   className="overflow-hidden"
