@@ -98,6 +98,7 @@ function useHasHover() {
 const Row = ({
   project,
   i,
+  total,
   isHovered,
   isExpanded,
   onEnter,
@@ -105,6 +106,7 @@ const Row = ({
 }: {
   project: ProjectRow;
   i: number;
+  total: number;
   isHovered: boolean;
   isExpanded: boolean;
   onEnter: () => void;
@@ -128,7 +130,7 @@ const Row = ({
             className="tabular-nums shrink-0 transition-colors"
             style={{ color: accent ? "#ff5800" : "#6b7280" }}
           >
-            {String(i + 1).padStart(3, "0")}
+            {String(total - i).padStart(3, "0")}
           </span>
           <span className="truncate">
             <span
@@ -261,6 +263,7 @@ const ProjectListAscii = ({ projects }: Props) => {
             key={`${project.title}-${i}`}
             project={project}
             i={i}
+            total={projects.length}
             isHovered={hoveredIndex === i}
             isExpanded={expandedId === i}
             onEnter={() => setHoveredIndex(i)}
@@ -289,6 +292,7 @@ const ProjectListAscii = ({ projects }: Props) => {
                   <Row
                     project={project}
                     i={i}
+                    total={projects.length}
                     isHovered={hoveredIndex === i}
                     isExpanded={expandedId === i}
                     onEnter={() => setHoveredIndex(i)}

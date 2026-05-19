@@ -83,7 +83,7 @@ export const projects: ProjectRow[] = [
     title: "Levels Health",
     agency: "Oh Hi (Freelance)",
     year: "2022",
-    desc: "Internal communication tool.",
+    desc: "Internal communication tool for the metabolic health startup — a focused workspace for the team to share updates, research notes, and shared docs in one place.",
     externalHref: "https://www.levelshealth.com",
   },
   {
@@ -127,6 +127,12 @@ export const projects: ProjectRow[] = [
     externalHref: "https://www.knodd.se",
   },
   {
+    title: "Karygen Health",
+    agency: "Oh Hi (Freelance)",
+    year: "2020",
+    desc: "Designed and built a one-pager for an early-stage Australian startup in the health industry — clean, scrollable, made to introduce the product to its first audience.",
+  },
+  {
     title: "Agenly",
     agency: "Personal",
     year: "2019",
@@ -149,6 +155,12 @@ export const projects: ProjectRow[] = [
     desc: "An alumni page for Amsterdam University of Applied Sciences design students.",
     href: "/projects/master-digital-design",
     image: MasterDigitalDesignHero,
+  },
+  {
+    title: "Halland Region",
+    agency: "Oh Hi (Freelance)",
+    year: "2018",
+    desc: "Designed and built a website surfacing the region's European projects — their partnerships, initiatives, and the work happening across borders.",
   },
 ];
 
@@ -406,8 +418,15 @@ const ArticleCard = ({
 const WritingsSlider = ({ rows }: { rows: Article[] }) => {
   const [hovered, setHovered] = useState<number | null>(null);
   const scrollerRef = useRef<HTMLDivElement>(null);
-  const dragRef = useRef({ startX: 0, startScroll: 0, active: false });
+  const dragRef = useRef({
+    startX: 0,
+    startScroll: 0,
+    primed: false,
+    active: false,
+  });
   const [progress, setProgress] = useState(0);
+
+  const DRAG_THRESHOLD = 5;
 
   const updateProgress = () => {
     const el = scrollerRef.current;
@@ -419,32 +438,45 @@ const WritingsSlider = ({ rows }: { rows: Article[] }) => {
   const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
     const el = scrollerRef.current;
     if (!el) return;
+    // Prime but don't drag yet — wait for movement past threshold so clicks
+    // (which fire pointerdown + pointerup at ~same x) reach the Link inside.
     dragRef.current = {
       startX: e.clientX,
       startScroll: el.scrollLeft,
-      active: true,
+      primed: true,
+      active: false,
     };
-    el.setPointerCapture(e.pointerId);
-    el.style.cursor = "grabbing";
-    el.style.scrollSnapType = "none";
   };
 
   const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
-    if (!dragRef.current.active) return;
+    if (!dragRef.current.primed) return;
     const el = scrollerRef.current;
     if (!el) return;
-    el.scrollLeft =
-      dragRef.current.startScroll - (e.clientX - dragRef.current.startX);
+    const dx = e.clientX - dragRef.current.startX;
+    if (!dragRef.current.active) {
+      if (Math.abs(dx) < DRAG_THRESHOLD) return;
+      dragRef.current.active = true;
+      el.setPointerCapture(e.pointerId);
+      el.style.cursor = "grabbing";
+      el.style.scrollSnapType = "none";
+    }
+    el.scrollLeft = dragRef.current.startScroll - dx;
   };
 
   const endDrag = (e: React.PointerEvent<HTMLDivElement>) => {
-    if (!dragRef.current.active) return;
-    dragRef.current.active = false;
+    if (!dragRef.current.primed) return;
     const el = scrollerRef.current;
-    if (!el) return;
-    el.releasePointerCapture(e.pointerId);
-    el.style.cursor = "grab";
-    el.style.scrollSnapType = "x mandatory";
+    if (el && dragRef.current.active) {
+      el.releasePointerCapture(e.pointerId);
+      el.style.cursor = "grab";
+      el.style.scrollSnapType = "x mandatory";
+    }
+    dragRef.current = {
+      startX: 0,
+      startScroll: 0,
+      primed: false,
+      active: false,
+    };
   };
 
   const scrollBy = (dir: 1 | -1) => {
