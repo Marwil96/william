@@ -21,7 +21,7 @@ export const VisitorCount = () => {
     };
   }, []);
 
-  if (count === null) return null;
+  if (count === null || count <= 500) return null;
 
   return (
     <>
