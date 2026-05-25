@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { VisitorCount } from "src/components/VisitorCount";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -76,9 +77,10 @@ const Footer = () => {
           <span className="text-xs font-system text-gray-500">
             William Martinsson — Design Engineer
           </span>
-          <span className="text-xs font-system text-gray-600">
-            Stockholm, Sweden
-          </span>
+          <div className="flex items-center gap-3 text-xs font-system text-gray-600">
+            <VisitorCount />
+            <span>Stockholm, Sweden</span>
+          </div>
         </div>
       </div>
     </footer>
