@@ -34,49 +34,49 @@ export const projects: ProjectRow[] = [
     title: "Miss Mary",
     agency: "TRY Stockholm",
     year: "2026",
-    desc: "New e-commerce site for the Swedish lingerie brand making well-fitting bras and swimwear since 1957, built on React, Storyblok and Centra.",
+    desc: "New e-commerce site for the Swedish lingerie brand making well-fitting bras and swimwear since 1957, built on React, Storyblok and Centra. I led the frontend and saw the project through.",
     externalHref: "https://www.missmary.com",
   },
   {
     title: "Dedicated",
     agency: "TRY Stockholm",
     year: "2025",
-    desc: "New e-commerce site for the Stockholm-based sustainable streetwear brand, built on React, Storyblok and Centra.",
+    desc: "New e-commerce site for the Stockholm-based sustainable streetwear brand, built on React, Storyblok and Centra. Frontend lead, also saw the project through.",
     externalHref: "https://www.dedicatedbrand.com",
   },
   {
     title: "Stronger",
     agency: "TRY Stockholm",
     year: "2025",
-    desc: "New e-commerce site for the Swedish activewear brand sold across 100+ markets, built on React, Storyblok and Centra.",
+    desc: "New e-commerce site for the Swedish activewear brand sold across 100+ markets, built on React, Storyblok and Centra. Was frontend lead on this one and saw the project through.",
     externalHref: "https://www.strongerlabel.com",
   },
   {
     title: "Röhnisch",
     agency: "Made People",
     year: "2024",
-    desc: "New e-commerce site for the Swedish women's activewear brand founded in 1945, built on React, Storyblok and Centra.",
+    desc: "New e-commerce site for the Swedish women's activewear brand founded in 1945, built on React, Storyblok and Centra. Led the frontend build and saw the project through.",
     externalHref: "https://www.rohnisch.com",
   },
   {
     title: "Astrid Lindgren",
     agency: "Made People",
     year: "2024",
-    desc: "New e-commerce platform for The Astrid Lindgren Company's official store — Pippi Longstocking, Emil and other beloved characters — built on React, Storyblok and Centra.",
+    desc: "New e-commerce platform for The Astrid Lindgren Company's official store — Pippi Longstocking, Emil and other beloved characters — built on React, Storyblok and Centra. Frontend lead, and saw it through.",
     externalHref: "https://www.astridlindgren.com",
   },
   {
     title: "EQPE (SkiStar)",
     agency: "Made People",
     year: "2023",
-    desc: "New e-commerce site for SkiStar's in-house Scandinavian skiwear brand launching across five European markets, built on Vue, Storyblok and Centra.",
+    desc: "New e-commerce site for SkiStar's in-house Scandinavian skiwear brand launching across five European markets, built on Vue, Storyblok and Centra. I headed up the frontend and saw the project through.",
     externalHref: "https://www.eqpestore.com",
   },
   {
     title: "Mini Rodini",
     agency: "Made People",
     year: "2023",
-    desc: "New e-commerce site for the iconic Swedish kidswear brand known for bold prints and sustainable production, built on React, Storyblok and Centra.",
+    desc: "New e-commerce site for the iconic Swedish kidswear brand known for bold prints and sustainable production, built on React, Storyblok and Centra. Frontend lead, and the one who saw it through.",
     externalHref: "https://www.minirodini.com",
   },
   {
@@ -190,9 +190,9 @@ const articles: Article[] = [
     href: "/writings/add-to-cart",
   },
   {
-    title: "A cart is not a list",
+    title: "The cart is the conversation",
     excerpt:
-      "Notes on what the design of a minicart is actually for. Three iterations of the same cart, one citation, one position.",
+      "Same feature spec, three carts — three different positions on the moment a user commits.",
     date: "2026-05-17",
     category: "Writing",
     href: "/writings/minicart",
@@ -345,6 +345,9 @@ const SectionHeader = ({
 // Writings slider
 // ────────────────────────────────────────────────────────────────
 
+const ARTICLE_CARD_CLASS =
+  "snap-start shrink-0 w-[260px] flex flex-col p-4 border border-dashed transition-colors gap-3";
+
 const ArticleCard = ({
   article,
   active,
@@ -357,31 +360,10 @@ const ArticleCard = ({
   const glyph = useWaveGlyph(article.title, active);
   const href = article.href ?? article.externalHref!;
   const external = !!article.externalHref;
-  const Wrapper: React.FC<{ children: React.ReactNode }> = ({ children }) =>
-    external ? (
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        onMouseEnter={onEnter}
-        className="snap-start shrink-0 w-[260px] flex flex-col p-4 border border-dashed transition-colors gap-3"
-        style={{ borderColor: active ? ORANGE : "#374151" }}
-      >
-        {children}
-      </a>
-    ) : (
-      <Link
-        href={href}
-        onMouseEnter={onEnter}
-        className="snap-start shrink-0 w-[260px] flex flex-col p-4 border border-dashed transition-colors gap-3"
-        style={{ borderColor: active ? ORANGE : "#374151" }}
-      >
-        {children}
-      </Link>
-    );
+  const borderColor = active ? ORANGE : "#374151";
 
-  return (
-    <Wrapper>
+  const inner = (
+    <>
       <pre
         className="font-mono text-[10px] leading-[1] whitespace-pre transition-colors select-none"
         style={{ color: active ? ORANGE : "#4b5563" }}
@@ -411,7 +393,33 @@ const ArticleCard = ({
       <p className="text-xs font-text text-gray-500 leading-relaxed line-clamp-2">
         {article.excerpt}
       </p>
-    </Wrapper>
+    </>
+  );
+
+  if (external) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        onMouseEnter={onEnter}
+        className={ARTICLE_CARD_CLASS}
+        style={{ borderColor }}
+      >
+        {inner}
+      </a>
+    );
+  }
+
+  return (
+    <Link
+      href={href}
+      onMouseEnter={onEnter}
+      className={ARTICLE_CARD_CLASS}
+      style={{ borderColor }}
+    >
+      {inner}
+    </Link>
   );
 };
 

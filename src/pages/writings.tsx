@@ -11,8 +11,8 @@ const posts = [
     href: "/writings/add-to-cart",
   },
   {
-    title: "A cart is not a list",
-    desc: "Notes on what the design of a minicart is actually for. Three iterations of the same cart, one citation, one position.",
+    title: "The cart is the conversation",
+    desc: "Same feature spec, three carts — three different positions on the moment a user commits.",
     action: "Go to Article",
     leftText: "17/05/26",
     href: "/writings/minicart",

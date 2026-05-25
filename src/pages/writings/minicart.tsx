@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Link from "next/link";
-import { motion } from "motion/react";
 import Layout from "src/components/Layout";
+import { ArticleHeader } from "src/components/ArticleHeader";
 import { CartItems } from "src/components/CartSummary";
 import { MockedCartProvider } from "src/components/MockCartProvider";
 
@@ -45,34 +45,21 @@ const Coda = ({ children }: { children: React.ReactNode }) => (
 const MinicartCombined: NextPage = () => {
   return (
     <Layout
-      title="A cart is not a list — William Martinsson"
-      desc="Notes on what the design of a minicart is actually for, with the three versions inline."
+      title="The cart is the conversation — William Martinsson"
+      desc="Three carts, one feature spec, three different positions on the moment a user commits."
       framerKey="writings-minicart"
       project
       className="w-full px-6 md:px-0 md:max-w-[640px] mx-auto"
     >
       <article className="flex flex-col mt-6 md:mt-12">
-        <div className="mb-2">
-          <Link
-            href="/writings"
-            className="text-[10px] font-inter uppercase tracking-[0.2em] text-gray-500 hover:text-gray-300 transition-colors no-underline"
-          >
-            ← Writings
-          </Link>
-        </div>
-
-        <motion.h1
-          className="text-3xl md:text-4xl lg:text-5xl font-title font-thin italic leading-[1.1] mt-4 mb-2"
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ type: "spring", damping: 22, stiffness: 90 }}
-        >
-          A cart is not a list
-        </motion.h1>
-
-        <p className="text-sm font-inter text-gray-500 mt-3 mb-12">
-          William Martinsson · May 17, 2026
-        </p>
+        <ArticleHeader
+          category="Writing"
+          monthYear="May 2026"
+          title="The cart is the conversation"
+          standfirst="Three versions of the same cart. They share a spec. They disagree about what to say."
+          date="May 17, 2026"
+          readTime="4 min read"
+        />
 
         {/* ─── Essay body ─── */}
 
@@ -86,19 +73,19 @@ const MinicartCombined: NextPage = () => {
           That is the misunderstanding. A cart is not a list. It is the
           place where a user is most uncertain about what they have just
           committed to, and the design of a cart is the design of that
-          uncertainty. Treating it as state management produces something
-          technically correct and emotionally empty — a thing that records
-          the user&apos;s decisions without acknowledging them.
+          uncertainty. Treating it as state management produces a cart
+          that records the user&apos;s decisions without acknowledging
+          them.
         </P>
 
         <P>
           In 1982, an IBM researcher named Walter Doherty published a paper
           called <em>The Economic Value of Rapid Response Time</em>. Its
           central finding was that human productivity does not rise smoothly
-          with system speed. It rises sharply, at a specific threshold of
-          around 400 milliseconds. Below that line, the user stops waiting
-          and starts thinking. Above it, the system is a thing they are
-          talking to. Below it, it is a thing they are using.
+          with system speed. It jumps, at a specific threshold of around
+          400 milliseconds. Below that line, the user stops waiting and
+          starts thinking. Above it, the system is something they talk to
+          instead of using.
         </P>
 
         <P>
@@ -120,8 +107,8 @@ const MinicartCombined: NextPage = () => {
           replaces its glyph with a spinner the moment it is pressed. The
           removed row slides out instead of vanishing. None of the latency
           has changed, but the cart is now in the conversation. It says
-          &ldquo;I&apos;m working on it.&rdquo; Slower in real time. Faster
-          in felt time.
+          &ldquo;I&apos;m working on it&rdquo; — slower on the wire, faster
+          in the head.
         </P>
 
         <Figure n={2} caption="The cart admits the work" step={1} />
@@ -138,23 +125,21 @@ const MinicartCombined: NextPage = () => {
 
         <P>
           All three carts share the same feature spec. The data model does
-          not move. The QA list is identical. What changes is the
-          interface&apos;s willingness to participate in the moment the user
-          is in.
+          not move. The QA list is identical. What changes is whether the
+          cart speaks up while the user is still in the moment.
         </P>
 
         <P>
           The optimistic cart is the only one of the three that crosses
           Doherty&apos;s line. It is also the only one that required the
-          designer to take a position on what the system was willing to
-          claim before it knew. The other two are still well-built. They
-          are simply not in the conversation.
+          designer to decide what the cart would say before the server had
+          answered. The other two are still well-built. They are simply
+          not in the conversation.
         </P>
 
         <P>
           That is the part I keep coming back to. The cart is not a list of
-          rows. It is the conversation around the rows, and that
-          conversation either happens or it does not.
+          rows. It is the conversation around the rows.
         </P>
 
         <Coda>An interface that says nothing is not neutral.</Coda>

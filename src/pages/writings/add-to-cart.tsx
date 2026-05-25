@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import type { NextPage } from "next";
 import Link from "next/link";
-import { motion } from "motion/react";
 import Layout from "src/components/Layout";
+import { ArticleHeader } from "src/components/ArticleHeader";
 import { AddToCartButton } from "src/components/AddToCartButton";
 
 // ─── Mini demo: marching ants ─────────────────────────────────
@@ -180,27 +180,14 @@ const AddToCartTutorial: NextPage = () => {
       className="w-full px-6 md:px-0 md:max-w-[680px] mx-auto"
     >
       <article className="flex flex-col mt-6 md:mt-12">
-        <div className="mb-2">
-          <Link
-            href="/writings"
-            className="text-[10px] font-inter uppercase tracking-[0.2em] text-gray-500 hover:text-gray-300 transition-colors no-underline"
-          >
-            ← Writings
-          </Link>
-        </div>
-
-        <motion.h1
-          className="text-3xl md:text-4xl lg:text-5xl font-title font-thin italic leading-[1.1] mt-4 mb-2"
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ type: "spring", damping: 22, stiffness: 90 }}
-        >
-          Marching ants and scrambling text
-        </motion.h1>
-
-        <p className="text-sm font-inter text-gray-500 mt-3 mb-10">
-          William Martinsson · May 17, 2026 · ~10 min build
-        </p>
+        <ArticleHeader
+          category="Writing"
+          monthYear="May 2026"
+          title="Marching ants and scrambling text"
+          standfirst="Building the two effects behind the add-to-cart button: a marching dashed border, and a label that scrambles."
+          date="May 17, 2026"
+          readTime="10 min build"
+        />
 
         {/* ─── Lede ─── */}
 
@@ -209,9 +196,9 @@ const AddToCartTutorial: NextPage = () => {
           this site. The first is a dashed border that crawls around the
           edge while the system is busy. The second is a label that
           scrambles through random characters before resolving into the
-          next word. Neither is technically new. Together they handle every
-          state transition the button needs, without anything sliding into
-          the page from somewhere else.
+          next word. Neither is new. Between them they cover every state
+          the button needs to show, without anything popping up somewhere
+          else on the page.
         </P>
 
         <Figure n={1} caption="The button you are about to build">
@@ -219,9 +206,8 @@ const AddToCartTutorial: NextPage = () => {
         </Figure>
 
         <P>
-          What follows is the two recipes, step by step, in the order I&apos;d
-          build them if I were starting from scratch. The full
-          implementation in this repo is in{" "}
+          Here are both recipes, in build order. The full implementation
+          lives at{" "}
           <span className="font-mono text-gray-200">
             src/components/AddToCartButton.tsx
           </span>
@@ -274,7 +260,8 @@ const AddToCartTutorial: NextPage = () => {
           sizing prevent the stroke from being clipped at the SVG edges.
           The <span className="font-mono text-gray-200">4 3</span> dash
           array sets the rhythm — four pixels of line, three pixels of gap.
-          Different values produce different feels.
+          Tighter values feel jittery; wider ones drift toward a courtroom
+          outline.
         </P>
 
         <H3>Step 2 — Make it march</H3>
@@ -515,17 +502,16 @@ setTrigger((t) => t + 1);`}
         </Figure>
 
         <P>
-          Both effects are short. A few dozen lines each. The reason they
-          punch above their weight is not the implementation — it is that
-          they borrow meanings the user already has. Marching ants from
-          Photoshop. Scrambling glyphs from terminals and movie tropes.
-          The work was not in inventing them. The work was deciding that
-          an ordinary button could carry them, and then putting them in
-          the place the user was already looking.
+          Both effects are short — a few dozen lines each. What makes
+          them work is not the implementation; it is that they borrow
+          meanings the user already has. Marching ants from Photoshop,
+          scrambling glyphs from terminals and 90s movies. The trick
+          was deciding an ordinary button could carry them, and putting
+          them where the user was already looking.
         </P>
 
         <P>
-          Take the code, change the dash array, change the glyph set,
+          Grab the code, change the dash array, change the glyph set,
           change the speeds. Both effects survive a lot of tuning before
           they stop working. Have fun.
         </P>
@@ -536,7 +522,7 @@ setTrigger((t) => t + 1);`}
             href="/writings/minicart"
             className="hover:text-gray-200 transition-colors no-underline"
           >
-            ← Previous — A cart is not a list
+            ← Previous — The cart is the conversation
           </Link>
           <Link
             href="/writings"
