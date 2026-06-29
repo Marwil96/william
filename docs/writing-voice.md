@@ -28,18 +28,24 @@ a different claim than the version of X that does B."
 
 ## Shape
 
-- **Length:** ~450–600 words. If a draft is past 1,000, it is two
-  essays or a tutorial.
-- **No section headers in the body.** Karri's piece has none. Subheads
-  turn an argument into something the reader scans, which kills the
-  rhetorical build.
+- **Length:** aim for ~450–600 words; up to ~900 is fine for a piece
+  that earns it. Past ~1,200 it is two essays or a tutorial. (An audit
+  of Karri's own craft essays found most of his best argument pieces
+  run 800–950 — the tight 530-word *Output isn't design* is the
+  exception, not his norm.)
+- **A header or two is allowed**, if the argument genuinely turns on a
+  hinge. Default to none — subheads turn an argument into something the
+  reader scans, which kills the rhetorical build — but one or two
+  load-bearing headers won't break the register.
 - **No pull-quote boxes inside the body.** The aphoristic moment is
   reserved for the closing.
 - **No code snippets.** The essay is the argument. Implementation
   belongs on the experiments page or in a small artifact at the end.
-- **One outside reference per essay.** Doherty, Tognazzini, Bret
-  Victor, Norman, Alexander, Tufte — borrowed authority is faster
-  than performed insight.
+- **Cite one outside reference — strongly recommended.** Doherty,
+  Tognazzini, Bret Victor, Norman, Alexander, Tufte — borrowed
+  authority is faster than performed insight. Karri's other essays
+  mostly skip this; it's still the single biggest lever for making a
+  piece read as argument rather than build log, so reach for it.
 - **First person used sparingly.** Once, maybe twice, and usually only
   when describing my own practice ("That is the part I keep coming
   back to.").
@@ -65,8 +71,9 @@ starting frame:
 7. **Stepping back.** What is the same across all the evidence, and
    what changes.
 8. **Personal note.** One sentence with "I" in it, owning the position.
-9. **Two single-sentence paragraphs.** They restate the position. They
-   do not summarize.
+9. **Restate, don't summarize.** Close on the position itself, not a
+   recap of what was said. A short final paragraph that bites is the
+   goal — the one-sentence form is no longer required.
 
 Not all essays need step 6. Some need a different shape. The
 skeleton is a draft frame, not a template.
@@ -128,17 +135,21 @@ piece starts reading as a gallery with captions.
 
 ## Closing
 
-- The last two paragraphs are each a single sentence.
-- They restate the position. They do not summarize what was said.
-- Example from the minicart piece:
+- Close on the position itself, not a recap of what was said.
+- A short, biting final paragraph is the goal. The two-single-sentence
+  form is one way to do it, not a requirement — use it when it lands,
+  drop it when it feels forced.
+- Example from the minicart piece (the one-sentence form, still a fine
+  option):
 
   > An interface that says nothing is not neutral.
   >
   > It is a position.
 
-- Avoid: "In conclusion," "So to wrap up," "Stepping back" as a
-  header, or a final pull-quote box. The shape of a one-sentence
-  paragraph is already the emphasis.
+- Avoid: "In conclusion," "So to wrap up," a hiring/CTA sign-off, or a
+  final pull-quote box. Karri's weaker pieces close on roadmap or
+  recruiting; the strong ones leave the reader with the position and
+  nothing to do but carry it.
 
 ---
 
@@ -175,17 +186,18 @@ articles. Worth checking against every draft.
 
 Run through these:
 
-1. Could a reader skip every header and still get the argument? If
-   yes, delete the headers. If no, the argument is missing.
-2. Is the first paragraph about the world, not about me?
-3. Has one outside thinker been cited, by name and year?
+1. Is the first paragraph about the world, not about me? (Non-negotiable.)
+2. If there are headers, is each one load-bearing — could a reader skip
+   them and still get the argument? If a header is just scannable
+   decoration, cut it. Two is the ceiling.
+3. Has one outside thinker been cited, by name and year? Strongly
+   recommended — if there's no citation, is the argument carrying its
+   own authority, or just asserting?
 4. Has the word "I" appeared more than twice? If yes, cut.
-5. Do the last two paragraphs each fit on one line as a single
-   sentence?
-6. Does the piece end on a position or on a summary? Position wins.
-7. If the page had no demos, would the essay still stand? It should.
-8. Is there a `<Pull>` box anywhere inside the body? If yes, remove
-   it.
+5. Does the piece end on a position, not a summary or a CTA? Position wins.
+6. If the page had no demos, would the essay still stand? It should.
+7. Is there a `<Pull>` box anywhere inside the body? If yes, remove it.
+8. Is it under ~900 words? Past ~1,200, split it.
 
 ---
 

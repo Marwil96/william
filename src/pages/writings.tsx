@@ -4,6 +4,13 @@ import BlogComponent from "src/components/BlogComponent";
 
 const posts = [
   {
+    title: "The model was never the bottleneck",
+    desc: "Building a four-market store with agents, and why the speed came from everything except the code.",
+    action: "Go to Article",
+    leftText: "29/06/26",
+    href: "/writings/ground-truth",
+  },
+  {
     title: "Marching ants and scrambling text",
     desc: "A step-by-step walkthrough of the two effects that carry the personality of the add-to-cart button — a marching SVG border and a label that scrambles between states.",
     action: "Go to Article",
