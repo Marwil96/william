@@ -101,14 +101,15 @@ const GroundTruth: NextPage = () => {
         </P>
 
         <P>
-          That is the misunderstanding. Rebuilding Nelson Garden — a
-          four-market store, around a thousand products and several hundred
-          editorial pages, all of it lifted off a legacy CMS against a hard
-          deadline — the writing of code was never the slow part. The slow
-          part was knowing whether what got written was right, and remembering
-          what right even meant across hundreds of separate sessions. A model
-          that generates faster than anyone can read is not an asset on its
-          own. It is a way to produce wrong work quickly.
+          That is the misunderstanding. The site went live this week: Nelson
+          Garden, a Nordic garden brand, its product catalogue and several
+          hundred editorial pages rebuilt across four national markets and
+          dragged off an ageing CMS on a deadline. Building it, the writing of
+          code was never the slow part. The slow part was knowing whether what
+          got written was right, and remembering what right even meant across
+          hundreds of separate sessions. A model that generates faster than
+          anyone can read is not an asset on its own. It is a way to produce
+          wrong work quickly.
         </P>
 
         <P>

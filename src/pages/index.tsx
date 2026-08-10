@@ -35,7 +35,6 @@ export const projects: ProjectRow[] = [
     agency: "TRY Stockholm",
     year: "2026",
     desc: "New e-commerce site for the Swedish lingerie brand making well-fitting bras and swimwear since 1957, built on React, Storyblok and Centra. I led the frontend and saw the project through.",
-    externalHref: "https://www.missmary.com",
   },
   {
     title: "Dedicated",
@@ -569,7 +568,7 @@ const Home = ({ currentlyReading, readRecently }: any) => {
   return (
     <Layout
       title="William Martinsson — Design Engineer"
-      desc="Design Engineer based in Stockholm. Currently Team Lead at TRY Stockholm, building ecom sites for Swedish fashion brands like Mini Rodini, OAS, and Stronger."
+      desc="Design Engineer based in Stockholm. Currently Team Lead at TRY Stockholm, building ecom sites for Swedish fashion brands like Mini Rodini, Dedicated, and Stronger."
       framerKey="home"
       className="lg:w-[655px] mx-auto"
     >
@@ -632,12 +631,12 @@ const Home = ({ currentlyReading, readRecently }: any) => {
         </a>
         ,{" "}
         <a
-          href="https://oascompany.com/"
+          href="https://dedicatedbrand.com/"
           target="_blank"
           rel="noopener noreferrer"
           className="font-title italic font-light underline cursor-pointer lg:hover:text-[#ff5800]"
         >
-          OAS
+          Dedicated
         </a>
         ,{" "}
         <a
@@ -699,7 +698,9 @@ const Home = ({ currentlyReading, readRecently }: any) => {
         I work fast on purpose. Speed isn't the opposite of care — it's what
         buys the time to collaborate, iterate, and try the version no one
         asked for. The faster I can put something in front of someone, the
-        more shots I get at making it right.
+        more shots I get at making it right. Lately a lot of that speed is
+        AI agents. Not writing the code I'd write anyway, but building the
+        two versions I'd otherwise have cut for time.
         <br />
         <br />
         Most of what I do at TRY sits in the seam between design and
