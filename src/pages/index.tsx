@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { ArrowLeftIcon, ArrowRightIcon } from "@radix-ui/react-icons";
 import {
   motion,
   AnimatePresence,
@@ -488,7 +489,11 @@ const WritingsSlider = ({ rows }: { rows: Article[] }) => {
   };
 
   const scrollBy = (dir: 1 | -1) => {
-    scrollerRef.current?.scrollBy({ left: dir * 276, behavior: "smooth" });
+    const el = scrollerRef.current;
+    if (!el) return;
+    const card = el.firstElementChild;
+    const step = card instanceof HTMLElement ? card.offsetWidth + 16 : 276;
+    el.scrollBy({ left: dir * step, behavior: "smooth" });
   };
 
   return (
@@ -500,7 +505,7 @@ const WritingsSlider = ({ rows }: { rows: Article[] }) => {
         onPointerUp={endDrag}
         onPointerCancel={endDrag}
         onScroll={updateProgress}
-        className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-6 pr-4 cursor-grab select-none border-r border-dashed border-gray-400"
+        className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-6 -mx-6 px-6 scroll-pl-6 lg:mx-0 lg:pl-0 lg:pr-4 lg:scroll-pl-0 cursor-grab select-none lg:border-r border-dashed border-gray-400"
         style={{ scrollSnapType: "x mandatory", scrollbarWidth: "none" }}
       >
         {rows.map((a, i) => (
@@ -523,18 +528,18 @@ const WritingsSlider = ({ rows }: { rows: Article[] }) => {
           <button
             type="button"
             onClick={() => scrollBy(-1)}
-            className="w-8 h-8 border border-dashed border-gray-400 text-gray-400 hover:text-[#ff5800] hover:border-[#ff5800] transition-colors text-sm"
+            className="flex items-center justify-center w-8 h-8 border border-dashed border-gray-400 text-gray-400 hover:text-[#ff5800] hover:border-[#ff5800] transition-colors"
             aria-label="Previous"
           >
-            ←
+            <ArrowLeftIcon />
           </button>
           <button
             type="button"
             onClick={() => scrollBy(1)}
-            className="w-8 h-8 border border-dashed border-gray-400 text-gray-400 hover:text-[#ff5800] hover:border-[#ff5800] transition-colors text-sm"
+            className="flex items-center justify-center w-8 h-8 border border-dashed border-gray-400 text-gray-400 hover:text-[#ff5800] hover:border-[#ff5800] transition-colors"
             aria-label="Next"
           >
-            →
+            <ArrowRightIcon />
           </button>
         </div>
       </div>
