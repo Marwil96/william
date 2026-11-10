@@ -1,4 +1,4 @@
-import { CSSProperties, PointerEvent, ReactNode, useEffect, useRef, useState } from "react";
+import { PointerEvent, ReactNode, useEffect, useRef, useState } from "react";
 import { motion, useInView, useReducedMotion } from "motion/react";
 import { OakPortal } from "./OakPortal";
 import { createDogPlay } from "./dogs";
@@ -21,8 +21,8 @@ const OPEN = "inset(0% 0 0% 0)";
 
 const remember = () => createDogPlay({ remember: true });
 
-const SIDE_FADE = "linear-gradient(to right, transparent, black 12%, black 88%, transparent)";
-const MASK: CSSProperties = { maskImage: SIDE_FADE, WebkitMaskImage: SIDE_FADE };
+const EDGE_FADE =
+  "[mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)] md:[mask-image:none] md:[-webkit-mask-image:none]";
 
 function HoldLine({ pressing }: { pressing: boolean }) {
   return (
@@ -80,7 +80,7 @@ export function HomePortal() {
 
   return (
     <div className="mb-16">
-      <div className="relative left-1/2 w-[calc(100vw-1rem)] max-w-[1100px] -translate-x-1/2">
+      <div className="relative left-1/2 w-[calc(100vw-1rem)] -translate-x-1/2 md:static md:w-full md:translate-x-0">
         <Reveal>
           <div {...handlers}>
             <OakPortal
@@ -90,8 +90,7 @@ export function HomePortal() {
               maxPixelRatio={2}
               createSimulation={remember}
               label={LABEL}
-              className="block w-full h-[240px] md:h-[300px]"
-              style={MASK}
+              className={`block w-full h-[240px] md:h-[300px] ${EDGE_FADE}`}
             />
           </div>
         </Reveal>
