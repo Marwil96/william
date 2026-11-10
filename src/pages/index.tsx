@@ -8,6 +8,7 @@ import {
   useSpring,
 } from "motion/react";
 import Layout from "../components/Layout";
+import { HomePortal } from "src/components/oak-portal/HomePortal";
 import TextBlock from "src/components/TextBlock";
 import ProjectListAscii, {
   ProjectRow,
@@ -669,6 +670,8 @@ const Home = ({ currentlyReading, readRecently }: any) => {
         </a>
         .
       </span>
+
+      <HomePortal />
 
       <SectionHeader
         index="01"
