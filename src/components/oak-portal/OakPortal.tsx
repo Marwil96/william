@@ -144,7 +144,7 @@ export function OakPortal({
           pointer.y,
           pointer.presence
         );
-        gl.uniform1f(locations.stir, pointer.stir);
+        gl.uniform1f(locations.stir, pointer.drift);
         gl.uniform3f(
           locations.burst,
           (pointer.burstX - 0.5) * aspect,
