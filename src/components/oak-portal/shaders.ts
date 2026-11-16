@@ -78,7 +78,7 @@ float windAt(float x) {
 
 float pushAt(vec2 p) {
   vec2 d = p - u_pointer.xy;
-  float stir = sign(d.x) * exp(-dot(d, d) * 9.0) * u_stir * u_pointer.z * 1.6;
+  float stir = exp(-dot(d, d) * 9.0) * u_stir * u_pointer.z;
   vec2 b = p - u_burst.xy;
   float ring = length(b * vec2(1.0, 1.6)) - u_burst.z * 1.1;
   float burst = sign(b.x) * exp(-ring * ring * 18.0) * exp(-u_burst.z * 1.2) * 2.2;

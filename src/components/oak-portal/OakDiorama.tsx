@@ -77,7 +77,7 @@ vec2 screenPush(vec3 anchor) {
   vec4 clip = projectionMatrix * viewMatrix * vec4(anchor, 1.0);
   vec2 ndc = clip.xy / clip.w;
   vec2 d = (ndc - u_pointerNdc.xy) * vec2(u_aspect, 1.0);
-  float stir = sign(d.x) * exp(-dot(d, d) * 5.0) * u_stir * u_pointerNdc.z * 2.0;
+  float stir = d.x / (abs(d.x) + 0.1) * exp(-dot(d, d) * 5.0) * u_stir * u_pointerNdc.z * 2.0;
   vec2 b = (ndc - u_burstNdc) * vec2(u_aspect, 1.0);
   float ring = length(b) - u_burst.z * 1.6;
   float burst = sign(b.x) * exp(-ring * ring * 10.0) * exp(-u_burst.z * 0.9) * 2.4;

@@ -12,6 +12,7 @@ export type PointerState = {
   y: number;
   presence: number;
   stir: number;
+  drift: number;
   burstX: number;
   burstY: number;
   burstAge: number;
@@ -30,6 +31,7 @@ function trackPointer(element: HTMLElement, holdable: boolean) {
     y: 0.5,
     presence: 0,
     stir: 0,
+    drift: 0,
     burstX: 0.5,
     burstY: 0.5,
     burstAge: 99,
@@ -39,6 +41,9 @@ function trackPointer(element: HTMLElement, holdable: boolean) {
   };
   let inside = false;
   let travelled = 0;
+  let travelledX = 0;
+  let speed = 0;
+  let speedX = 0;
   let pressedAt = 0;
 
   const read = (event: PointerEvent) => {
@@ -46,10 +51,9 @@ function trackPointer(element: HTMLElement, holdable: boolean) {
     const x = (event.clientX - rect.left) / rect.width;
     const y = 1 - (event.clientY - rect.top) / rect.height;
     if (inside) {
-      travelled += Math.hypot(
-        ((x - state.x) * rect.width) / rect.height,
-        y - state.y
-      );
+      const dx = ((x - state.x) * rect.width) / rect.height;
+      travelled += Math.hypot(dx, y - state.y);
+      travelledX += dx;
     }
     state.x = x;
     state.y = y;
@@ -96,9 +100,15 @@ function trackPointer(element: HTMLElement, holdable: boolean) {
 
   const update = (dt: number, pace: number) => {
     if (dt <= 0) return;
-    const target = Math.min((travelled / dt) * 0.6, 1.5) * pace;
+    speed += (travelled / dt - speed) * ease(12, dt);
+    speedX += (travelledX / dt - speedX) * ease(12, dt);
     travelled = 0;
-    state.stir += (target - state.stir) * ease(target > state.stir ? 10 : 1.8, dt);
+    travelledX = 0;
+    const target = Math.min(speed * 0.6, 1.2) * pace;
+    state.stir += (target - state.stir) * ease(target > state.stir ? 4 : 1.8, dt);
+    const driftTarget = Math.max(-1.2, Math.min(speedX * 0.6, 1.2)) * pace;
+    const gaining = Math.abs(driftTarget) > Math.abs(state.drift);
+    state.drift += (driftTarget - state.drift) * ease(gaining ? 4 : 1.8, dt);
     state.presence += ((inside ? 1 : 0) - state.presence) * ease(5, dt);
     const look = inside ? pace : 0;
     state.lookX += ((state.x * 2 - 1) * look - state.lookX) * ease(3, dt);
